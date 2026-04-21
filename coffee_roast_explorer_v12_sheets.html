@@ -1,0 +1,1176 @@
+
+<link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Oswald:wght@700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ══ PROUD MARY COLOUR SYSTEM ══ */
+:root{
+  --pm-cyan:#49BFCE;
+  --pm-yellow:#F5C842;
+  --pm-pink:#F2699C;
+  --pm-purple:#9B3AB5;
+  --pm-green:#3DB87A;
+  --pm-navy:#1A2340;
+  --pm-cream:#FEF9EE;
+  --pm-white:#FFFFFF;
+  --pm-gold:#C9981A;
+  --pm-mel:#2979C2;
+  --pm-aus:#A535C4;
+  --pm-pdx:#1B9E5E;
+  --font-display:'Black Ops One',serif;
+  --font-label:'Oswald',sans-serif;
+  --font-body:'DM Sans',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body,div,span,td,th,button,input,select,label,p{font-family:var(--font-body)}
+
+/* ══ OUTER WRAPPER ══ */
+.pm-wrap{
+  background:var(--pm-cream);
+  border-radius:0;
+  border:3px solid var(--pm-navy);
+  overflow:hidden;
+  box-shadow:6px 6px 0 var(--pm-navy);
+}
+
+/* ══ HEADER — PM badge/crest layout ══ */
+.pm-header{
+  background:var(--pm-yellow);
+  border-bottom:3px solid var(--pm-navy);
+  padding:0;
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
+  align-items:stretch;
+  min-height:110px;
+}
+
+/* ── LEFT PANEL ── */
+.pm-header-left-tab{
+  background:var(--pm-cyan);
+  border-right:3px solid var(--pm-navy);
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding:12px 16px;gap:6px;
+}
+.pm-loc-stamps{display:flex;gap:5px;align-items:center}
+.pm-loc-stamp{
+  font-family:var(--font-display);
+  font-size:11px;letter-spacing:.06em;
+  color:var(--pm-navy);
+  border:2px solid var(--pm-navy);
+  padding:3px 7px;border-radius:3px;
+  line-height:1;
+}
+.pm-header-divider{
+  width:40px;height:2px;
+  background:var(--pm-navy);opacity:.25;
+  border-radius:2px;
+}
+.pm-aus-usa{
+  display:flex;gap:5px;align-items:center;
+  font-family:var(--font-label);
+}
+.pm-country-tag{
+  background:var(--pm-navy);color:var(--pm-yellow);
+  padding:2px 7px;border-radius:2px;
+  font-size:9px;font-weight:700;letter-spacing:.14em;
+}
+.pm-tagline{
+  font-family:var(--font-label);
+  font-size:8px;font-weight:700;
+  color:var(--pm-navy);
+  letter-spacing:.12em;text-transform:uppercase;
+  opacity:.65;text-align:center;
+}
+
+/* ── CENTRE BADGE ── */
+.pm-header-centre{
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding:10px 24px;gap:0;
+}
+.pm-badge-top{
+  font-family:var(--font-display);
+  font-size:20px;color:var(--pm-navy);
+  letter-spacing:.06em;
+  background:var(--pm-yellow);
+  border:2.5px solid var(--pm-navy);
+  border-bottom:none;
+  padding:4px 22px 2px;
+  clip-path:polygon(6% 0%,94% 0%,100% 100%,0% 100%);
+  text-align:center;
+  line-height:1;
+}
+.pm-badge-mid{
+  background:var(--pm-cyan);
+  border-left:2.5px solid var(--pm-navy);
+  border-right:2.5px solid var(--pm-navy);
+  padding:6px 18px;
+  display:flex;align-items:center;justify-content:center;
+}
+.pm-badge-eye{display:flex;align-items:center;justify-content:center}
+.pm-badge-bot{
+  font-family:var(--font-display);
+  font-size:20px;color:var(--pm-navy);
+  letter-spacing:.06em;
+  background:var(--pm-yellow);
+  border:2.5px solid var(--pm-navy);
+  border-top:none;
+  padding:2px 22px 4px;
+  clip-path:polygon(0% 0%,100% 0%,94% 100%,6% 100%);
+  text-align:center;
+  line-height:1;
+}
+.pm-coffee-roasters{
+  font-family:var(--font-label);
+  font-size:7.5px;font-weight:700;
+  color:var(--pm-navy);letter-spacing:.24em;
+  text-transform:uppercase;
+  border:1.5px solid var(--pm-navy);
+  border-radius:20px;padding:2px 12px;
+  background:var(--pm-cream);
+  margin-top:5px;
+}
+
+/* ── RIGHT PANEL ── */
+.pm-header-right-tab{
+  background:var(--pm-pink);
+  border-left:3px solid var(--pm-navy);
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding:12px 16px;gap:4px;
+}
+.pm-dash-kicker{
+  font-family:var(--font-label);
+  font-size:9px;font-weight:700;
+  color:var(--pm-navy);letter-spacing:.22em;
+  text-transform:uppercase;opacity:.7;
+}
+.pm-dash-title{
+  font-family:var(--font-display);
+  font-size:16px;color:var(--pm-navy);
+  letter-spacing:.04em;text-transform:uppercase;
+  text-align:center;line-height:1.15;
+}
+.pm-dash-meta{display:flex;gap:4px;margin-top:2px}
+.pm-dash-chip{
+  font-family:var(--font-label);
+  font-size:8px;font-weight:700;
+  color:var(--pm-navy);letter-spacing:.1em;
+  border:1.5px solid var(--pm-navy);
+  border-radius:2px;padding:2px 6px;
+  background:rgba(255,255,255,.45);
+}
+
+/* ══ INNER CONTENT ══ */
+.pm-inner{padding:12px 14px 16px}
+
+/* ══ FILTER BAR ══ */
+.fb{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px;align-items:flex-start}
+.fc{display:flex;flex-direction:column;gap:0;flex:1;min-width:110px;max-width:200px}
+.fc-lbl{font-size:8px;font-weight:700;color:var(--pm-navy);text-transform:uppercase;letter-spacing:.14em;margin-bottom:3px;font-family:var(--font-label)}
+.fc-btn{background:var(--pm-white);border:2px solid var(--pm-navy);border-radius:4px;padding:5px 9px;font-size:11px;font-weight:700;color:var(--pm-navy);cursor:pointer;text-align:left;display:flex;justify-content:space-between;align-items:center;gap:4px;white-space:nowrap;width:100%;transition:background .12s}
+.fc-btn:hover{background:var(--pm-yellow)}
+.fc-btn.open{background:var(--pm-yellow);border-bottom-left-radius:0;border-bottom-right-radius:0;border-bottom-color:var(--pm-yellow)}
+.fc-badge{background:var(--pm-navy);color:var(--pm-yellow);border-radius:20px;padding:1px 6px;font-size:9px;font-weight:700}
+.fc-panel{display:none;border:2px solid var(--pm-navy);border-top:none;border-radius:0 0 4px 4px;background:var(--pm-white);overflow:hidden}
+.fc-panel.open{display:block}
+.fc-search{width:100%;border:none;border-bottom:1.5px solid #E0D8C5;padding:5px 9px;font-size:11px;background:transparent;color:var(--pm-navy);outline:none}
+.fc-acts{display:flex;gap:3px;padding:3px 7px;border-bottom:1.5px solid #E0D8C5}
+.fc-acts button{font-size:9px;font-weight:700;background:none;border:none;color:var(--pm-cyan);cursor:pointer;padding:2px 4px;text-transform:uppercase;letter-spacing:.08em;font-family:var(--font-label)}
+.fc-acts button:hover{color:var(--pm-pink)}
+.fc-opts{max-height:180px;overflow-y:auto}
+.fc-opt{display:flex;align-items:center;gap:6px;padding:5px 9px;font-size:11px;cursor:pointer;color:var(--pm-navy);font-weight:500}
+.fc-opt:hover{background:var(--pm-cream)}
+.fc-opt input{accent-color:var(--pm-cyan);flex-shrink:0}
+.sep-row{border-top:2px dashed #E0D8C5;margin:3px 0}
+
+/* ══ ACTIVE FILTER SUMMARY ══ */
+.afs{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:10px;align-items:center;min-height:18px}
+.aft{font-size:8px;font-weight:700;color:var(--pm-navy);text-transform:uppercase;letter-spacing:.14em;margin-right:2px;opacity:.55;font-family:var(--font-label)}
+.afc{display:inline-flex;align-items:center;gap:2px;background:var(--pm-cyan);border:1.5px solid var(--pm-navy);border-radius:3px;padding:2px 8px;font-size:9px;font-weight:700;color:var(--pm-navy);font-family:var(--font-label);letter-spacing:.04em}
+.afc-k{opacity:.65;margin-right:1px}
+
+/* ══ TABS ══ */
+.tabs{display:flex;margin-bottom:12px;gap:4px}
+.tab{padding:6px 16px;font-size:9px;font-weight:700;cursor:pointer;border:2px solid var(--pm-navy);background:var(--pm-white);color:var(--pm-navy);border-radius:3px;text-transform:uppercase;letter-spacing:.12em;transition:all .12s;font-family:var(--font-label)}
+.tab:hover{background:var(--pm-yellow)}
+.tab.active{background:var(--pm-navy);color:var(--pm-yellow)}
+
+/* ══ METRIC STRIP ══ */
+.mets{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+.met{background:var(--pm-white);border:2px solid var(--pm-navy);border-radius:4px;padding:7px 13px;min-width:80px;position:relative;overflow:hidden}
+.met::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--pm-cyan)}
+.ml{font-size:8px;font-weight:700;color:var(--pm-navy);text-transform:uppercase;letter-spacing:.14em;margin-bottom:2px;opacity:.55;font-family:var(--font-label)}
+.mv{font-family:var(--font-display);font-size:22px;color:var(--pm-navy);line-height:1.1}
+
+/* ══ VIEWS ══ */
+.vw{display:none}.vw.active{display:block}
+
+/* ══ TABLE ══ */
+.tbl{width:100%;border-collapse:collapse;font-size:11px}
+.tbl thead{background:var(--pm-navy)}
+.tbl th{text-align:left;padding:6px 8px;font-size:8px;font-weight:700;color:var(--pm-yellow);text-transform:uppercase;letter-spacing:.12em;white-space:nowrap;font-family:var(--font-label)}
+.tbl td{padding:5px 8px;border-bottom:1.5px solid #E8DCC8;vertical-align:middle;color:var(--pm-navy)}
+.tbl tbody tr:hover td{background:rgba(73,191,206,.08)}
+.tbl tr.sep-tr td{border-top:2.5px dashed #E0D8C5}
+
+/* ══ PILLS ══ */
+.pill{display:inline-block;padding:2px 8px;border-radius:3px;font-size:9px;font-weight:700;border:1.5px solid transparent;text-transform:uppercase;letter-spacing:.04em;font-family:var(--font-label)}
+.pv0{background:#C8EFDA;color:#0d5c2e;border-color:#8DD4B0}
+.pv1{background:var(--pm-yellow);color:var(--pm-navy);border-color:#C8A000}
+.pv2{background:#FFD0DC;color:#8B0023;border-color:#F0A0B8}
+
+/* ══ VARIANCE GRID ══ */
+.vg{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:10px}
+.vc{background:var(--pm-white);border:2px solid var(--pm-navy);border-radius:4px;padding:10px 12px;position:relative;overflow:hidden}
+.vc::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:repeating-linear-gradient(90deg,var(--pm-cyan) 0 20px,var(--pm-yellow) 20px 40px,var(--pm-pink) 40px 60px,var(--pm-purple) 60px 80px)}
+.vt{font-family:var(--font-display);font-size:12px;color:var(--pm-navy);margin-bottom:6px;padding-bottom:6px;border-bottom:1.5px solid #E8DCC8;display:flex;justify-content:space-between;align-items:center}
+.vr{display:flex;justify-content:space-between;align-items:center;padding:2px 0;font-size:11px}
+.nd{text-align:center;color:var(--pm-navy);padding:2.5rem;font-family:var(--font-display);font-size:13px;letter-spacing:.04em;opacity:.4}
+
+/* ══ VARIANCE CARD TABLE ══ */
+.vcard-tbl{width:100%;border-collapse:collapse;font-size:11px;margin-top:4px}
+.vcard-tbl thead{background:var(--pm-cream)}
+.vcard-tbl th{font-size:8px;color:var(--pm-navy);font-weight:700;text-align:right;padding:3px 5px;border-bottom:2px solid var(--pm-navy);text-transform:uppercase;letter-spacing:.1em;font-family:var(--font-label)}
+.vcard-tbl th:first-child{text-align:left}
+.vcard-tbl th.wb-group{text-align:center;border-right:2px solid var(--pm-navy);background:rgba(73,191,206,.12)}
+.vcard-tbl th.gb-group{text-align:center;background:rgba(245,200,66,.12)}
+.vcard-tbl td{padding:4px 5px;text-align:right;vertical-align:middle;color:var(--pm-navy);font-size:11px}
+.vcard-tbl td:first-child{text-align:left;font-weight:700}
+.vcard-tbl tr:hover td{background:var(--pm-cream)}
+.vcard-tbl td.wb-col{border-right:1.5px solid #E8DCC8}
+
+/* ══ CHART LEGEND ══ */
+#cleg{margin-bottom:8px;display:flex;gap:10px;flex-wrap:wrap;font-size:11px;font-weight:700;color:var(--pm-navy)}
+
+/* ══ GROUPBY SELECT ══ */
+.gb-select{background:var(--pm-white);border:2px solid var(--pm-navy);border-radius:4px;padding:5px 9px;font-size:11px;font-weight:700;color:var(--pm-navy);width:100%;cursor:pointer;font-family:var(--font-label)}
+.gb-select:focus{outline:2px solid var(--pm-yellow);outline-offset:1px}
+
+/* ══ VARIANCE LEGEND ══ */
+.var-legend{font-size:10px;font-weight:700;color:var(--pm-navy);margin-bottom:10px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:var(--pm-white);border:2px solid var(--pm-navy);border-radius:4px;padding:6px 12px}
+</style>
+<div class="pm-wrap">
+<div class="pm-header">
+
+  <!-- Left panel: location stamps -->
+  <div class="pm-header-left-tab">
+    <div class="pm-loc-stamps">
+      <div class="pm-loc-stamp" style="background:var(--pm-cyan)">MEL</div>
+      <div class="pm-loc-stamp" style="background:var(--pm-green)">PDX</div>
+      <div class="pm-loc-stamp" style="background:var(--pm-pink)">ATX</div>
+    </div>
+    <div class="pm-tagline" style="margin-top:8px">Three Cities<br>One Standard</div>
+  </div>
+
+  <!-- Centre: PROUD MARY badge -->
+  <div class="pm-header-centre">
+    <div class="pm-badge-top">PROUD</div>
+    <div class="pm-badge-mid">
+      <div class="pm-badge-eye">
+        <!-- Stylised eye — the PM logo centrepiece -->
+        <svg width="52" height="34" viewBox="0 0 52 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Outer eye shape -->
+          <path d="M2 17 Q13 2 26 2 Q39 2 50 17 Q39 32 26 32 Q13 32 2 17Z" fill="white" stroke="#1A2340" stroke-width="2.5"/>
+          <!-- Iris -->
+          <circle cx="26" cy="17" r="9" fill="#49BFCE" stroke="#1A2340" stroke-width="2"/>
+          <!-- Pupil -->
+          <circle cx="26" cy="17" r="4.5" fill="#1A2340"/>
+          <!-- Highlight -->
+          <circle cx="28" cy="14.5" r="1.8" fill="white"/>
+          <circle cx="23" cy="19" r="1" fill="white" opacity=".6"/>
+        </svg>
+      </div>
+    </div>
+    <div class="pm-badge-bot">MARY</div>
+    <div class="pm-coffee-roasters">Coffee Roasters</div>
+  </div>
+
+  <!-- Right panel: dashboard identity -->
+  <div class="pm-header-right-tab">
+    <div class="pm-dash-kicker">Roast</div>
+    <div class="pm-dash-title">DATA<br>EXPLORER</div>
+    <div class="pm-header-divider" style="margin:6px 0"></div>
+    <div class="pm-dash-meta">
+      <div class="pm-dash-chip">WB</div>
+      <div class="pm-dash-chip">GB</div>
+      <div class="pm-dash-chip">n=</div>
+    </div>
+  </div>
+
+</div>
+<div class="pm-inner">
+
+
+<div class="fb" id="tb"></div>
+<div class="afs" id="afs"></div>
+<div class="tabs">
+  <button class="tab active" onclick="setTab('chart')">Chart</button>
+  <button class="tab" onclick="setTab('table')">Table</button>
+  <button class="tab" onclick="setTab('variance')">Variance</button>
+</div>
+<div class="mets" id="mets"></div>
+<div id="chart-vw" class="vw active">
+  <div id="cleg" style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:6px;font-size:11px;color:#555"></div>
+  <div id="cwrap" style="position:relative;width:100%"><canvas id="mc" role="img" aria-label="WB averages by group and roastery"></canvas></div>
+</div>
+<div id="table-vw" class="vw"><div style="overflow-x:auto"><table class="tbl" id="mt"></table></div></div>
+<div id="variance-vw" class="vw">
+  <div style="font-size:10px;color:#555;margin-bottom:8px;display:flex;align-items:center;gap:10px">
+    <span style="font-family:'Alfa Slab One',serif;font-size:11px">WB &amp; GB vs Melbourne:</span>
+    <span><span class="pill pv0">●</span> 0–2</span>
+    <span><span class="pill pv1">●</span> 2–4</span>
+    <span><span class="pill pv2">●</span> 4+</span>
+  </div>
+  <div class="vg" id="vg"></div>
+</div>
+</div><!-- end pm-inner -->
+</div><!-- end pm-wrap -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+const RN=["Melbourne","Portland","Austin"];
+const COL=["#2979C2","#1B9E5E","#A535C4"];
+
+// ── Category normalisation ──────────────────────────────────────────────────
+// MERGE into base name (filter variant folds in, espresso kept separate):
+//   CURIOUS FIL  → CURIOUS      (CURIOUS ESP stays as-is, shown at bottom)
+//   WILD FIL     → WILD         (WILD ESP stays as-is, shown at bottom)
+//   DELUXE FIL   → DELUXE       (DELUXE ESP stays as-is, shown at bottom)
+//   MILD ESP     → MILD         (MILD FIL stays as-is, shown at bottom)
+// Other fixes:
+//   GHOST / GHOST RIDER → GHOST RIDER
+//   ANGEL / ANGEL WINGS → ANGEL WINGS
+//   DECAF SPRO          → DECAF
+// BLEND rows are removed entirely.
+
+const CAT_NORM={
+  // merge filter into base
+  'CURIOUS FIL':'CURIOUS',
+  'WILD FIL':'WILD',
+  'DELUXE FIL':'DELUXE',
+  'MILD ESP':'MILD',
+  // short-name fixes
+  'GHOST':'GHOST RIDER',
+  'ANGEL':'ANGEL WINGS',
+  'DECAF SPRO':'DECAF'
+};
+function normCat(c){return CAT_NORM[c]||c;}
+
+// Categories that appear at the bottom of sorted lists, separated by a divider
+const CAT_BOTTOM=new Set(['CURIOUS ESP','WILD ESP','DELUXE ESP','MILD FIL']);
+
+function sortCats(cats){
+  const main=cats.filter(c=>!CAT_BOTTOM.has(c)).sort((a,b)=>a.localeCompare(b));
+  const btm =cats.filter(c=>CAT_BOTTOM.has(c)).sort((a,b)=>a.localeCompare(b));
+  return{main,btm,all:[...main,...btm]};
+}
+
+// ── Varietal extraction from profile string ─────────────────────────────────
+const KNOWN_VARIETALS=[
+  'Yellow Bourbon','Red Bourbon','Pink Bourbon','Bourbon',
+  'Yellow Catucai','Red Catucai','Catucai',
+  'Yellow Catuai','Red Catuai','Catuai',
+  'Caturra','Pacamara','Pacas','Parainema',
+  'Geisha','Typica','Heirloom','Maragogipe',
+  'SL-28','SL-34','SL28','SL34',
+  'Ruiru 11','AA','Villa Sarchi','San Roque','Marsellesa',
+  'Bernardina','Anacafe-14','Sudan Rume','Kurume','JARC',
+  'Mokka','Moka','Mokkita','Starmaya','Laurina',
+  'Afrocina','Papayo','Arara','French Mission','USDA','HG',
+  'Mixed','Unknown','Castillo','Colombia','Tabi',
+  'Wush Wush','Typica Mejorado','Maracaturra',
+  'Mundo Novo','Obata','Sarchimor','Topazio',
+  'Java','Pache','Guji','Illubabor','Gimbi',
+  'Sidama','Yirgacheffe','Jimma','Agaro',
+].sort((a,b)=>b.length-a.length);
+
+const STRIP_WORDS=new Set(['NATURAL','WASHED','HONEY','PULPED','DECAF','ANAEROBIC',
+  'FILTER','ESPRESSO','ESP','FIL','DELUXE','CURIOUS','WILD','MILD',
+  'HUMBLER','GHOST','RIDER','ANGEL','WINGS','BLEND','COE','SINGLE',
+  'ORIGIN','SUBSCRIPTION','3KG','6KG','10KG','1KG','250G','500G','800G']);
+
+function extractVarietal(profile){
+  if(!profile)return'Unknown';
+  const pu=profile.toUpperCase();
+  for(const v of KNOWN_VARIETALS){
+    const re=new RegExp('\\b'+v.toUpperCase().replace(/[-]/g,'\\-')+'\\b');
+    if(re.test(pu))return v;
+  }
+  // Fallback: skip origin token, return first non-strip word
+  const tokens=profile.split(/\s+/).slice(1);
+  for(const t of tokens){
+    const clean=t.replace(/[^A-Za-z\-]/g,'');
+    if(clean.length>2&&!STRIP_WORDS.has(clean.toUpperCase()))return clean;
+  }
+  return'Unknown';
+}
+
+// ── Category normalisation ────────────────────────────────────────────────────
+const CAT_NORM={
+  'CURIOUS FIL':'CURIOUS','WILD FIL':'WILD','DELUXE FIL':'DELUXE','MILD ESP':'MILD',
+  'GHOST':'GHOST RIDER','ANGEL':'ANGEL WINGS','DECAF SPRO':'DECAF',
+  'GHOST RIDER':'GHOST RIDER','ANGEL WINGS':'ANGEL WINGS'
+};
+function normCat(c){return CAT_NORM[c.toUpperCase()]||c;}
+
+// ── Data loading ──────────────────────────────────────────────────────────────
+// Sheet URLs — replace these with your published Google Sheet CSV URLs
+const SHEET_URLS={
+  Melbourne: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRj7S1FDEpC0_SvZtQBfNlGBLilquJ6YCLzg8So-CSZ4Wk07HbjtcK9z6l8CV7rj5lNEDf1rulD1wb8/pub?gid=0&single=true&output=csv',
+  Portland:  'https://docs.google.com/spreadsheets/d/e/2PACX-1vRj7S1FDEpC0_SvZtQBfNlGBLilquJ6YCLzg8So-CSZ4Wk07HbjtcK9z6l8CV7rj5lNEDf1rulD1wb8/pub?gid=1345419856&single=true&output=csv',
+  Austin:    'https://docs.google.com/spreadsheets/d/e/2PACX-1vRj7S1FDEpC0_SvZtQBfNlGBLilquJ6YCLzg8So-CSZ4Wk07HbjtcK9z6l8CV7rj5lNEDf1rulD1wb8/pub?gid=575438985&single=true&output=csv'
+};
+
+// Column name mapping — matches your actual CSV headers exactly
+const COL_MAP={
+  origin:   ['origin'],
+  process:  ['process'],
+  category: ['group','category'],
+  wb:       ['wb'],
+  gb:       ['gb'],
+  machine:  ['machine'],
+  profile:  ['profile']
+};
+
+function findCol(headers, keys){
+  const hl=headers.map(h=>h.toLowerCase().trim());
+  for(const k of keys){
+    const i=hl.indexOf(k);
+    if(i>=0)return i;
+  }
+  return -1;
+}
+
+function parseCSV(text){
+  const lines=text.split(/\r?\n/).filter(l=>l.trim());
+  if(!lines.length)return[];
+  // Simple CSV parse (handles quoted fields)
+  function parseLine(line){
+    const fields=[];
+    let cur='',inQ=false;
+    for(let i=0;i<line.length;i++){
+      const c=line[i];
+      if(c==='"'){inQ=!inQ;}
+      else if(c===','&&!inQ){fields.push(cur.trim());cur='';}
+      else cur+=c;
+    }
+    fields.push(cur.trim());
+    return fields;
+  }
+  const headers=parseLine(lines[0]);
+  const iOrigin=findCol(headers,COL_MAP.origin);
+  const iProcess=findCol(headers,COL_MAP.process);
+  const iCat=findCol(headers,COL_MAP.category);
+  const iWb=findCol(headers,COL_MAP.wb);
+  const iGb=findCol(headers,COL_MAP.gb);
+  const iMachine=findCol(headers,COL_MAP.machine);
+  const iProfile=findCol(headers,COL_MAP.profile);
+  const rows=[];
+  for(let i=1;i<lines.length;i++){
+    const f=parseLine(lines[i]);
+    if(f.length<3)continue;
+    const wb=parseFloat(f[iWb]);
+    const gb=parseFloat(f[iGb]);
+    rows.push({
+      origin:   iOrigin>=0?(f[iOrigin]||'').trim().toUpperCase().slice(0,3):'',
+      varietal: iProfile>=0?extractVarietal(f[iProfile]):'Unknown',
+      process:  iProcess>=0?(f[iProcess]||'').trim():'',
+      category: iCat>=0?normCat((f[iCat]||'').trim()):'',
+      wb:       isNaN(wb)?null:wb,
+      gb:       isNaN(gb)?null:gb,
+      machine:  iMachine>=0?(f[iMachine]||'').trim()||null:null,
+    });
+  }
+  return rows;
+}
+
+// RAW: [roasteryIndex, origin, varietal, process, category, wb, gb, machine]
+let RAW=[];
+
+async function loadAllSheets(){
+  showLoading(true);
+  const entries=Object.entries(SHEET_URLS);
+  const results=await Promise.allSettled(
+    entries.map(([name,url])=>
+      fetch(url).then(r=>{
+        if(!r.ok)throw new Error(`HTTP ${r.status}`);
+        return r.text();
+      }).then(text=>({name,text}))
+    )
+  );
+  RAW=[];
+  let loadLog=[];
+  results.forEach((res,idx)=>{
+    const ri=idx;
+    const name=entries[idx][0];
+    if(res.status==='fulfilled'){
+      const rows=parseCSV(res.value.text);
+      const before=RAW.length;
+      rows.forEach(r=>{
+        if(!r.category||r.category==='BLEND')return;
+        RAW.push([ri,r.origin,r.varietal,r.process,r.category,r.wb,r.gb,r.machine]);
+      });
+      loadLog.push(`${name}: ${RAW.length-before} rows`);
+    } else {
+      console.warn(`Failed to load ${name}:`,res.reason);
+      loadLog.push(`${name}: FAILED (${res.reason?.message||'unknown error'})`);
+    }
+  });
+  console.log('Loaded:',loadLog.join(' | '));
+  showLoading(false);
+  rebuildOptions();
+  rTB();
+  go();
+}
+
+function showLoading(on){
+  let el=document.getElementById('pm-loading');
+  if(!el){
+    el=document.createElement('div');
+    el.id='pm-loading';
+    el.style.cssText='position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(26,35,64,.7);display:flex;align-items:center;justify-content:center;z-index:9999;font-family:"Black Ops One",serif;font-size:18px;color:#F5C842;letter-spacing:.06em';
+    el.textContent='Loading Roast Data...';
+    document.body.appendChild(el);
+  }
+  el.style.display=on?'flex':'none';
+}
+
+function rebuildOptions(){
+  function uniqIdx(i){return[...new Set(RAW.map(d=>d[i]).filter(v=>v&&v!=='Unknown'&&v!==null))].sort();}
+  OL.o=uniqIdx(1);
+  OL.v=uniqIdx(2);
+  OL.p=uniqIdx(3);
+  OL.c=uniqIdx(4);
+  OL.m=uniqIdx(7);
+  // reset filters to all
+  F={r:null,o:null,v:null,p:null,c:null,m:null};
+}
+
+const OL={r:RN,o:[],v:[],p:[],c:[],m:[]};
+let F={r:null,o:null,v:null,p:null,c:null,m:null};
+let GB='c',TAB='chart',CI=null;
+
+function iAll(k){return F[k]===null;}
+function iNone(k){return Array.isArray(F[k])&&F[k].length===0;}
+function sel(k){if(iAll(k))return new Set(OL[k]);if(iNone(k))return new Set();return new Set(F[k]);}
+function badge(k){if(iAll(k))return'All';if(iNone(k))return'None';return''+F[k].length;}
+
+function applyF(){
+  if(['r','o','v','p','c','m'].some(k=>iNone(k)))return[];
+  return RAW.filter(d=>{
+    if(!iAll('r')&&!sel('r').has(RN[d[0]]))return false;
+    if(!iAll('o')&&!sel('o').has(d[1]))return false;
+    if(!iAll('v')&&!sel('v').has(d[2]))return false;
+    if(!iAll('p')&&!sel('p').has(d[3]))return false;
+    if(!iAll('c')&&!sel('c').has(d[4]))return false;
+    if(!iAll('m')&&d[7]&&!sel('m').has(d[7]))return false;
+    return true;
+  });
+}
+
+function st(arr){
+  const v=arr.filter(x=>x!=null);
+  if(!v.length)return null;
+  const avg=v.reduce((a,b)=>a+b,0)/v.length;
+  return{avg,min:Math.min(...v),max:Math.max(...v)};
+}
+
+function grp(data){
+  const ki={r:0,o:1,v:2,p:3,c:4}[GB]??4;
+  const g={};
+  data.forEach(d=>{
+    const k=GB==='r'?RN[d[0]]:(d[ki]||'Unknown');
+    if(!g[k])g[k]={};
+    const rn=RN[d[0]];
+    if(!g[k][rn])g[k][rn]={wb:[],gb:[]};
+    if(d[5]!=null)g[k][rn].wb.push(d[5]);
+    if(d[6]!=null)g[k][rn].gb.push(d[6]);
+  });
+  return g;
+}
+
+// Sort labels: main cats alpha first, then bottom cats alpha, divider tracked separately
+function sortedLabels(g){
+  const all=Object.keys(g);
+  if(GB!=='c')return{labels:all.sort((a,b)=>a.localeCompare(b)),firstBottom:-1};
+  const sc=sortCats(all);
+  const labels=sc.all;
+  const firstBottom=sc.btm.length>0?sc.main.length:-1;
+  return{labels,firstBottom};
+}
+
+function pvClass(d){return d<=2?'pv0':d<=4?'pv1':'pv2';}
+
+// ── Inline accordion filter panel ───────────────────────────────────────────
+function buildFC(id,fk,lbl){
+  const s=sel(fk);const b=badge(fk);
+  let opts='';
+  if(fk==='c'){
+    const sc=sortCats(OL[fk]);
+    opts=sc.main.map(o=>fcOpt(fk,o,s,id)).join('');
+    if(sc.btm.length){opts+=`<div class="sep-row"></div>`;opts+=sc.btm.map(o=>fcOpt(fk,o,s,id)).join('');}
+  } else {
+    opts=OL[fk].map(o=>fcOpt(fk,o,s,id)).join('');
+  }
+  return`<div class="fc">
+    <div class="fc-lbl">${lbl}</div>
+    <button class="fc-btn" id="btn-${id}" onclick="tFC('${id}')">${lbl} <span class=\"fc-badge\">${b}</span> ▾</button>
+    <div class="fc-panel" id="${id}">
+      <input class="fc-search" placeholder="Search..." oninput="fFC('${id}',this.value)">
+      <div class="fc-acts"><button onclick="doAll('${fk}','${id}')">All</button><button onclick="doNone('${fk}','${id}')">None</button></div>
+      <div class="fc-opts" id="${id}-l">${opts}</div>
+    </div>
+  </div>`;
+}
+function fcOpt(fk,o,s,id){
+  const esc=o.replace(/'/g,"\'");
+  return`<label class="fc-opt"><input type="checkbox" ${s.has(o)?'checked':''} onchange="togO('${fk}','${esc}',this.checked,'${id}')">${o}</label>`;
+}
+function rTB(){
+  const gbK=['c','o','v','p','r'],gbL={c:'Category',o:'Origin',v:'Varietal',p:'Process',r:'Roastery'};
+  document.getElementById('tb').innerHTML=
+    [['r','Roastery'],['o','Origin'],['v','Varietal'],['p','Process'],['c','Category'],['m','Machine']].map(([k,l])=>buildFC('dd-'+k,k,l)).join('')+
+    `<div class="fc" style="max-width:120px"><div class="fc-lbl">Group by</div><select class="gb-select" onchange="setGB(this.value)">${gbK.map(k=>`<option value="${k}"${k===GB?' selected':''}>${gbL[k]}</option>`).join('')}</select></div>`;
+}
+function tFC(id){
+  const panel=document.getElementById(id);
+  const btn=document.getElementById('btn-'+id);
+  const isOpen=panel.classList.contains('open');
+  document.querySelectorAll('.fc-panel').forEach(p=>p.classList.remove('open'));
+  document.querySelectorAll('.fc-btn').forEach(b=>b.classList.remove('open'));
+  if(!isOpen){panel.classList.add('open');btn.classList.add('open');}
+}
+document.addEventListener('click',e=>{
+  if(!e.target.closest('.fc')){
+    document.querySelectorAll('.fc-panel').forEach(p=>p.classList.remove('open'));
+    document.querySelectorAll('.fc-btn').forEach(b=>b.classList.remove('open'));
+  }
+});
+function fFC(id,q){document.querySelectorAll('#'+id+'-l .fc-opt').forEach(el=>{el.style.display=el.textContent.toLowerCase().includes(q.toLowerCase())?'':'none';});}
+function doAll(fk,id){F[fk]=null;document.querySelectorAll('#'+id+'-l input').forEach(i=>i.checked=true);go();}
+function doNone(fk,id){F[fk]=[];document.querySelectorAll('#'+id+'-l input').forEach(i=>i.checked=false);go();}
+function togO(fk,val,chk,id){
+  const cur=sel(fk);if(chk)cur.add(val);else cur.delete(val);
+  F[fk]=cur.size===OL[fk].length?null:[...cur];go();
+}
+function setGB(v){GB=v;go();}
+function setTab(t){
+  TAB=t;
+  document.querySelectorAll('.tab').forEach(el=>el.classList.toggle('active',el.textContent.toLowerCase()===t));
+  document.querySelectorAll('.vw').forEach(el=>el.classList.remove('active'));
+  document.getElementById(t+'-vw').classList.add('active');go();
+}
+
+function rMets(data){
+  const rs=new Set(data.map(d=>d[0])).size;
+  const wbs=data.map(d=>d[5]).filter(x=>x!=null);
+  const gbs=data.map(d=>d[6]).filter(x=>x!=null);
+  const aw=wbs.length?(wbs.reduce((a,b)=>a+b,0)/wbs.length).toFixed(1):'—';
+  const ag=gbs.length?(gbs.reduce((a,b)=>a+b,0)/gbs.length).toFixed(1):'—';
+  document.getElementById('mets').innerHTML=`
+    <div class="met"><div class="ml">Roasts</div><div class="mv">${data.length}</div></div>
+    <div class="met"><div class="ml">Roasteries</div><div class="mv">${rs}</div></div>
+    <div class="met"><div class="ml">Avg WB</div><div class="mv">${aw}</div></div>
+    <div class="met"><div class="ml">Avg GB</div><div class="mv">${ag}</div></div>`;
+}
+
+function actRi(){
+  // Display order: Melbourne(0), Portland(2), Austin(1)
+  const DISP=[0,1,2];
+  return DISP.filter(i=>sel('r').has(RN[i]));
+}
+
+function rChart(data){
+  const g=grp(data);
+  const {labels,firstBottom}=sortedLabels(g);
+  const aRi=actRi();
+  const wrap=document.getElementById('cwrap');
+
+  if(!labels.length){
+    if(CI){CI.destroy();CI=null;}
+    wrap.innerHTML='<div class="nd">No data for this selection</div>';
+    return;
+  }
+
+  // Destroy any old Chart.js instance
+  if(CI){CI.destroy();CI=null;}
+
+  // Replace canvas with a plain one we'll draw on ourselves
+  wrap.innerHTML='<canvas id="mc"></canvas>';
+  const canvas=document.getElementById('mc');
+  const ctx=canvas.getContext('2d');
+
+  // ── KDE ───────────────────────────────────────────────────────────────────
+  function gaussKde(vals,x,bw){
+    return vals.reduce((s,v)=>{const u=(x-v)/bw;return s+Math.exp(-0.5*u*u);},0)/(vals.length*bw*2.507);
+  }
+  function buildKde(vals,steps=100){
+    if(!vals||vals.length<2)return null;
+    const mn=Math.min(...vals),mx=Math.max(...vals);
+    const spread=mx-mn||2;
+    const bw=Math.max(1.0,spread*0.12);
+    // lo/hi clamped exactly to data min/max — no padding beyond real range
+    const lo=mn, hi=mx;
+    const step=(hi-lo)/steps;
+    const pts=[];
+    for(let v=lo;v<=hi+1e-9;v+=step) pts.push({x:v,d:gaussKde(vals,v,bw)});
+    const peak=Math.max(...pts.map(p=>p.d))||1;
+    return pts.map(p=>({x:p.x,d:p.d/peak}));
+  }
+
+  // ── Pre-compute specs ─────────────────────────────────────────────────────
+  // One spec per (label × roastery × wb/gb)
+  const specs=[];
+  labels.forEach(l=>{
+    aRi.forEach(i=>{
+      const wbVals=(g[l][RN[i]]||{wb:[]}).wb.filter(v=>v!=null);
+      const gbVals=(g[l][RN[i]]||{gb:[]}).gb.filter(v=>v!=null);
+      const wbS=st(wbVals), gbS=st(gbVals);
+      const spread=(wbS&&gbS)?+(gbS.avg-wbS.avg).toFixed(2):null;
+      ['wb','gb'].forEach(key=>{
+        const vals=key==='wb'?wbVals:gbVals;
+        const s=key==='wb'?wbS:gbS;
+        if(!s)return;
+        specs.push({
+          label:l,ri:i,key,vals,
+          avg:+s.avg.toFixed(2),
+          mn:s.min,mx:s.max,
+          kdePts:buildKde(vals),
+          col:COL[i],
+          n:vals.length,
+          spread
+        });
+      });
+    });
+  });
+
+  // ── Layout constants ──────────────────────────────────────────────────────
+  const MARGIN_LEFT=110, MARGIN_RIGHT=20, MARGIN_TOP=30, MARGIN_BOTTOM=36;
+  const VIOLIN_HALF=18;  // px half-height of each violin
+  const ROW_GAP=6;       // px between consecutive violin rows
+  // Rows: per label, we have aRi × 2 (wb+gb) violins stacked
+  const ROW_H=VIOLIN_HALF*2+ROW_GAP;
+  const GROUP_GAP=10;    // extra gap between labels
+  const totalRows=labels.length*aRi.length*2;
+  const chartH=MARGIN_TOP+MARGIN_BOTTOM+totalRows*ROW_H+labels.length*GROUP_GAP;
+  const dpr=window.devicePixelRatio||1;
+
+  wrap.style.height=Math.max(300,chartH)+'px';
+  canvas.style.width='100%';
+  canvas.style.height=Math.max(300,chartH)+'px';
+
+  function resize(){
+    const W=wrap.clientWidth;
+    canvas.width=W*dpr;
+    canvas.height=Math.max(300,chartH)*dpr;
+    ctx.scale(dpr,dpr);
+    draw(W);
+  }
+
+  // ── Global x scale across all data ────────────────────────────────────────
+  let allVals=[];
+  specs.forEach(sp=>allVals.push(...sp.vals));
+  const globalMin=Math.min(...allVals), globalMax=Math.max(...allVals);
+  const xPad=(globalMax-globalMin)*0.02;
+  const xMin=globalMin-xPad, xMax=globalMax+xPad;
+
+  function toX(v,W){
+    return MARGIN_LEFT+(v-xMin)/(xMax-xMin)*(W-MARGIN_LEFT-MARGIN_RIGHT);
+  }
+
+  // ── Row position map ──────────────────────────────────────────────────────
+  // Compute midY for every (label, ri, key) combination
+  function buildRowMap(){
+    const map={};
+    let y=MARGIN_TOP;
+    labels.forEach((l,li)=>{
+      if(li>0) y+=GROUP_GAP;
+      map[l]={};
+      aRi.forEach(i=>{
+        map[l][i]={};
+        ['wb','gb'].forEach(key=>{
+          map[l][i][key]=y+VIOLIN_HALF;
+          y+=ROW_H;
+        });
+      });
+    });
+    return map;
+  }
+
+  // ── Hover state ───────────────────────────────────────────────────────────
+  let hoverSpec=null;
+
+  // ── Draw function ─────────────────────────────────────────────────────────
+  function draw(W){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    const rowMap=buildRowMap();
+
+    // x-axis grid lines & ticks
+    const tickCount=6;
+    ctx.strokeStyle='rgba(26,35,64,.06)';
+    ctx.lineWidth=1;
+    ctx.fillStyle='#888';
+    ctx.font='9px "DM Sans",sans-serif';
+    ctx.textAlign='center';
+    for(let t=0;t<=tickCount;t++){
+      const v=xMin+t*(xMax-xMin)/tickCount;
+      const px=toX(v,W);
+      ctx.beginPath();
+      ctx.moveTo(px,MARGIN_TOP-8);
+      ctx.lineTo(px,Math.max(300,chartH)-MARGIN_BOTTOM+4);
+      ctx.stroke();
+      ctx.fillText(v.toFixed(0),px,Math.max(300,chartH)-MARGIN_BOTTOM+14);
+    }
+    // x-axis label
+    ctx.fillStyle='#888';
+    ctx.font='9px "DM Sans",sans-serif';
+    ctx.textAlign='center';
+    ctx.fillText('Light Tells',MARGIN_LEFT+(W-MARGIN_LEFT-MARGIN_RIGHT)/2,Math.max(300,chartH)-4);
+
+    // separator line between label groups
+    if(firstBottom>-1){
+      // find the y position after the firstBottom label's last row
+      let sepY=MARGIN_TOP;
+      labels.forEach((l,li)=>{
+        if(li>0)sepY+=GROUP_GAP;
+        sepY+=aRi.length*2*ROW_H;
+        if(li===firstBottom-1){
+          ctx.save();
+          ctx.strokeStyle='rgba(26,35,64,0.25)';
+          ctx.lineWidth=1.5;
+          ctx.setLineDash([5,3]);
+          ctx.beginPath();
+          ctx.moveTo(MARGIN_LEFT,sepY+GROUP_GAP/2);
+          ctx.lineTo(W-MARGIN_RIGHT,sepY+GROUP_GAP/2);
+          ctx.stroke();
+          ctx.setLineDash([]);
+          ctx.restore();
+        }
+      });
+    }
+
+    // Y-axis labels
+    ctx.textAlign='right';
+    ctx.fillStyle='#1A2340';
+    ctx.font='600 10px "DM Sans",sans-serif';
+    labels.forEach(l=>{
+      const ri0=aRi[0];
+      const midY=rowMap[l][ri0].wb;
+      // label centred on the whole group
+      const lastRi=aRi[aRi.length-1];
+      const lastY=rowMap[l][lastRi].gb;
+      const groupMid=(midY+lastY)/2;
+      // Truncate long labels
+      let lbl=l.length>16?l.slice(0,15)+'…':l;
+      ctx.fillText(lbl,MARGIN_LEFT-6,groupMid+3);
+    });
+
+    // Draw violins
+    specs.forEach(sp=>{
+      if(!rowMap[sp.label]||!rowMap[sp.label][sp.ri])return;
+      const midY=rowMap[sp.label][sp.ri][sp.key];
+      const kdePts=sp.kdePts;
+      const col=sp.col;
+      const isGB=sp.key==='gb';
+      const alpha=isGB?0.40:0.65;
+
+      if(kdePts&&kdePts.length>1){
+        // Filled shape
+        ctx.save();
+        ctx.globalAlpha=alpha;
+        ctx.fillStyle=col;
+        ctx.beginPath();
+        ctx.moveTo(toX(kdePts[0].x,W), midY-kdePts[0].d*VIOLIN_HALF);
+        kdePts.forEach(p=>ctx.lineTo(toX(p.x,W), midY-p.d*VIOLIN_HALF));
+        [...kdePts].reverse().forEach(p=>ctx.lineTo(toX(p.x,W), midY+p.d*VIOLIN_HALF));
+        ctx.closePath();
+        ctx.fill();
+        // Outline
+        ctx.globalAlpha=alpha+0.25;
+        ctx.strokeStyle=col;
+        ctx.lineWidth=0.8;
+        ctx.beginPath();
+        kdePts.forEach((p,k)=>{
+          k===0?ctx.moveTo(toX(p.x,W),midY-p.d*VIOLIN_HALF):ctx.lineTo(toX(p.x,W),midY-p.d*VIOLIN_HALF);
+        });
+        [...kdePts].reverse().forEach((p,k)=>{
+          k===0?ctx.moveTo(toX(p.x,W),midY+p.d*VIOLIN_HALF):ctx.lineTo(toX(p.x,W),midY+p.d*VIOLIN_HALF);
+        });
+        ctx.stroke();
+        ctx.restore();
+      }
+
+      // Mean tick
+      const avgPx=toX(sp.avg,W);
+      ctx.save();
+      ctx.globalAlpha=0.95;
+      ctx.strokeStyle='rgba(255,255,255,0.9)';
+      ctx.lineWidth=2.5;
+      ctx.beginPath();
+      ctx.moveTo(avgPx,midY-VIOLIN_HALF*0.65);
+      ctx.lineTo(avgPx,midY+VIOLIN_HALF*0.65);
+      ctx.stroke();
+      ctx.strokeStyle=col;
+      ctx.lineWidth=1.5;
+      ctx.globalAlpha=1;
+      ctx.beginPath();
+      ctx.moveTo(avgPx,midY-VIOLIN_HALF*0.65);
+      ctx.lineTo(avgPx,midY+VIOLIN_HALF*0.65);
+      ctx.stroke();
+      ctx.restore();
+    });
+
+    // WB / GB row labels on left
+    if(aRi.length>0){
+      const i0=aRi[0];
+      const l0=labels[0];
+      if(rowMap[l0]&&rowMap[l0][i0]){
+        ctx.fillStyle='rgba(26,35,64,0.4)';
+        ctx.font='7px "DM Sans",sans-serif';
+        ctx.textAlign='left';
+      }
+    }
+
+    // Hover tooltip
+    if(hoverSpec){
+      const sp=hoverSpec;
+      if(rowMap[sp.label]&&rowMap[sp.label][sp.ri]){
+        const midY=rowMap[sp.label][sp.ri][sp.key];
+        const avgPx=toX(sp.avg,W);
+        // Highlight dot
+        ctx.save();
+        ctx.globalAlpha=1;
+        ctx.fillStyle=sp.col;
+        ctx.beginPath();
+        ctx.arc(avgPx,midY,5,0,Math.PI*2);
+        ctx.fill();
+        ctx.strokeStyle='#fff';
+        ctx.lineWidth=1.5;
+        ctx.stroke();
+        ctx.restore();
+        // Tooltip box
+        const lines=[
+          `${RN[sp.ri]} ${sp.key.toUpperCase()}`,
+          `avg: ${sp.avg}`,
+          `range: ${sp.mn.toFixed(0)}–${sp.mx.toFixed(0)}`,
+          ...(sp.spread!==null?[`spread: ${sp.spread>0?'+':''}${sp.spread}`]:[]),
+          `n = ${sp.n}`
+        ];
+        const TW=148,TH=lines.length*15+12;
+        let TX=avgPx+10, TY=midY-TH/2;
+        if(TX+TW>W-MARGIN_RIGHT) TX=avgPx-TW-10;
+        if(TY<2) TY=2;
+        ctx.save();
+        ctx.globalAlpha=0.95;
+        ctx.fillStyle='#1A2340';
+        ctx.beginPath();
+        ctx.roundRect(TX,TY,TW,TH,5);
+        ctx.fill();
+        ctx.globalAlpha=1;
+        ctx.fillStyle='#F5C842';
+        ctx.font='700 10px "DM Sans",sans-serif';
+        ctx.textAlign='left';
+        ctx.fillText(lines[0],TX+8,TY+14);
+        ctx.fillStyle='#fff';
+        ctx.font='10px "DM Sans",sans-serif';
+        lines.slice(1).forEach((ln,i)=>ctx.fillText(ln,TX+8,TY+28+i*14));
+        ctx.restore();
+      }
+    }
+  }
+
+  // ── Mouse events ──────────────────────────────────────────────────────────
+  canvas.addEventListener('mousemove',e=>{
+    const rect=canvas.getBoundingClientRect();
+    const mx=e.clientX-rect.left;
+    const my=e.clientY-rect.top;
+    const W=wrap.clientWidth;
+    const rowMap=buildRowMap();
+    let found=null,bestD=Infinity;
+    specs.forEach(sp=>{
+      if(!rowMap[sp.label]||!rowMap[sp.label][sp.ri])return;
+      const midY=rowMap[sp.label][sp.ri][sp.key];
+      if(Math.abs(my-midY)>VIOLIN_HALF+4)return;
+      if(!sp.kdePts||!sp.kdePts.length)return;
+      const loX=toX(sp.kdePts[0].x,W), hiX=toX(sp.kdePts[sp.kdePts.length-1].x,W);
+      if(mx<Math.min(loX,hiX)-4||mx>Math.max(loX,hiX)+4)return;
+      const d=Math.abs(mx-toX(sp.avg,W));
+      if(d<bestD){bestD=d;found=sp;}
+    });
+    hoverSpec=found;
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    ctx.save();ctx.scale(dpr,dpr);ctx.restore();
+    // reset transform and redraw
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    draw(W);
+  });
+  canvas.addEventListener('mouseleave',()=>{
+    hoverSpec=null;
+    const W=wrap.clientWidth;
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    draw(W);
+  });
+
+  // ── Initial render ────────────────────────────────────────────────────────
+  resize();
+
+  // Legend
+  const legItems=aRi.map(i=>`
+    <span style="display:flex;align-items:center;gap:5px">
+      <span style="display:flex;flex-direction:column;gap:2px">
+        <span style="width:26px;height:7px;border-radius:3px;background:${COL[i]};display:block"></span>
+        <span style="width:26px;height:7px;border-radius:3px;background:${COL[i]}66;display:block"></span>
+      </span>
+      <span style="display:flex;flex-direction:column;gap:1px;font-size:10px;font-weight:700;color:${COL[i]}">
+        <span>${RN[i]} WB</span><span style="opacity:.7">${RN[i]} GB</span>
+      </span>
+    </span>`).join('');
+  document.getElementById('cleg').innerHTML=legItems;
+}
+function countN(g,label,rn,key){
+  return (g[label]&&g[label][rn])?g[label][rn][key].length:0;
+}
+
+function rTable(data){
+  const g=grp(data);
+  const {labels,firstBottom}=sortedLabels(g);
+  const aRi=actRi();
+  let h=`<thead><tr><th>Group</th>`;
+  aRi.forEach(i=>{
+    h+=`<th style="color:${COL[i]}">${RN[i]} WB avg</th>`;
+    h+=`<th style="color:${COL[i]}">${RN[i]} GB avg</th>`;
+  });
+  if(aRi.length>1){
+    h+=`<th style="color:var(--pm-cyan)">WB spread</th>`;
+    h+=`<th style="color:var(--pm-yellow)">GB spread</th>`;
+  }
+  h+=`</tr></thead><tbody>`;
+  if(!labels.length)h+=`<tr><td colspan="20" class="nd">No data</td></tr>`;
+  labels.forEach((l,idx)=>{
+    const sepClass=(firstBottom>-1&&idx===firstBottom)?' class="sep-tr"':'';
+    h+=`<tr${sepClass}><td style="font-weight:500">${l}</td>`;
+    const wa=[],ga=[];
+    aRi.forEach(i=>{
+      const rn=RN[i];const sw=st((g[l][rn]||{wb:[]}).wb);const sg=st((g[l][rn]||{gb:[]}).gb);
+      if(sw)wa.push(sw.avg);
+      if(sg)ga.push(sg.avg);
+      const nw=(g[l][rn]||{wb:[]}).wb.length;
+      const ng=(g[l][rn]||{gb:[]}).gb.length;
+      h+=`<td>${sw?sw.avg.toFixed(1)+' <span style="font-size:10px;color:#888">('+sw.min.toFixed(0)+'–'+sw.max.toFixed(0)+')</span><span style="font-size:9px;color:#49BFCE;margin-left:3px;font-weight:700">n='+nw+'</span>':'—'}</td>`;
+      h+=`<td>${sg?sg.avg.toFixed(1)+' <span style="font-size:10px;color:#888">('+sg.min.toFixed(0)+'–'+sg.max.toFixed(0)+')</span><span style="font-size:9px;color:#49BFCE;margin-left:3px;font-weight:700">n='+ng+'</span>':'—'}</td>`;
+    });
+    if(aRi.length>1){
+      if(wa.length>1){const d=Math.max(...wa)-Math.min(...wa);h+=`<td><span class="pill ${pvClass(d)}">±${d.toFixed(1)}</span></td>`;}
+      else h+=`<td>—</td>`;
+      if(ga.length>1){const d=Math.max(...ga)-Math.min(...ga);h+=`<td><span class="pill ${pvClass(d)}">±${d.toFixed(1)}</span></td>`;}
+      else h+=`<td>—</td>`;
+    }
+    h+=`</tr>`;
+  });
+  document.getElementById('mt').innerHTML=h+'</tbody>';
+}
+
+function rVar(data){
+  const g=grp(data);
+  const {labels,firstBottom}=sortedLabels(g);
+  const aRi=actRi();
+  const melI=0;
+  const hasMel=aRi.includes(melI);
+
+  const cards=labels.map((l,idx)=>{
+    const rd=g[l]||{};
+    const melSw=hasMel?st((rd[RN[melI]]||{wb:[]}).wb):null;
+    const melSg=hasMel?st((rd[RN[melI]]||{gb:[]}).gb):null;
+    const rows=aRi.map(i=>({i,sw:st((rd[RN[i]]||{wb:[]}).wb),sg:st((rd[RN[i]]||{gb:[]}).gb)})).filter(x=>x.sw||x.sg);
+    const wbRows=rows.filter(x=>x.sw);
+    if(wbRows.length<2)return null;
+    const avgs=wbRows.map(x=>x.sw.avg);
+    const spread=Math.max(...avgs)-Math.min(...avgs);
+    return{l,rd,rows,spread,melSw,melSg,isSep:firstBottom>-1&&idx===firstBottom};
+  }).filter(Boolean);
+
+  if(!cards.length){document.getElementById('vg').innerHTML='<div class="nd">Select 2+ roasteries to compare</div>';return;}
+
+  function fmtAvg(s){return s?s.avg.toFixed(1):'—';}
+  function fmtRange(s){return s?`<span style="font-size:10px;color:#888">(${s.min.toFixed(0)}–${s.max.toFixed(0)})</span>`:''}
+  function fmtN(n){return n?`<span style="font-size:9px;color:#49BFCE;font-weight:700;margin-left:2px">n=${n}</span>`:''}
+  function diffPill(s,ref){
+    if(!s||!ref)return'';
+    const d=Math.abs(s.avg-ref.avg);
+    return`<span class="pill ${pvClass(d)}">±${d.toFixed(1)}</span>`;
+  }
+
+  let html='';
+  let sepInserted=false;
+  cards.forEach(({l,rd,rows,spread,melSw,melSg,isSep})=>{
+    if(isSep&&!sepInserted){
+      sepInserted=true;
+      html+=`<div style="grid-column:1/-1;border-top:1.5px solid var(--color-border-primary);margin:4px 0"></div>`;
+    }
+
+    // Sort: Melbourne first, then others
+    const sorted=[...rows].sort((a,b)=>(a.i===melI?-1:b.i===melI?1:a.i-b.i));
+
+    let tableRows='';
+    sorted.forEach(({i,sw,sg},idx)=>{
+      const isMel=(i===melI);
+      const borderStyle=(!isMel&&idx===1&&hasMel)?'border-top:0.5px solid #E8DCC8':'';
+      const wbDiff=(!isMel&&hasMel)?diffPill(sw,melSw):'';
+      const gbDiff=(!isMel&&hasMel)?diffPill(sg,melSg):'';
+      const nwv=(rd[RN[i]]||{wb:[]}).wb.length;
+      const ngv=(rd[RN[i]]||{gb:[]}).gb.length;
+      tableRows+=`<tr style="${borderStyle}">
+        <td style="color:${COL[i]};font-weight:${isMel?'600':'500'};white-space:nowrap">${RN[i]}</td>
+        <td>${fmtAvg(sw)}</td>
+        <td>${fmtRange(sw)}<span style="font-size:9px;color:#49BFCE;font-weight:700;margin-left:2px">${nwv?'n='+nwv:''}</span></td>
+        <td class="wb-col">${wbDiff}</td>
+        <td>${fmtAvg(sg)}</td>
+        <td>${fmtRange(sg)}<span style="font-size:9px;color:#49BFCE;font-weight:700;margin-left:2px">${ngv?'n='+ngv:''}</span></td>
+        <td>${gbDiff}</td>
+      </tr>`;
+    });
+
+    html+=`<div class="vc">
+      <div class="vt"><span>${l}</span><span class="pill ${pvClass(spread)}">±${spread.toFixed(1)}</span></div>
+      <table class="vcard-tbl">
+        <thead><tr>
+          <th></th>
+          <th colspan="3" class="wb-group">WB</th>
+          <th colspan="3" class="gb-group">GB</th>
+        </tr>
+        <tr>
+          <th></th>
+          <th>avg</th><th>range</th><th class="wb-col">vs Mel</th>
+          <th>avg</th><th>range</th><th>vs Mel</th>
+        </tr></thead>
+        <tbody>${tableRows}</tbody>
+      </table>
+    </div>`;
+  });
+  document.getElementById('vg').innerHTML=html;
+}
+
+function rAFS(){
+  const keys=[['r','Roastery'],['o','Origin'],['p','Process'],['v','Varietal'],['c','Category'],['m','Machine']];
+  const parts=[];
+  keys.forEach(([k,lbl])=>{
+    if(iAll(k)) return; // all selected — don't clutter
+    if(iNone(k)){parts.push(`<span class="afc"><span class="afc-k">${lbl}:</span>none</span>`);return;}
+    const vals=F[k];
+    if(vals.length<=3){
+      vals.forEach(v=>parts.push(`<span class="afc"><span class="afc-k">${lbl}:</span>${v}</span>`));
+    } else {
+      parts.push(`<span class="afc"><span class="afc-k">${lbl}:</span>${vals.length} selected</span>`);
+    }
+  });
+  const el=document.getElementById('afs');
+  if(parts.length){
+    el.innerHTML=`<span class="aft">Showing:</span>`+parts.join('');
+  } else {
+    el.innerHTML='';
+  }
+}
+
+function go(){const data=applyF();rMets(data);rTB();rAFS();if(TAB==='chart')rChart(data);else if(TAB==='table')rTable(data);else rVar(data);}
+// Load data from Google Sheets on startup
+loadAllSheets();
+</script>
