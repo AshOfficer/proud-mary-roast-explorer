@@ -330,30 +330,8 @@ body,div,span,td,th,button,input,select,label,p{font-family:var(--font-body)}
 const RN=["Melbourne","Portland","Austin"];
 const COL=["#2979C2","#1B9E5E","#A535C4"];
 
-// ── Category normalisation ──────────────────────────────────────────────────
-// MERGE into base name (filter variant folds in, espresso kept separate):
-//   CURIOUS FIL  → CURIOUS      (CURIOUS ESP stays as-is, shown at bottom)
-//   WILD FIL     → WILD         (WILD ESP stays as-is, shown at bottom)
-//   DELUXE FIL   → DELUXE       (DELUXE ESP stays as-is, shown at bottom)
-//   MILD ESP     → MILD         (MILD FIL stays as-is, shown at bottom)
-// Other fixes:
-//   GHOST / GHOST RIDER → GHOST RIDER
-//   ANGEL / ANGEL WINGS → ANGEL WINGS
-//   DECAF SPRO          → DECAF
-// BLEND rows are removed entirely.
 
-const CAT_NORM={
-  // merge filter into base
-  'CURIOUS FIL':'CURIOUS',
-  'WILD FIL':'WILD',
-  'DELUXE FIL':'DELUXE',
-  'MILD ESP':'MILD',
-  // short-name fixes
-  'GHOST':'GHOST RIDER',
-  'ANGEL':'ANGEL WINGS',
-  'DECAF SPRO':'DECAF'
-};
-function normCat(c){return CAT_NORM[c]||c;}
+
 
 // Categories that appear at the bottom of sorted lists, separated by a divider
 const CAT_BOTTOM=new Set(['CURIOUS ESP','WILD ESP','DELUXE ESP','MILD FIL']);
@@ -522,16 +500,22 @@ async function loadAllSheets(){
   go();
 }
 
-function showLoading(on){
+function showLoading(on,msg){
   let el=document.getElementById('pm-loading');
   if(!el){
     el=document.createElement('div');
     el.id='pm-loading';
-    el.style.cssText='position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(26,35,64,.7);display:flex;align-items:center;justify-content:center;z-index:9999;font-family:"Black Ops One",serif;font-size:18px;color:#F5C842;letter-spacing:.06em';
-    el.textContent='Loading Roast Data...';
+    el.style.cssText='position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(26,35,64,.85);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:9999;gap:12px';
     document.body.appendChild(el);
   }
-  el.style.display=on?'flex':'none';
+  if(on){
+    el.innerHTML=`
+      <div style="font-family:'Black Ops One',serif;font-size:20px;color:#F5C842;letter-spacing:.06em">${msg||'Loading Roast Data...'}</div>
+      <div style="font-family:'DM Sans',sans-serif;font-size:11px;color:rgba(255,255,255,.5)">Fetching from Google Sheets</div>`;
+    el.style.display='flex';
+  } else {
+    el.style.display='none';
+  }
 }
 
 function rebuildOptions(){
