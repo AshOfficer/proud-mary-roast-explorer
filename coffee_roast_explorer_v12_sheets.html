@@ -412,30 +412,31 @@ const VARIETAL_ALIAS={
 
 function extractVarietal(profile){
   if(!profile)return'Unknown';
-  const pu=profile.toUpperCase();
+  const pu=' '+profile.toUpperCase()+' ';
 
-  // 'Familia Pacas' is an ELS farm name, but 'Familia Pacas Pacas' means the Pacas varietal
-  if(/\bFAMILIA\s+PACAS\b/.test(pu)){
-    // If Pacas appears again after the farm name, it's the varietal
-    const afterFarm=pu.replace(/FAMILIA\s+PACAS/,'');
-    if(/\bPACAS\b/.test(afterFarm))return'Pacas';
+  // 'Familia Pacas' is an ELS farm — check if Pacas appears separately after it
+  if(pu.indexOf('FAMILIA PACAS')>=0){
+    const after=pu.replace('FAMILIA PACAS','');
+    if(/[^A-Z]PACAS[^A-Z]/.test(after))return'Pacas';
     return'Unknown';
   }
 
-  // Check alias map first (longest match wins)
+  // Check alias map
   for(const [alias,canon] of Object.entries(VARIETAL_ALIAS)){
-    const re=new RegExp('\b'+alias.replace(/[-]/g,'\-')+'\b');
-    if(re.test(pu))return canon;
+    const pat=new RegExp('[^A-Z]'+alias.toUpperCase().replace(/[^A-Z0-9]/g,'[^A-Z0-9]?')+'[^A-Z]');
+    if(pat.test(pu))return canon;
   }
 
-  // Check known varietals — sorted longest first so 'Yellow Bourbon' beats 'Bourbon'
+  // Check known varietals — sort longest first so 'Yellow Bourbon' beats 'Bourbon'
   const sorted=[...KNOWN_VARIETALS].sort((a,b)=>b.length-a.length);
   for(const v of sorted){
-    const re=new RegExp('\b'+v.toUpperCase().replace(/[-]/g,'\-')+'\b');
-    if(re.test(pu))return v;
+    const vu=' '+v.toUpperCase()+' ';
+    // Replace hyphens with space for matching (SL-28 matches SL-28 or SL 28)
+    const puH=pu.replace(/-/g,' ');
+    const vuH=vu.replace(/-/g,' ');
+    if(puH.includes(vuH))return v;
   }
 
-  // No match — return Unknown (no fallback guessing)
   return'Unknown';
 }
 
