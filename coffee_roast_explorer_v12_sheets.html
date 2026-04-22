@@ -343,51 +343,99 @@ function sortCats(cats){
 }
 
 // ── Varietal extraction from profile string ─────────────────────────────────
-const KNOWN_VARIETALS=[
-  'Yellow Bourbon','Red Bourbon','Pink Bourbon','Bourbon',
-  'Yellow Catucai','Red Catucai','Catucai',
-  'Yellow Catuai','Red Catuai','Catuai',
-  'Caturra','Pacamara','Pacas','Parainema',
-  'Geisha','Typica','Heirloom','Maragogipe',
-  'SL-28','SL-34','SL28','SL34',
-  'Ruiru 11','Villa Sarchi','San Roque','Marsellesa',
-  'Bernardina','Anacafe-14','Sudan Rume','Kurume','JARC',
-  'Mokka','Moka','Mokkita','Starmaya','Laurina',
-  'Afrocina','Papayo','Arara','French Mission',
-  'Mixed','Unknown','Castillo','Colombia','Tabi',
-  'Wush Wush','Typica Mejorado','Maracaturra',
-  'Mundo Novo','Obata','Sarchimor','Topazio',
-  'Java','Pache','Guji','Illubabor','Gimbi',
-  'Jimma','Agaro',
-].sort((a,b)=>b.length-a.length);
-
-// Farm names, place names and people — never extract as varietals
-const FARM_BLOCKLIST=new Set([
-  'ARICHA','FINCA','GABRIEL','LIMONCILLO','NAHUN','RIO','SPOT',
-  'SANTA','SIDAMA','USDA','YIRGACHEFFE','HG','AA',
-  'FAMILIA','ESTATE','FARM','FAZENDA','SITIO','HACIENDA',
+const KNOWN_VARIETALS=new Set([
+  // Bourbon family
+  'Bourbon','Red Bourbon','Yellow Bourbon','Pink Bourbon','Orange Bourbon','Peaberry Bourbon',
+  // Typica family
+  'Typica','Blue Mountain','Kent','Pluma Hidalgo','Bergundal','Sidikalang',
+  'Kona','Jamaican Blue Mountain','Ethiopian Typica',
+  // Catuai
+  'Catuai','Red Catuai','Yellow Catuai',
+  // Catucai
+  'Catucai','Red Catucai','Yellow Catucai',
+  // Caturra
+  'Caturra','Red Caturra','Yellow Caturra',
+  // Mundo Novo
+  'Mundo Novo',
+  // Pacas family
+  'Pacas','Pacamara',
+  // Geisha / Gesha
+  'Geisha','Gesha',
+  // Maragogipe family
+  'Maragogipe','Maracaturra',
+  // SL varieties
+  'SL28','SL34','SL-28','SL-34',
+  // Kenyan / East African
+  'Ruiru 11','Batian','K7',
+  // Ethiopian heirloom types
+  'Heirloom','Kurume','JARC','Dega','Gimbi','Illubabor',
+  'Wush Wush','74110','74112','74158',
+  // Central American
+  'Parainema','Villa Sarchi','San Roque','Marsellesa','Sarchimor',
+  'Obata','Starmaya','Lempira','IHCAFE90','Costa Rica 95',
+  'Anacafe 14','Anacafe-14',
+  // Rare / specialty
+  'Laurina','Mokka','Moka','Sudan Rume','Welo Abaya',
+  'Mokkita','Afrocina','Bernardina','Laurina',
+  'Castillo','Colombia','Tabi',
+  'Arara','Acaua','Acauã','Topazio','Topázio',
+  'Icatu','Obata','Tupi','Catiguá','Sabiá',
+  'Catigua','Sabia',
+  // Papua New Guinea
+  'Arusha',
+  // Yemeni
+  'Khawlani',
+  // Hybrid / other
+  'Hybrido de Timor','Timor Hybrid','HDT',
+  'Ruiru 11','Batian',
+  // Colombian
+  'Castillo','Cenicafe 1',
+  // Other commonly named
+  'Pacamara','Maracaturra','Maragaturra',
+  'Java','Pache','Pache Colis','Pache Común',
+  'Guji','Agaro','Jimma',
+  'Typica Mejorado','Pink Bourbon',
+  // Generic
+  'Mixed','Unknown',
 ]);
 
-const STRIP_WORDS=new Set(['NATURAL','WASHED','HONEY','PULPED','DECAF','ANAEROBIC',
-  'FILTER','ESPRESSO','ESP','FIL','DELUXE','CURIOUS','WILD','MILD',
-  'HUMBLER','GHOST','RIDER','ANGEL','WINGS','BLEND','COE','SINGLE',
-  'ORIGIN','SUBSCRIPTION','3KG','6KG','10KG','1KG','250G','500G','800G']);
+// Alias map — normalise alternate spellings to canonical name
+const VARIETAL_ALIAS={
+  'SL 28':'SL28','SL 34':'SL34',
+  'GESHA':'Geisha',
+  'ACAUA':'Acauã','ACAUÃ':'Acauã',
+  'TOPAZIO':'Topázio','TOPÁZIO':'Topázio',
+  'CATIGUA':'Catiguá','CATIGUÁ':'Catiguá',
+  'SABIA':'Sabiá','SABIÁ':'Sabiá',
+  'ANACAFE 14':'Anacafe-14',
+};
 
 function extractVarietal(profile){
   if(!profile)return'Unknown';
   const pu=profile.toUpperCase();
-  // 'Familia Pacas' is a farm — must block before Pacas matches
-  if(/\bFAMILIA\s+PACAS\b/.test(pu))return'Unknown';
-  for(const v of KNOWN_VARIETALS){
-    const re=new RegExp('\\b'+v.toUpperCase().replace(/[-]/g,'\\-')+'\\b');
+
+  // 'Familia Pacas' is an ELS farm name, but 'Familia Pacas Pacas' means the Pacas varietal
+  if(/\bFAMILIA\s+PACAS\b/.test(pu)){
+    // If Pacas appears again after the farm name, it's the varietal
+    const afterFarm=pu.replace(/FAMILIA\s+PACAS/,'');
+    if(/\bPACAS\b/.test(afterFarm))return'Pacas';
+    return'Unknown';
+  }
+
+  // Check alias map first (longest match wins)
+  for(const [alias,canon] of Object.entries(VARIETAL_ALIAS)){
+    const re=new RegExp('\b'+alias.replace(/[-]/g,'\-')+'\b');
+    if(re.test(pu))return canon;
+  }
+
+  // Check known varietals — sorted longest first so 'Yellow Bourbon' beats 'Bourbon'
+  const sorted=[...KNOWN_VARIETALS].sort((a,b)=>b.length-a.length);
+  for(const v of sorted){
+    const re=new RegExp('\b'+v.toUpperCase().replace(/[-]/g,'\-')+'\b');
     if(re.test(pu))return v;
   }
-  // Fallback: skip origin token, return first non-strip, non-farm word
-  const tokens=profile.split(/\s+/).slice(1);
-  for(const t of tokens){
-    const clean=t.replace(/[^A-Za-z\-]/g,'');
-    if(clean.length>2&&!STRIP_WORDS.has(clean.toUpperCase())&&!FARM_BLOCKLIST.has(clean.toUpperCase()))return clean;
-  }
+
+  // No match — return Unknown (no fallback guessing)
   return'Unknown';
 }
 
