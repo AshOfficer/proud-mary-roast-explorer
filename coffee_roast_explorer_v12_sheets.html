@@ -350,16 +350,23 @@ const KNOWN_VARIETALS=[
   'Caturra','Pacamara','Pacas','Parainema',
   'Geisha','Typica','Heirloom','Maragogipe',
   'SL-28','SL-34','SL28','SL34',
-  'Ruiru 11','AA','Villa Sarchi','San Roque','Marsellesa',
+  'Ruiru 11','Villa Sarchi','San Roque','Marsellesa',
   'Bernardina','Anacafe-14','Sudan Rume','Kurume','JARC',
   'Mokka','Moka','Mokkita','Starmaya','Laurina',
-  'Afrocina','Papayo','Arara','French Mission','USDA','HG',
+  'Afrocina','Papayo','Arara','French Mission',
   'Mixed','Unknown','Castillo','Colombia','Tabi',
   'Wush Wush','Typica Mejorado','Maracaturra',
   'Mundo Novo','Obata','Sarchimor','Topazio',
   'Java','Pache','Guji','Illubabor','Gimbi',
-  'Sidama','Yirgacheffe','Jimma','Agaro',
+  'Jimma','Agaro',
 ].sort((a,b)=>b.length-a.length);
+
+// Farm names, place names and people — never extract as varietals
+const FARM_BLOCKLIST=new Set([
+  'ARICHA','FINCA','GABRIEL','LIMONCILLO','NAHUN','RIO','SPOT',
+  'SANTA','SIDAMA','USDA','YIRGACHEFFE','HG','AA',
+  'FAMILIA','ESTATE','FARM','FAZENDA','SITIO','HACIENDA',
+]);
 
 const STRIP_WORDS=new Set(['NATURAL','WASHED','HONEY','PULPED','DECAF','ANAEROBIC',
   'FILTER','ESPRESSO','ESP','FIL','DELUXE','CURIOUS','WILD','MILD',
@@ -369,15 +376,17 @@ const STRIP_WORDS=new Set(['NATURAL','WASHED','HONEY','PULPED','DECAF','ANAEROBI
 function extractVarietal(profile){
   if(!profile)return'Unknown';
   const pu=profile.toUpperCase();
+  // 'Familia Pacas' is a farm — must block before Pacas matches
+  if(/\bFAMILIA\s+PACAS\b/.test(pu))return'Unknown';
   for(const v of KNOWN_VARIETALS){
     const re=new RegExp('\\b'+v.toUpperCase().replace(/[-]/g,'\\-')+'\\b');
     if(re.test(pu))return v;
   }
-  // Fallback: skip origin token, return first non-strip word
+  // Fallback: skip origin token, return first non-strip, non-farm word
   const tokens=profile.split(/\s+/).slice(1);
   for(const t of tokens){
     const clean=t.replace(/[^A-Za-z\-]/g,'');
-    if(clean.length>2&&!STRIP_WORDS.has(clean.toUpperCase()))return clean;
+    if(clean.length>2&&!STRIP_WORDS.has(clean.toUpperCase())&&!FARM_BLOCKLIST.has(clean.toUpperCase()))return clean;
   }
   return'Unknown';
 }
