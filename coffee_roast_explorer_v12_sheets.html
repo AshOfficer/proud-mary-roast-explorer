@@ -1,22 +1,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Oswald:wght@700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-/* ══ PROUD MARY COLOUR SYSTEM ══ */
 :root{
-  --pm-cyan:#49BFCE;
-  --pm-yellow:#F5C842;
-  --pm-pink:#F2699C;
-  --pm-purple:#9B3AB5;
-  --pm-green:#3DB87A;
-  --pm-navy:#1A2340;
-  --pm-cream:#FEF9EE;
-  --pm-white:#FFFFFF;
-  --pm-gold:#C9981A;
-  --pm-mel:#2979C2;
-  --pm-aus:#A535C4;
-  --pm-pdx:#1B9E5E;
-  --font-display:'Black Ops One',serif;
-  --font-label:'Oswald',sans-serif;
-  --font-body:'DM Sans',sans-serif;
+  --pm-cyan:#49BFCE;--pm-yellow:#F5C842;--pm-pink:#F2699C;--pm-purple:#9B3AB5;
+  --pm-green:#3DB87A;--pm-navy:#1A2340;--pm-cream:#FEF9EE;--pm-white:#FFFFFF;
+  --pm-gold:#C9981A;--pm-mel:#2979C2;--pm-aus:#A535C4;--pm-pdx:#1B9E5E;
+  --font-display:'Black Ops One',serif;--font-label:'Oswald',sans-serif;--font-body:'DM Sans',sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body,div,span,td,th,button,input,select,label,p{font-family:var(--font-body)}
@@ -25,9 +13,6 @@ body,div,span,td,th,button,input,select,label,p{font-family:var(--font-body)}
 .pm-header-left-tab{background:var(--pm-cyan);border-right:3px solid var(--pm-navy);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:12px 16px;gap:6px;}
 .pm-loc-stamps{display:flex;gap:5px;align-items:center}
 .pm-loc-stamp{font-family:var(--font-display);font-size:11px;letter-spacing:.06em;color:var(--pm-navy);border:2px solid var(--pm-navy);padding:3px 7px;border-radius:3px;line-height:1;}
-.pm-header-divider{width:40px;height:2px;background:var(--pm-navy);opacity:.25;border-radius:2px;}
-.pm-aus-usa{display:flex;gap:5px;align-items:center;font-family:var(--font-label);}
-.pm-country-tag{background:var(--pm-navy);color:var(--pm-yellow);padding:2px 7px;border-radius:2px;font-size:9px;font-weight:700;letter-spacing:.14em;}
 .pm-tagline{font-family:var(--font-label);font-size:8px;font-weight:700;color:var(--pm-navy);letter-spacing:.12em;text-transform:uppercase;opacity:.65;text-align:center;}
 .pm-header-centre{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px 24px;gap:0;}
 .pm-badge-top{font-family:var(--font-display);font-size:20px;color:var(--pm-navy);letter-spacing:.06em;background:var(--pm-yellow);border:2.5px solid var(--pm-navy);border-bottom:none;padding:4px 22px 2px;clip-path:polygon(6% 0%,94% 0%,100% 100%,0% 100%);text-align:center;line-height:1;}
@@ -87,7 +72,6 @@ body,div,span,td,th,button,input,select,label,p{font-family:var(--font-body)}
 .vc{background:var(--pm-white);border:2px solid var(--pm-navy);border-radius:4px;padding:10px 12px;position:relative;overflow:hidden}
 .vc::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:repeating-linear-gradient(90deg,var(--pm-cyan) 0 20px,var(--pm-yellow) 20px 40px,var(--pm-pink) 40px 60px,var(--pm-purple) 60px 80px)}
 .vt{font-family:var(--font-display);font-size:12px;color:var(--pm-navy);margin-bottom:6px;padding-bottom:6px;border-bottom:1.5px solid #E8DCC8;display:flex;justify-content:space-between;align-items:center}
-.vr{display:flex;justify-content:space-between;align-items:center;padding:2px 0;font-size:11px}
 .nd{text-align:center;color:var(--pm-navy);padding:2.5rem;font-family:var(--font-display);font-size:13px;letter-spacing:.04em;opacity:.4}
 .vcard-tbl{width:100%;border-collapse:collapse;font-size:11px;margin-top:4px}
 .vcard-tbl thead{background:var(--pm-cream)}
@@ -102,7 +86,6 @@ body,div,span,td,th,button,input,select,label,p{font-family:var(--font-body)}
 #cleg{margin-bottom:8px;display:flex;gap:10px;flex-wrap:wrap;font-size:11px;font-weight:700;color:var(--pm-navy)}
 .gb-select{background:var(--pm-white);border:2px solid var(--pm-navy);border-radius:4px;padding:5px 9px;font-size:11px;font-weight:700;color:var(--pm-navy);width:100%;cursor:pointer;font-family:var(--font-label)}
 .gb-select:focus{outline:2px solid var(--pm-yellow);outline-offset:1px}
-.var-legend{font-size:10px;font-weight:700;color:var(--pm-navy);margin-bottom:10px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:var(--pm-white);border:2px solid var(--pm-navy);border-radius:4px;padding:6px 12px}
 </style>
 <div class="pm-wrap">
 <div class="pm-header">
@@ -133,8 +116,7 @@ body,div,span,td,th,button,input,select,label,p{font-family:var(--font-body)}
   <div class="pm-header-right-tab">
     <div class="pm-dash-kicker">Roast</div>
     <div class="pm-dash-title">DATA<br>EXPLORER</div>
-    <div class="pm-header-divider" style="margin:6px 0"></div>
-    <div class="pm-dash-meta">
+    <div class="pm-dash-meta" style="margin-top:6px">
       <div class="pm-dash-chip">WB</div>
       <div class="pm-dash-chip">GB</div>
       <div class="pm-dash-chip">n=</div>
@@ -157,7 +139,7 @@ body,div,span,td,th,button,input,select,label,p{font-family:var(--font-body)}
 <div id="table-vw" class="vw"><div style="overflow-x:auto"><table class="tbl" id="mt"></table></div></div>
 <div id="variance-vw" class="vw">
   <div style="font-size:10px;color:#555;margin-bottom:8px;display:flex;align-items:center;gap:10px">
-    <span style="font-family:'Alfa Slab One',serif;font-size:11px">WB &amp; GB vs Melbourne:</span>
+    <span style="font-size:11px;font-weight:700">WB &amp; GB vs Melbourne:</span>
     <span><span class="pill pv0">●</span> 0–2</span>
     <span><span class="pill pv1">●</span> 2–4</span>
     <span><span class="pill pv2">●</span> 4+</span>
@@ -172,14 +154,13 @@ const RN=["Melbourne","Portland","Austin"];
 const COL=["#2979C2","#1B9E5E","#A535C4"];
 
 const CAT_BOTTOM=new Set(['CURIOUS ESP','WILD ESP','DELUXE ESP','MILD FIL']);
-
 function sortCats(cats){
   const main=cats.filter(c=>!CAT_BOTTOM.has(c)).sort((a,b)=>a.localeCompare(b));
-  const btm =cats.filter(c=>CAT_BOTTOM.has(c)).sort((a,b)=>a.localeCompare(b));
+  const btm=cats.filter(c=>CAT_BOTTOM.has(c)).sort((a,b)=>a.localeCompare(b));
   return{main,btm,all:[...main,...btm]};
 }
 
-// ── Varietal extraction ─────────────────────────────────────────────────────
+// ── Varietal extraction ──────────────────────────────────────────────────────
 const KNOWN_VARIETALS=new Set([
   'Bourbon','Red Bourbon','Yellow Bourbon','Pink Bourbon','Orange Bourbon','Peaberry Bourbon',
   'Typica','Blue Mountain','Kent','Pluma Hidalgo','Bergundal','Sidikalang','Kona','Jamaican Blue Mountain','Ethiopian Typica',
@@ -195,13 +176,10 @@ const KNOWN_VARIETALS=new Set([
   'Maragaturra','Java','Pache','Pache Colis','Pache Común','Guji','Agaro','Jimma',
   'Typica Mejorado','Mixed','Unknown',
 ]);
-
 const VARIETAL_ALIAS={
   'SL 28':'SL28','SL 34':'SL34','GESHA':'Geisha',
-  'ACAUA':'Acauã','ACAUÃ':'Acauã','TOPAZIO':'Topázio','TOPÁZIO':'Topázio',
-  'CATIGUA':'Catiguá','CATIGUÁ':'Catiguá','SABIA':'Sabiá','SABIÁ':'Sabiá','ANACAFE 14':'Anacafe-14',
+  'ACAUA':'Acauã','TOPAZIO':'Topázio','CATIGUA':'Catiguá','SABIA':'Sabiá','ANACAFE 14':'Anacafe-14',
 };
-
 function extractVarietal(profile){
   if(!profile)return'Unknown';
   const pu=' '+profile.toUpperCase()+' ';
@@ -216,15 +194,14 @@ function extractVarietal(profile){
   }
   const sorted=[...KNOWN_VARIETALS].sort((a,b)=>b.length-a.length);
   for(const v of sorted){
-    const vu=' '+v.toUpperCase()+' ';
     const puH=pu.replace(/-/g,' ');
-    const vuH=vu.replace(/-/g,' ');
+    const vuH=' '+v.toUpperCase().replace(/-/g,' ')+' ';
     if(puH.includes(vuH))return v;
   }
   return'Unknown';
 }
 
-// ── Category normalisation ────────────────────────────────────────────────────
+// ── Category normalisation ───────────────────────────────────────────────────
 const CAT_NORM={
   'CURIOUS FIL':'CURIOUS','WILD FIL':'WILD','DELUXE FIL':'DELUXE','MILD ESP':'MILD',
   'GHOST':'GHOST RIDER','ANGEL':'ANGEL WINGS','DECAF SPRO':'DECAF',
@@ -232,103 +209,89 @@ const CAT_NORM={
 };
 function normCat(c){return CAT_NORM[c.toUpperCase()]||c;}
 
-// ── Process normalisation ─────────────────────────────────────────────────────
-// Canonical display names
-const PROC_CANONICAL={
-  // Washed
-  'WASHED':'Washed',
-  // Natural
-  'NATURAL':'Natural',
-  // Honey
-  'HONEY':'Honey','BLACK HONEY':'Black Honey','RED HONEY':'Red Honey','YELLOW HONEY':'Yellow Honey',
-  // Anaerobic Washed — catches A. Washed, AW, Dbl A. Washed, Double Anaerobic Washed, etc.
-  'ANAEROBIC WASHED':'Anaerobic Washed',
-  // Anaerobic Honey
-  'ANAEROBIC HONEY':'Anaerobic Honey',
-  // Anaerobic Natural
-  'ANAEROBIC NATURAL':'Anaerobic Natural',
-  // Carbonic Maceration Washed
-  'CM WASHED':'CM Washed',
-  // Carbonic Maceration Honey
-  'CM HONEY':'CM Honey',
-  // Carbonic Maceration Natural
-  'CM NATURAL':'CM Natural',
+// ── Process extraction from profile string ───────────────────────────────────
+// Checks for process keywords in the profile name (e.g. "CST Geisha Anaerobic Washed 6KG WILD")
+// Order matters — longer/more-specific patterns checked first.
+// Returns canonical process name, or null if nothing matched (fallback to sheet process column).
+const PROFILE_PROCESS_PATTERNS=[
+  // Carbonic Maceration — check before generic washed/honey/natural
+  [/CARBONIC\s+MA(?:C|SC)ERATION\s+WASHED|CM\s+WASHED/,   'CM Washed'],
+  [/CARBONIC\s+MA(?:C|SC)ERATION\s+HONEY|CM\s+HONEY/,     'CM Honey'],
+  [/CARBONIC\s+MA(?:C|SC)ERATION\s+NATURAL|CM\s+NATURAL/, 'CM Natural'],
+  [/CARBONIC\s+MA(?:C|SC)ERATION/,                         'CM Washed'],
+
+  // Anaerobic — check before generic washed/honey/natural
+  // Covers: Anaerobic Washed, A. Washed, AW, Dbl Anaerobic Washed, Double A. Washed, etc.
+  [/(?:DBL\.?\s+|DOUBLE\s+|DUO\s+|2X\s+|TRIPLE\s+|3X\s+)?(?:ANAEROBIC|A\.)\s+WASHED/, 'Anaerobic Washed'],
+  [/(?:DBL\.?\s+|DOUBLE\s+|DUO\s+|2X\s+|TRIPLE\s+|3X\s+)?(?:ANAEROBIC|A\.)\s+HONEY/,  'Anaerobic Honey'],
+  [/(?:DBL\.?\s+|DOUBLE\s+|DUO\s+|2X\s+|TRIPLE\s+|3X\s+)?(?:ANAEROBIC|A\.)\s+NATURAL/,'Anaerobic Natural'],
+  // Bare ANAEROBIC with no sub-type
+  [/\bANAEROBIC\b/,                                    'Anaerobic Washed'],
+
   // Depulped
-  'DEPULPED':'Depulped',
-};
+  [/\bDE.?PULPED\b/,                                   'Depulped'],
 
-// Pattern → canonical key (checked in order; first match wins)
-// Patterns are matched against the UPPERCASED, TRIMMED process string.
-const PROC_PATTERNS=[
-  // ── Carbonic Maceration / CM (check before generic "natural/honey/washed") ──
-  [/CARBONIC\s+MA[SC]ERATION\s+WASHED|CM\s+WASHED/,            'CM WASHED'],
-  [/CARBONIC\s+MA[SC]ERATION\s+HONEY|CM\s+HONEY/,              'CM HONEY'],
-  [/CARBONIC\s+MA[SC]ERATION\s+NATURAL|CM\s+NATURAL/,          'CM NATURAL'],
-  [/CARBONIC\s+MA[SC]ERATION|^CM$/,                             'CM WASHED'],  // bare "CM" → CM Washed
+  // Honey variants — specific first
+  [/\bBLACK\s+HONEY\b/,  'Black Honey'],
+  [/\bRED\s+HONEY\b/,    'Red Honey'],
+  [/\bYELLOW\s+HONEY\b/, 'Yellow Honey'],
+  [/\bHONEY\b/,          'Honey'],
 
-  // ── Anaerobic (check before generic natural/honey/washed) ──
-  // Covers: A. Washed, AW, Anaerobic Washed, Dbl A. Washed, Double Anaerobic Washed,
-  //         Double A. Washed, 2x A. Washed, DBL AW, etc.
-  [/(?:DBL|DOUBLE|DUO|2X|TRIPLE|3X)?\s*(?:A\.|ANAEROBIC)\s*WASHED|(?:DBL|DOUBLE|DUO|2X)?\s*AW\b/,
-                                                                  'ANAEROBIC WASHED'],
-  [/(?:DBL|DOUBLE|DUO|2X|TRIPLE|3X)?\s*(?:A\.|ANAEROBIC)\s*HONEY|(?:DBL|DOUBLE|DUO|2X)?\s*AH\b/,
-                                                                  'ANAEROBIC HONEY'],
-  [/(?:DBL|DOUBLE|DUO|2X|TRIPLE|3X)?\s*(?:A\.|ANAEROBIC)\s*NATURAL|(?:DBL|DOUBLE|DUO|2X)?\s*AN\b/,
-                                                                  'ANAEROBIC NATURAL'],
-  // Bare "anaerobic" with no sub-type → Anaerobic Washed (most common default)
-  [/^ANAEROBIC$|^A\.$|^AN$(?!.*NATURAL)/,                        'ANAEROBIC WASHED'],
+  // Natural
+  [/\bNATURAL\b/,        'Natural'],
 
-  // ── Depulped ──
-  [/DEPULPED|DE.?PULPED/,                                         'DEPULPED'],
-
-  // ── Honey variants (specific before generic) ──
-  [/BLACK\s+HONEY/,   'BLACK HONEY'],
-  [/RED\s+HONEY/,     'RED HONEY'],
-  [/YELLOW\s+HONEY/,  'YELLOW HONEY'],
-  [/\bHONEY\b/,       'HONEY'],
-
-  // ── Natural ──
-  [/\bNATURAL\b/,     'NATURAL'],
-
-  // ── Washed ──
-  [/\bWASHED\b|^WET$/,'WASHED'],
+  // Washed
+  [/\bWASHED\b/,         'Washed'],
 ];
 
-function normProcess(raw){
-  if(!raw)return raw;
-  const u=raw.trim().toUpperCase();
-  for(const [pat,key] of PROC_PATTERNS){
-    if(pat.test(u)){
-      return PROC_CANONICAL[key]||key;
+// Also normalise sheet process column values (fallback when profile has nothing)
+const SHEET_PROCESS_NORM={
+  'WASHED':'Washed','WET':'Washed',
+  'NATURAL':'Natural',
+  'HONEY':'Honey','BLACK HONEY':'Black Honey','RED HONEY':'Red Honey','YELLOW HONEY':'Yellow Honey',
+  'ANAEROBIC':'Anaerobic Washed','ANAEROBIC WASHED':'Anaerobic Washed',
+  'ANAEROBIC HONEY':'Anaerobic Honey','ANAEROBIC NATURAL':'Anaerobic Natural',
+  'A. WASHED':'Anaerobic Washed','AW':'Anaerobic Washed',
+  'A. HONEY':'Anaerobic Honey','AH':'Anaerobic Honey',
+  'A. NATURAL':'Anaerobic Natural','AN':'Anaerobic Natural',
+  'CM WASHED':'CM Washed','CM HONEY':'CM Honey','CM NATURAL':'CM Natural',
+  'CARBONIC MACERATION':'CM Washed','CARBONIC MASCERATION':'CM Washed',
+  'DEPULPED':'Depulped','DE-PULPED':'Depulped',
+};
+
+function extractProcess(profile, sheetProcess){
+  // 1. Try to extract from profile string (most reliable source)
+  if(profile){
+    const pu=profile.toUpperCase();
+    for(const [pat,canon] of PROFILE_PROCESS_PATTERNS){
+      if(pat.test(pu)) return canon;
     }
   }
-  // No pattern matched — return original trimmed value
-  return raw.trim();
+  // 2. Fall back to sheet process column value, normalised
+  if(sheetProcess){
+    const su=sheetProcess.trim().toUpperCase();
+    if(SHEET_PROCESS_NORM[su]) return SHEET_PROCESS_NORM[su];
+    // Return the raw sheet value (title-cased) if nothing matched
+    return sheetProcess.trim();
+  }
+  return '';
 }
 
-// ── Data loading ──────────────────────────────────────────────────────────────
+// ── Data loading ─────────────────────────────────────────────────────────────
 const SHEET_URLS={
-  Melbourne: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRj7S1FDEpC0_SvZtQBfNlGBLilquJ6YCLzg8So-CSZ4Wk07HbjtcK9z6l8CV7rj5lNEDf1rulD1wb8/pub?gid=0&single=true&output=csv',
-  Portland:  'https://docs.google.com/spreadsheets/d/e/2PACX-1vRj7S1FDEpC0_SvZtQBfNlGBLilquJ6YCLzg8So-CSZ4Wk07HbjtcK9z6l8CV7rj5lNEDf1rulD1wb8/pub?gid=1345419856&single=true&output=csv',
-  Austin:    'https://docs.google.com/spreadsheets/d/e/2PACX-1vRj7S1FDEpC0_SvZtQBfNlGBLilquJ6YCLzg8So-CSZ4Wk07HbjtcK9z6l8CV7rj5lNEDf1rulD1wb8/pub?gid=575438985&single=true&output=csv'
+  Melbourne:'https://docs.google.com/spreadsheets/d/e/2PACX-1vRj7S1FDEpC0_SvZtQBfNlGBLilquJ6YCLzg8So-CSZ4Wk07HbjtcK9z6l8CV7rj5lNEDf1rulD1wb8/pub?gid=0&single=true&output=csv',
+  Portland: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRj7S1FDEpC0_SvZtQBfNlGBLilquJ6YCLzg8So-CSZ4Wk07HbjtcK9z6l8CV7rj5lNEDf1rulD1wb8/pub?gid=1345419856&single=true&output=csv',
+  Austin:   'https://docs.google.com/spreadsheets/d/e/2PACX-1vRj7S1FDEpC0_SvZtQBfNlGBLilquJ6YCLzg8So-CSZ4Wk07HbjtcK9z6l8CV7rj5lNEDf1rulD1wb8/pub?gid=575438985&single=true&output=csv'
 };
-
 const COL_MAP={
-  origin:   ['origin'],
-  process:  ['process'],
-  category: ['group','category'],
-  wb:       ['wb'],
-  gb:       ['gb'],
-  machine:  ['machine'],
-  profile:  ['profile']
+  origin:['origin'],process:['process'],category:['group','category'],
+  wb:['wb'],gb:['gb'],machine:['machine'],profile:['profile']
 };
-
 function findCol(headers,keys){
   const hl=headers.map(h=>h.toLowerCase().trim());
   for(const k of keys){const i=hl.indexOf(k);if(i>=0)return i;}
   return -1;
 }
-
 function parseCSV(text){
   const lines=text.split(/\r?\n/).filter(l=>l.trim());
   if(!lines.length)return[];
@@ -336,12 +299,9 @@ function parseCSV(text){
     const fields=[];let cur='',inQ=false;
     for(let i=0;i<line.length;i++){
       const c=line[i];
-      if(c==='"'){inQ=!inQ;}
-      else if(c===','&&!inQ){fields.push(cur.trim());cur='';}
-      else cur+=c;
+      if(c==='"'){inQ=!inQ;}else if(c===','&&!inQ){fields.push(cur.trim());cur='';}else cur+=c;
     }
-    fields.push(cur.trim());
-    return fields;
+    fields.push(cur.trim());return fields;
   }
   const headers=parseLine(lines[0]);
   const iOrigin=findCol(headers,COL_MAP.origin);
@@ -357,10 +317,12 @@ function parseCSV(text){
     if(f.length<3)continue;
     const wb=parseFloat(f[iWb]);
     const gb=parseFloat(f[iGb]);
+    const profileVal=iProfile>=0?(f[iProfile]||'').trim():'';
+    const sheetProcess=iProcess>=0?(f[iProcess]||'').trim():'';
     rows.push({
       origin:   iOrigin>=0?(f[iOrigin]||'').trim().toUpperCase().slice(0,3):'',
-      varietal: iProfile>=0?extractVarietal(f[iProfile]):'Unknown',
-      process:  iProcess>=0?normProcess((f[iProcess]||'').trim()):'',
+      varietal: extractVarietal(profileVal),
+      process:  extractProcess(profileVal, sheetProcess),
       category: iCat>=0?normCat((f[iCat]||'').trim()):'',
       wb:       isNaN(wb)?null:wb,
       gb:       isNaN(gb)?null:gb,
@@ -371,68 +333,38 @@ function parseCSV(text){
 }
 
 let RAW=[];
-
 async function loadAllSheets(){
   showLoading(true);
   const entries=Object.entries(SHEET_URLS);
   const results=await Promise.allSettled(
-    entries.map(([name,url])=>
-      fetch(url).then(r=>{
-        if(!r.ok)throw new Error(`HTTP ${r.status}`);
-        return r.text();
-      }).then(text=>({name,text}))
-    )
+    entries.map(([name,url])=>fetch(url).then(r=>{if(!r.ok)throw new Error(`HTTP ${r.status}`);return r.text();}).then(text=>({name,text})))
   );
   RAW=[];
-  let loadLog=[];
   results.forEach((res,idx)=>{
-    const ri=idx;
-    const name=entries[idx][0];
     if(res.status==='fulfilled'){
       const rows=parseCSV(res.value.text);
-      const before=RAW.length;
       rows.forEach(r=>{
         if(!r.category||r.category==='BLEND')return;
-        RAW.push([ri,r.origin,r.varietal,r.process,r.category,r.wb,r.gb,r.machine]);
+        RAW.push([idx,r.origin,r.varietal,r.process,r.category,r.wb,r.gb,r.machine]);
       });
-      loadLog.push(`${name}: ${RAW.length-before} rows`);
     } else {
-      console.warn(`Failed to load ${name}:`,res.reason);
-      loadLog.push(`${name}: FAILED (${res.reason?.message||'unknown error'})`);
+      console.warn(`Failed to load ${entries[idx][0]}:`,res.reason);
     }
   });
-  console.log('Loaded:',loadLog.join(' | '));
   showLoading(false);
-  rebuildOptions();
-  rTB();
-  go();
+  rebuildOptions();rTB();go();
 }
 
 function showLoading(on,msg){
   let el=document.getElementById('pm-loading');
-  if(!el){
-    el=document.createElement('div');
-    el.id='pm-loading';
-    el.style.cssText='position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(26,35,64,.85);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:9999;gap:12px';
-    document.body.appendChild(el);
-  }
-  if(on){
-    el.innerHTML=`
-      <div style="font-family:'Black Ops One',serif;font-size:20px;color:#F5C842;letter-spacing:.06em">${msg||'Loading Roast Data...'}</div>
-      <div style="font-family:'DM Sans',sans-serif;font-size:11px;color:rgba(255,255,255,.5)">Fetching from Google Sheets</div>`;
-    el.style.display='flex';
-  } else {
-    el.style.display='none';
-  }
+  if(!el){el=document.createElement('div');el.id='pm-loading';el.style.cssText='position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(26,35,64,.85);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:9999;gap:12px';document.body.appendChild(el);}
+  if(on){el.innerHTML=`<div style="font-family:'Black Ops One',serif;font-size:20px;color:#F5C842;letter-spacing:.06em">${msg||'Loading Roast Data...'}</div><div style="font-family:'DM Sans',sans-serif;font-size:11px;color:rgba(255,255,255,.5)">Fetching from Google Sheets</div>`;el.style.display='flex';}
+  else el.style.display='none';
 }
 
 function rebuildOptions(){
   function uniqIdx(i){return[...new Set(RAW.map(d=>d[i]).filter(v=>v&&v!=='Unknown'&&v!==null))].sort();}
-  OL.o=uniqIdx(1);
-  OL.v=uniqIdx(2);
-  OL.p=uniqIdx(3);
-  OL.c=uniqIdx(4);
-  OL.m=uniqIdx(7);
+  OL.o=uniqIdx(1);OL.v=uniqIdx(2);OL.p=uniqIdx(3);OL.c=uniqIdx(4);OL.m=uniqIdx(7);
   F={r:null,o:null,v:null,p:null,c:null,m:null};
 }
 
@@ -483,9 +415,7 @@ function sortedLabels(g){
   const all=Object.keys(g);
   if(GB!=='c')return{labels:all.sort((a,b)=>a.localeCompare(b)),firstBottom:-1};
   const sc=sortCats(all);
-  const labels=sc.all;
-  const firstBottom=sc.btm.length>0?sc.main.length:-1;
-  return{labels,firstBottom};
+  return{labels:sc.all,firstBottom:sc.btm.length>0?sc.main.length:-1};
 }
 
 function pvClass(d){return d<=2?'pv0':d<=4?'pv1':'pv2';}
@@ -500,18 +430,16 @@ function buildFC(id,fk,lbl){
   } else {
     opts=OL[fk].map(o=>fcOpt(fk,o,s,id)).join('');
   }
-  return`<div class="fc">
-    <div class="fc-lbl">${lbl}</div>
+  return`<div class="fc"><div class="fc-lbl">${lbl}</div>
     <button class="fc-btn" id="btn-${id}" onclick="tFC('${id}')">${lbl} <span class="fc-badge">${b}</span> ▾</button>
     <div class="fc-panel" id="${id}">
       <input class="fc-search" placeholder="Search..." oninput="fFC('${id}',this.value)">
       <div class="fc-acts"><button onclick="doAll('${fk}','${id}')">All</button><button onclick="doNone('${fk}','${id}')">None</button></div>
       <div class="fc-opts" id="${id}-l">${opts}</div>
-    </div>
-  </div>`;
+    </div></div>`;
 }
 function fcOpt(fk,o,s,id){
-  const esc=o.replace(/'/g,"\\'");
+  const esc=o.replace(/\\/g,'\\\\').replace(/'/g,"\\'");
   return`<label class="fc-opt"><input type="checkbox" ${s.has(o)?'checked':''} onchange="togO('${fk}','${esc}',this.checked,'${id}')">${o}</label>`;
 }
 function rTB(){
@@ -521,8 +449,7 @@ function rTB(){
     `<div class="fc" style="max-width:120px"><div class="fc-lbl">Group by</div><select class="gb-select" onchange="setGB(this.value)">${gbK.map(k=>`<option value="${k}"${k===GB?' selected':''}>${gbL[k]}</option>`).join('')}</select></div>`;
 }
 function tFC(id){
-  const panel=document.getElementById(id);
-  const btn=document.getElementById('btn-'+id);
+  const panel=document.getElementById(id),btn=document.getElementById('btn-'+id);
   const isOpen=panel.classList.contains('open');
   document.querySelectorAll('.fc-panel').forEach(p=>p.classList.remove('open'));
   document.querySelectorAll('.fc-btn').forEach(b=>b.classList.remove('open'));
@@ -537,10 +464,7 @@ document.addEventListener('click',e=>{
 function fFC(id,q){document.querySelectorAll('#'+id+'-l .fc-opt').forEach(el=>{el.style.display=el.textContent.toLowerCase().includes(q.toLowerCase())?'':'none';});}
 function doAll(fk,id){F[fk]=null;document.querySelectorAll('#'+id+'-l input').forEach(i=>i.checked=true);go();}
 function doNone(fk,id){F[fk]=[];document.querySelectorAll('#'+id+'-l input').forEach(i=>i.checked=false);go();}
-function togO(fk,val,chk,id){
-  const cur=sel(fk);if(chk)cur.add(val);else cur.delete(val);
-  F[fk]=cur.size===OL[fk].length?null:[...cur];go();
-}
+function togO(fk,val,chk,id){const cur=sel(fk);if(chk)cur.add(val);else cur.delete(val);F[fk]=cur.size===OL[fk].length?null:[...cur];go();}
 function setGB(v){GB=v;go();}
 function setTab(t){
   TAB=t;
@@ -562,40 +486,26 @@ function rMets(data){
     <div class="met"><div class="ml">Avg GB</div><div class="mv">${ag}</div></div>`;
 }
 
-function actRi(){
-  const DISP=[0,1,2];
-  return DISP.filter(i=>sel('r').has(RN[i]));
-}
+function actRi(){return[0,1,2].filter(i=>sel('r').has(RN[i]));}
 
 function rChart(data){
   const g=grp(data);
   const {labels,firstBottom}=sortedLabels(g);
   const aRi=actRi();
   const wrap=document.getElementById('cwrap');
-
-  if(!labels.length){
-    if(CI){CI.destroy();CI=null;}
-    wrap.innerHTML='<div class="nd">No data for this selection</div>';
-    return;
-  }
-
+  if(!labels.length){if(CI){CI.destroy();CI=null;}wrap.innerHTML='<div class="nd">No data for this selection</div>';return;}
   if(CI){CI.destroy();CI=null;}
   wrap.innerHTML='<canvas id="mc"></canvas>';
   const canvas=document.getElementById('mc');
   const ctx=canvas.getContext('2d');
 
-  function gaussKde(vals,x,bw){
-    return vals.reduce((s,v)=>{const u=(x-v)/bw;return s+Math.exp(-0.5*u*u);},0)/(vals.length*bw*2.507);
-  }
+  function gaussKde(vals,x,bw){return vals.reduce((s,v)=>{const u=(x-v)/bw;return s+Math.exp(-0.5*u*u);},0)/(vals.length*bw*2.507);}
   function buildKde(vals,steps=100){
     if(!vals||vals.length<2)return null;
     const mn=Math.min(...vals),mx=Math.max(...vals);
-    const spread=mx-mn||2;
-    const bw=Math.max(1.0,spread*0.12);
-    const lo=mn, hi=mx;
-    const step=(hi-lo)/steps;
-    const pts=[];
-    for(let v=lo;v<=hi+1e-9;v+=step) pts.push({x:v,d:gaussKde(vals,v,bw)});
+    const spread=mx-mn||2;const bw=Math.max(1.0,spread*0.12);
+    const lo=mn,hi=mx,step=(hi-lo)/steps;const pts=[];
+    for(let v=lo;v<=hi+1e-9;v+=step)pts.push({x:v,d:gaussKde(vals,v,bw)});
     const peak=Math.max(...pts.map(p=>p.d))||1;
     return pts.map(p=>({x:p.x,d:p.d/peak}));
   }
@@ -605,181 +515,132 @@ function rChart(data){
     aRi.forEach(i=>{
       const wbVals=(g[l][RN[i]]||{wb:[]}).wb.filter(v=>v!=null);
       const gbVals=(g[l][RN[i]]||{gb:[]}).gb.filter(v=>v!=null);
-      const wbS=st(wbVals), gbS=st(gbVals);
+      const wbS=st(wbVals),gbS=st(gbVals);
       const spread=(wbS&&gbS)?+(gbS.avg-wbS.avg).toFixed(2):null;
       ['wb','gb'].forEach(key=>{
-        const vals=key==='wb'?wbVals:gbVals;
-        const s=key==='wb'?wbS:gbS;
+        const vals=key==='wb'?wbVals:gbVals;const s=key==='wb'?wbS:gbS;
         if(!s)return;
         specs.push({label:l,ri:i,key,vals,avg:+s.avg.toFixed(2),mn:s.min,mx:s.max,kdePts:buildKde(vals),col:COL[i],n:vals.length,spread});
       });
     });
   });
 
-  const MARGIN_LEFT=110, MARGIN_RIGHT=20, MARGIN_TOP=30, MARGIN_BOTTOM=36;
-  const VIOLIN_HALF=18;
-  const ROW_GAP=6;
-  const ROW_H=VIOLIN_HALF*2+ROW_GAP;
-  const GROUP_GAP=10;
-  const totalRows=labels.length*aRi.length*2;
-  const chartH=MARGIN_TOP+MARGIN_BOTTOM+totalRows*ROW_H+labels.length*GROUP_GAP;
+  const ML=110,MR=20,MT=30,MB=36,VH=18,RG=6,RH=VH*2+RG,GG=10;
+  const chartH=MT+MB+labels.length*aRi.length*2*RH+labels.length*GG;
   const dpr=window.devicePixelRatio||1;
-
   wrap.style.height=Math.max(300,chartH)+'px';
-  canvas.style.width='100%';
-  canvas.style.height=Math.max(300,chartH)+'px';
+  canvas.style.width='100%';canvas.style.height=Math.max(300,chartH)+'px';
 
-  function resize(){
-    const W=wrap.clientWidth;
-    canvas.width=W*dpr;
-    canvas.height=Math.max(300,chartH)*dpr;
-    ctx.scale(dpr,dpr);
-    draw(W);
-  }
+  function resize(){const W=wrap.clientWidth;canvas.width=W*dpr;canvas.height=Math.max(300,chartH)*dpr;ctx.scale(dpr,dpr);draw(W);}
 
-  let allVals=[];
-  specs.forEach(sp=>allVals.push(...sp.vals));
-  const globalMin=Math.min(...allVals), globalMax=Math.max(...allVals);
-  const xPad=(globalMax-globalMin)*0.02;
-  const xMin=globalMin-xPad, xMax=globalMax+xPad;
-
-  function toX(v,W){return MARGIN_LEFT+(v-xMin)/(xMax-xMin)*(W-MARGIN_LEFT-MARGIN_RIGHT);}
+  let allVals=[];specs.forEach(sp=>allVals.push(...sp.vals));
+  const gMin=Math.min(...allVals),gMax=Math.max(...allVals);
+  const xPad=(gMax-gMin)*0.02,xMin=gMin-xPad,xMax=gMax+xPad;
+  function toX(v,W){return ML+(v-xMin)/(xMax-xMin)*(W-ML-MR);}
 
   function buildRowMap(){
-    const map={};
-    let y=MARGIN_TOP;
+    const map={};let y=MT;
     labels.forEach((l,li)=>{
-      if(li>0) y+=GROUP_GAP;
-      map[l]={};
-      aRi.forEach(i=>{
-        map[l][i]={};
-        ['wb','gb'].forEach(key=>{
-          map[l][i][key]=y+VIOLIN_HALF;
-          y+=ROW_H;
-        });
-      });
+      if(li>0)y+=GG;map[l]={};
+      aRi.forEach(i=>{map[l][i]={};['wb','gb'].forEach(key=>{map[l][i][key]=y+VH;y+=RH;});});
     });
     return map;
   }
 
   let hoverSpec=null;
-
   function draw(W){
     ctx.clearRect(0,0,canvas.width,canvas.height);
     const rowMap=buildRowMap();
-    const tickCount=6;
-    ctx.strokeStyle='rgba(26,35,64,.06)';ctx.lineWidth=1;
-    ctx.fillStyle='#888';ctx.font='9px "DM Sans",sans-serif';ctx.textAlign='center';
-    for(let t=0;t<=tickCount;t++){
-      const v=xMin+t*(xMax-xMin)/tickCount;
-      const px=toX(v,W);
-      ctx.beginPath();ctx.moveTo(px,MARGIN_TOP-8);ctx.lineTo(px,Math.max(300,chartH)-MARGIN_BOTTOM+4);ctx.stroke();
-      ctx.fillText(v.toFixed(0),px,Math.max(300,chartH)-MARGIN_BOTTOM+14);
+    // Grid
+    ctx.strokeStyle='rgba(26,35,64,.06)';ctx.lineWidth=1;ctx.fillStyle='#888';ctx.font='9px "DM Sans",sans-serif';ctx.textAlign='center';
+    for(let t=0;t<=6;t++){
+      const v=xMin+t*(xMax-xMin)/6,px=toX(v,W);
+      ctx.beginPath();ctx.moveTo(px,MT-8);ctx.lineTo(px,Math.max(300,chartH)-MB+4);ctx.stroke();
+      ctx.fillText(v.toFixed(0),px,Math.max(300,chartH)-MB+14);
     }
-    ctx.fillStyle='#888';ctx.font='9px "DM Sans",sans-serif';ctx.textAlign='center';
-    ctx.fillText('Light Tells',MARGIN_LEFT+(W-MARGIN_LEFT-MARGIN_RIGHT)/2,Math.max(300,chartH)-4);
-
+    ctx.fillText('Light Tells',ML+(W-ML-MR)/2,Math.max(300,chartH)-4);
+    // Separator
     if(firstBottom>-1){
-      let sepY=MARGIN_TOP;
+      let sepY=MT;
       labels.forEach((l,li)=>{
-        if(li>0)sepY+=GROUP_GAP;
-        sepY+=aRi.length*2*ROW_H;
+        if(li>0)sepY+=GG;sepY+=aRi.length*2*RH;
         if(li===firstBottom-1){
           ctx.save();ctx.strokeStyle='rgba(26,35,64,0.25)';ctx.lineWidth=1.5;ctx.setLineDash([5,3]);
-          ctx.beginPath();ctx.moveTo(MARGIN_LEFT,sepY+GROUP_GAP/2);ctx.lineTo(W-MARGIN_RIGHT,sepY+GROUP_GAP/2);ctx.stroke();
+          ctx.beginPath();ctx.moveTo(ML,sepY+GG/2);ctx.lineTo(W-MR,sepY+GG/2);ctx.stroke();
           ctx.setLineDash([]);ctx.restore();
         }
       });
     }
-
+    // Y labels
     ctx.textAlign='right';ctx.fillStyle='#1A2340';ctx.font='600 10px "DM Sans",sans-serif';
     labels.forEach(l=>{
-      const ri0=aRi[0];const midY=rowMap[l][ri0].wb;
-      const lastRi=aRi[aRi.length-1];const lastY=rowMap[l][lastRi].gb;
-      const groupMid=(midY+lastY)/2;
-      let lbl=l.length>16?l.slice(0,15)+'…':l;
-      ctx.fillText(lbl,MARGIN_LEFT-6,groupMid+3);
+      const ri0=aRi[0],lastRi=aRi[aRi.length-1];
+      const midY=(rowMap[l][ri0].wb+rowMap[l][lastRi].gb)/2;
+      ctx.fillText(l.length>16?l.slice(0,15)+'…':l,ML-6,midY+3);
     });
-
+    // Violins
     specs.forEach(sp=>{
       if(!rowMap[sp.label]||!rowMap[sp.label][sp.ri])return;
       const midY=rowMap[sp.label][sp.ri][sp.key];
-      const kdePts=sp.kdePts;const col=sp.col;const isGB=sp.key==='gb';const alpha=isGB?0.40:0.65;
+      const kdePts=sp.kdePts,col=sp.col,alpha=sp.key==='gb'?0.40:0.65;
       if(kdePts&&kdePts.length>1){
         ctx.save();ctx.globalAlpha=alpha;ctx.fillStyle=col;
-        ctx.beginPath();ctx.moveTo(toX(kdePts[0].x,W),midY-kdePts[0].d*VIOLIN_HALF);
-        kdePts.forEach(p=>ctx.lineTo(toX(p.x,W),midY-p.d*VIOLIN_HALF));
-        [...kdePts].reverse().forEach(p=>ctx.lineTo(toX(p.x,W),midY+p.d*VIOLIN_HALF));
+        ctx.beginPath();ctx.moveTo(toX(kdePts[0].x,W),midY-kdePts[0].d*VH);
+        kdePts.forEach(p=>ctx.lineTo(toX(p.x,W),midY-p.d*VH));
+        [...kdePts].reverse().forEach(p=>ctx.lineTo(toX(p.x,W),midY+p.d*VH));
         ctx.closePath();ctx.fill();
         ctx.globalAlpha=alpha+0.25;ctx.strokeStyle=col;ctx.lineWidth=0.8;
-        ctx.beginPath();
-        kdePts.forEach((p,k)=>{k===0?ctx.moveTo(toX(p.x,W),midY-p.d*VIOLIN_HALF):ctx.lineTo(toX(p.x,W),midY-p.d*VIOLIN_HALF);});
-        [...kdePts].reverse().forEach((p,k)=>{k===0?ctx.moveTo(toX(p.x,W),midY+p.d*VIOLIN_HALF):ctx.lineTo(toX(p.x,W),midY+p.d*VIOLIN_HALF);});
+        ctx.beginPath();kdePts.forEach((p,k)=>{k===0?ctx.moveTo(toX(p.x,W),midY-p.d*VH):ctx.lineTo(toX(p.x,W),midY-p.d*VH);});
+        [...kdePts].reverse().forEach((p,k)=>{k===0?ctx.moveTo(toX(p.x,W),midY+p.d*VH):ctx.lineTo(toX(p.x,W),midY+p.d*VH);});
         ctx.stroke();ctx.restore();
       }
       const avgPx=toX(sp.avg,W);
       ctx.save();ctx.globalAlpha=0.95;ctx.strokeStyle='rgba(255,255,255,0.9)';ctx.lineWidth=2.5;
-      ctx.beginPath();ctx.moveTo(avgPx,midY-VIOLIN_HALF*0.65);ctx.lineTo(avgPx,midY+VIOLIN_HALF*0.65);ctx.stroke();
+      ctx.beginPath();ctx.moveTo(avgPx,midY-VH*0.65);ctx.lineTo(avgPx,midY+VH*0.65);ctx.stroke();
       ctx.strokeStyle=col;ctx.lineWidth=1.5;ctx.globalAlpha=1;
-      ctx.beginPath();ctx.moveTo(avgPx,midY-VIOLIN_HALF*0.65);ctx.lineTo(avgPx,midY+VIOLIN_HALF*0.65);ctx.stroke();
+      ctx.beginPath();ctx.moveTo(avgPx,midY-VH*0.65);ctx.lineTo(avgPx,midY+VH*0.65);ctx.stroke();
       ctx.restore();
     });
-
+    // Hover tooltip
     if(hoverSpec){
       const sp=hoverSpec;
       if(rowMap[sp.label]&&rowMap[sp.label][sp.ri]){
-        const midY=rowMap[sp.label][sp.ri][sp.key];
-        const avgPx=toX(sp.avg,W);
+        const midY=rowMap[sp.label][sp.ri][sp.key],avgPx=toX(sp.avg,W);
         ctx.save();ctx.globalAlpha=1;ctx.fillStyle=sp.col;
         ctx.beginPath();ctx.arc(avgPx,midY,5,0,Math.PI*2);ctx.fill();
         ctx.strokeStyle='#fff';ctx.lineWidth=1.5;ctx.stroke();ctx.restore();
-        const lines=[
-          `${RN[sp.ri]} ${sp.key.toUpperCase()}`,
-          `avg: ${sp.avg}`,
-          `range: ${sp.mn.toFixed(0)}–${sp.mx.toFixed(0)}`,
-          ...(sp.spread!==null?[`spread: ${sp.spread>0?'+':''}${sp.spread}`]:[]),
-          `n = ${sp.n}`
-        ];
+        const lines=[`${RN[sp.ri]} ${sp.key.toUpperCase()}`,`avg: ${sp.avg}`,`range: ${sp.mn.toFixed(0)}–${sp.mx.toFixed(0)}`,
+          ...(sp.spread!==null?[`spread: ${sp.spread>0?'+':''}${sp.spread}`]:[]),`n = ${sp.n}`];
         const TW=148,TH=lines.length*15+12;
-        let TX=avgPx+10, TY=midY-TH/2;
-        if(TX+TW>W-MARGIN_RIGHT) TX=avgPx-TW-10;
-        if(TY<2) TY=2;
-        ctx.save();ctx.globalAlpha=0.95;ctx.fillStyle='#1A2340';
-        ctx.beginPath();ctx.roundRect(TX,TY,TW,TH,5);ctx.fill();
-        ctx.globalAlpha=1;ctx.fillStyle='#F5C842';ctx.font='700 10px "DM Sans",sans-serif';ctx.textAlign='left';
-        ctx.fillText(lines[0],TX+8,TY+14);
-        ctx.fillStyle='#fff';ctx.font='10px "DM Sans",sans-serif';
-        lines.slice(1).forEach((ln,i)=>ctx.fillText(ln,TX+8,TY+28+i*14));
+        let TX=avgPx+10,TY=midY-TH/2;
+        if(TX+TW>W-MR)TX=avgPx-TW-10;if(TY<2)TY=2;
+        ctx.save();ctx.globalAlpha=0.95;ctx.fillStyle='#1A2340';ctx.beginPath();ctx.roundRect(TX,TY,TW,TH,5);ctx.fill();
+        ctx.globalAlpha=1;ctx.fillStyle='#F5C842';ctx.font='700 10px "DM Sans",sans-serif';ctx.textAlign='left';ctx.fillText(lines[0],TX+8,TY+14);
+        ctx.fillStyle='#fff';ctx.font='10px "DM Sans",sans-serif';lines.slice(1).forEach((ln,i)=>ctx.fillText(ln,TX+8,TY+28+i*14));
         ctx.restore();
       }
     }
   }
 
   canvas.addEventListener('mousemove',e=>{
-    const rect=canvas.getBoundingClientRect();
-    const mx=e.clientX-rect.left;const my=e.clientY-rect.top;
-    const W=wrap.clientWidth;const rowMap=buildRowMap();
+    const rect=canvas.getBoundingClientRect(),mx=e.clientX-rect.left,my=e.clientY-rect.top;
+    const W=wrap.clientWidth,rowMap=buildRowMap();
     let found=null,bestD=Infinity;
     specs.forEach(sp=>{
       if(!rowMap[sp.label]||!rowMap[sp.label][sp.ri])return;
       const midY=rowMap[sp.label][sp.ri][sp.key];
-      if(Math.abs(my-midY)>VIOLIN_HALF+4)return;
+      if(Math.abs(my-midY)>VH+4)return;
       if(!sp.kdePts||!sp.kdePts.length)return;
-      const loX=toX(sp.kdePts[0].x,W), hiX=toX(sp.kdePts[sp.kdePts.length-1].x,W);
+      const loX=toX(sp.kdePts[0].x,W),hiX=toX(sp.kdePts[sp.kdePts.length-1].x,W);
       if(mx<Math.min(loX,hiX)-4||mx>Math.max(loX,hiX)+4)return;
-      const d=Math.abs(mx-toX(sp.avg,W));
-      if(d<bestD){bestD=d;found=sp;}
+      const d=Math.abs(mx-toX(sp.avg,W));if(d<bestD){bestD=d;found=sp;}
     });
-    hoverSpec=found;
-    ctx.setTransform(dpr,0,0,dpr,0,0);draw(W);
+    hoverSpec=found;ctx.setTransform(dpr,0,0,dpr,0,0);draw(W);
   });
-  canvas.addEventListener('mouseleave',()=>{
-    hoverSpec=null;const W=wrap.clientWidth;ctx.setTransform(dpr,0,0,dpr,0,0);draw(W);
-  });
-
+  canvas.addEventListener('mouseleave',()=>{hoverSpec=null;ctx.setTransform(dpr,0,0,dpr,0,0);draw(wrap.clientWidth);});
   resize();
 
-  const legItems=aRi.map(i=>`
+  document.getElementById('cleg').innerHTML=aRi.map(i=>`
     <span style="display:flex;align-items:center;gap:5px">
       <span style="display:flex;flex-direction:column;gap:2px">
         <span style="width:26px;height:7px;border-radius:3px;background:${COL[i]};display:block"></span>
@@ -789,19 +650,13 @@ function rChart(data){
         <span>${RN[i]} WB</span><span style="opacity:.7">${RN[i]} GB</span>
       </span>
     </span>`).join('');
-  document.getElementById('cleg').innerHTML=legItems;
 }
 
 function rTable(data){
-  const g=grp(data);
-  const {labels,firstBottom}=sortedLabels(g);
-  const aRi=actRi();
+  const g=grp(data),{labels,firstBottom}=sortedLabels(g),aRi=actRi();
   let h=`<thead><tr><th>Group</th>`;
-  aRi.forEach(i=>{
-    h+=`<th style="color:${COL[i]}">${RN[i]} WB avg</th>`;
-    h+=`<th style="color:${COL[i]}">${RN[i]} GB avg</th>`;
-  });
-  if(aRi.length>1){h+=`<th style="color:var(--pm-cyan)">WB spread</th><th style="color:var(--pm-yellow)">GB spread</th>`;}
+  aRi.forEach(i=>{h+=`<th style="color:${COL[i]}">${RN[i]} WB avg</th><th style="color:${COL[i]}">${RN[i]} GB avg</th>`;});
+  if(aRi.length>1)h+=`<th style="color:var(--pm-cyan)">WB spread</th><th style="color:var(--pm-yellow)">GB spread</th>`;
   h+=`</tr></thead><tbody>`;
   if(!labels.length)h+=`<tr><td colspan="20" class="nd">No data</td></tr>`;
   labels.forEach((l,idx)=>{
@@ -809,9 +664,9 @@ function rTable(data){
     h+=`<tr${sepClass}><td style="font-weight:500">${l}</td>`;
     const wa=[],ga=[];
     aRi.forEach(i=>{
-      const rn=RN[i];const sw=st((g[l][rn]||{wb:[]}).wb);const sg=st((g[l][rn]||{gb:[]}).gb);
+      const rn=RN[i],sw=st((g[l][rn]||{wb:[]}).wb),sg=st((g[l][rn]||{gb:[]}).gb);
       if(sw)wa.push(sw.avg);if(sg)ga.push(sg.avg);
-      const nw=(g[l][rn]||{wb:[]}).wb.length;const ng=(g[l][rn]||{gb:[]}).gb.length;
+      const nw=(g[l][rn]||{wb:[]}).wb.length,ng=(g[l][rn]||{gb:[]}).gb.length;
       h+=`<td>${sw?sw.avg.toFixed(1)+' <span style="font-size:10px;color:#888">('+sw.min.toFixed(0)+'–'+sw.max.toFixed(0)+')</span><span style="font-size:9px;color:#49BFCE;margin-left:3px;font-weight:700">n='+nw+'</span>':'—'}</td>`;
       h+=`<td>${sg?sg.avg.toFixed(1)+' <span style="font-size:10px;color:#888">('+sg.min.toFixed(0)+'–'+sg.max.toFixed(0)+')</span><span style="font-size:9px;color:#49BFCE;margin-left:3px;font-weight:700">n='+ng+'</span>':'—'}</td>`;
     });
@@ -825,65 +680,43 @@ function rTable(data){
 }
 
 function rVar(data){
-  const g=grp(data);
-  const {labels,firstBottom}=sortedLabels(g);
-  const aRi=actRi();
-  const melI=0;const hasMel=aRi.includes(melI);
+  const g=grp(data),{labels,firstBottom}=sortedLabels(g),aRi=actRi(),melI=0,hasMel=aRi.includes(melI);
   const cards=labels.map((l,idx)=>{
     const rd=g[l]||{};
     const melSw=hasMel?st((rd[RN[melI]]||{wb:[]}).wb):null;
     const melSg=hasMel?st((rd[RN[melI]]||{gb:[]}).gb):null;
     const rows=aRi.map(i=>({i,sw:st((rd[RN[i]]||{wb:[]}).wb),sg:st((rd[RN[i]]||{gb:[]}).gb)})).filter(x=>x.sw||x.sg);
-    const wbRows=rows.filter(x=>x.sw);
-    if(wbRows.length<2)return null;
+    const wbRows=rows.filter(x=>x.sw);if(wbRows.length<2)return null;
     const avgs=wbRows.map(x=>x.sw.avg);
-    const spread=Math.max(...avgs)-Math.min(...avgs);
-    return{l,rd,rows,spread,melSw,melSg,isSep:firstBottom>-1&&idx===firstBottom};
+    return{l,rd,rows,spread:Math.max(...avgs)-Math.min(...avgs),melSw,melSg,isSep:firstBottom>-1&&idx===firstBottom};
   }).filter(Boolean);
   if(!cards.length){document.getElementById('vg').innerHTML='<div class="nd">Select 2+ roasteries to compare</div>';return;}
   function fmtAvg(s){return s?s.avg.toFixed(1):'—';}
-  function fmtRange(s){return s?`<span style="font-size:10px;color:#888">(${s.min.toFixed(0)}–${s.max.toFixed(0)})</span>`:''}
-  function diffPill(s,ref){
-    if(!s||!ref)return'';
-    const d=Math.abs(s.avg-ref.avg);
-    return`<span class="pill ${pvClass(d)}">±${d.toFixed(1)}</span>`;
-  }
-  let html='';let sepInserted=false;
+  function fmtRange(s){return s?`<span style="font-size:10px;color:#888">(${s.min.toFixed(0)}–${s.max.toFixed(0)})</span>`:'';}
+  function diffPill(s,ref){if(!s||!ref)return'';const d=Math.abs(s.avg-ref.avg);return`<span class="pill ${pvClass(d)}">±${d.toFixed(1)}</span>`;}
+  let html='',sepInserted=false;
   cards.forEach(({l,rd,rows,spread,melSw,melSg,isSep})=>{
-    if(isSep&&!sepInserted){sepInserted=true;html+=`<div style="grid-column:1/-1;border-top:1.5px solid var(--color-border-primary);margin:4px 0"></div>`;}
+    if(isSep&&!sepInserted){sepInserted=true;html+=`<div style="grid-column:1/-1;border-top:1.5px solid #E8DCC8;margin:4px 0"></div>`;}
     const sorted=[...rows].sort((a,b)=>(a.i===melI?-1:b.i===melI?1:a.i-b.i));
     let tableRows='';
     sorted.forEach(({i,sw,sg},idx)=>{
-      const isMel=(i===melI);
-      const borderStyle=(!isMel&&idx===1&&hasMel)?'border-top:0.5px solid #E8DCC8':'';
-      const wbDiff=(!isMel&&hasMel)?diffPill(sw,melSw):'';
-      const gbDiff=(!isMel&&hasMel)?diffPill(sg,melSg):'';
-      const nwv=(rd[RN[i]]||{wb:[]}).wb.length;const ngv=(rd[RN[i]]||{gb:[]}).gb.length;
-      tableRows+=`<tr style="${borderStyle}">
+      const isMel=i===melI;
+      const nwv=(rd[RN[i]]||{wb:[]}).wb.length,ngv=(rd[RN[i]]||{gb:[]}).gb.length;
+      tableRows+=`<tr style="${!isMel&&idx===1&&hasMel?'border-top:0.5px solid #E8DCC8':''}">
         <td style="color:${COL[i]};font-weight:${isMel?'600':'500'};white-space:nowrap">${RN[i]}</td>
-        <td>${fmtAvg(sw)}</td>
-        <td>${fmtRange(sw)}<span style="font-size:9px;color:#49BFCE;font-weight:700;margin-left:2px">${nwv?'n='+nwv:''}</span></td>
-        <td class="wb-col">${wbDiff}</td>
-        <td>${fmtAvg(sg)}</td>
-        <td>${fmtRange(sg)}<span style="font-size:9px;color:#49BFCE;font-weight:700;margin-left:2px">${ngv?'n='+ngv:''}</span></td>
-        <td>${gbDiff}</td>
+        <td>${fmtAvg(sw)}</td><td>${fmtRange(sw)}<span style="font-size:9px;color:#49BFCE;font-weight:700;margin-left:2px">${nwv?'n='+nwv:''}</span></td>
+        <td class="wb-col">${!isMel&&hasMel?diffPill(sw,melSw):''}</td>
+        <td>${fmtAvg(sg)}</td><td>${fmtRange(sg)}<span style="font-size:9px;color:#49BFCE;font-weight:700;margin-left:2px">${ngv?'n='+ngv:''}</span></td>
+        <td>${!isMel&&hasMel?diffPill(sg,melSg):''}</td>
       </tr>`;
     });
     html+=`<div class="vc">
       <div class="vt"><span>${l}</span><span class="pill ${pvClass(spread)}">±${spread.toFixed(1)}</span></div>
-      <table class="vcard-tbl">
-        <thead><tr>
-          <th></th>
-          <th colspan="3" class="wb-group">WB</th>
-          <th colspan="3" class="gb-group">GB</th>
-        </tr>
-        <tr>
-          <th></th>
-          <th>avg</th><th>range</th><th class="wb-col">vs Mel</th>
-          <th>avg</th><th>range</th><th>vs Mel</th>
-        </tr></thead>
-        <tbody>${tableRows}</tbody>
-      </table>
+      <table class="vcard-tbl"><thead><tr>
+        <th></th><th colspan="3" class="wb-group">WB</th><th colspan="3" class="gb-group">GB</th>
+      </tr><tr>
+        <th></th><th>avg</th><th>range</th><th class="wb-col">vs Mel</th><th>avg</th><th>range</th><th>vs Mel</th>
+      </tr></thead><tbody>${tableRows}</tbody></table>
     </div>`;
   });
   document.getElementById('vg').innerHTML=html;
@@ -895,13 +728,11 @@ function rAFS(){
   keys.forEach(([k,lbl])=>{
     if(iAll(k))return;
     if(iNone(k)){parts.push(`<span class="afc"><span class="afc-k">${lbl}:</span>none</span>`);return;}
-    const vals=F[k];
-    if(vals.length<=3){vals.forEach(v=>parts.push(`<span class="afc"><span class="afc-k">${lbl}:</span>${v}</span>`));}
-    else{parts.push(`<span class="afc"><span class="afc-k">${lbl}:</span>${vals.length} selected</span>`);}
+    if(F[k].length<=3)F[k].forEach(v=>parts.push(`<span class="afc"><span class="afc-k">${lbl}:</span>${v}</span>`));
+    else parts.push(`<span class="afc"><span class="afc-k">${lbl}:</span>${F[k].length} selected</span>`);
   });
   const el=document.getElementById('afs');
-  if(parts.length){el.innerHTML=`<span class="aft">Showing:</span>`+parts.join('');}
-  else{el.innerHTML='';}
+  el.innerHTML=parts.length?`<span class="aft">Showing:</span>`+parts.join(''):'';
 }
 
 function go(){const data=applyF();rMets(data);rTB();rAFS();if(TAB==='chart')rChart(data);else if(TAB==='table')rTable(data);else rVar(data);}
