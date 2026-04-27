@@ -1,4 +1,3 @@
-
 <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Oswald:wght@700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 /* ══ PROUD MARY COLOUR SYSTEM ══ */
@@ -21,149 +20,27 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body,div,span,td,th,button,input,select,label,p{font-family:var(--font-body)}
-
-/* ══ OUTER WRAPPER ══ */
-.pm-wrap{
-  background:var(--pm-cream);
-  border-radius:0;
-  border:3px solid var(--pm-navy);
-  overflow:hidden;
-  box-shadow:6px 6px 0 var(--pm-navy);
-}
-
-/* ══ HEADER — PM badge/crest layout ══ */
-.pm-header{
-  background:var(--pm-yellow);
-  border-bottom:3px solid var(--pm-navy);
-  padding:0;
-  display:grid;
-  grid-template-columns:1fr auto 1fr;
-  align-items:stretch;
-  min-height:110px;
-}
-
-/* ── LEFT PANEL ── */
-.pm-header-left-tab{
-  background:var(--pm-cyan);
-  border-right:3px solid var(--pm-navy);
-  display:flex;flex-direction:column;
-  align-items:center;justify-content:center;
-  padding:12px 16px;gap:6px;
-}
+.pm-wrap{background:var(--pm-cream);border-radius:0;border:3px solid var(--pm-navy);overflow:hidden;box-shadow:6px 6px 0 var(--pm-navy);}
+.pm-header{background:var(--pm-yellow);border-bottom:3px solid var(--pm-navy);padding:0;display:grid;grid-template-columns:1fr auto 1fr;align-items:stretch;min-height:110px;}
+.pm-header-left-tab{background:var(--pm-cyan);border-right:3px solid var(--pm-navy);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:12px 16px;gap:6px;}
 .pm-loc-stamps{display:flex;gap:5px;align-items:center}
-.pm-loc-stamp{
-  font-family:var(--font-display);
-  font-size:11px;letter-spacing:.06em;
-  color:var(--pm-navy);
-  border:2px solid var(--pm-navy);
-  padding:3px 7px;border-radius:3px;
-  line-height:1;
-}
-.pm-header-divider{
-  width:40px;height:2px;
-  background:var(--pm-navy);opacity:.25;
-  border-radius:2px;
-}
-.pm-aus-usa{
-  display:flex;gap:5px;align-items:center;
-  font-family:var(--font-label);
-}
-.pm-country-tag{
-  background:var(--pm-navy);color:var(--pm-yellow);
-  padding:2px 7px;border-radius:2px;
-  font-size:9px;font-weight:700;letter-spacing:.14em;
-}
-.pm-tagline{
-  font-family:var(--font-label);
-  font-size:8px;font-weight:700;
-  color:var(--pm-navy);
-  letter-spacing:.12em;text-transform:uppercase;
-  opacity:.65;text-align:center;
-}
-
-/* ── CENTRE BADGE ── */
-.pm-header-centre{
-  display:flex;flex-direction:column;
-  align-items:center;justify-content:center;
-  padding:10px 24px;gap:0;
-}
-.pm-badge-top{
-  font-family:var(--font-display);
-  font-size:20px;color:var(--pm-navy);
-  letter-spacing:.06em;
-  background:var(--pm-yellow);
-  border:2.5px solid var(--pm-navy);
-  border-bottom:none;
-  padding:4px 22px 2px;
-  clip-path:polygon(6% 0%,94% 0%,100% 100%,0% 100%);
-  text-align:center;
-  line-height:1;
-}
-.pm-badge-mid{
-  background:var(--pm-cyan);
-  border-left:2.5px solid var(--pm-navy);
-  border-right:2.5px solid var(--pm-navy);
-  padding:6px 18px;
-  display:flex;align-items:center;justify-content:center;
-}
+.pm-loc-stamp{font-family:var(--font-display);font-size:11px;letter-spacing:.06em;color:var(--pm-navy);border:2px solid var(--pm-navy);padding:3px 7px;border-radius:3px;line-height:1;}
+.pm-header-divider{width:40px;height:2px;background:var(--pm-navy);opacity:.25;border-radius:2px;}
+.pm-aus-usa{display:flex;gap:5px;align-items:center;font-family:var(--font-label);}
+.pm-country-tag{background:var(--pm-navy);color:var(--pm-yellow);padding:2px 7px;border-radius:2px;font-size:9px;font-weight:700;letter-spacing:.14em;}
+.pm-tagline{font-family:var(--font-label);font-size:8px;font-weight:700;color:var(--pm-navy);letter-spacing:.12em;text-transform:uppercase;opacity:.65;text-align:center;}
+.pm-header-centre{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px 24px;gap:0;}
+.pm-badge-top{font-family:var(--font-display);font-size:20px;color:var(--pm-navy);letter-spacing:.06em;background:var(--pm-yellow);border:2.5px solid var(--pm-navy);border-bottom:none;padding:4px 22px 2px;clip-path:polygon(6% 0%,94% 0%,100% 100%,0% 100%);text-align:center;line-height:1;}
+.pm-badge-mid{background:var(--pm-cyan);border-left:2.5px solid var(--pm-navy);border-right:2.5px solid var(--pm-navy);padding:6px 18px;display:flex;align-items:center;justify-content:center;}
 .pm-badge-eye{display:flex;align-items:center;justify-content:center}
-.pm-badge-bot{
-  font-family:var(--font-display);
-  font-size:20px;color:var(--pm-navy);
-  letter-spacing:.06em;
-  background:var(--pm-yellow);
-  border:2.5px solid var(--pm-navy);
-  border-top:none;
-  padding:2px 22px 4px;
-  clip-path:polygon(0% 0%,100% 0%,94% 100%,6% 100%);
-  text-align:center;
-  line-height:1;
-}
-.pm-coffee-roasters{
-  font-family:var(--font-label);
-  font-size:7.5px;font-weight:700;
-  color:var(--pm-navy);letter-spacing:.24em;
-  text-transform:uppercase;
-  border:1.5px solid var(--pm-navy);
-  border-radius:20px;padding:2px 12px;
-  background:var(--pm-cream);
-  margin-top:5px;
-}
-
-/* ── RIGHT PANEL ── */
-.pm-header-right-tab{
-  background:var(--pm-pink);
-  border-left:3px solid var(--pm-navy);
-  display:flex;flex-direction:column;
-  align-items:center;justify-content:center;
-  padding:12px 16px;gap:4px;
-}
-.pm-dash-kicker{
-  font-family:var(--font-label);
-  font-size:9px;font-weight:700;
-  color:var(--pm-navy);letter-spacing:.22em;
-  text-transform:uppercase;opacity:.7;
-}
-.pm-dash-title{
-  font-family:var(--font-display);
-  font-size:16px;color:var(--pm-navy);
-  letter-spacing:.04em;text-transform:uppercase;
-  text-align:center;line-height:1.15;
-}
+.pm-badge-bot{font-family:var(--font-display);font-size:20px;color:var(--pm-navy);letter-spacing:.06em;background:var(--pm-yellow);border:2.5px solid var(--pm-navy);border-top:none;padding:2px 22px 4px;clip-path:polygon(0% 0%,100% 0%,94% 100%,6% 100%);text-align:center;line-height:1;}
+.pm-coffee-roasters{font-family:var(--font-label);font-size:7.5px;font-weight:700;color:var(--pm-navy);letter-spacing:.24em;text-transform:uppercase;border:1.5px solid var(--pm-navy);border-radius:20px;padding:2px 12px;background:var(--pm-cream);margin-top:5px;}
+.pm-header-right-tab{background:var(--pm-pink);border-left:3px solid var(--pm-navy);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:12px 16px;gap:4px;}
+.pm-dash-kicker{font-family:var(--font-label);font-size:9px;font-weight:700;color:var(--pm-navy);letter-spacing:.22em;text-transform:uppercase;opacity:.7;}
+.pm-dash-title{font-family:var(--font-display);font-size:16px;color:var(--pm-navy);letter-spacing:.04em;text-transform:uppercase;text-align:center;line-height:1.15;}
 .pm-dash-meta{display:flex;gap:4px;margin-top:2px}
-.pm-dash-chip{
-  font-family:var(--font-label);
-  font-size:8px;font-weight:700;
-  color:var(--pm-navy);letter-spacing:.1em;
-  border:1.5px solid var(--pm-navy);
-  border-radius:2px;padding:2px 6px;
-  background:rgba(255,255,255,.45);
-}
-
-/* ══ INNER CONTENT ══ */
+.pm-dash-chip{font-family:var(--font-label);font-size:8px;font-weight:700;color:var(--pm-navy);letter-spacing:.1em;border:1.5px solid var(--pm-navy);border-radius:2px;padding:2px 6px;background:rgba(255,255,255,.45);}
 .pm-inner{padding:12px 14px 16px}
-
-/* ══ FILTER BAR ══ */
 .fb{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px;align-items:flex-start}
 .fc{display:flex;flex-direction:column;gap:0;flex:1;min-width:110px;max-width:200px}
 .fc-lbl{font-size:8px;font-weight:700;color:var(--pm-navy);text-transform:uppercase;letter-spacing:.14em;margin-bottom:3px;font-family:var(--font-label)}
@@ -182,52 +59,36 @@ body,div,span,td,th,button,input,select,label,p{font-family:var(--font-body)}
 .fc-opt:hover{background:var(--pm-cream)}
 .fc-opt input{accent-color:var(--pm-cyan);flex-shrink:0}
 .sep-row{border-top:2px dashed #E0D8C5;margin:3px 0}
-
-/* ══ ACTIVE FILTER SUMMARY ══ */
 .afs{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:10px;align-items:center;min-height:18px}
 .aft{font-size:8px;font-weight:700;color:var(--pm-navy);text-transform:uppercase;letter-spacing:.14em;margin-right:2px;opacity:.55;font-family:var(--font-label)}
 .afc{display:inline-flex;align-items:center;gap:2px;background:var(--pm-cyan);border:1.5px solid var(--pm-navy);border-radius:3px;padding:2px 8px;font-size:9px;font-weight:700;color:var(--pm-navy);font-family:var(--font-label);letter-spacing:.04em}
 .afc-k{opacity:.65;margin-right:1px}
-
-/* ══ TABS ══ */
 .tabs{display:flex;margin-bottom:12px;gap:4px}
 .tab{padding:6px 16px;font-size:9px;font-weight:700;cursor:pointer;border:2px solid var(--pm-navy);background:var(--pm-white);color:var(--pm-navy);border-radius:3px;text-transform:uppercase;letter-spacing:.12em;transition:all .12s;font-family:var(--font-label)}
 .tab:hover{background:var(--pm-yellow)}
 .tab.active{background:var(--pm-navy);color:var(--pm-yellow)}
-
-/* ══ METRIC STRIP ══ */
 .mets{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
 .met{background:var(--pm-white);border:2px solid var(--pm-navy);border-radius:4px;padding:7px 13px;min-width:80px;position:relative;overflow:hidden}
 .met::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--pm-cyan)}
 .ml{font-size:8px;font-weight:700;color:var(--pm-navy);text-transform:uppercase;letter-spacing:.14em;margin-bottom:2px;opacity:.55;font-family:var(--font-label)}
 .mv{font-family:var(--font-display);font-size:22px;color:var(--pm-navy);line-height:1.1}
-
-/* ══ VIEWS ══ */
 .vw{display:none}.vw.active{display:block}
-
-/* ══ TABLE ══ */
 .tbl{width:100%;border-collapse:collapse;font-size:11px}
 .tbl thead{background:var(--pm-navy)}
 .tbl th{text-align:left;padding:6px 8px;font-size:8px;font-weight:700;color:var(--pm-yellow);text-transform:uppercase;letter-spacing:.12em;white-space:nowrap;font-family:var(--font-label)}
 .tbl td{padding:5px 8px;border-bottom:1.5px solid #E8DCC8;vertical-align:middle;color:var(--pm-navy)}
 .tbl tbody tr:hover td{background:rgba(73,191,206,.08)}
 .tbl tr.sep-tr td{border-top:2.5px dashed #E0D8C5}
-
-/* ══ PILLS ══ */
 .pill{display:inline-block;padding:2px 8px;border-radius:3px;font-size:9px;font-weight:700;border:1.5px solid transparent;text-transform:uppercase;letter-spacing:.04em;font-family:var(--font-label)}
 .pv0{background:#C8EFDA;color:#0d5c2e;border-color:#8DD4B0}
 .pv1{background:var(--pm-yellow);color:var(--pm-navy);border-color:#C8A000}
 .pv2{background:#FFD0DC;color:#8B0023;border-color:#F0A0B8}
-
-/* ══ VARIANCE GRID ══ */
 .vg{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:10px}
 .vc{background:var(--pm-white);border:2px solid var(--pm-navy);border-radius:4px;padding:10px 12px;position:relative;overflow:hidden}
 .vc::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:repeating-linear-gradient(90deg,var(--pm-cyan) 0 20px,var(--pm-yellow) 20px 40px,var(--pm-pink) 40px 60px,var(--pm-purple) 60px 80px)}
 .vt{font-family:var(--font-display);font-size:12px;color:var(--pm-navy);margin-bottom:6px;padding-bottom:6px;border-bottom:1.5px solid #E8DCC8;display:flex;justify-content:space-between;align-items:center}
 .vr{display:flex;justify-content:space-between;align-items:center;padding:2px 0;font-size:11px}
 .nd{text-align:center;color:var(--pm-navy);padding:2.5rem;font-family:var(--font-display);font-size:13px;letter-spacing:.04em;opacity:.4}
-
-/* ══ VARIANCE CARD TABLE ══ */
 .vcard-tbl{width:100%;border-collapse:collapse;font-size:11px;margin-top:4px}
 .vcard-tbl thead{background:var(--pm-cream)}
 .vcard-tbl th{font-size:8px;color:var(--pm-navy);font-weight:700;text-align:right;padding:3px 5px;border-bottom:2px solid var(--pm-navy);text-transform:uppercase;letter-spacing:.1em;font-family:var(--font-label)}
@@ -238,21 +99,13 @@ body,div,span,td,th,button,input,select,label,p{font-family:var(--font-body)}
 .vcard-tbl td:first-child{text-align:left;font-weight:700}
 .vcard-tbl tr:hover td{background:var(--pm-cream)}
 .vcard-tbl td.wb-col{border-right:1.5px solid #E8DCC8}
-
-/* ══ CHART LEGEND ══ */
 #cleg{margin-bottom:8px;display:flex;gap:10px;flex-wrap:wrap;font-size:11px;font-weight:700;color:var(--pm-navy)}
-
-/* ══ GROUPBY SELECT ══ */
 .gb-select{background:var(--pm-white);border:2px solid var(--pm-navy);border-radius:4px;padding:5px 9px;font-size:11px;font-weight:700;color:var(--pm-navy);width:100%;cursor:pointer;font-family:var(--font-label)}
 .gb-select:focus{outline:2px solid var(--pm-yellow);outline-offset:1px}
-
-/* ══ VARIANCE LEGEND ══ */
 .var-legend{font-size:10px;font-weight:700;color:var(--pm-navy);margin-bottom:10px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:var(--pm-white);border:2px solid var(--pm-navy);border-radius:4px;padding:6px 12px}
 </style>
 <div class="pm-wrap">
 <div class="pm-header">
-
-  <!-- Left panel: location stamps -->
   <div class="pm-header-left-tab">
     <div class="pm-loc-stamps">
       <div class="pm-loc-stamp" style="background:var(--pm-cyan)">MEL</div>
@@ -261,21 +114,14 @@ body,div,span,td,th,button,input,select,label,p{font-family:var(--font-body)}
     </div>
     <div class="pm-tagline" style="margin-top:8px">Three Cities<br>One Standard</div>
   </div>
-
-  <!-- Centre: PROUD MARY badge -->
   <div class="pm-header-centre">
     <div class="pm-badge-top">PROUD</div>
     <div class="pm-badge-mid">
       <div class="pm-badge-eye">
-        <!-- Stylised eye — the PM logo centrepiece -->
         <svg width="52" height="34" viewBox="0 0 52 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- Outer eye shape -->
           <path d="M2 17 Q13 2 26 2 Q39 2 50 17 Q39 32 26 32 Q13 32 2 17Z" fill="white" stroke="#1A2340" stroke-width="2.5"/>
-          <!-- Iris -->
           <circle cx="26" cy="17" r="9" fill="#49BFCE" stroke="#1A2340" stroke-width="2"/>
-          <!-- Pupil -->
           <circle cx="26" cy="17" r="4.5" fill="#1A2340"/>
-          <!-- Highlight -->
           <circle cx="28" cy="14.5" r="1.8" fill="white"/>
           <circle cx="23" cy="19" r="1" fill="white" opacity=".6"/>
         </svg>
@@ -284,8 +130,6 @@ body,div,span,td,th,button,input,select,label,p{font-family:var(--font-body)}
     <div class="pm-badge-bot">MARY</div>
     <div class="pm-coffee-roasters">Coffee Roasters</div>
   </div>
-
-  <!-- Right panel: dashboard identity -->
   <div class="pm-header-right-tab">
     <div class="pm-dash-kicker">Roast</div>
     <div class="pm-dash-title">DATA<br>EXPLORER</div>
@@ -296,11 +140,8 @@ body,div,span,td,th,button,input,select,label,p{font-family:var(--font-body)}
       <div class="pm-dash-chip">n=</div>
     </div>
   </div>
-
 </div>
 <div class="pm-inner">
-
-
 <div class="fb" id="tb"></div>
 <div class="afs" id="afs"></div>
 <div class="tabs">
@@ -323,17 +164,13 @@ body,div,span,td,th,button,input,select,label,p{font-family:var(--font-body)}
   </div>
   <div class="vg" id="vg"></div>
 </div>
-</div><!-- end pm-inner -->
-</div><!-- end pm-wrap -->
+</div>
+</div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <script>
 const RN=["Melbourne","Portland","Austin"];
 const COL=["#2979C2","#1B9E5E","#A535C4"];
 
-
-
-
-// Categories that appear at the bottom of sorted lists, separated by a divider
 const CAT_BOTTOM=new Set(['CURIOUS ESP','WILD ESP','DELUXE ESP','MILD FIL']);
 
 function sortCats(cats){
@@ -342,101 +179,48 @@ function sortCats(cats){
   return{main,btm,all:[...main,...btm]};
 }
 
-// ── Varietal extraction from profile string ─────────────────────────────────
+// ── Varietal extraction ─────────────────────────────────────────────────────
 const KNOWN_VARIETALS=new Set([
-  // Bourbon family
   'Bourbon','Red Bourbon','Yellow Bourbon','Pink Bourbon','Orange Bourbon','Peaberry Bourbon',
-  // Typica family
-  'Typica','Blue Mountain','Kent','Pluma Hidalgo','Bergundal','Sidikalang',
-  'Kona','Jamaican Blue Mountain','Ethiopian Typica',
-  // Catuai
-  'Catuai','Red Catuai','Yellow Catuai',
-  // Catucai
-  'Catucai','Red Catucai','Yellow Catucai',
-  // Caturra
-  'Caturra','Red Caturra','Yellow Caturra',
-  // Mundo Novo
-  'Mundo Novo',
-  // Pacas family
-  'Pacas','Pacamara',
-  // Geisha / Gesha
-  'Geisha','Gesha',
-  // Maragogipe family
-  'Maragogipe','Maracaturra',
-  // SL varieties
-  'SL28','SL34','SL-28','SL-34',
-  // Kenyan / East African
-  'Ruiru 11','Batian','K7',
-  // Ethiopian heirloom types
-  'Heirloom','Kurume','JARC','Dega','Gimbi','Illubabor',
-  'Wush Wush','74110','74112','74158',
-  // Central American
-  'Parainema','Villa Sarchi','San Roque','Marsellesa','Sarchimor',
-  'Obata','Starmaya','Lempira','IHCAFE90','Costa Rica 95',
-  'Anacafe 14','Anacafe-14',
-  // Rare / specialty
-  'Laurina','Mokka','Moka','Sudan Rume','Welo Abaya',
-  'Mokkita','Afrocina','Bernardina','Laurina',
-  'Castillo','Colombia','Tabi',
-  'Arara','Acaua','Acauã','Topazio','Topázio',
-  'Icatu','Obata','Tupi','Catiguá','Sabiá',
-  'Catigua','Sabia',
-  // Papua New Guinea
-  'Arusha',
-  // Yemeni
-  'Khawlani',
-  // Hybrid / other
-  'Hybrido de Timor','Timor Hybrid','HDT',
-  'Ruiru 11','Batian',
-  // Colombian
-  'Castillo','Cenicafe 1',
-  // Other commonly named
-  'Pacamara','Maracaturra','Maragaturra',
-  'Java','Pache','Pache Colis','Pache Común',
-  'Guji','Agaro','Jimma',
-  'Typica Mejorado','Pink Bourbon',
-  // Generic
-  'Mixed','Unknown',
+  'Typica','Blue Mountain','Kent','Pluma Hidalgo','Bergundal','Sidikalang','Kona','Jamaican Blue Mountain','Ethiopian Typica',
+  'Catuai','Red Catuai','Yellow Catuai','Catucai','Red Catucai','Yellow Catucai',
+  'Caturra','Red Caturra','Yellow Caturra','Mundo Novo',
+  'Pacas','Pacamara','Geisha','Gesha','Maragogipe','Maracaturra',
+  'SL28','SL34','SL-28','SL-34','Ruiru 11','Batian','K7',
+  'Heirloom','Kurume','JARC','Dega','Gimbi','Illubabor','Wush Wush','74110','74112','74158',
+  'Parainema','Villa Sarchi','San Roque','Marsellesa','Sarchimor','Obata','Starmaya','Lempira','IHCAFE90','Costa Rica 95','Anacafe 14','Anacafe-14',
+  'Laurina','Mokka','Moka','Sudan Rume','Welo Abaya','Mokkita','Afrocina','Bernardina',
+  'Castillo','Colombia','Tabi','Arara','Acaua','Acauã','Topazio','Topázio','Icatu','Tupi','Catiguá','Sabiá','Catigua','Sabia',
+  'Arusha','Khawlani','Hybrido de Timor','Timor Hybrid','HDT','Cenicafe 1',
+  'Maragaturra','Java','Pache','Pache Colis','Pache Común','Guji','Agaro','Jimma',
+  'Typica Mejorado','Mixed','Unknown',
 ]);
 
-// Alias map — normalise alternate spellings to canonical name
 const VARIETAL_ALIAS={
-  'SL 28':'SL28','SL 34':'SL34',
-  'GESHA':'Geisha',
-  'ACAUA':'Acauã','ACAUÃ':'Acauã',
-  'TOPAZIO':'Topázio','TOPÁZIO':'Topázio',
-  'CATIGUA':'Catiguá','CATIGUÁ':'Catiguá',
-  'SABIA':'Sabiá','SABIÁ':'Sabiá',
-  'ANACAFE 14':'Anacafe-14',
+  'SL 28':'SL28','SL 34':'SL34','GESHA':'Geisha',
+  'ACAUA':'Acauã','ACAUÃ':'Acauã','TOPAZIO':'Topázio','TOPÁZIO':'Topázio',
+  'CATIGUA':'Catiguá','CATIGUÁ':'Catiguá','SABIA':'Sabiá','SABIÁ':'Sabiá','ANACAFE 14':'Anacafe-14',
 };
 
 function extractVarietal(profile){
   if(!profile)return'Unknown';
   const pu=' '+profile.toUpperCase()+' ';
-
-  // 'Familia Pacas' is an ELS farm — check if Pacas appears separately after it
   if(pu.indexOf('FAMILIA PACAS')>=0){
     const after=pu.replace('FAMILIA PACAS','');
     if(/[^A-Z]PACAS[^A-Z]/.test(after))return'Pacas';
     return'Unknown';
   }
-
-  // Check alias map
   for(const [alias,canon] of Object.entries(VARIETAL_ALIAS)){
     const pat=new RegExp('[^A-Z]'+alias.toUpperCase().replace(/[^A-Z0-9]/g,'[^A-Z0-9]?')+'[^A-Z]');
     if(pat.test(pu))return canon;
   }
-
-  // Check known varietals — sort longest first so 'Yellow Bourbon' beats 'Bourbon'
   const sorted=[...KNOWN_VARIETALS].sort((a,b)=>b.length-a.length);
   for(const v of sorted){
     const vu=' '+v.toUpperCase()+' ';
-    // Replace hyphens with space for matching (SL-28 matches SL-28 or SL 28)
     const puH=pu.replace(/-/g,' ');
     const vuH=vu.replace(/-/g,' ');
     if(puH.includes(vuH))return v;
   }
-
   return'Unknown';
 }
 
@@ -448,15 +232,87 @@ const CAT_NORM={
 };
 function normCat(c){return CAT_NORM[c.toUpperCase()]||c;}
 
+// ── Process normalisation ─────────────────────────────────────────────────────
+// Canonical display names
+const PROC_CANONICAL={
+  // Washed
+  'WASHED':'Washed',
+  // Natural
+  'NATURAL':'Natural',
+  // Honey
+  'HONEY':'Honey','BLACK HONEY':'Black Honey','RED HONEY':'Red Honey','YELLOW HONEY':'Yellow Honey',
+  // Anaerobic Washed — catches A. Washed, AW, Dbl A. Washed, Double Anaerobic Washed, etc.
+  'ANAEROBIC WASHED':'Anaerobic Washed',
+  // Anaerobic Honey
+  'ANAEROBIC HONEY':'Anaerobic Honey',
+  // Anaerobic Natural
+  'ANAEROBIC NATURAL':'Anaerobic Natural',
+  // Carbonic Maceration Washed
+  'CM WASHED':'CM Washed',
+  // Carbonic Maceration Honey
+  'CM HONEY':'CM Honey',
+  // Carbonic Maceration Natural
+  'CM NATURAL':'CM Natural',
+  // Depulped
+  'DEPULPED':'Depulped',
+};
+
+// Pattern → canonical key (checked in order; first match wins)
+// Patterns are matched against the UPPERCASED, TRIMMED process string.
+const PROC_PATTERNS=[
+  // ── Carbonic Maceration / CM (check before generic "natural/honey/washed") ──
+  [/CARBONIC\s+MA[SC]ERATION\s+WASHED|CM\s+WASHED/,            'CM WASHED'],
+  [/CARBONIC\s+MA[SC]ERATION\s+HONEY|CM\s+HONEY/,              'CM HONEY'],
+  [/CARBONIC\s+MA[SC]ERATION\s+NATURAL|CM\s+NATURAL/,          'CM NATURAL'],
+  [/CARBONIC\s+MA[SC]ERATION|^CM$/,                             'CM WASHED'],  // bare "CM" → CM Washed
+
+  // ── Anaerobic (check before generic natural/honey/washed) ──
+  // Covers: A. Washed, AW, Anaerobic Washed, Dbl A. Washed, Double Anaerobic Washed,
+  //         Double A. Washed, 2x A. Washed, DBL AW, etc.
+  [/(?:DBL|DOUBLE|DUO|2X|TRIPLE|3X)?\s*(?:A\.|ANAEROBIC)\s*WASHED|(?:DBL|DOUBLE|DUO|2X)?\s*AW\b/,
+                                                                  'ANAEROBIC WASHED'],
+  [/(?:DBL|DOUBLE|DUO|2X|TRIPLE|3X)?\s*(?:A\.|ANAEROBIC)\s*HONEY|(?:DBL|DOUBLE|DUO|2X)?\s*AH\b/,
+                                                                  'ANAEROBIC HONEY'],
+  [/(?:DBL|DOUBLE|DUO|2X|TRIPLE|3X)?\s*(?:A\.|ANAEROBIC)\s*NATURAL|(?:DBL|DOUBLE|DUO|2X)?\s*AN\b/,
+                                                                  'ANAEROBIC NATURAL'],
+  // Bare "anaerobic" with no sub-type → Anaerobic Washed (most common default)
+  [/^ANAEROBIC$|^A\.$|^AN$(?!.*NATURAL)/,                        'ANAEROBIC WASHED'],
+
+  // ── Depulped ──
+  [/DEPULPED|DE.?PULPED/,                                         'DEPULPED'],
+
+  // ── Honey variants (specific before generic) ──
+  [/BLACK\s+HONEY/,   'BLACK HONEY'],
+  [/RED\s+HONEY/,     'RED HONEY'],
+  [/YELLOW\s+HONEY/,  'YELLOW HONEY'],
+  [/\bHONEY\b/,       'HONEY'],
+
+  // ── Natural ──
+  [/\bNATURAL\b/,     'NATURAL'],
+
+  // ── Washed ──
+  [/\bWASHED\b|^WET$/,'WASHED'],
+];
+
+function normProcess(raw){
+  if(!raw)return raw;
+  const u=raw.trim().toUpperCase();
+  for(const [pat,key] of PROC_PATTERNS){
+    if(pat.test(u)){
+      return PROC_CANONICAL[key]||key;
+    }
+  }
+  // No pattern matched — return original trimmed value
+  return raw.trim();
+}
+
 // ── Data loading ──────────────────────────────────────────────────────────────
-// Sheet URLs — replace these with your published Google Sheet CSV URLs
 const SHEET_URLS={
   Melbourne: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRj7S1FDEpC0_SvZtQBfNlGBLilquJ6YCLzg8So-CSZ4Wk07HbjtcK9z6l8CV7rj5lNEDf1rulD1wb8/pub?gid=0&single=true&output=csv',
   Portland:  'https://docs.google.com/spreadsheets/d/e/2PACX-1vRj7S1FDEpC0_SvZtQBfNlGBLilquJ6YCLzg8So-CSZ4Wk07HbjtcK9z6l8CV7rj5lNEDf1rulD1wb8/pub?gid=1345419856&single=true&output=csv',
   Austin:    'https://docs.google.com/spreadsheets/d/e/2PACX-1vRj7S1FDEpC0_SvZtQBfNlGBLilquJ6YCLzg8So-CSZ4Wk07HbjtcK9z6l8CV7rj5lNEDf1rulD1wb8/pub?gid=575438985&single=true&output=csv'
 };
 
-// Column name mapping — matches your actual CSV headers exactly
 const COL_MAP={
   origin:   ['origin'],
   process:  ['process'],
@@ -467,22 +323,17 @@ const COL_MAP={
   profile:  ['profile']
 };
 
-function findCol(headers, keys){
+function findCol(headers,keys){
   const hl=headers.map(h=>h.toLowerCase().trim());
-  for(const k of keys){
-    const i=hl.indexOf(k);
-    if(i>=0)return i;
-  }
+  for(const k of keys){const i=hl.indexOf(k);if(i>=0)return i;}
   return -1;
 }
 
 function parseCSV(text){
   const lines=text.split(/\r?\n/).filter(l=>l.trim());
   if(!lines.length)return[];
-  // Simple CSV parse (handles quoted fields)
   function parseLine(line){
-    const fields=[];
-    let cur='',inQ=false;
+    const fields=[];let cur='',inQ=false;
     for(let i=0;i<line.length;i++){
       const c=line[i];
       if(c==='"'){inQ=!inQ;}
@@ -509,7 +360,7 @@ function parseCSV(text){
     rows.push({
       origin:   iOrigin>=0?(f[iOrigin]||'').trim().toUpperCase().slice(0,3):'',
       varietal: iProfile>=0?extractVarietal(f[iProfile]):'Unknown',
-      process:  iProcess>=0?(f[iProcess]||'').trim():'',
+      process:  iProcess>=0?normProcess((f[iProcess]||'').trim()):'',
       category: iCat>=0?normCat((f[iCat]||'').trim()):'',
       wb:       isNaN(wb)?null:wb,
       gb:       isNaN(gb)?null:gb,
@@ -519,7 +370,6 @@ function parseCSV(text){
   return rows;
 }
 
-// RAW: [roasteryIndex, origin, varietal, process, category, wb, gb, machine]
 let RAW=[];
 
 async function loadAllSheets(){
@@ -583,7 +433,6 @@ function rebuildOptions(){
   OL.p=uniqIdx(3);
   OL.c=uniqIdx(4);
   OL.m=uniqIdx(7);
-  // reset filters to all
   F={r:null,o:null,v:null,p:null,c:null,m:null};
 }
 
@@ -630,7 +479,6 @@ function grp(data){
   return g;
 }
 
-// Sort labels: main cats alpha first, then bottom cats alpha, divider tracked separately
 function sortedLabels(g){
   const all=Object.keys(g);
   if(GB!=='c')return{labels:all.sort((a,b)=>a.localeCompare(b)),firstBottom:-1};
@@ -642,7 +490,6 @@ function sortedLabels(g){
 
 function pvClass(d){return d<=2?'pv0':d<=4?'pv1':'pv2';}
 
-// ── Inline accordion filter panel ───────────────────────────────────────────
 function buildFC(id,fk,lbl){
   const s=sel(fk);const b=badge(fk);
   let opts='';
@@ -655,7 +502,7 @@ function buildFC(id,fk,lbl){
   }
   return`<div class="fc">
     <div class="fc-lbl">${lbl}</div>
-    <button class="fc-btn" id="btn-${id}" onclick="tFC('${id}')">${lbl} <span class=\"fc-badge\">${b}</span> ▾</button>
+    <button class="fc-btn" id="btn-${id}" onclick="tFC('${id}')">${lbl} <span class="fc-badge">${b}</span> ▾</button>
     <div class="fc-panel" id="${id}">
       <input class="fc-search" placeholder="Search..." oninput="fFC('${id}',this.value)">
       <div class="fc-acts"><button onclick="doAll('${fk}','${id}')">All</button><button onclick="doNone('${fk}','${id}')">None</button></div>
@@ -664,7 +511,7 @@ function buildFC(id,fk,lbl){
   </div>`;
 }
 function fcOpt(fk,o,s,id){
-  const esc=o.replace(/'/g,"\'");
+  const esc=o.replace(/'/g,"\\'");
   return`<label class="fc-opt"><input type="checkbox" ${s.has(o)?'checked':''} onchange="togO('${fk}','${esc}',this.checked,'${id}')">${o}</label>`;
 }
 function rTB(){
@@ -716,7 +563,6 @@ function rMets(data){
 }
 
 function actRi(){
-  // Display order: Melbourne(0), Portland(2), Austin(1)
   const DISP=[0,1,2];
   return DISP.filter(i=>sel('r').has(RN[i]));
 }
@@ -733,15 +579,11 @@ function rChart(data){
     return;
   }
 
-  // Destroy any old Chart.js instance
   if(CI){CI.destroy();CI=null;}
-
-  // Replace canvas with a plain one we'll draw on ourselves
   wrap.innerHTML='<canvas id="mc"></canvas>';
   const canvas=document.getElementById('mc');
   const ctx=canvas.getContext('2d');
 
-  // ── KDE ───────────────────────────────────────────────────────────────────
   function gaussKde(vals,x,bw){
     return vals.reduce((s,v)=>{const u=(x-v)/bw;return s+Math.exp(-0.5*u*u);},0)/(vals.length*bw*2.507);
   }
@@ -750,7 +592,6 @@ function rChart(data){
     const mn=Math.min(...vals),mx=Math.max(...vals);
     const spread=mx-mn||2;
     const bw=Math.max(1.0,spread*0.12);
-    // lo/hi clamped exactly to data min/max — no padding beyond real range
     const lo=mn, hi=mx;
     const step=(hi-lo)/steps;
     const pts=[];
@@ -759,8 +600,6 @@ function rChart(data){
     return pts.map(p=>({x:p.x,d:p.d/peak}));
   }
 
-  // ── Pre-compute specs ─────────────────────────────────────────────────────
-  // One spec per (label × roastery × wb/gb)
   const specs=[];
   labels.forEach(l=>{
     aRi.forEach(i=>{
@@ -772,26 +611,16 @@ function rChart(data){
         const vals=key==='wb'?wbVals:gbVals;
         const s=key==='wb'?wbS:gbS;
         if(!s)return;
-        specs.push({
-          label:l,ri:i,key,vals,
-          avg:+s.avg.toFixed(2),
-          mn:s.min,mx:s.max,
-          kdePts:buildKde(vals),
-          col:COL[i],
-          n:vals.length,
-          spread
-        });
+        specs.push({label:l,ri:i,key,vals,avg:+s.avg.toFixed(2),mn:s.min,mx:s.max,kdePts:buildKde(vals),col:COL[i],n:vals.length,spread});
       });
     });
   });
 
-  // ── Layout constants ──────────────────────────────────────────────────────
   const MARGIN_LEFT=110, MARGIN_RIGHT=20, MARGIN_TOP=30, MARGIN_BOTTOM=36;
-  const VIOLIN_HALF=18;  // px half-height of each violin
-  const ROW_GAP=6;       // px between consecutive violin rows
-  // Rows: per label, we have aRi × 2 (wb+gb) violins stacked
+  const VIOLIN_HALF=18;
+  const ROW_GAP=6;
   const ROW_H=VIOLIN_HALF*2+ROW_GAP;
-  const GROUP_GAP=10;    // extra gap between labels
+  const GROUP_GAP=10;
   const totalRows=labels.length*aRi.length*2;
   const chartH=MARGIN_TOP+MARGIN_BOTTOM+totalRows*ROW_H+labels.length*GROUP_GAP;
   const dpr=window.devicePixelRatio||1;
@@ -808,19 +637,14 @@ function rChart(data){
     draw(W);
   }
 
-  // ── Global x scale across all data ────────────────────────────────────────
   let allVals=[];
   specs.forEach(sp=>allVals.push(...sp.vals));
   const globalMin=Math.min(...allVals), globalMax=Math.max(...allVals);
   const xPad=(globalMax-globalMin)*0.02;
   const xMin=globalMin-xPad, xMax=globalMax+xPad;
 
-  function toX(v,W){
-    return MARGIN_LEFT+(v-xMin)/(xMax-xMin)*(W-MARGIN_LEFT-MARGIN_RIGHT);
-  }
+  function toX(v,W){return MARGIN_LEFT+(v-xMin)/(xMax-xMin)*(W-MARGIN_LEFT-MARGIN_RIGHT);}
 
-  // ── Row position map ──────────────────────────────────────────────────────
-  // Compute midY for every (label, ri, key) combination
   function buildRowMap(){
     const map={};
     let y=MARGIN_TOP;
@@ -838,158 +662,77 @@ function rChart(data){
     return map;
   }
 
-  // ── Hover state ───────────────────────────────────────────────────────────
   let hoverSpec=null;
 
-  // ── Draw function ─────────────────────────────────────────────────────────
   function draw(W){
     ctx.clearRect(0,0,canvas.width,canvas.height);
     const rowMap=buildRowMap();
-
-    // x-axis grid lines & ticks
     const tickCount=6;
-    ctx.strokeStyle='rgba(26,35,64,.06)';
-    ctx.lineWidth=1;
-    ctx.fillStyle='#888';
-    ctx.font='9px "DM Sans",sans-serif';
-    ctx.textAlign='center';
+    ctx.strokeStyle='rgba(26,35,64,.06)';ctx.lineWidth=1;
+    ctx.fillStyle='#888';ctx.font='9px "DM Sans",sans-serif';ctx.textAlign='center';
     for(let t=0;t<=tickCount;t++){
       const v=xMin+t*(xMax-xMin)/tickCount;
       const px=toX(v,W);
-      ctx.beginPath();
-      ctx.moveTo(px,MARGIN_TOP-8);
-      ctx.lineTo(px,Math.max(300,chartH)-MARGIN_BOTTOM+4);
-      ctx.stroke();
+      ctx.beginPath();ctx.moveTo(px,MARGIN_TOP-8);ctx.lineTo(px,Math.max(300,chartH)-MARGIN_BOTTOM+4);ctx.stroke();
       ctx.fillText(v.toFixed(0),px,Math.max(300,chartH)-MARGIN_BOTTOM+14);
     }
-    // x-axis label
-    ctx.fillStyle='#888';
-    ctx.font='9px "DM Sans",sans-serif';
-    ctx.textAlign='center';
+    ctx.fillStyle='#888';ctx.font='9px "DM Sans",sans-serif';ctx.textAlign='center';
     ctx.fillText('Light Tells',MARGIN_LEFT+(W-MARGIN_LEFT-MARGIN_RIGHT)/2,Math.max(300,chartH)-4);
 
-    // separator line between label groups
     if(firstBottom>-1){
-      // find the y position after the firstBottom label's last row
       let sepY=MARGIN_TOP;
       labels.forEach((l,li)=>{
         if(li>0)sepY+=GROUP_GAP;
         sepY+=aRi.length*2*ROW_H;
         if(li===firstBottom-1){
-          ctx.save();
-          ctx.strokeStyle='rgba(26,35,64,0.25)';
-          ctx.lineWidth=1.5;
-          ctx.setLineDash([5,3]);
-          ctx.beginPath();
-          ctx.moveTo(MARGIN_LEFT,sepY+GROUP_GAP/2);
-          ctx.lineTo(W-MARGIN_RIGHT,sepY+GROUP_GAP/2);
-          ctx.stroke();
-          ctx.setLineDash([]);
-          ctx.restore();
+          ctx.save();ctx.strokeStyle='rgba(26,35,64,0.25)';ctx.lineWidth=1.5;ctx.setLineDash([5,3]);
+          ctx.beginPath();ctx.moveTo(MARGIN_LEFT,sepY+GROUP_GAP/2);ctx.lineTo(W-MARGIN_RIGHT,sepY+GROUP_GAP/2);ctx.stroke();
+          ctx.setLineDash([]);ctx.restore();
         }
       });
     }
 
-    // Y-axis labels
-    ctx.textAlign='right';
-    ctx.fillStyle='#1A2340';
-    ctx.font='600 10px "DM Sans",sans-serif';
+    ctx.textAlign='right';ctx.fillStyle='#1A2340';ctx.font='600 10px "DM Sans",sans-serif';
     labels.forEach(l=>{
-      const ri0=aRi[0];
-      const midY=rowMap[l][ri0].wb;
-      // label centred on the whole group
-      const lastRi=aRi[aRi.length-1];
-      const lastY=rowMap[l][lastRi].gb;
+      const ri0=aRi[0];const midY=rowMap[l][ri0].wb;
+      const lastRi=aRi[aRi.length-1];const lastY=rowMap[l][lastRi].gb;
       const groupMid=(midY+lastY)/2;
-      // Truncate long labels
       let lbl=l.length>16?l.slice(0,15)+'…':l;
       ctx.fillText(lbl,MARGIN_LEFT-6,groupMid+3);
     });
 
-    // Draw violins
     specs.forEach(sp=>{
       if(!rowMap[sp.label]||!rowMap[sp.label][sp.ri])return;
       const midY=rowMap[sp.label][sp.ri][sp.key];
-      const kdePts=sp.kdePts;
-      const col=sp.col;
-      const isGB=sp.key==='gb';
-      const alpha=isGB?0.40:0.65;
-
+      const kdePts=sp.kdePts;const col=sp.col;const isGB=sp.key==='gb';const alpha=isGB?0.40:0.65;
       if(kdePts&&kdePts.length>1){
-        // Filled shape
-        ctx.save();
-        ctx.globalAlpha=alpha;
-        ctx.fillStyle=col;
+        ctx.save();ctx.globalAlpha=alpha;ctx.fillStyle=col;
+        ctx.beginPath();ctx.moveTo(toX(kdePts[0].x,W),midY-kdePts[0].d*VIOLIN_HALF);
+        kdePts.forEach(p=>ctx.lineTo(toX(p.x,W),midY-p.d*VIOLIN_HALF));
+        [...kdePts].reverse().forEach(p=>ctx.lineTo(toX(p.x,W),midY+p.d*VIOLIN_HALF));
+        ctx.closePath();ctx.fill();
+        ctx.globalAlpha=alpha+0.25;ctx.strokeStyle=col;ctx.lineWidth=0.8;
         ctx.beginPath();
-        ctx.moveTo(toX(kdePts[0].x,W), midY-kdePts[0].d*VIOLIN_HALF);
-        kdePts.forEach(p=>ctx.lineTo(toX(p.x,W), midY-p.d*VIOLIN_HALF));
-        [...kdePts].reverse().forEach(p=>ctx.lineTo(toX(p.x,W), midY+p.d*VIOLIN_HALF));
-        ctx.closePath();
-        ctx.fill();
-        // Outline
-        ctx.globalAlpha=alpha+0.25;
-        ctx.strokeStyle=col;
-        ctx.lineWidth=0.8;
-        ctx.beginPath();
-        kdePts.forEach((p,k)=>{
-          k===0?ctx.moveTo(toX(p.x,W),midY-p.d*VIOLIN_HALF):ctx.lineTo(toX(p.x,W),midY-p.d*VIOLIN_HALF);
-        });
-        [...kdePts].reverse().forEach((p,k)=>{
-          k===0?ctx.moveTo(toX(p.x,W),midY+p.d*VIOLIN_HALF):ctx.lineTo(toX(p.x,W),midY+p.d*VIOLIN_HALF);
-        });
-        ctx.stroke();
-        ctx.restore();
+        kdePts.forEach((p,k)=>{k===0?ctx.moveTo(toX(p.x,W),midY-p.d*VIOLIN_HALF):ctx.lineTo(toX(p.x,W),midY-p.d*VIOLIN_HALF);});
+        [...kdePts].reverse().forEach((p,k)=>{k===0?ctx.moveTo(toX(p.x,W),midY+p.d*VIOLIN_HALF):ctx.lineTo(toX(p.x,W),midY+p.d*VIOLIN_HALF);});
+        ctx.stroke();ctx.restore();
       }
-
-      // Mean tick
       const avgPx=toX(sp.avg,W);
-      ctx.save();
-      ctx.globalAlpha=0.95;
-      ctx.strokeStyle='rgba(255,255,255,0.9)';
-      ctx.lineWidth=2.5;
-      ctx.beginPath();
-      ctx.moveTo(avgPx,midY-VIOLIN_HALF*0.65);
-      ctx.lineTo(avgPx,midY+VIOLIN_HALF*0.65);
-      ctx.stroke();
-      ctx.strokeStyle=col;
-      ctx.lineWidth=1.5;
-      ctx.globalAlpha=1;
-      ctx.beginPath();
-      ctx.moveTo(avgPx,midY-VIOLIN_HALF*0.65);
-      ctx.lineTo(avgPx,midY+VIOLIN_HALF*0.65);
-      ctx.stroke();
+      ctx.save();ctx.globalAlpha=0.95;ctx.strokeStyle='rgba(255,255,255,0.9)';ctx.lineWidth=2.5;
+      ctx.beginPath();ctx.moveTo(avgPx,midY-VIOLIN_HALF*0.65);ctx.lineTo(avgPx,midY+VIOLIN_HALF*0.65);ctx.stroke();
+      ctx.strokeStyle=col;ctx.lineWidth=1.5;ctx.globalAlpha=1;
+      ctx.beginPath();ctx.moveTo(avgPx,midY-VIOLIN_HALF*0.65);ctx.lineTo(avgPx,midY+VIOLIN_HALF*0.65);ctx.stroke();
       ctx.restore();
     });
 
-    // WB / GB row labels on left
-    if(aRi.length>0){
-      const i0=aRi[0];
-      const l0=labels[0];
-      if(rowMap[l0]&&rowMap[l0][i0]){
-        ctx.fillStyle='rgba(26,35,64,0.4)';
-        ctx.font='7px "DM Sans",sans-serif';
-        ctx.textAlign='left';
-      }
-    }
-
-    // Hover tooltip
     if(hoverSpec){
       const sp=hoverSpec;
       if(rowMap[sp.label]&&rowMap[sp.label][sp.ri]){
         const midY=rowMap[sp.label][sp.ri][sp.key];
         const avgPx=toX(sp.avg,W);
-        // Highlight dot
-        ctx.save();
-        ctx.globalAlpha=1;
-        ctx.fillStyle=sp.col;
-        ctx.beginPath();
-        ctx.arc(avgPx,midY,5,0,Math.PI*2);
-        ctx.fill();
-        ctx.strokeStyle='#fff';
-        ctx.lineWidth=1.5;
-        ctx.stroke();
-        ctx.restore();
-        // Tooltip box
+        ctx.save();ctx.globalAlpha=1;ctx.fillStyle=sp.col;
+        ctx.beginPath();ctx.arc(avgPx,midY,5,0,Math.PI*2);ctx.fill();
+        ctx.strokeStyle='#fff';ctx.lineWidth=1.5;ctx.stroke();ctx.restore();
         const lines=[
           `${RN[sp.ri]} ${sp.key.toUpperCase()}`,
           `avg: ${sp.avg}`,
@@ -1001,32 +744,21 @@ function rChart(data){
         let TX=avgPx+10, TY=midY-TH/2;
         if(TX+TW>W-MARGIN_RIGHT) TX=avgPx-TW-10;
         if(TY<2) TY=2;
-        ctx.save();
-        ctx.globalAlpha=0.95;
-        ctx.fillStyle='#1A2340';
-        ctx.beginPath();
-        ctx.roundRect(TX,TY,TW,TH,5);
-        ctx.fill();
-        ctx.globalAlpha=1;
-        ctx.fillStyle='#F5C842';
-        ctx.font='700 10px "DM Sans",sans-serif';
-        ctx.textAlign='left';
+        ctx.save();ctx.globalAlpha=0.95;ctx.fillStyle='#1A2340';
+        ctx.beginPath();ctx.roundRect(TX,TY,TW,TH,5);ctx.fill();
+        ctx.globalAlpha=1;ctx.fillStyle='#F5C842';ctx.font='700 10px "DM Sans",sans-serif';ctx.textAlign='left';
         ctx.fillText(lines[0],TX+8,TY+14);
-        ctx.fillStyle='#fff';
-        ctx.font='10px "DM Sans",sans-serif';
+        ctx.fillStyle='#fff';ctx.font='10px "DM Sans",sans-serif';
         lines.slice(1).forEach((ln,i)=>ctx.fillText(ln,TX+8,TY+28+i*14));
         ctx.restore();
       }
     }
   }
 
-  // ── Mouse events ──────────────────────────────────────────────────────────
   canvas.addEventListener('mousemove',e=>{
     const rect=canvas.getBoundingClientRect();
-    const mx=e.clientX-rect.left;
-    const my=e.clientY-rect.top;
-    const W=wrap.clientWidth;
-    const rowMap=buildRowMap();
+    const mx=e.clientX-rect.left;const my=e.clientY-rect.top;
+    const W=wrap.clientWidth;const rowMap=buildRowMap();
     let found=null,bestD=Infinity;
     specs.forEach(sp=>{
       if(!rowMap[sp.label]||!rowMap[sp.label][sp.ri])return;
@@ -1039,23 +771,14 @@ function rChart(data){
       if(d<bestD){bestD=d;found=sp;}
     });
     hoverSpec=found;
-    ctx.clearRect(0,0,canvas.width,canvas.height);
-    ctx.save();ctx.scale(dpr,dpr);ctx.restore();
-    // reset transform and redraw
-    ctx.setTransform(dpr,0,0,dpr,0,0);
-    draw(W);
+    ctx.setTransform(dpr,0,0,dpr,0,0);draw(W);
   });
   canvas.addEventListener('mouseleave',()=>{
-    hoverSpec=null;
-    const W=wrap.clientWidth;
-    ctx.setTransform(dpr,0,0,dpr,0,0);
-    draw(W);
+    hoverSpec=null;const W=wrap.clientWidth;ctx.setTransform(dpr,0,0,dpr,0,0);draw(W);
   });
 
-  // ── Initial render ────────────────────────────────────────────────────────
   resize();
 
-  // Legend
   const legItems=aRi.map(i=>`
     <span style="display:flex;align-items:center;gap:5px">
       <span style="display:flex;flex-direction:column;gap:2px">
@@ -1068,9 +791,6 @@ function rChart(data){
     </span>`).join('');
   document.getElementById('cleg').innerHTML=legItems;
 }
-function countN(g,label,rn,key){
-  return (g[label]&&g[label][rn])?g[label][rn][key].length:0;
-}
 
 function rTable(data){
   const g=grp(data);
@@ -1081,10 +801,7 @@ function rTable(data){
     h+=`<th style="color:${COL[i]}">${RN[i]} WB avg</th>`;
     h+=`<th style="color:${COL[i]}">${RN[i]} GB avg</th>`;
   });
-  if(aRi.length>1){
-    h+=`<th style="color:var(--pm-cyan)">WB spread</th>`;
-    h+=`<th style="color:var(--pm-yellow)">GB spread</th>`;
-  }
+  if(aRi.length>1){h+=`<th style="color:var(--pm-cyan)">WB spread</th><th style="color:var(--pm-yellow)">GB spread</th>`;}
   h+=`</tr></thead><tbody>`;
   if(!labels.length)h+=`<tr><td colspan="20" class="nd">No data</td></tr>`;
   labels.forEach((l,idx)=>{
@@ -1093,18 +810,14 @@ function rTable(data){
     const wa=[],ga=[];
     aRi.forEach(i=>{
       const rn=RN[i];const sw=st((g[l][rn]||{wb:[]}).wb);const sg=st((g[l][rn]||{gb:[]}).gb);
-      if(sw)wa.push(sw.avg);
-      if(sg)ga.push(sg.avg);
-      const nw=(g[l][rn]||{wb:[]}).wb.length;
-      const ng=(g[l][rn]||{gb:[]}).gb.length;
+      if(sw)wa.push(sw.avg);if(sg)ga.push(sg.avg);
+      const nw=(g[l][rn]||{wb:[]}).wb.length;const ng=(g[l][rn]||{gb:[]}).gb.length;
       h+=`<td>${sw?sw.avg.toFixed(1)+' <span style="font-size:10px;color:#888">('+sw.min.toFixed(0)+'–'+sw.max.toFixed(0)+')</span><span style="font-size:9px;color:#49BFCE;margin-left:3px;font-weight:700">n='+nw+'</span>':'—'}</td>`;
       h+=`<td>${sg?sg.avg.toFixed(1)+' <span style="font-size:10px;color:#888">('+sg.min.toFixed(0)+'–'+sg.max.toFixed(0)+')</span><span style="font-size:9px;color:#49BFCE;margin-left:3px;font-weight:700">n='+ng+'</span>':'—'}</td>`;
     });
     if(aRi.length>1){
-      if(wa.length>1){const d=Math.max(...wa)-Math.min(...wa);h+=`<td><span class="pill ${pvClass(d)}">±${d.toFixed(1)}</span></td>`;}
-      else h+=`<td>—</td>`;
-      if(ga.length>1){const d=Math.max(...ga)-Math.min(...ga);h+=`<td><span class="pill ${pvClass(d)}">±${d.toFixed(1)}</span></td>`;}
-      else h+=`<td>—</td>`;
+      if(wa.length>1){const d=Math.max(...wa)-Math.min(...wa);h+=`<td><span class="pill ${pvClass(d)}">±${d.toFixed(1)}</span></td>`;}else h+=`<td>—</td>`;
+      if(ga.length>1){const d=Math.max(...ga)-Math.min(...ga);h+=`<td><span class="pill ${pvClass(d)}">±${d.toFixed(1)}</span></td>`;}else h+=`<td>—</td>`;
     }
     h+=`</tr>`;
   });
@@ -1115,9 +828,7 @@ function rVar(data){
   const g=grp(data);
   const {labels,firstBottom}=sortedLabels(g);
   const aRi=actRi();
-  const melI=0;
-  const hasMel=aRi.includes(melI);
-
+  const melI=0;const hasMel=aRi.includes(melI);
   const cards=labels.map((l,idx)=>{
     const rd=g[l]||{};
     const melSw=hasMel?st((rd[RN[melI]]||{wb:[]}).wb):null;
@@ -1129,37 +840,25 @@ function rVar(data){
     const spread=Math.max(...avgs)-Math.min(...avgs);
     return{l,rd,rows,spread,melSw,melSg,isSep:firstBottom>-1&&idx===firstBottom};
   }).filter(Boolean);
-
   if(!cards.length){document.getElementById('vg').innerHTML='<div class="nd">Select 2+ roasteries to compare</div>';return;}
-
   function fmtAvg(s){return s?s.avg.toFixed(1):'—';}
   function fmtRange(s){return s?`<span style="font-size:10px;color:#888">(${s.min.toFixed(0)}–${s.max.toFixed(0)})</span>`:''}
-  function fmtN(n){return n?`<span style="font-size:9px;color:#49BFCE;font-weight:700;margin-left:2px">n=${n}</span>`:''}
   function diffPill(s,ref){
     if(!s||!ref)return'';
     const d=Math.abs(s.avg-ref.avg);
     return`<span class="pill ${pvClass(d)}">±${d.toFixed(1)}</span>`;
   }
-
-  let html='';
-  let sepInserted=false;
+  let html='';let sepInserted=false;
   cards.forEach(({l,rd,rows,spread,melSw,melSg,isSep})=>{
-    if(isSep&&!sepInserted){
-      sepInserted=true;
-      html+=`<div style="grid-column:1/-1;border-top:1.5px solid var(--color-border-primary);margin:4px 0"></div>`;
-    }
-
-    // Sort: Melbourne first, then others
+    if(isSep&&!sepInserted){sepInserted=true;html+=`<div style="grid-column:1/-1;border-top:1.5px solid var(--color-border-primary);margin:4px 0"></div>`;}
     const sorted=[...rows].sort((a,b)=>(a.i===melI?-1:b.i===melI?1:a.i-b.i));
-
     let tableRows='';
     sorted.forEach(({i,sw,sg},idx)=>{
       const isMel=(i===melI);
       const borderStyle=(!isMel&&idx===1&&hasMel)?'border-top:0.5px solid #E8DCC8':'';
       const wbDiff=(!isMel&&hasMel)?diffPill(sw,melSw):'';
       const gbDiff=(!isMel&&hasMel)?diffPill(sg,melSg):'';
-      const nwv=(rd[RN[i]]||{wb:[]}).wb.length;
-      const ngv=(rd[RN[i]]||{gb:[]}).gb.length;
+      const nwv=(rd[RN[i]]||{wb:[]}).wb.length;const ngv=(rd[RN[i]]||{gb:[]}).gb.length;
       tableRows+=`<tr style="${borderStyle}">
         <td style="color:${COL[i]};font-weight:${isMel?'600':'500'};white-space:nowrap">${RN[i]}</td>
         <td>${fmtAvg(sw)}</td>
@@ -1170,7 +869,6 @@ function rVar(data){
         <td>${gbDiff}</td>
       </tr>`;
     });
-
     html+=`<div class="vc">
       <div class="vt"><span>${l}</span><span class="pill ${pvClass(spread)}">±${spread.toFixed(1)}</span></div>
       <table class="vcard-tbl">
@@ -1195,24 +893,17 @@ function rAFS(){
   const keys=[['r','Roastery'],['o','Origin'],['p','Process'],['v','Varietal'],['c','Category'],['m','Machine']];
   const parts=[];
   keys.forEach(([k,lbl])=>{
-    if(iAll(k)) return; // all selected — don't clutter
+    if(iAll(k))return;
     if(iNone(k)){parts.push(`<span class="afc"><span class="afc-k">${lbl}:</span>none</span>`);return;}
     const vals=F[k];
-    if(vals.length<=3){
-      vals.forEach(v=>parts.push(`<span class="afc"><span class="afc-k">${lbl}:</span>${v}</span>`));
-    } else {
-      parts.push(`<span class="afc"><span class="afc-k">${lbl}:</span>${vals.length} selected</span>`);
-    }
+    if(vals.length<=3){vals.forEach(v=>parts.push(`<span class="afc"><span class="afc-k">${lbl}:</span>${v}</span>`));}
+    else{parts.push(`<span class="afc"><span class="afc-k">${lbl}:</span>${vals.length} selected</span>`);}
   });
   const el=document.getElementById('afs');
-  if(parts.length){
-    el.innerHTML=`<span class="aft">Showing:</span>`+parts.join('');
-  } else {
-    el.innerHTML='';
-  }
+  if(parts.length){el.innerHTML=`<span class="aft">Showing:</span>`+parts.join('');}
+  else{el.innerHTML='';}
 }
 
 function go(){const data=applyF();rMets(data);rTB();rAFS();if(TAB==='chart')rChart(data);else if(TAB==='table')rTable(data);else rVar(data);}
-// Load data from Google Sheets on startup
 loadAllSheets();
 </script>
