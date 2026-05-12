@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proud Mary Roast Explorer</title>
+<link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Oswald:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #1A2340;
+  --yellow: #F5C842;
+  --cyan: #49BFCE;
+  --pink: #F2699C;
+  --green: #3DB87A;
+  --mel: #2979C2;
+  --pdx: #1B9E5E;
+  --atx: #A535C4;
+  --bg: #f0ede4;
+  --card-bg: #ffffff;
+  --border: rgba(26,35,64,0.1);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--navy); min-height: 100vh; }
+
+/* HEADER */
+.header {
+  background: var(--navy);
+  padding: 0 20px;
+  border-bottom: 3px solid var(--yellow);
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  min-height: 52px;
+}
+.header-left { display: flex; align-items: center; gap: 14px; }
+.brand { font-family: 'Black Ops One', sans-serif; font-size: 20px; color: var(--yellow); letter-spacing: 0.03em; line-height: 1; }
+.brand-sub { font-family: 'Oswald', sans-serif; font-size: 9px; color: var(--cyan); letter-spacing: 0.25em; text-transform: uppercase; margin-top: 2px; }
+.header-divider { width: 1px; background: rgba(255,255,255,0.1); margin: 10px 0; }
+.roastery-filters { display: flex; align-items: center; gap: 6px; }
+.roastery-btn {
+  font-family: 'Oswald', sans-serif; font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 5px 12px; border-radius: 20px; border: 2px solid;
+  cursor: pointer; transition: all 0.15s ease; background: transparent;
+}
+.r-mel { color: var(--mel); border-color: var(--mel); }
+.r-mel.active { background: var(--mel); color: #fff; }
+.r-pdx { color: var(--pdx); border-color: var(--pdx); }
+.r-pdx.active { background: var(--pdx); color: #fff; }
+.r-atx { color: var(--atx); border-color: var(--atx); }
+.r-atx.active { background: var(--atx); color: #fff; }
+.header-right { display: flex; align-items: center; }
+.data-status { font-family: 'DM Sans', sans-serif; font-size: 10px; color: rgba(255,255,255,0.35); }
+.data-status.loaded { color: var(--green); }
+
+/* TABS */
+.tabs {
+  background: var(--navy);
+  display: flex;
+  border-bottom: 2px solid var(--yellow);
+  padding: 0 20px;
+  gap: 0;
+}
+.tab {
+  font-family: 'Oswald', sans-serif; font-size: 11px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  padding: 10px 18px; color: rgba(255,255,255,0.45);
+  cursor: pointer; border-bottom: 3px solid transparent; margin-bottom: -2px;
+  transition: all 0.15s;
+}
+.tab:hover { color: rgba(255,255,255,0.75); }
+.tab.active { color: var(--yellow); border-bottom-color: var(--yellow); }
+.tab-badge {
+  font-size: 8px; background: var(--pink); color: white;
+  padding: 1px 5px; border-radius: 3px; margin-left: 5px;
+  vertical-align: middle; font-family: 'Oswald', sans-serif; letter-spacing: 0.05em;
+}
+
+/* FILTERS BAR */
+.filters-bar {
+  background: white;
+  border-bottom: 1px solid var(--border);
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.filter-group { display: flex; align-items: center; gap: 6px; }
+.filter-label {
+  font-family: 'Oswald', sans-serif; font-size: 9px; font-weight: 700;
+  letter-spacing: 0.18em; text-transform: uppercase; color: rgba(26,35,64,0.4);
+  white-space: nowrap;
+}
+.filter-select {
+  font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 500;
+  color: var(--navy); background: var(--bg); border: 1.5px solid var(--border);
+  border-radius: 6px; padding: 5px 10px; cursor: pointer; outline: none;
+  transition: border-color 0.15s;
+}
+.filter-select:focus { border-color: var(--cyan); }
+.filter-sep { width: 1px; height: 20px; background: var(--border); }
+.filter-search {
+  font-family: 'DM Sans', sans-serif; font-size: 12px;
+  color: var(--navy); background: var(--bg); border: 1.5px solid var(--border);
+  border-radius: 6px; padding: 5px 10px; outline: none; width: 220px;
+  transition: border-color 0.15s;
+}
+.filter-search:focus { border-color: var(--cyan); }
+.filter-count {
+  font-family: 'Oswald', sans-serif; font-size: 10px; font-weight: 600;
+  color: rgba(26,35,64,0.35); margin-left: auto;
+}
+.filter-count span { color: var(--navy); font-size: 13px; }
+
+/* MAIN CONTENT */
+.content { padding: 16px 20px; max-width: 1400px; }
+
+/* LOADING */
+.loading {
+  display: flex; align-items: center; justify-content: center;
+  height: 300px; flex-direction: column; gap: 12px;
+}
+.loading-spinner {
+  width: 32px; height: 32px; border: 3px solid var(--border);
+  border-top-color: var(--cyan); border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.loading-text { font-family: 'Oswald', sans-serif; font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(26,35,64,0.4); }
+
+/* PARAM CARDS */
+.param-cards {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 14px;
+}
+.param-card {
+  background: var(--navy); border-radius: 8px; padding: 13px 15px;
+  border-top: 3px solid; position: relative; overflow: hidden;
+}
+.param-card::after {
+  content: ''; position: absolute; bottom: -15px; right: -15px;
+  width: 60px; height: 60px; border-radius: 50%; background: rgba(255,255,255,0.03);
+}
+.pc-fc { border-color: var(--cyan); }
+.pc-rt { border-color: var(--yellow); }
+.pc-dtr { border-color: var(--green); }
+.pc-et { border-color: var(--pink); }
+.pc-abbr { font-family: 'Black Ops One', sans-serif; font-size: 20px; line-height: 1; margin-bottom: 1px; }
+.pc-fc .pc-abbr { color: var(--cyan); }
+.pc-rt .pc-abbr { color: var(--yellow); }
+.pc-dtr .pc-abbr { color: var(--green); }
+.pc-et .pc-abbr { color: var(--pink); }
+.pc-name { font-size: 9px; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 10px; }
+.pc-rows { display: flex; flex-direction: column; gap: 5px; }
+.pc-row { display: flex; justify-content: space-between; align-items: baseline; }
+.pc-site { font-family: 'Oswald', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 0.1em; }
+.pc-site.mel { color: var(--mel); }
+.pc-site.pdx { color: var(--pdx); }
+.pc-site.atx { color: var(--atx); }
+.pc-val { font-size: 13px; font-weight: 600; color: white; }
+.pc-val.na { color: rgba(255,255,255,0.2); font-size: 11px; }
+.pc-unit { font-size: 9px; color: rgba(255,255,255,0.35); margin-left: 2px; }
+
+/* TWO COL GRID */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+
+/* PANEL */
+.panel { background: white; border-radius: 8px; border: 1.5px solid var(--border); overflow: hidden; }
+.panel-hdr {
+  background: var(--navy); padding: 9px 14px;
+  font-family: 'Oswald', sans-serif; font-size: 10px; font-weight: 700;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--yellow);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.panel-body { padding: 13px 14px; }
+
+/* REFERENCE TABLE */
+.ref-table { width: 100%; border-collapse: collapse; font-size: 11px; }
+.ref-table thead th {
+  font-family: 'Oswald', sans-serif; font-size: 9px; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase; color: rgba(26,35,64,0.4);
+  padding: 0 8px 8px; text-align: right; border-bottom: 1.5px solid var(--border);
+}
+.ref-table thead th:first-child { text-align: left; padding-left: 14px; }
+.ref-table tbody td {
+  padding: 7px 8px; color: var(--navy); text-align: right;
+  border-bottom: 0.5px solid rgba(26,35,64,0.06);
+}
+.ref-table tbody td:first-child {
+  font-family: 'Oswald', sans-serif; font-size: 11px; font-weight: 600;
+  letter-spacing: 0.06em; text-transform: uppercase; text-align: left; padding-left: 14px;
+}
+.ref-table tbody tr:hover { background: rgba(73,191,206,0.05); }
+.ref-table tbody tr.divider-row td { border-top: 1px dashed rgba(26,35,64,0.15); opacity: 0.55; }
+.site-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-right: 4px; vertical-align: middle; }
+
+/* COFFEE LIST */
+.coffee-list { display: flex; flex-direction: column; gap: 6px; max-height: 340px; overflow-y: auto; }
+.coffee-item {
+  display: flex; align-items: center; padding: 8px 10px;
+  border-radius: 6px; border: 1px solid var(--border);
+  cursor: pointer; transition: all 0.12s; gap: 10px;
+}
+.coffee-item:hover { border-color: var(--cyan); background: rgba(73,191,206,0.05); }
+.coffee-item.selected { border-color: var(--cyan); background: rgba(73,191,206,0.08); }
+.ci-origin { font-family: 'Black Ops One', sans-serif; font-size: 13px; color: var(--navy); min-width: 34px; }
+.ci-name { font-size: 11px; color: var(--navy); flex: 1; line-height: 1.3; }
+.ci-group { font-family: 'Oswald', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(26,35,64,0.4); }
+.ci-badges { display: flex; gap: 4px; }
+.ci-badge { width: 8px; height: 8px; border-radius: 50%; }
+
+/* COFFEE DETAIL */
+.coffee-detail { padding: 14px; }
+.cd-title { font-family: 'Oswald', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 0.06em; color: var(--navy); margin-bottom: 12px; line-height: 1.3; }
+.cd-params { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 14px; }
+.cd-param { background: var(--bg); border-radius: 6px; padding: 8px 10px; }
+.cd-param-label { font-family: 'Oswald', sans-serif; font-size: 8px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(26,35,64,0.4); margin-bottom: 3px; }
+.cd-param-val { font-size: 16px; font-weight: 600; color: var(--navy); }
+.cd-param-unit { font-size: 10px; color: rgba(26,35,64,0.4); }
+.cd-site-rows { display: flex; flex-direction: column; gap: 4px; }
+.cd-site-row { display: flex; align-items: center; gap: 8px; padding: 6px 8px; border-radius: 5px; background: var(--bg); }
+.cd-site-label { font-family: 'Oswald', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; min-width: 36px; }
+.cd-site-val { font-size: 11px; color: var(--navy); }
+.cd-no-data { font-size: 11px; color: rgba(26,35,64,0.35); font-style: italic; text-align: center; padding: 20px; }
+
+/* EMPTY STATE */
+.empty-state { text-align: center; padding: 40px 20px; color: rgba(26,35,64,0.35); }
+.empty-state-icon { font-size: 32px; margin-bottom: 10px; }
+.empty-state-text { font-family: 'Oswald', sans-serif; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; }
+
+/* BAR VIZ */
+.bar-section { margin-bottom: 14px; }
+.bar-section-title { font-family: 'Oswald', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(26,35,64,0.4); margin-bottom: 8px; }
+.bar-group { margin-bottom: 10px; }
+.bar-group-label { font-family: 'Oswald', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--navy); margin-bottom: 5px; display: flex; justify-content: space-between; }
+.bar-trio { display: flex; flex-direction: column; gap: 3px; }
+.bar-row { display: flex; align-items: center; gap: 7px; }
+.bar-site-label { font-family: 'Oswald', sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; min-width: 28px; }
+.bar-track { flex: 1; height: 6px; background: rgba(26,35,64,0.08); border-radius: 3px; overflow: hidden; }
+.bar-fill { height: 100%; border-radius: 3px; transition: width 0.4s ease; }
+.bar-val { font-size: 10px; font-weight: 500; color: var(--navy); min-width: 38px; text-align: right; }
+
+/* FOOTER */
+.footer { text-align: center; padding: 12px; font-size: 10px; color: rgba(26,35,64,0.3); font-style: italic; }
+
+/* SCROLLBAR */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(26,35,64,0.15); border-radius: 2px; }
+
+/* TAB PANELS */
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-left">
+    <div>
+      <div class="brand">Proud Mary</div>
+      <div class="brand-sub">Roast Explorer</div>
+    </div>
+    <div class="header-divider"></div>
+    <div class="roastery-filters">
+      <button class="roastery-btn r-mel active" onclick="toggleRoastery('mel', this)">Melbourne</button>
+      <button class="roastery-btn r-pdx active" onclick="toggleRoastery('pdx', this)">Portland</button>
+      <button class="roastery-btn r-atx active" onclick="toggleRoastery('atx', this)">Austin</button>
+    </div>
+  </div>
+  <div class="header-right">
+    <div class="data-status" id="dataStatus">Loading data…</div>
+  </div>
+</div>
+
+<div class="tabs">
+  <div class="tab" onclick="switchTab('lighttells', this)">Light Tells</div>
+  <div class="tab" onclick="switchTab('variance', this)">Variance</div>
+  <div class="tab active" onclick="switchTab('roastparams', this)">Roast Params <span class="tab-badge">NEW</span></div>
+  <div class="tab" onclick="switchTab('machines', this)">Machines</div>
+</div>
+
+<!-- ROAST PARAMS TAB -->
+<div id="tab-roastparams" class="tab-panel active">
+
+  <div class="filters-bar">
+    <div class="filter-group">
+      <span class="filter-label">Machine</span>
+      <select class="filter-select" id="filterMachine" onchange="applyFilters()">
+        <option value="">All Machines</option>
+      </select>
+    </div>
+    <div class="filter-sep"></div>
+    <div class="filter-group">
+      <span class="filter-label">Category</span>
+      <select class="filter-select" id="filterCategory" onchange="applyFilters()">
+        <option value="">All Categories</option>
+      </select>
+    </div>
+    <div class="filter-sep"></div>
+    <div class="filter-group">
+      <span class="filter-label">Process</span>
+      <select class="filter-select" id="filterProcess" onchange="applyFilters()">
+        <option value="">All Processes</option>
+      </select>
+    </div>
+    <div class="filter-sep"></div>
+    <input type="text" class="filter-search" id="filterSearch" placeholder="Search coffee or origin…" oninput="applyFilters()">
+    <div class="filter-count" id="filterCount"><span>—</span> roasts</div>
+  </div>
+
+  <div class="content" id="mainContent">
+    <div class="loading">
+      <div class="loading-spinner"></div>
+      <div class="loading-text">Fetching roast data…</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- OTHER TABS (placeholder) -->
+<div id="tab-lighttells" class="tab-panel">
+  <div class="content"><div class="empty-state"><div class="empty-state-icon">☕</div><div class="empty-state-text">Light Tells tab — see live dashboard</div></div></div>
+</div>
+<div id="tab-variance" class="tab-panel">
+  <div class="content"><div class="empty-state"><div class="empty-state-icon">📊</div><div class="empty-state-text">Variance tab — see live dashboard</div></div></div>
+</div>
+<div id="tab-machines" class="tab-panel">
+  <div class="content"><div class="empty-state"><div class="empty-state-icon">⚙️</div><div class="empty-state-text">Machines tab — coming in Phase 2</div></div></div>
+</div>
+
+<script>
+// ─── DATA ───────────────────────────────────────────────────────────────────
+const SHEETS = {
+  mel: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRj7S1FDEpC0_SvZtQBfNlGBLilquJ6YCLzg8So-CSZ4Wk07HbjtcK9z6l8CV7rj5lNEDf1rulD1wb8/pub?gid=0&single=true&output=csv',
+  pdx: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRj7S1FDEpC0_SvZtQBfNlGBLilquJ6YCLzg8So-CSZ4Wk07HbjtcK9z6l8CV7rj5lNEDf1rulD1wb8/pub?gid=1345419856&single=true&output=csv',
+  atx: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRj7S1FDEpC0_SvZtQBfNlGBLilquJ6YCLzg8So-CSZ4Wk07HbjtcK9z6l8CV7rj5lNEDf1rulD1wb8/pub?gid=575438985&single=true&output=csv'
+};
+
+const SITE_COLORS = { mel: '#2979C2', pdx: '#1B9E5E', atx: '#A535C4' };
+const SITE_LABELS = { mel: 'MEL', pdx: 'PDX', atx: 'ATX' };
+
+// Category normalisation
+function normaliseGroup(g) {
+  if (!g) return null;
+  g = g.trim().toUpperCase();
+  if (g === 'CURIOUS FIL' || g === 'CURIOUS') return 'CURIOUS';
+  if (g === 'WILD FIL' || g === 'WILD') return 'WILD';
+  if (g === 'DELUXE FIL' || g === 'DELUXE') return 'DELUXE';
+  if (g === 'MILD ESP' || g === 'MILD') return 'MILD';
+  if (g === 'GHOST' || g === 'GHOST RIDER') return 'GHOST RIDER';
+  if (g === 'ANGEL' || g === 'ANGEL WINGS') return 'ANGEL WINGS';
+  if (g === 'DECAF SPRO' || g === 'DECAF') return 'DECAF';
+  if (g === 'HUMBLER') return 'HUMBLER';
+  if (g === 'CURIOUS ESP') return 'CURIOUS ESP';
+  if (g === 'WILD ESP') return 'WILD ESP';
+  if (g === 'DELUXE ESP') return 'DELUXE ESP';
+  if (g === 'MILD FIL') return 'MILD FIL';
+  if (g === 'BLEND') return null; // remove blends
+  return g;
+}
+
+const BOTTOM_CATS = new Set(['CURIOUS ESP', 'WILD ESP', 'DELUXE ESP', 'MILD FIL']);
+
+let allData = [];
+let filteredData = [];
+let activeRoasteries = new Set(['mel', 'pdx', 'atx']);
+let selectedCoffee = null;
+
+// ─── CSV PARSER ──────────────────────────────────────────────────────────────
+function parseCSV(text) {
+  const lines = text.trim().split('\n');
+  // Auto-detect delimiter — Google Sheets publishes as TSV
+  const delimiter = lines[0].includes('\t') ? '\t' : ',';
+  const headers = lines[0].split(delimiter).map(h => h.trim().replace(/^"|"$/g, ''));
+  return lines.slice(1).map(line => {
+    const vals = line.split(delimiter);
+    const obj = {};
+    headers.forEach((h, i) => {
+      let v = (vals[i] || '').trim().replace(/^"|"$/g, '');
+      obj[h] = v === '' ? null : v;
+    });
+    return obj;
+  });
+}
+
+function toNum(v) { const n = parseFloat(v); return isNaN(n) ? null : n; }
+
+// ─── FETCH DATA ──────────────────────────────────────────────────────────────
+async function fetchSite(site) {
+  try {
+    const res = await fetch(SHEETS[site]);
+    const text = await res.text();
+    const rows = parseCSV(text);
+    return rows
+      .filter(r => r.profile && r.wb)
+      .map(r => ({
+        site,
+        profile: r.profile,
+        origin: r.origin || '',
+        process: r.process || '',
+        group: normaliseGroup(r.group),
+        machine: (r.machine || '').trim(),
+        wb: toNum(r.wb),
+        gb: toNum(r.gb),
+        spread: toNum(r.spread),
+        duration: r.duration || null,
+        end_temp: toNum(r.end_temp),
+        dtr: toNum(r.dtr),
+        fc_time: r.fc_time || null,
+        fc_temp: toNum(r.fc_temp),
+        roasted: r.roasted || null
+      }))
+      .filter(r => r.group !== null);
+  } catch(e) {
+    console.error('Failed to fetch', site, e);
+    return [];
+  }
+}
+
+async function loadAllData() {
+  const [mel, pdx, atx] = await Promise.all([fetchSite('mel'), fetchSite('pdx'), fetchSite('atx')]);
+  allData = [...mel, ...pdx, ...atx];
+  document.getElementById('dataStatus').textContent = `${allData.length} roasts loaded`;
+  document.getElementById('dataStatus').className = 'data-status loaded';
+  buildFilterOptions();
+  applyFilters();
+}
+
+// ─── FILTERS ─────────────────────────────────────────────────────────────────
+function buildFilterOptions() {
+  const machines = [...new Set(allData.map(r => r.machine).filter(Boolean))].sort();
+  const categories = [...new Set(allData.map(r => r.group).filter(Boolean))].sort();
+  const processes = [...new Set(allData.map(r => r.process).filter(Boolean))].sort();
+
+  const mSel = document.getElementById('filterMachine');
+  machines.forEach(m => { const o = document.createElement('option'); o.value = m; o.textContent = m; mSel.appendChild(o); });
+
+  const cSel = document.getElementById('filterCategory');
+  categories.forEach(c => { const o = document.createElement('option'); o.value = c; o.textContent = c; cSel.appendChild(o); });
+
+  const pSel = document.getElementById('filterProcess');
+  processes.forEach(p => { const o = document.createElement('option'); o.value = p; o.textContent = p; pSel.appendChild(o); });
+}
+
+function applyFilters() {
+  const machine = document.getElementById('filterMachine').value;
+  const category = document.getElementById('filterCategory').value;
+  const process = document.getElementById('filterProcess').value;
+  const search = document.getElementById('filterSearch').value.toLowerCase().trim();
+
+  filteredData = allData.filter(r => {
+    if (!activeRoasteries.has(r.site)) return false;
+    if (machine && r.machine !== machine) return false;
+    if (category && r.group !== category) return false;
+    if (process && r.process !== process) return false;
+    if (search && !r.profile.toLowerCase().includes(search) && !r.origin.toLowerCase().includes(search)) return false;
+    return true;
+  });
+
+  document.getElementById('filterCount').innerHTML = `<span>${filteredData.length}</span> roasts`;
+  renderContent();
+}
+
+function toggleRoastery(site, btn) {
+  if (activeRoasteries.has(site)) {
+    if (activeRoasteries.size === 1) return; // keep at least one
+    activeRoasteries.delete(site);
+    btn.classList.remove('active');
+  } else {
+    activeRoasteries.add(site);
+    btn.classList.add('active');
+  }
+  applyFilters();
+}
+
+// ─── HELPERS ─────────────────────────────────────────────────────────────────
+function avg(arr) {
+  const vals = arr.filter(v => v !== null && v !== undefined);
+  if (!vals.length) return null;
+  return vals.reduce((a, b) => a + b, 0) / vals.length;
+}
+
+function fmtTemp(v) { return v !== null ? `${v.toFixed(1)}°C` : '—'; }
+function fmtPct(v) { return v !== null ? `${v.toFixed(1)}%` : '—'; }
+function fmtTime(v) { return v || '—'; }
+
+function getParamAvgs(rows) {
+  return {
+    fc_time_num: avg(rows.map(r => timeToMins(r.fc_time))),
+    fc_time_str: minsToTime(avg(rows.map(r => timeToMins(r.fc_time)))),
+    duration_str: minsToTime(avg(rows.map(r => timeToMins(r.duration)))),
+    dtr: avg(rows.map(r => r.dtr)),
+    end_temp: avg(rows.map(r => r.end_temp)),
+    wb: avg(rows.map(r => r.wb)),
+    gb: avg(rows.map(r => r.gb)),
+    fc_temp: avg(rows.map(r => r.fc_temp)),
+  };
+}
+
+function timeToMins(t) {
+  if (!t) return null;
+  const parts = t.split(':');
+  if (parts.length !== 2) return null;
+  return parseInt(parts[0]) + parseInt(parts[1]) / 60;
+}
+
+function minsToTime(m) {
+  if (m === null || m === undefined) return '—';
+  const mins = Math.floor(m);
+  const secs = Math.round((m - mins) * 60);
+  return `${String(mins).padStart(2,'0')}:${String(secs).padStart(2,'0')}`;
+}
+
+// ─── RENDER ──────────────────────────────────────────────────────────────────
+function renderContent() {
+  const el = document.getElementById('mainContent');
+  if (!filteredData.length) {
+    el.innerHTML = `<div class="empty-state"><div class="empty-state-icon">🔍</div><div class="empty-state-text">No roasts match your filters</div></div>`;
+    return;
+  }
+
+  const sites = ['mel', 'pdx', 'atx'].filter(s => activeRoasteries.has(s));
+
+  // Param cards
+  const siteAvgs = {};
+  sites.forEach(s => { siteAvgs[s] = getParamAvgs(filteredData.filter(r => r.site === s)); });
+
+  function pcRows(field, fmt) {
+    return sites.map(s => {
+      const v = siteAvgs[s][field];
+      const display = fmt(v);
+      return `<div class="pc-row">
+        <span class="pc-site ${s}">${SITE_LABELS[s]}</span>
+        <span class="pc-val ${display === '—' ? 'na' : ''}">${display}</span>
+      </div>`;
+    }).join('');
+  }
+
+  const paramCards = `
+  <div class="param-cards">
+    <div class="param-card pc-fc">
+      <div class="pc-abbr">FC</div>
+      <div class="pc-name">First Crack Time</div>
+      <div class="pc-rows">${pcRows('fc_time_str', v => v)}</div>
+    </div>
+    <div class="param-card pc-rt">
+      <div class="pc-abbr">RT</div>
+      <div class="pc-name">Roast Duration</div>
+      <div class="pc-rows">${pcRows('duration_str', v => v)}</div>
+    </div>
+    <div class="param-card pc-dtr">
+      <div class="pc-abbr">DTR</div>
+      <div class="pc-name">Dev Time Ratio</div>
+      <div class="pc-rows">${pcRows('dtr', fmtPct)}</div>
+    </div>
+    <div class="param-card pc-et">
+      <div class="pc-abbr">ET</div>
+      <div class="pc-name">End Temp</div>
+      <div class="pc-rows">${pcRows('end_temp', fmtTemp)}</div>
+    </div>
+  </div>`;
+
+  // Category breakdown table
+  const cats = ['CURIOUS', 'WILD', 'DELUXE', 'MILD', 'GHOST RIDER', 'ANGEL WINGS', 'HUMBLER', 'DECAF'];
+  const bottomCats = ['CURIOUS ESP', 'WILD ESP', 'DELUXE ESP', 'MILD FIL'];
+  const allCats = [...cats, ...bottomCats];
+
+  const tableRows = allCats.map((cat, idx) => {
+    const rows = filteredData.filter(r => r.group === cat);
+    if (!rows.length) return '';
+    const a = getParamAvgs(rows);
+    const isBottom = BOTTOM_CATS.has(cat);
+    const firstBottom = cat === bottomCats[0];
+    return `<tr class="${isBottom ? 'divider-row' : ''}">
+      <td style="padding-left:14px">
+        ${sites.map(s => `<span class="site-dot" style="background:${SITE_COLORS[s]};opacity:${rows.filter(r=>r.site===s).length?1:0.15}"></span>`).join('')}
+        ${cat}
+        <span style="font-size:9px;color:rgba(26,35,64,0.35);font-weight:400;margin-left:4px">(${rows.length})</span>
+      </td>
+      <td>${fmtTime(a.fc_time_str)}</td>
+      <td>${fmtTime(a.duration_str)}</td>
+      <td>${fmtPct(a.dtr)}</td>
+      <td>${fmtTemp(a.end_temp)}</td>
+      <td>${a.wb !== null ? a.wb.toFixed(1) : '—'}</td>
+      <td style="padding-right:14px">${a.fc_temp !== null ? a.fc_temp.toFixed(1)+'°C' : '—'}</td>
+    </tr>`;
+  }).join('');
+
+  const categoryTable = `
+  <div class="panel" style="margin-bottom:14px">
+    <div class="panel-hdr">
+      Category Averages
+      <span style="font-size:9px;color:rgba(255,255,255,0.35);font-weight:400;font-family:'DM Sans',sans-serif">avg across filtered roasts</span>
+    </div>
+    <div class="panel-body" style="padding:0">
+      <table class="ref-table">
+        <thead><tr>
+          <th style="padding-left:14px">Category</th>
+          <th>FC Time</th>
+          <th>Duration</th>
+          <th>DTR</th>
+          <th>End Temp</th>
+          <th>WB avg</th>
+          <th style="padding-right:14px">FC Temp</th>
+        </tr></thead>
+        <tbody>${tableRows}</tbody>
+      </table>
+    </div>
+  </div>`;
+
+  // Coffee lookup + detail
+  const coffees = [...new Map(filteredData.map(r => [r.profile, r])).values()]
+    .sort((a, b) => a.profile.localeCompare(b.profile));
+
+  const coffeeItems = coffees.slice(0, 100).map(r => `
+    <div class="coffee-item ${selectedCoffee === r.profile ? 'selected' : ''}" onclick="selectCoffee('${r.profile.replace(/'/g, "\\'")}')">
+      <div class="ci-origin">${r.origin}</div>
+      <div class="ci-name">${r.profile}</div>
+      <div class="ci-group">${r.group || ''}</div>
+      <div class="ci-badges">
+        ${['mel','pdx','atx'].filter(s => allData.some(d => d.profile === r.profile && d.site === s))
+          .map(s => `<div class="ci-badge" style="background:${SITE_COLORS[s]}"></div>`).join('')}
+      </div>
+    </div>`).join('');
+
+  const detailPanel = selectedCoffee ? renderCoffeeDetail(selectedCoffee) : 
+    `<div class="cd-no-data">Select a coffee to see its roast history</div>`;
+
+  const coffeePanel = `
+  <div class="two-col">
+    <div class="panel">
+      <div class="panel-hdr">
+        Coffee Lookup
+        <span style="font-size:9px;color:rgba(255,255,255,0.35);font-weight:400;font-family:'DM Sans',sans-serif">${coffees.length} coffees${coffees.length > 100 ? ' (showing 100)' : ''}</span>
+      </div>
+      <div class="panel-body" style="padding:8px">
+        <div class="coffee-list">${coffeeItems}</div>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="panel-hdr">Roast Reference</div>
+      <div id="coffeeDetail">${detailPanel}</div>
+    </div>
+  </div>`;
+
+  // DTR bar chart by category
+  const dtrBars = cats.filter(cat => filteredData.some(r => r.group === cat)).map(cat => {
+    const siteRows = sites.map(s => {
+      const rows = filteredData.filter(r => r.group === cat && r.site === s);
+      const a = avg(rows.map(r => r.dtr));
+      const pct = a !== null ? Math.round((a / 25) * 100) : 0;
+      return `<div class="bar-row">
+        <span class="bar-site-label" style="color:${SITE_COLORS[s]}">${SITE_LABELS[s]}</span>
+        <div class="bar-track"><div class="bar-fill" style="width:${pct}%;background:${SITE_COLORS[s]}"></div></div>
+        <span class="bar-val">${a !== null ? a.toFixed(1)+'%' : '—'}</span>
+      </div>`;
+    }).join('');
+    return `<div class="bar-group">
+      <div class="bar-group-label"><span>${cat}</span></div>
+      <div class="bar-trio">${siteRows}</div>
+    </div>`;
+  }).join('');
+
+  const etBars = cats.filter(cat => filteredData.some(r => r.group === cat)).map(cat => {
+    const siteRows = sites.map(s => {
+      const rows = filteredData.filter(r => r.group === cat && r.site === s);
+      const a = avg(rows.map(r => r.end_temp));
+      const pct = a !== null ? Math.round(((a - 160) / 70) * 100) : 0;
+      return `<div class="bar-row">
+        <span class="bar-site-label" style="color:${SITE_COLORS[s]}">${SITE_LABELS[s]}</span>
+        <div class="bar-track"><div class="bar-fill" style="width:${Math.max(0,Math.min(100,pct))}%;background:${SITE_COLORS[s]}"></div></div>
+        <span class="bar-val">${a !== null ? a.toFixed(0)+'°C' : '—'}</span>
+      </div>`;
+    }).join('');
+    return `<div class="bar-group">
+      <div class="bar-group-label"><span>${cat}</span></div>
+      <div class="bar-trio">${siteRows}</div>
+    </div>`;
+  }).join('');
+
+  const barsPanel = `
+  <div class="two-col">
+    <div class="panel">
+      <div class="panel-hdr">DTR % — by Category & Roastery</div>
+      <div class="panel-body">${dtrBars}</div>
+    </div>
+    <div class="panel">
+      <div class="panel-hdr">End Temp — by Category & Roastery</div>
+      <div class="panel-body">${etBars}</div>
+    </div>
+  </div>`;
+
+  el.innerHTML = paramCards + categoryTable + coffeePanel + barsPanel + 
+    `<div class="footer">Data sourced from Cropster via LightTells pipeline · ${filteredData.length} roasts across ${sites.map(s=>SITE_LABELS[s]).join(', ')}</div>`;
+}
+
+function renderCoffeeDetail(profile) {
+  const rows = allData.filter(r => r.profile === profile);
+  if (!rows.length) return `<div class="cd-no-data">No data found</div>`;
+
+  const a = getParamAvgs(rows);
+  const siteBreakdown = ['mel','pdx','atx'].filter(s => rows.some(r => r.site === s)).map(s => {
+    const sr = rows.filter(r => r.site === s);
+    const sa = getParamAvgs(sr);
+    return `<div class="cd-site-row">
+      <span class="cd-site-label" style="color:${SITE_COLORS[s]}">${SITE_LABELS[s]}</span>
+      <span class="cd-site-val">
+        FC ${fmtTime(sa.fc_time_str)} · 
+        ${sa.duration_str !== '—' ? sa.duration_str+' total · ' : ''}
+        DTR ${fmtPct(sa.dtr)} · 
+        ET ${fmtTemp(sa.end_temp)}
+      </span>
+    </div>`;
+  }).join('');
+
+  return `<div class="coffee-detail">
+    <div class="cd-title">${profile}</div>
+    <div class="cd-params">
+      <div class="cd-param">
+        <div class="cd-param-label">First Crack</div>
+        <div class="cd-param-val">${fmtTime(a.fc_time_str)}</div>
+      </div>
+      <div class="cd-param">
+        <div class="cd-param-label">Roast Duration</div>
+        <div class="cd-param-val">${fmtTime(a.duration_str)}</div>
+      </div>
+      <div class="cd-param">
+        <div class="cd-param-label">Dev Time Ratio</div>
+        <div class="cd-param-val">${fmtPct(a.dtr)}</div>
+      </div>
+      <div class="cd-param">
+        <div class="cd-param-label">End Temp</div>
+        <div class="cd-param-val">${fmtTemp(a.end_temp)}</div>
+      </div>
+      <div class="cd-param">
+        <div class="cd-param-label">WB avg</div>
+        <div class="cd-param-val">${a.wb !== null ? a.wb.toFixed(1) : '—'}</div>
+      </div>
+      <div class="cd-param">
+        <div class="cd-param-label">FC Bean Temp</div>
+        <div class="cd-param-val">${fmtTemp(a.fc_temp)}</div>
+      </div>
+    </div>
+    <div style="font-family:'Oswald',sans-serif;font-size:9px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:rgba(26,35,64,0.4);margin-bottom:6px">By Roastery</div>
+    <div class="cd-site-rows">${siteBreakdown}</div>
+    <div style="font-size:10px;color:rgba(26,35,64,0.35);margin-top:8px;font-style:italic">${rows.length} roast${rows.length!==1?'s':''} on record</div>
+  </div>`;
+}
+
+function selectCoffee(profile) {
+  selectedCoffee = profile;
+  const detail = document.getElementById('coffeeDetail');
+  if (detail) detail.innerHTML = renderCoffeeDetail(profile);
+  document.querySelectorAll('.coffee-item').forEach(el => {
+    el.classList.toggle('selected', el.querySelector('.ci-name').textContent === profile);
+  });
+}
+
+// ─── TABS ─────────────────────────────────────────────────────────────────────
+function switchTab(name, el) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('tab-' + name).classList.add('active');
+}
+
+// ─── INIT ─────────────────────────────────────────────────────────────────────
+loadAllData();
+</script>
+</body>
+</html>
