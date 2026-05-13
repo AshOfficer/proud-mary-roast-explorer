@@ -347,6 +347,8 @@ function parseCSV(text){
       dtr:      iDtr>=0?parseFloat(f[iDtr])||null:null,
       fc_time:  iFcTime>=0?(f[iFcTime]||null):null,
       fc_temp:  iFcTemp>=0?parseFloat(f[iFcTemp])||null:null,
+      fc_temp_console:  iFC_console>=0?parseFloat(f[iFC_console])||null:null,
+      end_temp_console: iET_console>=0?parseFloat(f[iET_console])||null:null,
     });
   }
   return rows;
@@ -477,7 +479,12 @@ function tFC(id){
   const isOpen=panel.classList.contains('open');
   document.querySelectorAll('.fc-panel').forEach(p=>p.classList.remove('open'));
   document.querySelectorAll('.fc-btn').forEach(b=>b.classList.remove('open'));
-  if(!isOpen){panel.classList.add('open');btn.classList.add('open');}
+  if(!isOpen){
+    panel.classList.add('open');btn.classList.add('open');
+    // Auto-focus the search input
+    const si=panel.querySelector('.fc-search');
+    if(si)setTimeout(()=>si.focus(),50);
+  }
 }
 document.addEventListener('click',e=>{
   if(!e.target.closest('.fc')){
@@ -822,7 +829,8 @@ function rpNormCat(c){
 function rpNormMachine(m){
   if(!m)return m;
   const t=m.trim();
-  if(/stronghold/i.test(t)&&/s[79]x?/i.test(t))return'Stronghold S7X';
+  const tl=t.toLowerCase();
+  if(tl.includes('stronghold')&&(tl.includes('s7')||tl.includes('s9')))return'Stronghold S7X';
   return t.replace(/Moka/gi,'Mokka');
 }
 
@@ -958,24 +966,25 @@ function rRP(filteredRaw){
     </div>`;
   }
 
-  const paramCards=`<div style="display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:14px">
+  const paramCards=`<div style="display:grid;grid-template-columns:1fr 1.1fr 0.7fr 0.7fr 1.1fr 0.65fr 0.65fr;gap:10px;margin-bottom:14px">
 
-    ${rpCard('FC','First Crack','#49BFCE', rows=>({
+    ${rpCard('FC TIME','First Crack Time','#49BFCE', rows=>({
+      mainVal: rpMinsToTime(rpAvg(rows.map(r=>rpTimeToMins(r.fc_time)))),
+      rangeStr: rpRangeTime(rows.map(r=>rpTimeToMins(r.fc_time)))
+    }))}
+
+    ${rpCard('FC TEMP','First Crack Temp','#49BFCE', rows=>({
       mainVal: (() => {
-        const t = rpMinsToTime(rpAvg(rows.map(r=>rpTimeToMins(r.fc_time))));
         const fct = rpAvg(rows.map(r=>parseFloat(r.fc_temp_console)||null));
         const fcc = rpAvg(rows.map(r=>parseFloat(r.fc_temp)||null));
         const conStr = fct!==null ? `<span style="font-size:11px;color:rgba(255,255,255,.5)">console: ${fct.toFixed(0)}°</span>` : '';
-        const cropStr = fcc!==null ? `cropster: ${fcc.toFixed(1)}°C` : '';
-        const tempLine = [conStr, cropStr].filter(Boolean).join(' · ');
-        return `${t}<br><span style="font-size:11px;font-weight:400">${tempLine||'—'}</span>`;
+        const cropStr = fcc!==null ? `cropster: ${fcc.toFixed(1)}°C` : '—';
+        return [conStr, cropStr].filter(Boolean).join('<br>');
       })(),
       rangeStr: (() => {
-        const tRange = rpRangeTime(rows.map(r=>rpTimeToMins(r.fc_time)));
         const conVals = rows.map(r=>parseFloat(r.fc_temp_console)||null).filter(x=>x);
         const cropVals = rows.map(r=>parseFloat(r.fc_temp)||null).filter(x=>x);
         const parts = [];
-        if(tRange) parts.push('time: '+tRange);
         if(conVals.length) parts.push('console: '+Math.min(...conVals).toFixed(0)+'–'+Math.max(...conVals).toFixed(0)+'°');
         if(cropVals.length) parts.push('cropster: '+Math.min(...cropVals).toFixed(1)+'–'+Math.max(...cropVals).toFixed(1)+'°C');
         return parts.join(' · ');
@@ -1010,26 +1019,15 @@ function rRP(filteredRaw){
       })()
     }))}
 
-    <div style="${cardStyle};border-color:#F5C842;display:flex;flex-direction:column;gap:0">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
-        <div>
-          <div style="font-family:'Black Ops One',serif;font-size:14px;color:#F5C842;line-height:1">WB</div>
-          <div style="font-size:8px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px">Whole Bean</div>
-          ${makeSiteRows(rows=>({
-            mainVal: rpFmt(rpAvg(rows.map(r=>r.wb)),'wb'),
-            rangeStr: rpRange(rows.map(r=>r.wb))
-          }))}
-        </div>
-        <div style="border-left:1px solid rgba(255,255,255,.1);padding-left:8px">
-          <div style="font-family:'Black Ops One',serif;font-size:14px;color:#49BFCE;line-height:1">GB</div>
-          <div style="font-size:8px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px">Ground Bean</div>
-          ${makeSiteRows(rows=>({
-            mainVal: rpFmt(rpAvg(rows.map(r=>r.gb)),'wb'),
-            rangeStr: rpRange(rows.map(r=>r.gb))
-          }))}
-        </div>
-      </div>
-    </div>
+    ${rpCard('WB','Whole Bean','#F5C842', rows=>({
+      mainVal: rpFmt(rpAvg(rows.map(r=>r.wb)),'wb'),
+      rangeStr: rpRange(rows.map(r=>r.wb))
+    }))}
+
+    ${rpCard('GB','Ground Bean','#49BFCE', rows=>({
+      mainVal: rpFmt(rpAvg(rows.map(r=>r.gb)),'wb'),
+      rangeStr: rpRange(rows.map(r=>r.gb))
+    }))}
 
   </div>`;
 
