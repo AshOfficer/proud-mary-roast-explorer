@@ -756,7 +756,7 @@ function rAFS(){
   el.innerHTML=parts.length?`<span class="aft">Showing:</span>`+parts.join(''):'';
 }
 
-function go(){const data=applyF();rMets(data);rTB();rAFS();if(TAB==='chart')rChart(data);else if(TAB==='table')rTable(data);else if(TAB==='roastparams')rRP();else rVar(data);}
+function go(){const data=applyF();rMets(data);rTB();rAFS();if(TAB==='chart')rChart(data);else if(TAB==='table')rTable(data);else if(TAB==='roastparams')rRP(data);else rVar(data);}
 
 // ─── ROAST PARAMS TAB ────────────────────────────────────────────────────────
 const RP_SITE_COLORS = {Melbourne:'#2979C2',Portland:'#1B9E5E',Austin:'#A535C4'};
@@ -807,14 +807,28 @@ function rpNormCat(c){
   return u;
 }
 
-function rRP(){
+function rRP(filteredRaw){
   const el=document.getElementById('roastparams-vw');
   if(!el)return;
 
-  // Pull roast param fields from RP_RAW (full row objects stored separately)
+  // Build a set of profile keys from the filtered RAW data to match against RP_RAW
+  // filteredRaw is array of [idx, origin, varietal, process, category, wb, gb, machine]
+  const RN_arr=['Melbourne','Portland','Austin'];
+  const allowedKeys = filteredRaw
+    ? new Set(filteredRaw.map(d=>RN_arr[d[0]]+'||'+d[1]+'||'+d[3]+'||'+d[4]))
+    : null;
+
+  // Pull roast param fields from RP_RAW filtered to match main filter selection
   const rpData = RP_RAW.filter(r=>{
     const cat=rpNormCat(r.cat);
-    return cat!==null && r.roastery;
+    if(cat===null || !r.roastery) return false;
+    if(allowedKeys){
+      const key=r.roastery+'||'+r.origin+'||'+r.process+'||'+r.cat;
+      // Also try with normalised cat
+      const key2=r.roastery+'||'+r.origin+'||'+r.process+'||'+cat;
+      if(!allowedKeys.has(key)&&!allowedKeys.has(key2)) return false;
+    }
+    return true;
   }).map(r=>({
     site:r.roastery,
     profile:r.profile||'',
@@ -986,7 +1000,7 @@ function rRP(){
     <div style="background:white;border-radius:8px;border:1.5px solid rgba(26,35,64,.1);overflow:hidden">
       <div style="background:#1A2340;padding:9px 14px;font-family:var(--font-label);font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#F5C842;display:flex;justify-content:space-between;align-items:center">
         COFFEE LOOKUP
-        <input id="rp-search" type="text" placeholder="Search…" oninput="rRP()" style="font-size:11px;padding:3px 8px;border-radius:4px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.1);color:white;outline:none;width:120px" value="${rpSearch}">
+        <input id="rp-search" type="text" placeholder="Search…" oninput="rRP(applyF())" style="font-size:11px;padding:3px 8px;border-radius:4px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.1);color:white;outline:none;width:120px" value="${rpSearch}">
       </div>
       <div style="padding:8px;max-height:380px;overflow-y:auto">${coffeeList}${filtered.length>150?`<div style="font-size:10px;color:rgba(26,35,64,.35);text-align:center;padding:8px">Showing 150 of ${filtered.length} — use search to narrow</div>`:''}</div>
     </div>
