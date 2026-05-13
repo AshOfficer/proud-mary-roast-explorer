@@ -485,7 +485,16 @@ document.addEventListener('click',e=>{
 function fFC(id,q){document.querySelectorAll('#'+id+'-l .fc-opt').forEach(el=>{el.style.display=el.textContent.toLowerCase().includes(q.toLowerCase())?'':'none';});}
 function doAll(fk,id){F[fk]=null;document.querySelectorAll('#'+id+'-l input').forEach(i=>i.checked=true);go();}
 function doNone(fk,id){F[fk]=[];document.querySelectorAll('#'+id+'-l input').forEach(i=>i.checked=false);go();}
-function togO(fk,val,chk,id){const cur=sel(fk);if(chk)cur.add(val);else cur.delete(val);F[fk]=cur.size===OL[fk].length?null:[...cur];go();}
+function togO(fk,val,chk,id){
+  // If currently "All" and user checks something, switch to just that item
+  if(chk && iAll(fk)){
+    F[fk]=[val];
+    document.querySelectorAll('#'+id+'-l input').forEach(i=>i.checked=i.value===val||i.parentElement.textContent.trim()===val);
+    go();return;
+  }
+  const cur=sel(fk);if(chk)cur.add(val);else cur.delete(val);
+  F[fk]=cur.size===OL[fk].length?null:[...cur];go();
+}
 function setGB(v){GB=v;go();}
 function setTab(t){
   TAB=t;
@@ -967,7 +976,35 @@ function rRP(filteredRaw){
 
   window._rpMakeDetail=makeDetail;
 
-  el.innerHTML=`<div style="padding:12px 0">${paramCards}${coffeePanels}</div>`;
+  // Roastery toggles for Roast Params tab
+  const rpRoasteryBtns = ['Melbourne','Portland','Austin'].map(site=>{
+    const color=RP_SITE_COLORS[site];
+    const short=RP_SITE_SHORT[site];
+    const hasData=RP_RAW.some(r=>r.roastery===site);
+    const isActive=activeSites.includes(site);
+    return`<button onclick="window._rpToggleSite('${site}')" style="font-family:var(--font-label);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 14px;border-radius:20px;border:2px solid ${color};background:${isActive?color:'transparent'};color:${isActive?'white':color};cursor:${hasData?'pointer':'not-allowed'};opacity:${hasData?1:0.3};transition:all .15s">${short}</button>`;
+  }).join('');
+  
+  window._rpToggleSite=function(site){
+    // Toggle roastery filter specifically for RP tab by updating F.r
+    const cur=sel('r');
+    if(cur.has(site)&&cur.size>1){cur.delete(site);}
+    else if(!cur.has(site)){cur.add(site);}
+    F['r']=cur.size===OL['r'].length?null:[...cur];
+    // Also update main roastery filter checkboxes
+    document.querySelectorAll('#dd-r-l input').forEach(i=>{
+      const label=i.parentElement.textContent.trim();
+      i.checked=sel('r').has(label);
+    });
+    go();
+  };
+
+  const roasteryBar=`<div style="display:flex;gap:8px;margin-bottom:14px;align-items:center">
+    <span style="font-family:var(--font-label);font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(26,35,64,.4);margin-right:4px">ROASTERY</span>
+    ${rpRoasteryBtns}
+  </div>`;
+
+  el.innerHTML=`<div style="padding:12px 0">${roasteryBar}${paramCards}${coffeePanels}</div>`;
   // Re-attach detail if selected
   if(rpSelected)document.getElementById('rp-detail').innerHTML=makeDetail(rpSelected);
 }
