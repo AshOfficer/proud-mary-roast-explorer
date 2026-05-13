@@ -807,6 +807,13 @@ function rpNormCat(c){
   return u;
 }
 
+function rpNormMachine(m){
+  if(!m)return m;
+  const t=m.trim();
+  if(/stronghold\s+s[79]x?$/i.test(t))return'Stronghold S9X';
+  return t.replace(/Moka/gi,'Mokka');
+}
+
 function rRP(filteredRaw){
   const el=document.getElementById('roastparams-vw');
   if(!el)return;
