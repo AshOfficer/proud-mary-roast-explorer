@@ -814,27 +814,23 @@ function rRP(filteredRaw){
   // Build a set of profile keys from the filtered RAW data to match against RP_RAW
   // filteredRaw is array of [idx, origin, varietal, process, category, wb, gb, machine]
   const RN_arr=['Melbourne','Portland','Austin'];
-  const allowedKeys = filteredRaw
-    ? new Set(filteredRaw.map(d=>RN_arr[d[0]]+'||'+d[1]+'||'+d[3]+'||'+d[4]))
-    : null;
-
-  // Pull roast param fields from RP_RAW filtered to match main filter selection
+  // Apply same filters as main dashboard using F filter state
   const rpData = RP_RAW.filter(r=>{
     const cat=rpNormCat(r.cat);
     if(cat===null || !r.roastery) return false;
-    if(allowedKeys){
-      const key=r.roastery+'||'+r.origin+'||'+r.process+'||'+r.cat;
-      // Also try with normalised cat
-      const key2=r.roastery+'||'+r.origin+'||'+r.process+'||'+cat;
-      if(!allowedKeys.has(key)&&!allowedKeys.has(key2)) return false;
-    }
+    if(!iAll('r')&&!sel('r').has(r.roastery)) return false;
+    if(!iAll('o')&&!sel('o').has(r.origin)) return false;
+    if(!iAll('v')&&r.varietal&&!sel('v').has(r.varietal)) return false;
+    if(!iAll('p')&&!sel('p').has(r.process)) return false;
+    if(!iAll('c')&&!sel('c').has(r.category)) return false;
+    if(!iAll('m')&&r.machine&&!sel('m').has(r.machine)) return false;
     return true;
   }).map(r=>({
     site:r.roastery,
     profile:r.profile||'',
     origin:(r.profile||'').split(' ')[0],
     group:rpNormCat(r.cat),
-    machine:r.machine||'',
+    machine:rpNormMachine(r.machine||''),
     wb:r.wb,
     gb:r.gb,
     duration:r.duration||null,
@@ -903,54 +899,6 @@ function rRP(filteredRaw){
     </div>
   </div>`;
 
-  // Category averages table
-  const mainCats=['CURIOUS','WILD','DELUXE','MILD','GHOST RIDER','ANGEL WINGS','HUMBLER','DECAF'];
-  const bottomCats=['CURIOUS ESP','WILD ESP','DELUXE ESP','MILD FIL'];
-  const allCats=[...mainCats,...bottomCats];
-
-  const tRows=allCats.map((cat,idx)=>{
-    const rows=rpData.filter(r=>r.group===cat);
-    if(!rows.length)return'';
-    const a=rpGetAvgs(rows);
-    const isBottom=bottomCats.includes(cat);
-    const borderTop=isBottom&&idx===mainCats.length?'border-top:1px dashed rgba(26,35,64,.2)':'';
-    const opacity=isBottom?'opacity:.6':'';
-    const dots=activeSites.map(s=>{
-      const has=rows.some(r=>r.site===s);
-      return`<span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:${RP_SITE_COLORS[s]};opacity:${has?1:.15};margin-right:2px;vertical-align:middle"></span>`;
-    }).join('');
-    return`<tr style="${borderTop};${opacity}">
-      <td style="padding:7px 8px 7px 14px;font-family:var(--font-label);font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border-bottom:.5px solid rgba(26,35,64,.06)">${dots} ${cat} <span style="font-size:9px;color:rgba(26,35,64,.35);font-weight:400">(${rows.length})</span></td>
-      <td style="padding:7px 8px;text-align:right;font-size:11px;border-bottom:.5px solid rgba(26,35,64,.06)">${a.fc_time}</td>
-      <td style="padding:7px 8px;text-align:right;font-size:11px;border-bottom:.5px solid rgba(26,35,64,.06)">${a.duration}</td>
-      <td style="padding:7px 8px;text-align:right;font-size:11px;border-bottom:.5px solid rgba(26,35,64,.06)">${rpFmt(a.dtr,'%')}</td>
-      <td style="padding:7px 8px;text-align:right;font-size:11px;border-bottom:.5px solid rgba(26,35,64,.06)">${rpFmt(a.end_temp,'°C')}</td>
-      <td style="padding:7px 8px;text-align:right;font-size:11px;border-bottom:.5px solid rgba(26,35,64,.06)">${rpFmt(a.wb,'wb')}</td>
-      <td style="padding:7px 14px 7px 8px;text-align:right;font-size:11px;border-bottom:.5px solid rgba(26,35,64,.06)">${rpFmt(a.fc_temp,'°C')}</td>
-    </tr>`;
-  }).join('');
-
-  const thStyle='font-family:var(--font-label);font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(26,35,64,.4);padding:0 8px 8px;text-align:right;border-bottom:1.5px solid rgba(26,35,64,.1)';
-  const catTable=`<div style="background:white;border-radius:8px;border:1.5px solid rgba(26,35,64,.1);overflow:hidden;margin-bottom:14px">
-    <div style="background:#1A2340;padding:9px 14px;font-family:var(--font-label);font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#F5C842;display:flex;justify-content:space-between;align-items:center">
-      CATEGORY AVERAGES
-      <span style="font-size:9px;color:rgba(255,255,255,.35);font-weight:400;font-family:var(--font-body);text-transform:none;letter-spacing:0">avg across all roasteries</span>
-    </div>
-    <div style="overflow-x:auto">
-    <table style="width:100%;border-collapse:collapse;font-size:11px">
-      <thead><tr>
-        <th style="${thStyle};text-align:left;padding-left:14px">Category</th>
-        <th style="${thStyle}">FC Time</th>
-        <th style="${thStyle}">Duration</th>
-        <th style="${thStyle}">DTR</th>
-        <th style="${thStyle}">End Temp</th>
-        <th style="${thStyle}">WB avg</th>
-        <th style="${thStyle};padding-right:14px">FC Temp</th>
-      </tr></thead>
-      <tbody>${tRows}</tbody>
-    </table>
-    </div>
-  </div>`;
 
   // Coffee lookup
   const coffees=[...new Map(rpData.map(r=>[r.profile,r])).values()].sort((a,b)=>a.profile.localeCompare(b.profile));
@@ -1012,7 +960,7 @@ function rRP(filteredRaw){
 
   window._rpMakeDetail=makeDetail;
 
-  el.innerHTML=`<div style="padding:12px 0">${paramCards}${catTable}${coffeePanels}</div>`;
+  el.innerHTML=`<div style="padding:12px 0">${paramCards}${coffeePanels}</div>`;
   // Re-attach detail if selected
   if(rpSelected)document.getElementById('rp-detail').innerHTML=makeDetail(rpSelected);
 }
