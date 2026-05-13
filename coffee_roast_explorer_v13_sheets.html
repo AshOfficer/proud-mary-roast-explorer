@@ -830,7 +830,7 @@ function rRP(filteredRaw){
     if(!iAll('v')&&r.varietal&&!sel('v').has(r.varietal)) return false;
     if(!iAll('p')&&!sel('p').has((r.process||'').trim())) return false;
     if(!iAll('c')&&!sel('c').has(r.category)) return false;
-    if(!iAll('m')&&r.machine){const rm=r.machine.trim();if(!sel('m').has(rm)&&!sel('m').has(rpNormMachine(rm)))return false;}
+    if(!iAll('m')){if(!r.machine)return false;const rm=r.machine.trim();if(!sel('m').has(rm)&&!sel('m').has(rpNormMachine(rm)))return false;}
     return true;
   }).map(r=>({
     site:r.roastery,
