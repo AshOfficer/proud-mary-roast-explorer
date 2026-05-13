@@ -393,6 +393,7 @@ function rebuildOptions(){
 
 const OL={r:RN,o:[],v:[],p:[],c:[],m:[]};
 let F={r:null,o:null,v:null,p:null,c:null,m:null};
+let F_INITIALISED=false;
 let GB='c',TAB='chart',CI=null;
 
 function iAll(k){return F[k]===null;}
@@ -1113,5 +1114,12 @@ function rRP(filteredRaw){
   if(rpSelected)document.getElementById('rp-detail').innerHTML=makeDetail(rpSelected);
 }
 
-loadAllSheets();
+loadAllSheets().then(()=>{
+  // Set all filters to None by default after data loads
+  if(!F_INITIALISED){
+    F={r:[],o:[],v:[],p:[],c:[],m:[]};
+    F_INITIALISED=true;
+    go();
+  }
+});
 </script>
