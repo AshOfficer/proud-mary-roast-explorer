@@ -919,43 +919,103 @@ function rRP(filteredRaw){
   const hasConsoleFc=rpData.some(r=>r.fc_temp_console);
   const hasConsoleEt=rpData.some(r=>r.end_temp_console);
 
-  const paramCards=`<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px">
-    ${makeCard('FC','First Crack Time','#49BFCE',
-      rows=>rpMinsToTime(rpAvg(rows.map(r=>rpTimeToMins(r.fc_time)))),
-      rows=>rpRangeTime(rows.map(r=>rpTimeToMins(r.fc_time)))
-    )}
-    ${makeCard('FC°','FC Bean Temp','#49BFCE',
-      rows=>rpFmt(rpAvg(rows.map(r=>parseFloat(r.fc_temp)||null)),'°C'),
-      rows=>rpRange(rows.map(r=>parseFloat(r.fc_temp)||null))
-    )}
-    ${makeCard('RT','Roast Duration','#F5C842',
-      rows=>rpMinsToTime(rpAvg(rows.map(r=>rpTimeToMins(r.duration)))),
-      rows=>rpRangeTime(rows.map(r=>rpTimeToMins(r.duration)))
-    )}
-    ${makeCard('DV%','Development Time Ratio','#3DB87A',
-      rows=>rpFmt(rpAvg(rows.map(r=>parseFloat(r.dtr)||null)),'%'),
-      rows=>{const v=rows.map(r=>parseFloat(r.dtr)||null);return rpRange(v)+'%';}
-    )}
-    ${makeCard('ET','End Temp (Cropster)','#F2699C',
-      rows=>rpFmt(rpAvg(rows.map(r=>parseFloat(r.end_temp)||null)),'°C'),
-      rows=>rpRange(rows.map(r=>parseFloat(r.end_temp)||null))
-    )}
-    ${makeCard('CT','Console Temps (FC / Drop)','#A535C4',
-      rows=>{
-        const fc=rpAvg(rows.map(r=>parseFloat(r.fc_temp_console)||null));
-        const et=rpAvg(rows.map(r=>parseFloat(r.end_temp_console)||null));
-        if(fc===null&&et===null)return'—';
-        return(fc!==null?fc.toFixed(0)+'°':'?')+' / '+(et!==null?et.toFixed(0)+'°':'?');
-      },
-      rows=>{
-        const fcs=rows.map(r=>parseFloat(r.fc_temp_console)||null).filter(x=>x);
-        const ets=rows.map(r=>parseFloat(r.end_temp_console)||null).filter(x=>x);
-        if(!fcs.length&&!ets.length)return'';
-        const fcr=fcs.length?Math.min(...fcs).toFixed(0)+'-'+Math.max(...fcs).toFixed(0):'—';
-        const etr=ets.length?Math.min(...ets).toFixed(0)+'-'+Math.max(...ets).toFixed(0):'—';
-        return'FC: '+fcr+'° / Drop: '+etr+'°';
-      }
-    )}
+  // Format: (console) cropster — console in brackets if available
+  function fmtWithConsole(consoleVal, cropsterVal, unit){
+    const c = cropsterVal !== null ? cropsterVal.toFixed(1)+unit : '—';
+    const con = consoleVal !== null ? `<span style="color:rgba(255,255,255,.45);font-size:11px">(${consoleVal.toFixed(0)})</span> ` : '';
+    return con + c;
+  }
+  function fmtRangeWithConsole(consoleVals, cropsterVals, unit){
+    const cv = cropsterVals.filter(x=>x!==null&&!isNaN(x));
+    const conV = consoleVals.filter(x=>x!==null&&!isNaN(x));
+    const parts = [];
+    if(conV.length) parts.push(`console: (${Math.min(...conV).toFixed(0)}–${Math.max(...conV).toFixed(0)})`);
+    if(cv.length) parts.push(`cropster: ${Math.min(...cv).toFixed(1)}–${Math.max(...cv).toFixed(1)}${unit}`);
+    return parts.join(' · ');
+  }
+
+  function makeSiteRows(fields){
+    // fields: array of {getValue, getRange} per site row
+    return activeSites.map(s=>{
+      const srows = rpData.filter(r=>r.site===s);
+      const {mainVal, rangeStr} = fields(srows);
+      return `<div style="margin-bottom:6px">
+        <div style="display:flex;justify-content:space-between;align-items:baseline">
+          <span style="font-family:var(--font-label);font-size:9px;font-weight:700;letter-spacing:.1em;color:${RP_SITE_COLORS[s]}">${RP_SITE_SHORT[s]}</span>
+          <span style="font-size:13px;font-weight:600;color:white">${mainVal}</span>
+        </div>
+        ${rangeStr ? `<div style="font-size:9px;color:rgba(255,255,255,.28);text-align:right;margin-top:1px">${rangeStr}</div>` : ''}
+      </div>`;
+    }).join('');
+  }
+
+  function rpCard(abbr, name, color, fieldsFn){
+    return `<div style="${cardStyle};border-color:${color}">
+      <div style="font-family:'Black Ops One',serif;font-size:18px;color:${color};line-height:1">${abbr}</div>
+      <div style="font-size:9px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px">${name}</div>
+      ${makeSiteRows(fieldsFn)}
+    </div>`;
+  }
+
+  const paramCards=`<div style="display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:14px">
+
+    ${rpCard('FC','First Crack','#49BFCE', rows=>({
+      mainVal: (() => {
+        const t = rpMinsToTime(rpAvg(rows.map(r=>rpTimeToMins(r.fc_time))));
+        const fct = rpAvg(rows.map(r=>parseFloat(r.fc_temp_console)||null));
+        const fcc = rpAvg(rows.map(r=>parseFloat(r.fc_temp)||null));
+        const tempStr = fmtWithConsole(fct, fcc, '°C');
+        return `${t} · ${tempStr}`;
+      })(),
+      rangeStr: (() => {
+        const times = rows.map(r=>rpTimeToMins(r.fc_time));
+        const tRange = rpRangeTime(times);
+        const conRange = rpRange(rows.map(r=>parseFloat(r.fc_temp_console)||null));
+        const cropRange = rpRange(rows.map(r=>parseFloat(r.fc_temp)||null));
+        const tempPart = [conRange?`(${conRange})`:null, cropRange?cropRange+'°C':null].filter(Boolean).join(' · ');
+        return [tRange, tempPart].filter(Boolean).join(' | temp: ');
+      })()
+    }))}
+
+    ${rpCard('RT','Roast Duration','#F5C842', rows=>({
+      mainVal: rpMinsToTime(rpAvg(rows.map(r=>rpTimeToMins(r.duration)))),
+      rangeStr: rpRangeTime(rows.map(r=>rpTimeToMins(r.duration)))
+    }))}
+
+    ${rpCard('DV%','Dev Time Ratio','#3DB87A', rows=>({
+      mainVal: rpFmt(rpAvg(rows.map(r=>parseFloat(r.dtr)||null)),'%'),
+      rangeStr: (() => { const v=rows.map(r=>parseFloat(r.dtr)||null); const r=rpRange(v); return r?r+'%':''; })()
+    }))}
+
+    ${rpCard('ET','End Temp','#F2699C', rows=>({
+      mainVal: fmtWithConsole(
+        rpAvg(rows.map(r=>parseFloat(r.end_temp_console)||null)),
+        rpAvg(rows.map(r=>parseFloat(r.end_temp)||null)),
+        '°C'
+      ),
+      rangeStr: fmtRangeWithConsole(
+        rows.map(r=>parseFloat(r.end_temp_console)||null),
+        rows.map(r=>parseFloat(r.end_temp)||null),
+        '°C'
+      )
+    }))}
+
+    <div style="${cardStyle};border-color:#F5C842;display:flex;flex-direction:column;gap:0">
+      <div style="font-family:'Black Ops One',serif;font-size:14px;color:#F5C842;line-height:1">WB</div>
+      <div style="font-size:8px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px">Whole Bean</div>
+      ${makeSiteRows(rows=>({
+        mainVal: rpFmt(rpAvg(rows.map(r=>r.wb)),'wb'),
+        rangeStr: rpRange(rows.map(r=>r.wb))
+      }))}
+      <div style="border-top:1px solid rgba(255,255,255,.1);margin:8px 0"></div>
+      <div style="font-family:'Black Ops One',serif;font-size:14px;color:#49BFCE;line-height:1">GB</div>
+      <div style="font-size:8px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px">Ground Bean</div>
+      ${makeSiteRows(rows=>({
+        mainVal: rpFmt(rpAvg(rows.map(r=>r.gb)),'wb'),
+        rangeStr: rpRange(rows.map(r=>r.gb))
+      }))}
+    </div>
+
   </div>`;
 
 
