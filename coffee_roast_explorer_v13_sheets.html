@@ -818,12 +818,12 @@ function rRP(filteredRaw){
   const rpData = RP_RAW.filter(r=>{
     const cat=rpNormCat(r.cat);
     if(cat===null || !r.roastery) return false;
-    if(!iAll('r')&&!sel('r').has(r.roastery)) return false;
-    if(!iAll('o')&&!sel('o').has(r.origin)) return false;
+    if(!iAll('r')&&!sel('r').has((r.roastery||'').trim())) return false;
+    if(!iAll('o')&&!sel('o').has((r.origin||'').trim())) return false;
     if(!iAll('v')&&r.varietal&&!sel('v').has(r.varietal)) return false;
-    if(!iAll('p')&&!sel('p').has(r.process)) return false;
+    if(!iAll('p')&&!sel('p').has((r.process||'').trim())) return false;
     if(!iAll('c')&&!sel('c').has(r.category)) return false;
-    if(!iAll('m')&&r.machine&&!sel('m').has(r.machine)) return false;
+    if(!iAll('m')&&r.machine){const rm=r.machine.trim();if(!sel('m').has(rm)&&!sel('m').has(rpNormMachine(rm)))return false;}
     return true;
   }).map(r=>({
     site:r.roastery,
