@@ -351,6 +351,7 @@ function parseCSV(text){
 }
 
 let RAW=[];
+let RP_RAW=[];
 async function loadAllSheets(){
   showLoading(true);
   const entries=Object.entries(SHEET_URLS);
@@ -358,12 +359,14 @@ async function loadAllSheets(){
     entries.map(([name,url])=>fetch(url).then(r=>{if(!r.ok)throw new Error(`HTTP ${r.status}`);return r.text();}).then(text=>({name,text})))
   );
   RAW=[];
+  RP_RAW=[];
   results.forEach((res,idx)=>{
     if(res.status==='fulfilled'){
       const rows=parseCSV(res.value.text).map(r=>({...r,roastery:res.value.name}));
       rows.forEach(r=>{
         if(!r.category||r.category==='BLEND')return;
         RAW.push([idx,r.origin,r.varietal,r.process,r.category,r.wb,r.gb,r.machine]);
+        RP_RAW.push(r);
       });
     } else {
       console.warn(`Failed to load ${entries[idx][0]}:`,res.reason);
@@ -808,10 +811,8 @@ function rRP(){
   const el=document.getElementById('roastparams-vw');
   if(!el)return;
 
-  // Pull roast param fields from RAW data (already loaded by main dashboard)
-  // RAW rows have: roastery, wb, gb, cat, process, varietal, profile + new fields
-  // New fields are stored as extra properties on each row
-  const rpData = RAW.filter(r=>{
+  // Pull roast param fields from RP_RAW (full row objects stored separately)
+  const rpData = RP_RAW.filter(r=>{
     const cat=rpNormCat(r.cat);
     return cat!==null && r.roastery;
   }).map(r=>({
