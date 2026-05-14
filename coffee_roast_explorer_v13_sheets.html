@@ -126,6 +126,7 @@ body,div,span,td,th,button,input,select,label,p{font-family:var(--font-body)}
 <div class="pm-inner">
 <div class="fb" id="tb"></div>
 <div class="afs" id="afs"></div>
+<div id="viewing-headline" style="background:#1A2340;padding:12px 20px;display:flex;align-items:baseline;gap:10px;border-bottom:3px solid #F5C842;flex-wrap:wrap"></div>
 <div class="tabs">
   <button class="tab active" onclick="setTab('chart')">Chart</button>
   <button class="tab" onclick="setTab('table')">Table</button>
@@ -787,6 +788,42 @@ function rAFS(){
   });
   const el=document.getElementById('afs');
   el.innerHTML=parts.length?`<span class="aft">Showing:</span>`+parts.join(''):'';
+
+  // Big headline banner
+  const data=applyF();
+  const headlineEl=document.getElementById('viewing-headline');
+  if(!headlineEl)return;
+
+  // Build human-readable sentence
+  function getVals(k){ return iAll(k)?null:iNone(k)?null:F[k]; }
+  const origins = getVals('o');
+  const varietals = getVals('v');
+  const processes = getVals('p');
+  const categories = getVals('c');
+  const machines = getVals('m');
+  const roasteries = getVals('r');
+
+  const segments = [];
+  if(origins) segments.push(origins.join(', '));
+  if(varietals) segments.push(varietals.join(', '));
+  if(processes) segments.push(processes.join(', '));
+  if(categories) segments.push(categories.join(', '));
+
+  const locationParts = [];
+  if(machines) locationParts.push(machines.join(', '));
+  if(roasteries) locationParts.push(roasteries.join(', '));
+
+  const headline = segments.length
+    ? segments.join(' · ') + (locationParts.length ? ' — ' + locationParts.join(', ') : '')
+    : locationParts.length
+      ? locationParts.join(', ')
+      : 'All Coffees — All Roasteries';
+
+  headlineEl.innerHTML=`
+    <span style="font-family:var(--font-label);font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.35)">VIEWING</span>
+    <span style="font-family:var(--font-label);font-size:18px;font-weight:700;color:#F5C842;letter-spacing:.02em;line-height:1.2">${headline}</span>
+    <span style="font-family:var(--font-label);font-size:12px;font-weight:600;color:rgba(255,255,255,.35);margin-left:4px">${data.length} roast${data.length!==1?'s':''}</span>
+  `;
 }
 
 function go(){
@@ -1151,7 +1188,7 @@ function rRP(filteredRaw){
     ${rpRoasteryBtns}
   </div>`;
 
-  el.innerHTML=`<div style="padding:12px 0">${roasteryBar}${selectionBanner}${paramCards}${coffeePanels}</div>`;
+  el.innerHTML=`<div style="padding:12px 0">${roasteryBar}${paramCards}${coffeePanels}</div>`;
   // Re-attach detail if selected
   if(rpSelected)document.getElementById('rp-detail').innerHTML=makeDetail(rpSelected);
 }
