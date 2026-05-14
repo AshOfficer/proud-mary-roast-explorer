@@ -420,7 +420,7 @@ function applyF(){
     if(!iAll('v')&&!sel('v').has(d[2]))return false;
     if(!iAll('p')&&!sel('p').has(d[3]))return false;
     if(!iAll('c')&&!sel('c').has(d[4]))return false;
-    if(!iAll('m')&&d[7]&&!sel('m').has(d[7]))return false;
+    if(!iAll('m')&&(!d[7]||!sel('m').has(d[7])))return false;
     return true;
   });
 }
