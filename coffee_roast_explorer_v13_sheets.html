@@ -481,7 +481,8 @@ function rTB(){
   const gbK=['c','o','v','p','r','m'],gbL={c:'Category',o:'Origin',v:'Varietal',p:'Process',r:'Roastery',m:'Machine'};
   document.getElementById('tb').innerHTML=
     [['r','Roastery'],['o','Origin'],['v','Varietal'],['p','Process'],['c','Category'],['m','Machine']].map(([k,l])=>buildFC('dd-'+k,k,l)).join('')+
-    `<div class="fc" style="max-width:120px"><div class="fc-lbl">Group by</div><select class="gb-select" onchange="setGB(this.value)">${gbK.map(k=>`<option value="${k}"${k===GB?' selected':''}>${gbL[k]}</option>`).join('')}</select></div>`;
+    `<div class="fc" style="max-width:120px"><div class="fc-lbl">Group by</div><select class="gb-select" onchange="setGB(this.value)">${gbK.map(k=>`<option value="${k}"${k===GB?' selected':''}>${gbL[k]}</option>`).join('')}</select></div>`+
+    `<button onclick="clearAllFilters()" style="font-family:var(--font-label);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 12px;border-radius:4px;border:2px solid var(--pm-pink);background:transparent;color:var(--pm-pink);cursor:pointer;white-space:nowrap;align-self:flex-end;margin-bottom:2px" title="Clear all filters">✕ Clear</button>`;
 }
 function tFC(id){
   const panel=document.getElementById(id),btn=document.getElementById('btn-'+id);
@@ -515,6 +516,10 @@ function togO(fk,val,chk,id){
   F[fk]=cur.size===OL[fk].length?null:[...cur];go();
 }
 function setGB(v){GB=v;go();}
+function clearAllFilters(){
+  F={r:null,o:null,v:null,p:null,c:null,m:null};
+  go();
+}
 function setTab(t){
   TAB=t;
   document.querySelectorAll('.tab').forEach(el=>el.classList.toggle('active',el.textContent.toLowerCase()===t));
@@ -784,7 +789,19 @@ function rAFS(){
   el.innerHTML=parts.length?`<span class="aft">Showing:</span>`+parts.join(''):'';
 }
 
-function go(){const data=applyF();rMets(data);rTB();rAFS();if(TAB==='chart')rChart(data);else if(TAB==='table')rTable(data);else if(TAB==='roastparams')rRP(data);else rVar(data);}
+function go(){
+  // Remember which panel is open so we can reopen it after rTB() rebuilds the DOM
+  const openPanel=document.querySelector('.fc-panel.open');
+  const openId=openPanel?openPanel.id:null;
+  const data=applyF();rMets(data);rTB();rAFS();
+  // Reopen the panel that was open
+  if(openId){
+    const p=document.getElementById(openId);
+    const b=document.getElementById('btn-'+openId);
+    if(p){p.classList.add('open');if(b)b.classList.add('open');}
+  }
+  if(TAB==='chart')rChart(data);else if(TAB==='table')rTable(data);else if(TAB==='roastparams')rRP(data);else rVar(data);
+}
 
 // ─── ROAST PARAMS TAB ────────────────────────────────────────────────────────
 const RP_SITE_COLORS = {Melbourne:'#2979C2',Portland:'#1B9E5E',Austin:'#A535C4'};
