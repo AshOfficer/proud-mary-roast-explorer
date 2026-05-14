@@ -203,6 +203,15 @@ function extractVarietal(profile){
   return'Unknown';
 }
 
+// ── Machine normalisation ────────────────────────────────────────────────────
+function normMachine(m){
+  if(!m)return m;
+  const t=m.trim();
+  const tl=t.toLowerCase();
+  if(tl.includes('stronghold')&&(tl.includes('s7')||tl.includes('s9')))return'Stronghold S7X';
+  return t.replace(/Moka/gi,'Mokka');
+}
+
 // ── Category normalisation ───────────────────────────────────────────────────
 const CAT_NORM={
   'CURIOUS FIL':'CURIOUS','WILD FIL':'WILD','DELUXE FIL':'DELUXE','MILD ESP':'MILD',
@@ -369,7 +378,7 @@ async function loadAllSheets(){
       const rows=parseCSV(res.value.text).map(r=>({...r,roastery:res.value.name}));
       rows.forEach(r=>{
         if(!r.category||r.category==='BLEND')return;
-        RAW.push([idx,r.origin,r.varietal,r.process,r.category,r.wb,r.gb,r.machine]);
+        RAW.push([idx,r.origin,r.varietal,r.process,r.category,r.wb,r.gb,normMachine(r.machine)]);
         RP_RAW.push(r);
       });
     } else {
@@ -424,10 +433,10 @@ function st(arr){
 }
 
 function grp(data){
-  const ki={r:0,o:1,v:2,p:3,c:4}[GB]??4;
+  const ki={r:0,o:1,v:2,p:3,c:4,m:7}[GB]??4;
   const g={};
   data.forEach(d=>{
-    const k=GB==='r'?RN[d[0]]:(d[ki]||'Unknown');
+    const k=GB==='r'?RN[d[0]]:GB==='m'?(d[7]||'Unknown'):(d[ki]||'Unknown');
     if(!g[k])g[k]={};
     const rn=RN[d[0]];
     if(!g[k][rn])g[k][rn]={wb:[],gb:[]};
@@ -469,7 +478,7 @@ function fcOpt(fk,o,s,id){
   return`<label class="fc-opt"><input type="checkbox" ${s.has(o)?'checked':''} onchange="togO('${fk}','${esc}',this.checked,'${id}')">${o}</label>`;
 }
 function rTB(){
-  const gbK=['c','o','v','p','r'],gbL={c:'Category',o:'Origin',v:'Varietal',p:'Process',r:'Roastery'};
+  const gbK=['c','o','v','p','r','m'],gbL={c:'Category',o:'Origin',v:'Varietal',p:'Process',r:'Roastery',m:'Machine'};
   document.getElementById('tb').innerHTML=
     [['r','Roastery'],['o','Origin'],['v','Varietal'],['p','Process'],['c','Category'],['m','Machine']].map(([k,l])=>buildFC('dd-'+k,k,l)).join('')+
     `<div class="fc" style="max-width:120px"><div class="fc-lbl">Group by</div><select class="gb-select" onchange="setGB(this.value)">${gbK.map(k=>`<option value="${k}"${k===GB?' selected':''}>${gbL[k]}</option>`).join('')}</select></div>`;
@@ -857,7 +866,7 @@ function rRP(filteredRaw){
     profile:r.profile||'',
     origin:(r.profile||'').split(' ')[0],
     group:rpNormCat(r.cat),
-    machine:rpNormMachine(r.machine||''),
+    machine:normMachine(r.machine||''),
     wb:r.wb,
     gb:r.gb,
     duration:r.duration||null,
