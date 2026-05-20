@@ -889,6 +889,82 @@ function rpNormCat(c){
   return u;
 }
 
+
+// ─── BLURB LIBRARY ──────────────────────────────────────────────────────────
+const BLURBS = [
+  {
+    key: 'parainema_natural',
+    match: r => /parainema/i.test(r.varietal) && /natural/i.test(r.process),
+    priority: 10,
+    text: "Parainema is a rust-resistant Honduran hybrid with an elongated, Geisha-like bean and a bright, sometimes sharp acidity — Natural processing helps bring that into balance, and is the preferred method for this varietal at Proud Mary. It reads lighter than other Honduran varietals, so keep DV% restrained around 10–11% and resist the urge to push development. First crack can be quiet or difficult to detect, making end temp the more reliable target — the end temp typically sits only a few degrees past first crack, so a mellow, controlled rate of rise in the final stretch is essential. Parainema requires minimal dig (the step-up in flame applied at the turning point — charge hot, soak on a high flame, and make only a small increase when you turn up)."
+  },
+  {
+    key: 'geisha_washed',
+    match: r => /geisha/i.test(r.varietal) && /washed/i.test(r.process),
+    priority: 10,
+    text: "Geisha is a variety with Ethiopian heritage that has become synonymous with Proud Mary, particularly from Panama — delicate florals, jasmine, and stone fruit clarity are the hallmarks of a well-roasted Geisha Washed. Unlike many light-roast coffees, it requires significant dig — charge low, soak cool, and apply an aggressive step-up at the turning point to build the roast time and energy it needs. First crack arrives early and loud, almost mechanical, and the coffee will often still be crackling at end temp — this is normal, don't panic and pull it early. Panama Geisha Washed needs more roast time than a Natural on any given machine — whatever your benchmark is for that roaster, push longer — and target DV% in the 15–16% range to ensure full development."
+  },
+  {
+    key: 'big_bean',
+    match: r => /pacamara|maracaturra|maragogipe/i.test(r.varietal),
+    priority: 5,
+    text: "Pacamara, Maracaturra and Maragogipe share a common thread — all are large-bean mutations or hybrids with a distinctive savoury, spicy, earthy character that Proud Mary actively seeks out and champions. The approach is built around a later first crack — targeting around 9:00–9:15 rather than the 8:30 you might aim for on other coffees — so that even with a short DV% you're still achieving the roast time the coffee needs. Minimal dig, steady energy throughout; end temp doesn't need to be high and pushing it only accentuates the intensity into something scratchy — let the roast time do the work, not the heat."
+  },
+  {
+    key: 'big_bean_natural',
+    match: r => /pacamara|maracaturra|maragogipe/i.test(r.varietal) && /natural/i.test(r.process),
+    priority: 8,
+    text: "As a Natural, expect WB readings in the high seventies and GB regularly at 100 or above — this is normal, not a sign of under-roasting. Keep DV% short, around 11–12%; the roast time before first crack is doing the heavy lifting. Too much development or end temp on a Natural pushes the savouriness into scratchy and overwhelming, losing the clean funkiness that makes these coffees so special."
+  },
+  {
+    key: 'big_bean_washed_honey',
+    match: r => /pacamara|maracaturra|maragogipe/i.test(r.varietal) && /washed|honey/i.test(r.process),
+    priority: 8,
+    text: "As a Washed or Honey, GB readings more typically sit in the nineties rather than the 100+ of their Natural counterparts. DV% runs higher at 15–17% — still that later first crack approach, but with more room to develop. The savouriness is more restrained and the cup cleaner; the same rule applies though — don't push end temp to chase intensity."
+  },
+];
+
+function getBlurbs(filteredRaw){
+  if(!filteredRaw || !filteredRaw.length) return [];
+  // Build a representative row from the filtered set
+  // Use the most common varietal and process in the selection
+  function mode(arr){ const c={}; arr.forEach(v=>{if(v)c[v]=(c[v]||0)+1;}); return Object.entries(c).sort((a,b)=>b[1]-a[1])[0]?.[0]||''; }
+  const rep = {
+    varietal: mode(filteredRaw.map(d=>d[2])),
+    process:  mode(filteredRaw.map(d=>d[3])),
+    origin:   mode(filteredRaw.map(d=>d[1])),
+  };
+  // Find all matching blurbs, sorted by priority descending
+  const matched = BLURBS.filter(b=>b.match(rep)).sort((a,b)=>b.priority-a.priority);
+  // Deduplicate — if a high-priority specific blurb matches, don't also show lower-priority general
+  // Rule: if a varietal+process blurb (priority>=10) matches, skip varietal-only for same varietal
+  const out = [];
+  let hasSpecific = false;
+  matched.forEach(b=>{
+    if(b.priority>=10) hasSpecific=true;
+    // Skip big_bean if big_bean_natural or big_bean_washed_honey also matched
+    if(b.key==='big_bean' && matched.some(x=>x.key==='big_bean_natural'||x.key==='big_bean_washed_honey')) return;
+    out.push(b);
+  });
+  return out;
+}
+
+function renderBlurbs(filteredRaw){
+  const blurbs = getBlurbs(filteredRaw);
+  if(!blurbs.length) return '';
+  return `<div style="background:#1A2340;border-radius:8px;overflow:hidden;margin-bottom:14px">
+    <div style="padding:10px 16px;border-bottom:1px solid rgba(255,255,255,.08);display:flex;align-items:center;gap:8px">
+      <span style="font-family:'Black Ops One',serif;font-size:13px;color:#F5C842">ROAST GUIDE</span>
+      <span style="font-size:9px;color:rgba(255,255,255,.35);font-family:var(--font-label);letter-spacing:.12em;text-transform:uppercase">Proud Mary approach</span>
+    </div>
+    ${blurbs.map(b=>`
+      <div style="padding:14px 16px;border-bottom:1px solid rgba(255,255,255,.06)">
+        <p style="font-family:var(--font-body);font-size:13px;color:rgba(255,255,255,.85);line-height:1.65;margin:0">${b.text}</p>
+      </div>`).join('')}
+  </div>`;
+}
+// ─────────────────────────────────────────────────────────────────────────────
+
 function rpNormMachine(m){
   if(!m)return m;
   const t=m.trim();
@@ -1188,7 +1264,8 @@ function rRP(filteredRaw){
     ${rpRoasteryBtns}
   </div>`;
 
-  el.innerHTML=`<div style="padding:12px 0">${roasteryBar}${paramCards}${coffeePanels}</div>`;
+  const blurbHtml = renderBlurbs(filteredRaw);
+  el.innerHTML=`<div style="padding:12px 0">${roasteryBar}${blurbHtml}${paramCards}${coffeePanels}</div>`;
   // Re-attach detail if selected
   if(rpSelected)document.getElementById('rp-detail').innerHTML=makeDetail(rpSelected);
 }
