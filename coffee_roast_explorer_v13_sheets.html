@@ -924,33 +924,34 @@ const BLURBS = [
   },
 ];
 
-function getBlurbs(filteredRaw){
-  if(!filteredRaw || !filteredRaw.length) return [];
-  // Build a representative row from the filtered set
-  // Use the most common varietal and process in the selection
-  function mode(arr){ const c={}; arr.forEach(v=>{if(v)c[v]=(c[v]||0)+1;}); return Object.entries(c).sort((a,b)=>b[1]-a[1])[0]?.[0]||''; }
+function getBlurbs(){
+  // Match blurbs against active filter selections directly — not data-dependent
+  // So blurbs show even when 0 roasts match (e.g. wrong roastery selected)
+  const selVarietals = iAll('v') ? null : sel('v');
+  const selProcesses = iAll('p') ? null : sel('p');
+  const selOrigins   = iAll('o') ? null : sel('o');
+
+  // Build a representative context from filter selections
   const rep = {
-    varietal: mode(filteredRaw.map(d=>d[2])),
-    process:  mode(filteredRaw.map(d=>d[3])),
-    origin:   mode(filteredRaw.map(d=>d[1])),
+    varietal: selVarietals ? [...selVarietals].join(' ') : '',
+    process:  selProcesses ? [...selProcesses].join(' ') : '',
+    origin:   selOrigins   ? [...selOrigins].join(' ')   : '',
   };
-  // Find all matching blurbs, sorted by priority descending
+
+  // Only show blurbs if at least varietal or process is filtered
+  if(!selVarietals && !selProcesses) return [];
+
   const matched = BLURBS.filter(b=>b.match(rep)).sort((a,b)=>b.priority-a.priority);
-  // Deduplicate — if a high-priority specific blurb matches, don't also show lower-priority general
-  // Rule: if a varietal+process blurb (priority>=10) matches, skip varietal-only for same varietal
   const out = [];
-  let hasSpecific = false;
   matched.forEach(b=>{
-    if(b.priority>=10) hasSpecific=true;
-    // Skip big_bean if big_bean_natural or big_bean_washed_honey also matched
     if(b.key==='big_bean' && matched.some(x=>x.key==='big_bean_natural'||x.key==='big_bean_washed_honey')) return;
     out.push(b);
   });
   return out;
 }
 
-function renderBlurbs(filteredRaw){
-  const blurbs = getBlurbs(filteredRaw);
+function renderBlurbs(){
+  const blurbs = getBlurbs();
   if(!blurbs.length) return '';
   return `<div style="background:#1A2340;border-radius:8px;overflow:hidden;margin-bottom:14px">
     <div style="padding:10px 16px;border-bottom:1px solid rgba(255,255,255,.08);display:flex;align-items:center;gap:8px">
@@ -1264,7 +1265,7 @@ function rRP(filteredRaw){
     ${rpRoasteryBtns}
   </div>`;
 
-  const blurbHtml = renderBlurbs(filteredRaw);
+  const blurbHtml = renderBlurbs();
   el.innerHTML=`<div style="padding:12px 0">${roasteryBar}${blurbHtml}${paramCards}${coffeePanels}</div>`;
   // Re-attach detail if selected
   if(rpSelected)document.getElementById('rp-detail').innerHTML=makeDetail(rpSelected);
