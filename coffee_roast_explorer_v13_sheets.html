@@ -899,10 +899,22 @@ const BLURBS = [
     text: "Parainema is a rust-resistant Honduran hybrid with an elongated, Geisha-like bean and a bright, sometimes sharp acidity — Natural processing helps bring that into balance, and is the preferred method for this varietal at Proud Mary. It reads lighter than other Honduran varietals, so keep DV% restrained around 10–11% and resist the urge to push development. First crack can be quiet or difficult to detect, making end temp the more reliable target — the end temp typically sits only a few degrees past first crack, so a mellow, controlled rate of rise in the final stretch is essential. Parainema requires minimal dig (the step-up in flame applied at the turning point — charge hot, soak on a high flame, and make only a small increase when you turn up)."
   },
   {
+    key: 'geisha',
+    match: r => /geisha/i.test(r.varietal),
+    priority: 5,
+    text: "Geisha originated in Ethiopia and was discovered growing wild in the Gori Gesha forest — it has since become one of the most celebrated and sought-after varieties in specialty coffee, and a cornerstone of Proud Mary's offering. It grows only at high altitude with slow maturation and exceptional density, and carries enormous complexity — florals, jasmine, stone fruit, and a layered clarity that rewards careful roasting. There is a lot to unlock in a Geisha, and the processing method dramatically shapes how you approach that."
+  },
+  {
     key: 'geisha_washed',
     match: r => /geisha/i.test(r.varietal) && /washed/i.test(r.process),
     priority: 10,
-    text: "Geisha is a variety with Ethiopian heritage that has become synonymous with Proud Mary, particularly from Panama — delicate florals, jasmine, and stone fruit clarity are the hallmarks of a well-roasted Geisha Washed. Unlike many light-roast coffees, it requires significant dig — charge low, soak cool, and apply an aggressive step-up at the turning point to build the roast time and energy it needs. First crack arrives early and loud, almost mechanical, and the coffee will often still be crackling at end temp — this is normal, don't panic and pull it early. Panama Geisha Washed needs more roast time than a Natural on any given machine — whatever your benchmark is for that roaster, push longer — and target DV% in the 15–16% range to ensure full development."
+    text: "As a Washed, Geisha requires significant dig — charge low, soak cool, and apply an aggressive step-up at the turning point. First crack arrives early and loud, almost mechanical, and the coffee will often still be crackling at end temp — this is normal, don't panic and pull it early. It needs more roast time than a Natural on any given machine, so whatever your benchmark is for that roaster, push longer — and target DV% in the 15–16% range."
+  },
+  {
+    key: 'geisha_natural',
+    match: r => /geisha/i.test(r.varietal) && /natural/i.test(r.process),
+    priority: 10,
+    text: "As a Natural, Geisha asks for restraint rather than aggression — less dig, a gentler rate of rise through development, and the discipline to pull back rather than push through. The processing has already done a lot of the work; your job is to preserve that rather than override it."
   },
   {
     key: 'big_bean',
@@ -953,16 +965,7 @@ function getBlurbs(){
 function renderBlurbs(){
   const blurbs = getBlurbs();
   if(!blurbs.length) return '';
-  return `<div style="background:#1A2340;border-radius:8px;overflow:hidden;margin-bottom:14px">
-    <div style="padding:10px 16px;border-bottom:1px solid rgba(255,255,255,.08);display:flex;align-items:center;gap:8px">
-      <span style="font-family:'Black Ops One',serif;font-size:13px;color:#F5C842">ROAST GUIDE</span>
-      <span style="font-size:9px;color:rgba(255,255,255,.35);font-family:var(--font-label);letter-spacing:.12em;text-transform:uppercase">Proud Mary approach</span>
-    </div>
-    ${blurbs.map(b=>`
-      <div style="padding:14px 16px;border-bottom:1px solid rgba(255,255,255,.06)">
-        <p style="font-family:var(--font-body);font-size:13px;color:rgba(255,255,255,.85);line-height:1.65;margin:0">${b.text}</p>
-      </div>`).join('')}
-  </div>`;
+  return blurbs.map(b=>`<p style="font-family:var(--font-body);font-size:13px;color:rgba(255,255,255,.85);line-height:1.7;margin:0 0 10px 0">${b.text}</p>`).join('');
 }
 // ─────────────────────────────────────────────────────────────────────────────
 
@@ -1266,7 +1269,14 @@ function rRP(filteredRaw){
   </div>`;
 
   const blurbHtml = renderBlurbs();
-  el.innerHTML=`<div style="padding:12px 0">${roasteryBar}${blurbHtml}${paramCards}${coffeePanels}</div>`;
+  const roastGuideHtml = blurbHtml ? `<div style="background:#1A2340;border-radius:8px;padding:14px 16px;margin-bottom:12px">
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+      <span style="font-family:'Black Ops One',serif;font-size:14px;color:#F5C842">ROAST GUIDE</span>
+      <span style="font-size:9px;color:rgba(255,255,255,.35);font-family:var(--font-label);letter-spacing:.12em;text-transform:uppercase">Proud Mary approach</span>
+    </div>
+    ${blurbHtml}
+  </div>` : '';
+  el.innerHTML=`<div style="padding:12px 0">${roasteryBar}${roastGuideHtml}${paramCards}${coffeePanels}</div>`;
   // Re-attach detail if selected
   if(rpSelected)document.getElementById('rp-detail').innerHTML=makeDetail(rpSelected);
 }
