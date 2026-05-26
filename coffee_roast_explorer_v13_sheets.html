@@ -1119,7 +1119,8 @@ function rRP(filteredRaw){
     </div>`;
   }
 
-  const paramCards=`<div style="display:grid;grid-template-columns:1fr 1.1fr 0.7fr 0.7fr 1.1fr 0.65fr 0.65fr;gap:10px;margin-bottom:14px">
+  function buildCards(rpData, activeSites){
+  return `<div style="display:grid;grid-template-columns:1fr 1.1fr 0.7fr 0.7fr 1.1fr 0.65fr 0.65fr;gap:10px;margin-bottom:14px">
 
     ${rpCard('FC TIME','First Crack Time','#49BFCE', rows=>({
       mainVal: rpMinsToTime(rpAvg(rows.map(r=>rpTimeToMins(r.fc_time)))),
@@ -1273,7 +1274,7 @@ function rRP(filteredRaw){
     go();
   };
 
-  const roasteryBar=`<div style="margin-bottom:14px">${splitToggle}<div style="display:flex;gap:8px;align-items:center">
+  const roasteryBar=`<div style="display:flex;gap:8px;margin-bottom:14px;align-items:center">
     <span style="font-family:var(--font-label);font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(26,35,64,.4);margin-right:4px">ROASTERY</span>
     ${rpRoasteryBtns}
   </div>`;
@@ -1288,16 +1289,16 @@ function rRP(filteredRaw){
   </div>` : '';
 
   // Build param cards — split by process if toggle active
-  const allParamCards = processGroups.map(({label, data}) => {
+  function buildParamCards(dataset){
+    const aS = activeSites; // use closure
+    return buildCards(dataset, aS);
+  }
+
+  const paramCards = buildCards(rpData, activeSites);
+  const allParamCards = groups.map(({label, data}) => {
     if(!data.length) return '';
-    const heading = label ? `<div style="font-family:var(--font-label);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(26,35,64,.5);margin-bottom:8px;padding-bottom:6px;border-bottom:1.5px solid rgba(26,35,64,.1)">${label}</div>` : '';
-    // Temporarily replace rpData for card rendering
-    const savedRpData = rpData.splice(0);
-    rpData.push(...data);
-    const cards = paramCards;
-    rpData.splice(0);
-    rpData.push(...savedRpData);
-    return heading + cards;
+    const heading = label ? `<div style="font-family:var(--font-label);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(26,35,64,.6);margin:14px 0 8px;padding-bottom:6px;border-bottom:1.5px solid rgba(26,35,64,.1)">${label}</div>` : '';
+    return heading + buildCards(data, activeSites);
   }).join('');
 
   el.innerHTML=`<div style="padding:12px 0">${roasteryBar}${roastGuideHtml}${allParamCards}${coffeePanels}</div>`;
