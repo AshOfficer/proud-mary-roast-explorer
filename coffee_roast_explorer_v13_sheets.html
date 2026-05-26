@@ -249,6 +249,9 @@ const PROFILE_PROCESS_PATTERNS=[
   [/\bYELLOW\s+HONEY\b/, 'Yellow Honey'],
   [/\bHONEY\b/,          'Honey'],
 
+  // Pulped Natural (Brazil) — check before bare Natural
+  [/\bPULPED\s+NATURAL\b/, 'Pulped Natural'],
+
   // Natural
   [/\bNATURAL\b/,        'Natural'],
 
@@ -268,6 +271,7 @@ const SHEET_PROCESS_NORM={
   'A. NATURAL':'Anaerobic Natural','AN':'Anaerobic Natural',
   'CM WASHED':'CM Washed','CM HONEY':'CM Honey','CM NATURAL':'CM Natural',
   'CARBONIC MACERATION':'CM Washed','CARBONIC MASCERATION':'CM Washed',
+  'PULPED NATURAL':'Pulped Natural','PULPED':'Pulped Natural',
   'DEPULPED':'Depulped','DE-PULPED':'Depulped',
 };
 
@@ -874,6 +878,7 @@ function rpGetAvgs(rows){
     dtr:rpAvg(rows.map(r=>r.dtr)),
     end_temp:rpAvg(rows.map(r=>r.end_temp)),
     wb:rpAvg(rows.map(r=>r.wb)),
+    gb:rpAvg(rows.map(r=>r.gb)),
     fc_temp:rpAvg(rows.map(r=>r.fc_temp)),
   };
 }
@@ -1031,6 +1036,11 @@ function rRP(filteredRaw){
     <span style="font-family:var(--font-label);font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.4);white-space:nowrap">VIEWING</span>
     <span style="font-family:var(--font-label);font-size:11px;font-weight:600;color:#F5C842;letter-spacing:.04em">${rpSummaryText()}</span>
   </div>`;
+
+  // When split by process, filter rpData per process for cards
+  const processGroups = splitByProcess && selectedProcesses.length > 1
+    ? selectedProcesses.map(p => ({ label: p, data: rpData.filter(r => r.process === p) }))
+    : [{ label: null, data: rpData }];
 
   // ── HELPER: range string ──────────────────────────────────────────────────
   function rpRange(vals){
@@ -1198,7 +1208,7 @@ function rRP(filteredRaw){
     return`<div style="padding:14px">
       <div style="font-family:var(--font-label);font-size:13px;font-weight:700;letter-spacing:.04em;color:#1A2340;margin-bottom:12px;line-height:1.3">${profile}</div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px">
-        ${[['First Crack',a.fc_time,''],['Duration',a.duration,''],['DV%',rpFmt(a.dtr,'%'),''],['End Temp',rpFmt(a.end_temp,'°C'),''],['WB avg',rpFmt(a.wb,'wb'),''],['FC Temp',rpFmt(a.fc_temp,'°C'),'']].map(([l,v])=>`
+        ${[['First Crack',a.fc_time,''],['Duration',a.duration,''],['DV%',rpFmt(a.dtr,'%'),''],['End Temp',rpFmt(a.end_temp,'°C'),''],['WB avg',rpFmt(a.wb,'wb'),''],['GB avg',rpFmt(a.gb,'wb'),''],['FC Temp',rpFmt(a.fc_temp,'°C'),'']].map(([l,v])=>`
         <div style="background:#f0ede4;border-radius:6px;padding:8px 10px">
           <div style="font-family:var(--font-label);font-size:8px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(26,35,64,.4);margin-bottom:3px">${l}</div>
           <div style="font-size:16px;font-weight:600;color:#1A2340">${v}</div>
@@ -1263,7 +1273,7 @@ function rRP(filteredRaw){
     go();
   };
 
-  const roasteryBar=`<div style="display:flex;gap:8px;margin-bottom:14px;align-items:center">
+  const roasteryBar=`<div style="margin-bottom:14px">${splitToggle}<div style="display:flex;gap:8px;align-items:center">
     <span style="font-family:var(--font-label);font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(26,35,64,.4);margin-right:4px">ROASTERY</span>
     ${rpRoasteryBtns}
   </div>`;
@@ -1276,7 +1286,21 @@ function rRP(filteredRaw){
     </div>
     ${blurbHtml}
   </div>` : '';
-  el.innerHTML=`<div style="padding:12px 0">${roasteryBar}${roastGuideHtml}${paramCards}${coffeePanels}</div>`;
+
+  // Build param cards — split by process if toggle active
+  const allParamCards = processGroups.map(({label, data}) => {
+    if(!data.length) return '';
+    const heading = label ? `<div style="font-family:var(--font-label);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(26,35,64,.5);margin-bottom:8px;padding-bottom:6px;border-bottom:1.5px solid rgba(26,35,64,.1)">${label}</div>` : '';
+    // Temporarily replace rpData for card rendering
+    const savedRpData = rpData.splice(0);
+    rpData.push(...data);
+    const cards = paramCards;
+    rpData.splice(0);
+    rpData.push(...savedRpData);
+    return heading + cards;
+  }).join('');
+
+  el.innerHTML=`<div style="padding:12px 0">${roasteryBar}${roastGuideHtml}${allParamCards}${coffeePanels}</div>`;
   // Re-attach detail if selected
   if(rpSelected)document.getElementById('rp-detail').innerHTML=makeDetail(rpSelected);
 }
