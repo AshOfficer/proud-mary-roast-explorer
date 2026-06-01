@@ -27,28 +27,43 @@ function checkPW(){
     gate.style.background='#F2D44E';
     gate.style.justifyContent='center';
     gate.style.alignItems='center';
-    gate.style.flexDirection='column';
-    gate.innerHTML=`
-      <div id="melt-wrap" style="display:flex;align-items:flex-start;letter-spacing:.05em;overflow:visible;position:relative">
-        <style>
-          @keyframes melt-drop{0%{opacity:0;transform:translateY(-80px) scaleY(0.2);filter:blur(10px)}25%{opacity:1;transform:translateY(0) scaleY(1.1);filter:blur(0)}45%{transform:translateY(0) scaleY(1)}65%{transform:translateY(0) scaleY(1)}82%{transform:translateY(30px) scaleY(1.4);filter:blur(3px)}100%{transform:translateY(200px) scaleY(3);opacity:0;filter:blur(8px)}}
-          @keyframes drip-fall{0%,55%{height:0;opacity:0}65%{opacity:1}85%{height:80px}100%{height:160px;opacity:0}}
-          .ml{display:inline-block;font-family:'Black Ops One',serif;font-size:16vw;color:#6B3A2A;line-height:1;animation:melt-drop 5s ease forwards;position:relative}
-          .ml .dp{position:absolute;bottom:-8px;left:50%;transform:translateX(-50%);width:13px;background:#6B3A2A;border-radius:0 0 50% 50%;height:0;animation:drip-fall 5s ease forwards}
-          .ml:nth-child(1){animation-delay:0s}.ml:nth-child(1) .dp{animation-delay:2s}
-          .ml:nth-child(2){animation-delay:.07s}.ml:nth-child(2) .dp{animation-delay:2.2s;width:16px}
-          .ml:nth-child(3){animation-delay:.14s}.ml:nth-child(3) .dp{animation-delay:1.9s;width:11px}
-          .ml:nth-child(4){animation-delay:.21s}.ml:nth-child(4) .dp{animation-delay:2.4s;width:14px}
-          .ml:nth-child(5){animation-delay:.05s}.ml:nth-child(5) .dp{animation-delay:2.1s;width:15px}
-          .ml:nth-child(6){animation-delay:.12s}.ml:nth-child(6) .dp{animation-delay:2.3s;width:10px}
-          .ml:nth-child(7){animation-delay:.19s}.ml:nth-child(7) .dp{animation-delay:2.0s;width:17px}
-          .ml:nth-child(8){animation-delay:.26s}.ml:nth-child(8) .dp{animation-delay:2.5s;width:12px}
-          .ml:nth-child(9){animation-delay:.33s}.ml:nth-child(9) .dp{animation-delay:2.15s;width:14px}
-          .sp{display:inline-block;width:.3em}
-        </style>
-        <span class="ml">C<div class="dp"></div></span><span class="ml">H<div class="dp"></div></span><span class="ml">U<div class="dp"></div></span><span class="ml">R<div class="dp"></div></span><span class="sp"></span><span class="ml">C<div class="dp"></div></span><span class="ml">H<div class="dp"></div></span><span class="ml">A<div class="dp"></div></span><span class="ml">M<div class="dp"></div></span><span class="ml">P<div class="dp"></div></span><span class="ml" style="font-size:12vw;animation-delay:.4s">!</span>
-      </div>`;
-    setTimeout(()=>{ gate.style.display='none'; }, 5200);
+    gate.innerHTML=`<style>
+      @keyframes melt{
+        0%  {transform:scaleY(1);opacity:1;filter:blur(0)}
+        60% {transform:scaleY(1);opacity:1;filter:blur(0)}
+        80% {transform:scaleY(1.6) translateY(20%);opacity:.7;filter:blur(4px)}
+        100%{transform:scaleY(3) translateY(60%);opacity:0;filter:blur(12px)}
+      }
+      @keyframes drip{
+        0%,55%{height:0;opacity:0}
+        60%{opacity:1}
+        100%{height:90px;opacity:0}
+      }
+      .cw{text-align:center;overflow:hidden}
+      .ct{
+        font-family:'Black Ops One',serif;
+        font-size:20vw;
+        color:#5C2E0A;
+        line-height:1.1;
+        display:block;
+        animation:melt 4.5s ease forwards;
+        position:relative;
+      }
+      .ct::after{
+        content:'';
+        position:absolute;
+        bottom:-4px;left:42%;
+        width:16px;height:0;
+        background:#5C2E0A;
+        border-radius:0 0 8px 8px;
+        animation:drip 4.5s ease forwards;
+      }
+    </style>
+    <div class="cw">
+      <span class="ct">CHUR</span>
+      <span class="ct" style="animation-delay:.15s;font-size:18vw">CHAMP!</span>
+    </div>`;
+    setTimeout(()=>{ gate.style.display='none'; }, 5000);
   } else {
     document.getElementById('pw-error').style.display='block';
     document.getElementById('pw-input').value='';
