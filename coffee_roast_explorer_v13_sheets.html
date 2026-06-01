@@ -27,43 +27,100 @@ function checkPW(){
     gate.style.background='#F2D44E';
     gate.style.justifyContent='center';
     gate.style.alignItems='center';
-    gate.innerHTML=`<style>
-      @keyframes melt{
-        0%  {transform:scaleY(1);opacity:1;filter:blur(0)}
-        60% {transform:scaleY(1);opacity:1;filter:blur(0)}
-        80% {transform:scaleY(1.6) translateY(20%);opacity:.7;filter:blur(4px)}
-        100%{transform:scaleY(3) translateY(60%);opacity:0;filter:blur(12px)}
-      }
-      @keyframes drip{
-        0%,55%{height:0;opacity:0}
-        60%{opacity:1}
-        100%{height:90px;opacity:0}
-      }
-      .cw{text-align:center;overflow:hidden}
-      .ct{
-        font-family:'Black Ops One',serif;
-        font-size:20vw;
-        color:#5C2E0A;
-        line-height:1.1;
-        display:block;
-        animation:melt 4.5s ease forwards;
-        position:relative;
-      }
-      .ct::after{
-        content:'';
-        position:absolute;
-        bottom:-4px;left:42%;
-        width:16px;height:0;
-        background:#5C2E0A;
-        border-radius:0 0 8px 8px;
-        animation:drip 4.5s ease forwards;
-      }
-    </style>
-    <div class="cw">
-      <span class="ct">CHUR</span>
-      <span class="ct" style="animation-delay:.15s;font-size:18vw">CHAMP!</span>
-    </div>`;
-    setTimeout(()=>{ gate.style.display='none'; }, 5000);
+    gate.style.padding='0';
+    gate.style.overflow='hidden';
+    gate.innerHTML=`
+      <canvas id="goo-canvas" style="position:absolute;top:0;left:0;width:100%;height:100%"></canvas>
+      <svg style="position:absolute;width:0;height:0">
+        <defs>
+          <filter id="goo">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="18" result="blur"/>
+            <feColorMatrix in="blur" mode="matrix"
+              values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 28 -10" result="goo"/>
+          </filter>
+        </defs>
+      </svg>
+      <div id="goo-wrap" style="position:absolute;top:0;left:0;width:100%;height:100%;filter:url(#goo);overflow:hidden">
+        <div id="goo-text" style="
+          position:absolute;
+          left:50%;top:200%;
+          transform:translateX(-50%);
+          font-family:'Black Ops One',serif;
+          font-size:28vw;
+          color:#5C2E0A;
+          line-height:1;
+          letter-spacing:.05em;
+          white-space:nowrap;
+          text-shadow: 0 0 40px #5C2E0A;
+        ">CHUR</div>
+      </div>
+      <script>
+      (function(){
+        const text = document.getElementById('goo-text');
+        const wrap = document.getElementById('goo-wrap');
+        const totalDuration = 5000;
+        const holdAt = 0.45; // fraction of duration where text is fully formed
+        const start = performance.now();
+
+        // Create drip blobs
+        const blobs = [];
+        for(let i=0;i<18;i++){
+          const b = document.createElement('div');
+          const size = 40 + Math.random()*80;
+          b.style.cssText = \`
+            position:absolute;
+            width:\${size}px;
+            height:\${size}px;
+            background:#5C2E0A;
+            border-radius:50%;
+            left:\${10+Math.random()*80}%;
+            top:-100px;
+          \`;
+          wrap.appendChild(b);
+          blobs.push({el:b, delay: Math.random()*0.35, speed: 0.3+Math.random()*0.3, x: 10+Math.random()*80, size});
+        }
+
+        function ease(t){ return t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2; }
+
+        function animate(now){
+          const elapsed = now - start;
+          const t = Math.min(elapsed/totalDuration, 1);
+
+          // Text drops from top — arrives at centre by holdAt
+          const textT = Math.min(t/holdAt, 1);
+          const textY = (1 - ease(textT)) * 110; // percentage from top
+          text.style.top = textY + '%';
+
+          // After hold, melt away downward
+          if(t > holdAt){
+            const meltT = (t - holdAt) / (1 - holdAt);
+            const meltY = holdAt > 0 ? ease(meltT) * 120 : 0;
+            text.style.top = (textY + meltY) + '%';
+            text.style.opacity = 1 - ease(meltT);
+            blobs.forEach(b => { b.el.style.opacity = 1 - ease(meltT); });
+          }
+
+          // Animate blobs — they drip down and merge to form text
+          blobs.forEach(b => {
+            const bt = Math.max(0, Math.min((t - b.delay) / (holdAt - b.delay), 1));
+            if(bt <= 0){ b.el.style.top = '-100px'; return; }
+            const targetY = 35 + Math.random()*10;
+            const bY = (1-ease(bt)) * -15 + ease(bt) * targetY;
+            b.el.style.top = bY + 'vh';
+            // Squish as they land
+            const squish = bt > 0.8 ? 1 + (bt-0.8)*2 : 1;
+            b.el.style.transform = \`scaleX(\${squish}) scaleY(\${1/squish})\`;
+          });
+
+          if(t < 1) requestAnimationFrame(animate);
+          else { gate.style.display='none'; }
+        }
+
+        requestAnimationFrame(animate);
+      })();
+      <\/script>
+    `;
+    // No separate timeout needed — animation handles it
   } else {
     document.getElementById('pw-error').style.display='block';
     document.getElementById('pw-input').value='';
