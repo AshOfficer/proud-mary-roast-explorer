@@ -8,7 +8,7 @@
     #ufo3{animation:bob3 3.5s ease-in-out infinite}
   </style>
 
-  <svg style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none" viewBox="0 0 400 700" preserveAspectRatio="xMidYMid meet">
+  <svg style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none" viewBox="0 0 400 700" preserveAspectRatio="xMidYMid slice">
     <defs>
       <linearGradient id="bg3" x1="0" y1="0" x2="0" y2="1">
         <stop offset="0%" stop-color="#0a0020"/>
@@ -208,6 +208,11 @@ function checkPW(){
   if(val==='Coffee01'){
     sessionStorage.setItem('pm_auth','1');
     const gate=document.getElementById('pw-gate');
+    // Hide the sign and password box so CHUR plays on clean background
+    const ui = gate.querySelector('div[style*="z-index:10"]') || gate.querySelector('div[style*="z-index: 10"]');
+    if(ui) ui.style.display='none';
+    const ufo = document.getElementById('ufo3');
+    if(ufo) ufo.style.display='none';
     // CHUR zooms in over synthwave background, hits screen, cracks, shatters
     const chur = document.createElement('div');
     chur.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;display:flex;align-items:center;justify-content:center;z-index:20;pointer-events:none';
