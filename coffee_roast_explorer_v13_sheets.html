@@ -1,195 +1,175 @@
-<div id="pw-gate" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:9999;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding-top:2vh;background:#0a0020">
+<div id="pw-gate" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:9999;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#0a0020">
 
   <style>
-    @keyframes rkt3{0%{left:-70px;top:12%}100%{left:110%;top:7%}}
-    @keyframes scorpion{0%{right:-80px}100%{right:110%}}
-    @keyframes legs{0%,100%{transform:scaleX(1)}50%{transform:scaleX(.85)}}
-    @keyframes bob3{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
-    #ufo3{animation:bob3 3.5s ease-in-out infinite}
+    @keyframes rkt4{0%{left:-80px}100%{left:110%}}
+    @keyframes bob4{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+    @keyframes scorp4{0%{right:-80px}100%{right:110%}}
+    #ufo3{animation:bob4 3.5s ease-in-out infinite}
   </style>
 
-  <svg style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none" viewBox="0 50 400 580" preserveAspectRatio="xMidYMid slice">
+  <!-- Full landscape background SVG -->
+  <svg style="position:absolute;top:0;left:0;width:100%;height:100%" viewBox="0 0 1000 600" preserveAspectRatio="xMidYMid slice">
     <defs>
-      <linearGradient id="bg3" x1="0" y1="0" x2="0" y2="1">
+      <linearGradient id="bg4" x1="0" y1="0" x2="0" y2="1">
         <stop offset="0%" stop-color="#0a0020"/>
-        <stop offset="28%" stop-color="#2e005e"/>
+        <stop offset="30%" stop-color="#2e005e"/>
         <stop offset="52%" stop-color="#8b1a7a"/>
         <stop offset="68%" stop-color="#c8244a"/>
         <stop offset="78%" stop-color="#e05000"/>
-        <stop offset="85%" stop-color="#ff9500"/>
-        <stop offset="86.5%" stop-color="#0e0300"/>
+        <stop offset="84%" stop-color="#ff9500"/>
+        <stop offset="85.5%" stop-color="#0e0300"/>
         <stop offset="100%" stop-color="#080200"/>
       </linearGradient>
-      <!-- Sun clip — circle centred at 200,505 radius 90 -->
-      <clipPath id="sunclip3">
-        <circle cx="200" cy="505" r="90"/>
-      </clipPath>
+      <clipPath id="sc4"><circle cx="500" cy="513" r="110"/></clipPath>
     </defs>
-    <rect width="400" height="700" fill="url(#bg3)"/>
+    <rect width="1000" height="600" fill="url(#bg4)"/>
 
-    <!-- Stars with twinkle -->
-    <circle cx="28" cy="38" r="1.5" fill="#fff"><animate attributeName="opacity" values=".8;.1;.8" dur="2.1s" repeatCount="indefinite"/></circle>
-    <circle cx="75" cy="22" r="1" fill="#fff"><animate attributeName="opacity" values=".6;.05;.6" dur="3.4s" repeatCount="indefinite"/></circle>
-    <circle cx="148" cy="52" r="1.5" fill="#fff"><animate attributeName="opacity" values=".7;.1;.7" dur="1.9s" repeatCount="indefinite"/></circle>
-    <circle cx="200" cy="16" r="1" fill="#fff"><animate attributeName="opacity" values=".9;.15;.9" dur="2.7s" repeatCount="indefinite"/></circle>
-    <circle cx="252" cy="40" r="1.5" fill="#fff"><animate attributeName="opacity" values=".6;.05;.6" dur="3.1s" repeatCount="indefinite"/></circle>
-    <circle cx="315" cy="15" r="1" fill="#fff"><animate attributeName="opacity" values=".8;.1;.8" dur="2.5s" repeatCount="indefinite"/></circle>
-    <circle cx="358" cy="48" r="1.5" fill="#fff"><animate attributeName="opacity" values=".7;.08;.7" dur="1.7s" repeatCount="indefinite"/></circle>
-    <circle cx="118" cy="68" r="1" fill="#fff"><animate attributeName="opacity" values=".5;.05;.5" dur="2.9s" repeatCount="indefinite"/></circle>
-    <circle cx="288" cy="62" r="1" fill="#fff"><animate attributeName="opacity" values=".6;.1;.6" dur="3.3s" repeatCount="indefinite"/></circle>
-    <circle cx="55" cy="88" r="1" fill="#fff"><animate attributeName="opacity" values=".4;.05;.4" dur="2.2s" repeatCount="indefinite"/></circle>
-    <circle cx="338" cy="82" r="1" fill="#fff"><animate attributeName="opacity" values=".5;.08;.5" dur="1.8s" repeatCount="indefinite"/></circle>
-    <circle cx="180" cy="95" r="1" fill="#fff"><animate attributeName="opacity" values=".4;.05;.4" dur="3.0s" repeatCount="indefinite"/></circle>
+    <!-- Stars -->
+    <circle cx="80" cy="40" r="2" fill="#fff"><animate attributeName="opacity" values=".8;.1;.8" dur="2.1s" repeatCount="indefinite"/></circle>
+    <circle cx="200" cy="25" r="1.5" fill="#fff"><animate attributeName="opacity" values=".6;.05;.6" dur="3.4s" repeatCount="indefinite"/></circle>
+    <circle cx="350" cy="55" r="2" fill="#fff"><animate attributeName="opacity" values=".7;.1;.7" dur="1.9s" repeatCount="indefinite"/></circle>
+    <circle cx="500" cy="18" r="1.5" fill="#fff"><animate attributeName="opacity" values=".9;.15;.9" dur="2.7s" repeatCount="indefinite"/></circle>
+    <circle cx="650" cy="45" r="2" fill="#fff"><animate attributeName="opacity" values=".6;.05;.6" dur="3.1s" repeatCount="indefinite"/></circle>
+    <circle cx="800" cy="20" r="1.5" fill="#fff"><animate attributeName="opacity" values=".8;.1;.8" dur="2.5s" repeatCount="indefinite"/></circle>
+    <circle cx="920" cy="50" r="2" fill="#fff"><animate attributeName="opacity" values=".7;.08;.7" dur="1.7s" repeatCount="indefinite"/></circle>
+    <circle cx="150" cy="80" r="1.5" fill="#fff"><animate attributeName="opacity" values=".5;.05;.5" dur="2.9s" repeatCount="indefinite"/></circle>
+    <circle cx="720" cy="70" r="1.5" fill="#fff"><animate attributeName="opacity" values=".6;.1;.6" dur="3.3s" repeatCount="indefinite"/></circle>
+    <circle cx="440" cy="90" r="1" fill="#fff"><animate attributeName="opacity" values=".4;.05;.4" dur="2.2s" repeatCount="indefinite"/></circle>
+    <circle cx="860" cy="85" r="1.5" fill="#fff"><animate attributeName="opacity" values=".5;.08;.5" dur="1.8s" repeatCount="indefinite"/></circle>
+    <circle cx="280" cy="100" r="1" fill="#fff"><animate attributeName="opacity" values=".4;.05;.4" dur="3.0s" repeatCount="indefinite"/></circle>
 
-    <!-- Sun — all stripes clipped to exact circle -->
-    <g clip-path="url(#sunclip3)">
-      <circle cx="200" cy="505" r="90" fill="#ff9800"/>
-      <rect x="0" y="430" width="400" height="6" fill="#f57c00"/>
-      <rect x="0" y="440" width="400" height="5" fill="#f57c00"/>
-      <rect x="0" y="449" width="400" height="5" fill="#ef6c00"/>
-      <rect x="0" y="458" width="400" height="5" fill="#ef6c00"/>
-      <rect x="0" y="467" width="400" height="5" fill="#e65100"/>
-      <rect x="0" y="476" width="400" height="5" fill="#e65100"/>
-      <rect x="0" y="485" width="400" height="5" fill="#e64a19"/>
-      <rect x="0" y="494" width="400" height="11" fill="#e53900"/>
+    <!-- Sun on horizon y=513 -->
+    <g clip-path="url(#sc4)">
+      <circle cx="500" cy="513" r="110" fill="#ff9800"/>
+      <rect x="0" y="435" width="1000" height="7" fill="#f57c00"/>
+      <rect x="0" y="446" width="1000" height="6" fill="#f57c00"/>
+      <rect x="0" y="456" width="1000" height="6" fill="#ef6c00"/>
+      <rect x="0" y="466" width="1000" height="6" fill="#ef6c00"/>
+      <rect x="0" y="476" width="1000" height="6" fill="#e65100"/>
+      <rect x="0" y="486" width="1000" height="6" fill="#e65100"/>
+      <rect x="0" y="496" width="1000" height="17" fill="#e53900"/>
     </g>
-    <line x1="0" y1="505" x2="400" y2="505" stroke="#ffd54f" stroke-width="1.5" opacity=".5"/>
+    <line x1="0" y1="513" x2="1000" y2="513" stroke="#ffd54f" stroke-width="2" opacity=".5"/>
 
-    <!-- Palm left — leans left, droopier fronds -->
-    <path d="M58 505 Q54 480 50 460 Q48 448 52 435" stroke="#0a0015" stroke-width="7" stroke-linecap="round" fill="none"/>
-    <path d="M52 438 Q22 418 4 428" stroke="#0a0015" stroke-width="9" stroke-linecap="round"/>
-    <path d="M51 445 Q30 422 14 430" stroke="#0a0015" stroke-width="8" stroke-linecap="round"/>
-    <path d="M53 452 Q34 436 22 445" stroke="#0a0015" stroke-width="7" stroke-linecap="round"/>
-    <path d="M54 442 Q70 418 84 422" stroke="#0a0015" stroke-width="7" stroke-linecap="round"/>
-    <path d="M53 448 Q62 426 72 430" stroke="#0a0015" stroke-width="6" stroke-linecap="round"/>
+    <!-- Palm left group -->
+    <rect x="120" y="400" width="10" height="113" rx="5" fill="#0a0015"/>
+    <path d="M125 402 Q72 352 36 364" stroke="#0a0015" stroke-width="13" stroke-linecap="round"/>
+    <path d="M125 394 Q88 338 54 348" stroke="#0a0015" stroke-width="11" stroke-linecap="round"/>
+    <path d="M125 398 Q162 344 194 356" stroke="#0a0015" stroke-width="11" stroke-linecap="round"/>
+    <path d="M125 390 Q148 334 178 328" stroke="#0a0015" stroke-width="10" stroke-linecap="round"/>
+    <path d="M125 400 Q82 378 48 388" stroke="#0a0015" stroke-width="9" stroke-linecap="round"/>
+    <!-- Smaller background palm left -->
+    <rect x="48" y="434" width="7" height="79" rx="3" fill="#0a0015" opacity=".75"/>
+    <path d="M51 436 Q18 410 -2 418" stroke="#0a0015" stroke-width="9" stroke-linecap="round" opacity=".75"/>
+    <path d="M51 431 Q74 406 94 413" stroke="#0a0015" stroke-width="8" stroke-linecap="round" opacity=".75"/>
+    <path d="M51 428 Q32 404 18 412" stroke="#0a0015" stroke-width="7" stroke-linecap="round" opacity=".75"/>
 
-    <!-- Palm left — shorter background, different shape -->
-    <path d="M22 505 Q20 485 18 470 Q17 460 20 450" stroke="#0a0015" stroke-width="5" stroke-linecap="round" fill="none" opacity=".75"/>
-    <path d="M20 452 Q2 436 -10 442" stroke="#0a0015" stroke-width="7" stroke-linecap="round" opacity=".75"/>
-    <path d="M20 458 Q32 440 44 446" stroke="#0a0015" stroke-width="6" stroke-linecap="round" opacity=".75"/>
-    <path d="M20 455 Q8 440 0 448" stroke="#0a0015" stroke-width="5" stroke-linecap="round" opacity=".75"/>
-
-    <!-- Palm right — straighter trunk, wider frond spread -->
-    <path d="M348 505 Q350 480 352 460 Q353 448 350 432" stroke="#0a0015" stroke-width="7" stroke-linecap="round" fill="none"/>
-    <path d="M350 435 Q378 408 398 416" stroke="#0a0015" stroke-width="9" stroke-linecap="round"/>
-    <path d="M350 442 Q372 418 388 424" stroke="#0a0015" stroke-width="8" stroke-linecap="round"/>
-    <path d="M350 438 Q330 410 312 416" stroke="#0a0015" stroke-width="8" stroke-linecap="round"/>
-    <path d="M350 433 Q336 405 318 408" stroke="#0a0015" stroke-width="7" stroke-linecap="round"/>
-    <path d="M350 440 Q360 412 374 410" stroke="#0a0015" stroke-width="6" stroke-linecap="round"/>
-
-    <!-- Palm right — taller background, leans right more -->
-    <path d="M380 505 Q382 478 384 458 Q386 444 383 428" stroke="#0a0015" stroke-width="5" stroke-linecap="round" fill="none" opacity=".75"/>
-    <path d="M383 430 Q408 408 422 416" stroke="#0a0015" stroke-width="7" stroke-linecap="round" opacity=".75"/>
-    <path d="M383 437 Q362 414 346 420" stroke="#0a0015" stroke-width="6" stroke-linecap="round" opacity=".75"/>
-    <path d="M383 433 Q396 410 408 406" stroke="#0a0015" stroke-width="5" stroke-linecap="round" opacity=".75"/>
+    <!-- Palm right group -->
+    <rect x="868" y="416" width="10" height="97" rx="5" fill="#0a0015"/>
+    <path d="M873 418 Q926 366 962 378" stroke="#0a0015" stroke-width="13" stroke-linecap="round"/>
+    <path d="M873 411 Q908 354 942 362" stroke="#0a0015" stroke-width="11" stroke-linecap="round"/>
+    <path d="M873 415 Q836 358 806 368" stroke="#0a0015" stroke-width="11" stroke-linecap="round"/>
+    <path d="M873 408 Q848 350 818 344" stroke="#0a0015" stroke-width="10" stroke-linecap="round"/>
+    <path d="M873 417 Q916 394 950 404" stroke="#0a0015" stroke-width="9" stroke-linecap="round"/>
+    <!-- Background palm right -->
+    <rect x="952" y="428" width="7" height="85" rx="3" fill="#0a0015" opacity=".75"/>
+    <path d="M955 430 Q984 402 1004 410" stroke="#0a0015" stroke-width="9" stroke-linecap="round" opacity=".75"/>
+    <path d="M955 426 Q930 400 910 407" stroke="#0a0015" stroke-width="8" stroke-linecap="round" opacity=".75"/>
+    <path d="M955 423 Q970 398 982 392" stroke="#0a0015" stroke-width="7" stroke-linecap="round" opacity=".75"/>
 
     <!-- Grid ground -->
-    <rect x="0" y="505" width="400" height="195" fill="#0a0200"/>
-    <line x1="200" y1="505" x2="-20" y2="700" stroke="#e91e8c" stroke-width=".9" opacity=".5"/>
-    <line x1="200" y1="505" x2="50" y2="700" stroke="#e91e8c" stroke-width=".9" opacity=".5"/>
-    <line x1="200" y1="505" x2="115" y2="700" stroke="#e91e8c" stroke-width=".9" opacity=".5"/>
-    <line x1="200" y1="505" x2="165" y2="700" stroke="#e91e8c" stroke-width=".9" opacity=".5"/>
-    <line x1="200" y1="505" x2="200" y2="700" stroke="#e91e8c" stroke-width=".9" opacity=".5"/>
-    <line x1="200" y1="505" x2="235" y2="700" stroke="#e91e8c" stroke-width=".9" opacity=".5"/>
-    <line x1="200" y1="505" x2="285" y2="700" stroke="#e91e8c" stroke-width=".9" opacity=".5"/>
-    <line x1="200" y1="505" x2="350" y2="700" stroke="#e91e8c" stroke-width=".9" opacity=".5"/>
-    <line x1="200" y1="505" x2="420" y2="700" stroke="#e91e8c" stroke-width=".9" opacity=".5"/>
-    <line x1="0" y1="535" x2="400" y2="535" stroke="#e91e8c" stroke-width=".7" opacity=".35"/>
-    <line x1="0" y1="565" x2="400" y2="565" stroke="#e91e8c" stroke-width=".7" opacity=".25"/>
-    <line x1="0" y1="595" x2="400" y2="595" stroke="#e91e8c" stroke-width=".7" opacity=".16"/>
-    <line x1="0" y1="625" x2="400" y2="625" stroke="#e91e8c" stroke-width=".7" opacity=".09"/>
-    <line x1="0" y1="658" x2="400" y2="658" stroke="#e91e8c" stroke-width=".7" opacity=".05"/>
+    <rect x="0" y="513" width="1000" height="87" fill="#0a0200"/>
+    <line x1="500" y1="513" x2="-50" y2="600" stroke="#e91e8c" stroke-width="1" opacity=".5"/>
+    <line x1="500" y1="513" x2="100" y2="600" stroke="#e91e8c" stroke-width="1" opacity=".5"/>
+    <line x1="500" y1="513" x2="250" y2="600" stroke="#e91e8c" stroke-width="1" opacity=".5"/>
+    <line x1="500" y1="513" x2="380" y2="600" stroke="#e91e8c" stroke-width="1" opacity=".5"/>
+    <line x1="500" y1="513" x2="500" y2="600" stroke="#e91e8c" stroke-width="1" opacity=".5"/>
+    <line x1="500" y1="513" x2="620" y2="600" stroke="#e91e8c" stroke-width="1" opacity=".5"/>
+    <line x1="500" y1="513" x2="750" y2="600" stroke="#e91e8c" stroke-width="1" opacity=".5"/>
+    <line x1="500" y1="513" x2="900" y2="600" stroke="#e91e8c" stroke-width="1" opacity=".5"/>
+    <line x1="500" y1="513" x2="1050" y2="600" stroke="#e91e8c" stroke-width="1" opacity=".5"/>
+    <line x1="0" y1="540" x2="1000" y2="540" stroke="#e91e8c" stroke-width=".8" opacity=".35"/>
+    <line x1="0" y1="566" x2="1000" y2="566" stroke="#e91e8c" stroke-width=".8" opacity=".22"/>
+    <line x1="0" y1="590" x2="1000" y2="590" stroke="#e91e8c" stroke-width=".8" opacity=".12"/>
   </svg>
 
   <!-- UFO bobbing -->
-  <div id="ufo3" style="position:absolute;top:6%;right:14%;pointer-events:none">
-    <svg width="54" height="32" viewBox="0 0 54 32" fill="none">
-      <ellipse cx="27" cy="22" rx="25" ry="9" fill="#1a0040" stroke="#ce93d8" stroke-width="1.2"/>
-      <ellipse cx="27" cy="17" rx="12" ry="8" fill="#0d0020" stroke="#ce93d8" stroke-width=".9"/>
-      <ellipse cx="27" cy="12" rx="6" ry="4.5" fill="#060010"/>
-      <circle cx="21" cy="11" r="2" fill="#4fc3f7" opacity=".9"/>
-      <circle cx="27" cy="8" r="2" fill="#ffb300" opacity=".9"/>
-      <circle cx="33" cy="11" r="2" fill="#e91e8c" opacity=".9"/>
-      <circle cx="9" cy="25" r="2" fill="#ce93d8" opacity=".5"/>
-      <circle cx="27" cy="29" r="2" fill="#ffb300" opacity=".4"/>
-      <circle cx="45" cy="25" r="2" fill="#e91e8c" opacity=".5"/>
+  <div id="ufo3" style="position:absolute;top:6%;right:8%;pointer-events:none">
+    <svg width="70" height="42" viewBox="0 0 70 42" fill="none">
+      <ellipse cx="35" cy="28" rx="32" ry="12" fill="#1a0040" stroke="#ce93d8" stroke-width="1.5"/>
+      <ellipse cx="35" cy="22" rx="16" ry="11" fill="#0d0020" stroke="#ce93d8" stroke-width="1"/>
+      <ellipse cx="35" cy="15" rx="8" ry="6" fill="#060010"/>
+      <circle cx="27" cy="14" r="2.5" fill="#4fc3f7" opacity=".9"/>
+      <circle cx="35" cy="10" r="2.5" fill="#ffb300" opacity=".9"/>
+      <circle cx="43" cy="14" r="2.5" fill="#e91e8c" opacity=".9"/>
+      <circle cx="12" cy="32" r="3" fill="#ce93d8" opacity=".5"/>
+      <circle cx="35" cy="37" r="3" fill="#ffb300" opacity=".4"/>
+      <circle cx="58" cy="32" r="3" fill="#e91e8c" opacity=".5"/>
     </svg>
   </div>
 
-  <!-- Rocket pointing diagonally up-right -->
-  <div style="position:absolute;animation:rkt3 15s linear infinite 2s;pointer-events:none">
-    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" style="transform:rotate(50deg)">
-      <path d="M16 1 Q23 10 23 21 L16 27 L9 21 Q9 10 16 1Z" fill="#f0f0ff" stroke="#ce93d8" stroke-width="1.5"/>
-      <circle cx="16" cy="16" r="4" fill="#ce93d8"/>
-      <path d="M9 21 L3 31 L9 26Z" fill="#e91e8c"/>
-      <path d="M23 21 L29 31 L23 26Z" fill="#e91e8c"/>
-      <path d="M11 27 Q16 37 21 27" fill="#ffb300" opacity=".9"/>
+  <!-- Rocket pointing upper-right -->
+  <div style="position:absolute;top:12%;left:-80px;animation:rkt4 15s linear infinite 2s;pointer-events:none">
+    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" style="transform:rotate(50deg)">
+      <path d="M20 2 Q28 13 28 26 L20 33 L12 26 Q12 13 20 2Z" fill="#f0f0ff" stroke="#ce93d8" stroke-width="1.5"/>
+      <circle cx="20" cy="20" r="5" fill="#ce93d8"/>
+      <path d="M12 26 L5 37 L12 32Z" fill="#e91e8c"/>
+      <path d="M28 26 L35 37 L28 32Z" fill="#e91e8c"/>
+      <path d="M14 33 Q20 44 26 33" fill="#ffb300" opacity=".9"/>
     </svg>
   </div>
 
-  <!-- Scorpion walking across grid right to left -->
-  <div style="position:absolute;bottom:8%;animation:scorpion 18s linear infinite 4s;pointer-events:none">
-    <svg width="64" height="36" viewBox="0 0 64 36" fill="none">
-      <!-- Body -->
-      <ellipse cx="28" cy="20" rx="10" ry="7" fill="#2d8c2d"/>
-      <!-- Head -->
-      <ellipse cx="18" cy="20" rx="6" ry="5" fill="#3aaa3a"/>
-      <!-- Eyes -->
-      <circle cx="15" cy="18" r="1.5" fill="#00ff00" opacity=".9"/>
-      <circle cx="17" cy="17" r="1.5" fill="#00ff00" opacity=".9"/>
-      <!-- Pincers -->
-      <path d="M12 18 Q6 12 4 14 Q2 16 5 17" stroke="#2d8c2d" stroke-width="2" fill="none" stroke-linecap="round"/>
-      <path d="M12 22 Q6 28 4 26 Q2 24 5 23" stroke="#2d8c2d" stroke-width="2" fill="none" stroke-linecap="round"/>
-      <circle cx="4" cy="15" r="2" fill="#3aaa3a"/>
-      <circle cx="4" cy="25" r="2" fill="#3aaa3a"/>
-      <!-- Tail segments -->
-      <path d="M38 18 Q44 14 48 12 Q52 10 54 8 Q56 6 54 4 Q52 2 50 5" stroke="#2d8c2d" stroke-width="3" fill="none" stroke-linecap="round"/>
-      <!-- Stinger -->
-      <circle cx="50" cy="4" r="3" fill="#3aaa3a"/>
-      <path d="M50 1 L52 -2" stroke="#1a6b1a" stroke-width="1.5" stroke-linecap="round"/>
-      <!-- Legs left side (animated) -->
-      <g style="animation:legs .4s ease-in-out infinite">
-        <line x1="22" y1="24" x2="18" y2="30" stroke="#2d8c2d" stroke-width="1.5" stroke-linecap="round"/>
-        <line x1="26" y1="25" x2="22" y2="32" stroke="#2d8c2d" stroke-width="1.5" stroke-linecap="round"/>
-        <line x1="30" y1="25" x2="28" y2="32" stroke="#2d8c2d" stroke-width="1.5" stroke-linecap="round"/>
-        <line x1="34" y1="24" x2="34" y2="31" stroke="#2d8c2d" stroke-width="1.5" stroke-linecap="round"/>
-      </g>
-      <!-- Legs right side (opposite phase) -->
-      <g style="animation:legs .4s ease-in-out infinite .2s">
-        <line x1="22" y1="16" x2="18" y2="10" stroke="#2d8c2d" stroke-width="1.5" stroke-linecap="round"/>
-        <line x1="26" y1="15" x2="22" y2="8" stroke="#2d8c2d" stroke-width="1.5" stroke-linecap="round"/>
-        <line x1="30" y1="15" x2="28" y2="8" stroke="#2d8c2d" stroke-width="1.5" stroke-linecap="round"/>
-        <line x1="34" y1="16" x2="34" y2="9" stroke="#2d8c2d" stroke-width="1.5" stroke-linecap="round"/>
-      </g>
+  <!-- Scorpion walking right to left -->
+  <div style="position:absolute;bottom:9%;right:-80px;animation:scorp4 18s linear infinite 4s;pointer-events:none">
+    <svg width="70" height="40" viewBox="0 0 70 40" fill="none">
+      <ellipse cx="30" cy="22" rx="11" ry="8" fill="#2d8c2d"/>
+      <ellipse cx="18" cy="22" rx="7" ry="6" fill="#3aaa3a"/>
+      <circle cx="14" cy="19" r="2" fill="#00ff00" opacity=".9"/>
+      <circle cx="16" cy="18" r="2" fill="#00ff00" opacity=".9"/>
+      <path d="M12 20 Q5 13 2 15 Q-1 17 3 19" stroke="#2d8c2d" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <path d="M12 24 Q5 31 2 29 Q-1 27 3 25" stroke="#2d8c2d" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <circle cx="2" cy="16" r="2.5" fill="#3aaa3a"/>
+      <circle cx="2" cy="28" r="2.5" fill="#3aaa3a"/>
+      <path d="M41 20 Q48 15 53 13 Q57 11 60 8 Q62 5 60 3 Q57 1 55 4" stroke="#2d8c2d" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+      <circle cx="56" cy="3" r="3.5" fill="#3aaa3a"/>
+      <path d="M56 0 L58 -3" stroke="#1a6b1a" stroke-width="2" stroke-linecap="round"/>
+      <line x1="24" y1="28" x2="19" y2="35" stroke="#2d8c2d" stroke-width="2"/>
+      <line x1="29" y1="29" x2="25" y2="36" stroke="#2d8c2d" stroke-width="2"/>
+      <line x1="33" y1="29" x2="31" y2="36" stroke="#2d8c2d" stroke-width="2"/>
+      <line x1="37" y1="28" x2="37" y2="35" stroke="#2d8c2d" stroke-width="2"/>
+      <line x1="24" y1="16" x2="19" y2="9" stroke="#2d8c2d" stroke-width="2"/>
+      <line x1="29" y1="15" x2="25" y2="8" stroke="#2d8c2d" stroke-width="2"/>
+      <line x1="33" y1="15" x2="31" y2="8" stroke="#2d8c2d" stroke-width="2"/>
+      <line x1="37" y1="16" x2="37" y2="9" stroke="#2d8c2d" stroke-width="2"/>
     </svg>
   </div>
 
-  <!-- Password UI — shifted down, below UFO/rocket zone -->
-  <div style="position:relative;z-index:10;text-align:center;width:100%;max-width:320px;margin-top:14vh">
+  <!-- Password UI centred -->
+  <div style="position:relative;z-index:10;text-align:center;width:100%;max-width:380px;margin-top:-8vh">
     <div style="border:3px solid #e91e8c;border-radius:10px;padding:5px;margin-bottom:10px;box-shadow:0 0 20px rgba(233,30,140,.7),0 0 50px rgba(233,30,140,.2)">
-      <div style="border:2px solid #ffb300;border-radius:7px;padding:13px 32px 11px;background:rgba(10,0,32,.92)">
-        <div style="font-family:'Black Ops One',serif;font-size:clamp(20px,5vw,42px);color:#ffb300;letter-spacing:.1em;line-height:1;text-shadow:0 0 15px rgba(255,179,0,.9)">PROUD MARY</div>
-        <div style="font-family:'Oswald',sans-serif;font-size:clamp(8px,1.5vw,11px);color:#ce93d8;letter-spacing:.45em;margin-top:4px">ROAST EXPLORER</div>
+      <div style="border:2px solid #ffb300;border-radius:7px;padding:14px 40px 12px;background:rgba(10,0,32,.92)">
+        <div style="font-family:'Black Ops One',serif;font-size:clamp(22px,4vw,48px);color:#ffb300;letter-spacing:.1em;line-height:1;text-shadow:0 0 15px rgba(255,179,0,.9)">PROUD MARY</div>
+        <div style="font-family:'Oswald',sans-serif;font-size:clamp(9px,1.2vw,13px);color:#ce93d8;letter-spacing:.45em;margin-top:5px">ROAST EXPLORER</div>
       </div>
     </div>
-    <div style="display:flex;justify-content:center;gap:6px;margin-bottom:12px">
-      <div style="width:8px;height:8px;border-radius:50%;background:#ffb300;box-shadow:0 0 6px #ffb300"></div>
-      <div style="width:8px;height:8px;border-radius:50%;background:#e91e8c;box-shadow:0 0 6px #e91e8c"></div>
-      <div style="width:8px;height:8px;border-radius:50%;background:#ce93d8;box-shadow:0 0 6px #ce93d8"></div>
-      <div style="width:8px;height:8px;border-radius:50%;background:#ffb300;box-shadow:0 0 6px #ffb300"></div>
-      <div style="width:8px;height:8px;border-radius:50%;background:#e91e8c;box-shadow:0 0 6px #e91e8c"></div>
-      <div style="width:8px;height:8px;border-radius:50%;background:#ce93d8;box-shadow:0 0 6px #ce93d8"></div>
-      <div style="width:8px;height:8px;border-radius:50%;background:#ffb300;box-shadow:0 0 6px #ffb300"></div>
-      <div style="width:8px;height:8px;border-radius:50%;background:#e91e8c;box-shadow:0 0 6px #e91e8c"></div>
-      <div style="width:8px;height:8px;border-radius:50%;background:#ce93d8;box-shadow:0 0 6px #ce93d8"></div>
+    <div style="display:flex;justify-content:center;gap:7px;margin-bottom:13px">
+      <div style="width:9px;height:9px;border-radius:50%;background:#ffb300;box-shadow:0 0 7px #ffb300"></div>
+      <div style="width:9px;height:9px;border-radius:50%;background:#e91e8c;box-shadow:0 0 7px #e91e8c"></div>
+      <div style="width:9px;height:9px;border-radius:50%;background:#ce93d8;box-shadow:0 0 7px #ce93d8"></div>
+      <div style="width:9px;height:9px;border-radius:50%;background:#ffb300;box-shadow:0 0 7px #ffb300"></div>
+      <div style="width:9px;height:9px;border-radius:50%;background:#e91e8c;box-shadow:0 0 7px #e91e8c"></div>
+      <div style="width:9px;height:9px;border-radius:50%;background:#ce93d8;box-shadow:0 0 7px #ce93d8"></div>
+      <div style="width:9px;height:9px;border-radius:50%;background:#ffb300;box-shadow:0 0 7px #ffb300"></div>
+      <div style="width:9px;height:9px;border-radius:50%;background:#e91e8c;box-shadow:0 0 7px #e91e8c"></div>
+      <div style="width:9px;height:9px;border-radius:50%;background:#ce93d8;box-shadow:0 0 7px #ce93d8"></div>
     </div>
-    <div style="background:rgba(10,0,32,.85);border:1px solid rgba(206,147,216,.2);border-radius:8px;padding:17px 24px;display:flex;flex-direction:column;align-items:center;gap:10px;backdrop-filter:blur(8px)">
+    <div style="background:rgba(10,0,32,.85);border:1px solid rgba(206,147,216,.2);border-radius:8px;padding:20px 28px;display:flex;flex-direction:column;align-items:center;gap:12px;backdrop-filter:blur(8px)">
       <div style="font-family:'Oswald',sans-serif;font-size:10px;color:rgba(255,255,255,.35);letter-spacing:.35em;text-transform:uppercase">Enter Password</div>
       <input id="pw-input" type="password" onkeydown="if(event.key==='Enter')checkPW()" autofocus
-        style="font-family:'DM Sans',sans-serif;font-size:15px;padding:9px 14px;border-radius:6px;border:1.5px solid rgba(206,147,216,.3);background:rgba(255,255,255,.06);color:white;outline:none;width:200px;text-align:center;letter-spacing:.15em"
+        style="font-family:'DM Sans',sans-serif;font-size:15px;padding:10px 16px;border-radius:6px;border:1.5px solid rgba(206,147,216,.3);background:rgba(255,255,255,.06);color:white;outline:none;width:220px;text-align:center;letter-spacing:.15em"
         placeholder="••••••••">
       <button onclick="checkPW()"
-        style="font-family:'Black Ops One',serif;font-size:13px;letter-spacing:.12em;padding:9px 28px;border-radius:6px;border:2px solid #ffb300;background:transparent;color:#ffb300;cursor:pointer;width:100%;box-shadow:0 0 12px rgba(255,179,0,.25)">
+        style="font-family:'Black Ops One',serif;font-size:13px;letter-spacing:.12em;padding:10px 28px;border-radius:6px;border:2px solid #ffb300;background:transparent;color:#ffb300;cursor:pointer;width:100%;box-shadow:0 0 12px rgba(255,179,0,.25)">
         ENTER
       </button>
       <div id="pw-error" style="font-family:'Oswald',sans-serif;font-size:10px;color:#e91e8c;letter-spacing:.15em;display:none">INCORRECT PASSWORD</div>
