@@ -1,7 +1,7 @@
 <div id="pw-gate" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:9999;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#0a0020">
 
   <style>
-    @keyframes rkt4{0%{left:-80px}100%{left:110%}}
+    @keyframes rkt4{0%{left:-80px;top:14%}100%{left:108%;top:6%}}
     @keyframes bob4{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
     @keyframes scorp4{0%{right:-80px}100%{right:110%}}
     #ufo3{animation:bob4 3.5s ease-in-out infinite}
@@ -91,6 +91,40 @@
     <line x1="0" y1="540" x2="1000" y2="540" stroke="#e91e8c" stroke-width=".8" opacity=".35"/>
     <line x1="0" y1="566" x2="1000" y2="566" stroke="#e91e8c" stroke-width=".8" opacity=".22"/>
     <line x1="0" y1="590" x2="1000" y2="590" stroke="#e91e8c" stroke-width=".8" opacity=".12"/>
+
+    <!-- Aztec temple left of sun on horizon -->
+    <g transform="translate(195,513)" fill="#0a0015">
+      <!-- Base -->
+      <rect x="-45" y="-8" width="90" height="8"/>
+      <!-- Steps -->
+      <rect x="-38" y="-16" width="76" height="8"/>
+      <rect x="-30" y="-24" width="60" height="8"/>
+      <rect x="-22" y="-32" width="44" height="8"/>
+      <rect x="-14" y="-40" width="28" height="8"/>
+      <rect x="-6" y="-48" width="12" height="8"/>
+      <!-- Temple top -->
+      <rect x="-4" y="-54" width="8" height="6"/>
+    </g>
+
+    <!-- Camel silhouette right of sun on horizon -->
+    <g transform="translate(720,513)" fill="#0a0015">
+      <!-- Legs -->
+      <rect x="-18" y="-22" width="5" height="22"/>
+      <rect x="-6" y="-22" width="5" height="22"/>
+      <rect x="8" y="-22" width="5" height="22"/>
+      <rect x="20" y="-22" width="5" height="22"/>
+      <!-- Body -->
+      <ellipse cx="3" cy="-26" rx="26" ry="10"/>
+      <!-- Two humps -->
+      <ellipse cx="-10" cy="-38" rx="11" ry="10"/>
+      <ellipse cx="12" cy="-35" rx="10" ry="8"/>
+      <!-- Neck and head -->
+      <rect x="22" y="-46" width="7" height="24"/>
+      <ellipse cx="26" cy="-50" rx="7" ry="6"/>
+      <!-- Ear -->
+      <path d="M22 -55 Q20 -62 24 -60 Q26 -58 24 -55Z"/>
+    </g>
+
   </svg>
 
   <!-- UFO bobbing -->
@@ -121,26 +155,41 @@
 
   <!-- Scorpion walking right to left -->
   <div style="position:absolute;bottom:9%;right:-80px;animation:scorp4 18s linear infinite 4s;pointer-events:none">
-    <svg width="70" height="40" viewBox="0 0 70 40" fill="none">
-      <ellipse cx="30" cy="22" rx="11" ry="8" fill="#2d8c2d"/>
-      <ellipse cx="18" cy="22" rx="7" ry="6" fill="#3aaa3a"/>
-      <circle cx="14" cy="19" r="2" fill="#00ff00" opacity=".9"/>
-      <circle cx="16" cy="18" r="2" fill="#00ff00" opacity=".9"/>
-      <path d="M12 20 Q5 13 2 15 Q-1 17 3 19" stroke="#2d8c2d" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-      <path d="M12 24 Q5 31 2 29 Q-1 27 3 25" stroke="#2d8c2d" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-      <circle cx="2" cy="16" r="2.5" fill="#3aaa3a"/>
-      <circle cx="2" cy="28" r="2.5" fill="#3aaa3a"/>
-      <path d="M41 20 Q48 15 53 13 Q57 11 60 8 Q62 5 60 3 Q57 1 55 4" stroke="#2d8c2d" stroke-width="3.5" fill="none" stroke-linecap="round"/>
-      <circle cx="56" cy="3" r="3.5" fill="#3aaa3a"/>
-      <path d="M56 0 L58 -3" stroke="#1a6b1a" stroke-width="2" stroke-linecap="round"/>
-      <line x1="24" y1="28" x2="19" y2="35" stroke="#2d8c2d" stroke-width="2"/>
-      <line x1="29" y1="29" x2="25" y2="36" stroke="#2d8c2d" stroke-width="2"/>
-      <line x1="33" y1="29" x2="31" y2="36" stroke="#2d8c2d" stroke-width="2"/>
-      <line x1="37" y1="28" x2="37" y2="35" stroke="#2d8c2d" stroke-width="2"/>
-      <line x1="24" y1="16" x2="19" y2="9" stroke="#2d8c2d" stroke-width="2"/>
-      <line x1="29" y1="15" x2="25" y2="8" stroke="#2d8c2d" stroke-width="2"/>
-      <line x1="33" y1="15" x2="31" y2="8" stroke="#2d8c2d" stroke-width="2"/>
-      <line x1="37" y1="16" x2="37" y2="9" stroke="#2d8c2d" stroke-width="2"/>
+    <svg width="80" height="32" viewBox="0 0 80 32" fill="none">
+      <style>
+        @keyframes wl{0%,100%{transform:rotate(0deg)}50%{transform:rotate(20deg)}}
+        @keyframes wr{0%,100%{transform:rotate(0deg)}50%{transform:rotate(-20deg)}}
+        .sl{transform-origin:center;animation:wl .3s ease-in-out infinite}
+        .sr{transform-origin:center;animation:wr .3s ease-in-out infinite .15s}
+      </style>
+      <!-- Body segments side view -->
+      <ellipse cx="38" cy="18" rx="12" ry="7" fill="#2d8c2d"/>
+      <ellipse cx="24" cy="18" rx="8" ry="6" fill="#3aaa3a"/>
+      <ellipse cx="16" cy="18" rx="5" ry="4.5" fill="#3aaa3a"/>
+      <!-- Head -->
+      <ellipse cx="9" cy="18" rx="5" ry="4" fill="#4cc44c"/>
+      <!-- Eye -->
+      <circle cx="6" cy="16" r="1.5" fill="#00ff00"/>
+      <!-- Pincer -->
+      <path d="M5 16 Q0 12 -1 14 Q-2 16 1 17" stroke="#2d8c2d" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+      <path d="M5 20 Q0 24 -1 22 Q-2 20 1 19" stroke="#2d8c2d" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+      <!-- Tail curling up -->
+      <path d="M50 16 Q58 10 63 6 Q67 3 66 0 Q64 -2 62 1" stroke="#2d8c2d" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <circle cx="62" cy="0" r="2.5" fill="#4cc44c"/>
+      <path d="M62 -2 L64 -5" stroke="#1a6b1a" stroke-width="1.5" stroke-linecap="round"/>
+      <!-- Legs - side view, alternating -->
+      <g class="sl">
+        <line x1="22" y1="23" x2="16" y2="30" stroke="#2d8c2d" stroke-width="1.8" stroke-linecap="round"/>
+        <line x1="30" y1="24" x2="26" y2="31" stroke="#2d8c2d" stroke-width="1.8" stroke-linecap="round"/>
+        <line x1="38" y1="24" x2="36" y2="31" stroke="#2d8c2d" stroke-width="1.8" stroke-linecap="round"/>
+        <line x1="44" y1="23" x2="44" y2="30" stroke="#2d8c2d" stroke-width="1.8" stroke-linecap="round"/>
+      </g>
+      <g class="sr">
+        <line x1="20" y1="13" x2="14" y2="6" stroke="#2d8c2d" stroke-width="1.8" stroke-linecap="round"/>
+        <line x1="28" y1="12" x2="24" y2="5" stroke="#2d8c2d" stroke-width="1.8" stroke-linecap="round"/>
+        <line x1="36" y1="12" x2="34" y2="5" stroke="#2d8c2d" stroke-width="1.8" stroke-linecap="round"/>
+        <line x1="43" y1="13" x2="43" y2="6" stroke="#2d8c2d" stroke-width="1.8" stroke-linecap="round"/>
+      </g>
     </svg>
   </div>
 
