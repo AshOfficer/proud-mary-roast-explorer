@@ -1,4 +1,4 @@
-<div id="pw-gate" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:9999;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding-top:3vh">
+<div id="pw-gate" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:9999;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding-top:2vh;background:#0a0020">
 
   <style>
     @keyframes rkt3{0%{left:-70px;top:12%}100%{left:110%;top:7%}}
@@ -8,7 +8,7 @@
     #ufo3{animation:bob3 3.5s ease-in-out infinite}
   </style>
 
-  <svg style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none" viewBox="0 0 400 700" preserveAspectRatio="xMidYMax slice">
+  <svg style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none" viewBox="0 0 400 700" preserveAspectRatio="xMidYMid meet">
     <defs>
       <linearGradient id="bg3" x1="0" y1="0" x2="0" y2="1">
         <stop offset="0%" stop-color="#0a0020"/>
@@ -208,42 +208,66 @@ function checkPW(){
   if(val==='Coffee01'){
     sessionStorage.setItem('pm_auth','1');
     const gate=document.getElementById('pw-gate');
-    gate.style.background='#1A2340';
-    gate.style.justifyContent='center';
-    gate.style.alignItems='center';
-    gate.innerHTML=`<style>
-      @keyframes chur-drop{
-        0%  {transform:translateY(-120%) scaleY(2.5);opacity:0;filter:blur(6px)}
-        55% {transform:translateY(8%) scaleY(.88);opacity:1;filter:blur(0)}
-        70% {transform:translateY(-3%) scaleY(1.06)}
-        82% {transform:translateY(2%) scaleY(.97)}
-        100%{transform:translateY(0) scaleY(1);opacity:1}
+    // CHUR zooms in over synthwave background, hits screen, cracks, shatters
+    const chur = document.createElement('div');
+    chur.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;display:flex;align-items:center;justify-content:center;z-index:20;pointer-events:none';
+    chur.innerHTML = `<style>
+      @keyframes chur-zoom{
+        0%  {transform:scale(.04);opacity:0;filter:blur(6px)}
+        45% {transform:scale(.9);opacity:1;filter:blur(0)}
+        72% {transform:scale(1.18);opacity:1}
+        82% {transform:scale(.97);opacity:1}
+        100%{transform:scale(1.06);opacity:1}
       }
-      @keyframes chur-melt{
-        0%  {transform:translateY(0) scaleY(1);opacity:1}
-        30% {transform:translateY(5%) scaleY(1.15);opacity:1}
-        100%{transform:translateY(150%) scaleY(5);opacity:0;filter:blur(10px)}
-      }
-      #chur-word{
+      @keyframes crack-in{0%,70%{opacity:0}71%{opacity:1}100%{opacity:1}}
+      @keyframes shatter-out{0%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(2.8);filter:blur(20px)}}
+      #ct{
         font-family:'Black Ops One',serif;
-        font-size:34vw;
-        color:#F2D44E;
+        font-size:28vw;
+        color:#ffb300;
         line-height:1;
         letter-spacing:.06em;
-        transform-origin:center bottom;
-        animation:chur-drop .85s cubic-bezier(.22,1,.36,1) forwards;
-        text-shadow: 0 0 60px rgba(242,212,78,0.4);
+        text-shadow:0 0 40px rgba(255,179,0,.9),0 0 80px rgba(255,179,0,.4);
+        animation:chur-zoom 1.2s cubic-bezier(.2,1,.3,1) forwards;
+        transform-origin:center center;
       }
-      #chur-word.melting{
-        animation:chur-melt 1s ease-in forwards;
-      }
+      #ct.out{animation:shatter-out .9s ease-in forwards}
+      #cracks{position:absolute;top:0;left:0;width:100%;height:100%;animation:crack-in 1.2s forwards;pointer-events:none}
+      #cracks.out{animation:shatter-out .9s ease-in forwards}
     </style>
-    <div id="chur-word">CHUR</div>`;
+    <div id="ct">CHUR</div>
+    <svg id="cracks" viewBox="0 0 100 100" preserveAspectRatio="none">
+      <g stroke="rgba(255,255,255,.8)" stroke-linecap="round" fill="none">
+        <path d="M50 50 L16 4" stroke-width=".6"/>
+        <path d="M50 50 L80 2" stroke-width=".5"/>
+        <path d="M50 50 L98 24" stroke-width=".6"/>
+        <path d="M50 50 L100 55" stroke-width=".5"/>
+        <path d="M50 50 L84 96" stroke-width=".6"/>
+        <path d="M50 50 L46 100" stroke-width=".5"/>
+        <path d="M50 50 L12 90" stroke-width=".6"/>
+        <path d="M50 50 L0 68" stroke-width=".5"/>
+        <path d="M50 50 L0 32" stroke-width=".6"/>
+        <path d="M50 50 L10 12" stroke-width=".4"/>
+        <path d="M32 22 L22 30" stroke-width=".3"/>
+        <path d="M68 18 L76 28" stroke-width=".3"/>
+        <path d="M82 34 L90 42" stroke-width=".3"/>
+        <path d="M84 52 L92 60" stroke-width=".3"/>
+        <path d="M74 80 L80 70" stroke-width=".3"/>
+        <path d="M26 76 L18 72" stroke-width=".3"/>
+        <path d="M12 60 L6 52" stroke-width=".3"/>
+        <path d="M20 18 L14 26" stroke-width=".3"/>
+        <path d="M38 30 Q50 25 62 30 Q68 42 63 55 Q54 63 44 60 Q34 55 34 43 Q35 36 38 30" stroke-width=".25" opacity=".6"/>
+        <path d="M25 15 Q50 9 74 16 Q84 32 78 58 Q63 76 48 73 Q28 68 22 50 Q18 32 25 15" stroke-width=".2" opacity=".4"/>
+      </g>
+      <circle cx="50" cy="50" r="2.5" fill="rgba(255,255,255,.7)"/>
+      <circle cx="50" cy="50" r="1" fill="white"/>
+    </svg>`;
+    gate.appendChild(chur);
     setTimeout(()=>{
-      const t=document.getElementById('chur-word');
-      if(t)t.classList.add('melting');
-    }, 2600);
-    setTimeout(()=>{ gate.style.display='none'; }, 3800);
+      document.getElementById('ct').classList.add('out');
+      document.getElementById('cracks').classList.add('out');
+    }, 3000);
+    setTimeout(()=>{ gate.style.display='none'; }, 4000);
   } else {
     document.getElementById('pw-error').style.display='block';
     document.getElementById('pw-input').value='';
