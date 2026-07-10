@@ -6,7 +6,60 @@
     @keyframes scorp5{0%{right:-90px}100%{right:108%}}
     @keyframes wa{0%,100%{d:path("M22 23 L16 30")}50%{d:path("M22 23 L14 28")}}
     #ufo5{animation:bob5 3.5s ease-in-out infinite}
-  </style>
+  
+/* ═══ READABILITY OVERRIDES ═══ */
+/* Content area — solid dark so gradient only shows in gaps */
+.pm-inner { background: rgba(8,2,22,.96) !important; }
+
+/* Filter bar — solid readable */
+.fb { background: rgba(10,4,30,.98) !important; color: #e8e4da !important; }
+.fc-lbl { color: #ffb300 !important; font-size: 10px !important; }
+.fc-btn { background: rgba(20,8,50,.95) !important; color: #e8e4da !important; border: 1px solid rgba(206,147,216,.3) !important; font-size: 12px !important; }
+.fc-badge { background: #e91e8c !important; color: white !important; }
+.fc-opt { color: #e8e4da !important; }
+.fc-search { color: #e8e4da !important; background: rgba(20,8,50,.9) !important; }
+.fc-panel { background: rgba(14,4,36,.98) !important; border-color: rgba(206,147,216,.3) !important; }
+
+/* Showing chips */
+.afs { background: rgba(8,2,22,.98) !important; }
+.afc { background: rgba(14,4,36,.9) !important; color: #4fc3f7 !important; border-color: #4fc3f7 !important; }
+.aft { color: rgba(232,228,218,.5) !important; }
+
+/* Viewing headline */
+#viewing-headline { background: rgba(8,2,22,.98) !important; }
+
+/* Tabs */
+.tabs { background: rgba(8,2,22,.98) !important; }
+.tab { background: rgba(18,6,44,.9) !important; color: rgba(232,228,218,.55) !important; border-color: rgba(206,147,216,.2) !important; }
+.tab.active { background: rgba(255,179,0,.1) !important; color: #ffb300 !important; border-color: rgba(255,179,0,.4) !important; }
+
+/* Metric boxes */
+.met-box { background: rgba(14,4,36,.95) !important; border-color: rgba(206,147,216,.2) !important; }
+.met-lbl { color: rgba(232,228,218,.45) !important; }
+.met-val { color: #e8e4da !important; }
+
+/* Table */
+table { background: rgba(8,2,22,.96) !important; }
+th { background: rgba(14,4,36,.98) !important; color: #ffb300 !important; }
+td { background: rgba(8,2,22,.9) !important; color: #e8e4da !important; border-color: rgba(255,255,255,.06) !important; }
+tr:hover td { background: rgba(255,255,255,.04) !important; }
+
+/* Chart area labels */
+.violin-label, .vl-label, text { fill: #e8e4da !important; }
+
+/* Variance cards */
+.vt-card { background: rgba(14,4,36,.95) !important; color: #e8e4da !important; }
+.vt-card td, .vt-card th { background: transparent !important; color: #e8e4da !important; }
+
+/* Group by select */
+.gb-select { background: rgba(14,4,36,.95) !important; color: #e8e4da !important; border-color: rgba(206,147,216,.3) !important; }
+
+/* Clear button */
+button[onclick="clearAllFilters()"] { border-color: #e91e8c !important; color: #e91e8c !important; }
+
+/* Roast params panels */
+#roastparams-vw { background: transparent !important; }
+</style>
 
   <svg style="position:absolute;top:0;left:0;width:100%;height:100%" viewBox="0 0 1000 600" preserveAspectRatio="xMidYMid slice">
     <defs>
