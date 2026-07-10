@@ -321,7 +321,7 @@ function checkPW(){
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body,div,span,td,th,button,input,select,label,p{font-family:var(--font-body)}
-.pm-wrap{background:transparent;border-radius:0;border:none;overflow:hidden;box-shadow:none;}
+.pm-wrap{background:transparent;border-radius:0;border:none;overflow:visible;box-shadow:none;}
 .pm-header{background:linear-gradient(180deg,#0e0028 0%,#1a0040 100%);border-bottom:2px solid rgba(233,30,140,.5);padding:0;display:grid;grid-template-columns:1fr auto 1fr;align-items:stretch;min-height:90px;box-shadow:0 0 30px rgba(233,30,140,.15);}
 .pm-header-left-tab{background:transparent;border-right:1px solid rgba(233,30,140,.3);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:12px 16px;gap:6px;}
 .pm-loc-stamps{display:flex;gap:5px;align-items:center}
@@ -1543,14 +1543,14 @@ function rRP(filteredRaw){
   window._rpMakeDetail=makeDetail;
 
   const coffeePanels=`<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px">
-    <div style="background:#12162e;border-radius:8px;border:1px solid rgba(255,255,255,.08);overflow:hidden">
+    <div style="background:rgba(10,0,30,.65);border-radius:8px;border:1px solid rgba(232,228,218,.08);overflow:hidden">
       <div style="background:#1A2340;padding:9px 14px;font-family:var(--font-label);font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#F2D44E;display:flex;align-items:center;justify-content:space-between">
         COFFEE LOOKUP
         <input id="rp-search" type="text" placeholder="Search…" oninput="rRP(applyF())" style="font-size:11px;padding:3px 8px;border-radius:4px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.1);color:white;outline:none;width:120px" value="${rpSearch}">
       </div>
       <div style="padding:8px;max-height:380px;overflow-y:auto">${coffeeItems}${filtered.length>150?`<div style="font-size:10px;color:rgba(26,35,64,.35);text-align:center;padding:8px">Showing 150 of ${filtered.length} — use search to narrow</div>`:''}</div>
     </div>
-    <div style="background:#12162e;border-radius:8px;border:1px solid rgba(255,255,255,.08);overflow:hidden">
+    <div style="background:rgba(10,0,30,.65);border-radius:8px;border:1px solid rgba(232,228,218,.08);overflow:hidden">
       <div style="background:#1A2340;padding:9px 14px;font-family:var(--font-label);font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#F2D44E">ROAST REFERENCE</div>
       <div id="rp-detail">${makeDetail(rpSelected)}</div>
     </div>
