@@ -230,7 +230,9 @@
 <script>
 (function(){
   if(sessionStorage.getItem('pm_auth')==='1'){
-    document.getElementById('pw-gate').style.display='none';
+    const g=document.getElementById('pw-gate');
+    g.style.display='none';
+    g.innerHTML='';
   }
 })();
 function checkPW(){
@@ -302,7 +304,7 @@ function checkPW(){
       document.getElementById('ct').classList.add('out');
       document.getElementById('cracks').classList.add('out');
     }, 3000);
-    setTimeout(()=>{ gate.style.display='none'; }, 4000);
+    setTimeout(()=>{ gate.style.display='none'; gate.innerHTML=''; }, 4000);
   } else {
     document.getElementById('pw-error').style.display='block';
     document.getElementById('pw-input').value='';
@@ -320,7 +322,7 @@ function checkPW(){
   --font-display:'Black Ops One',serif;--font-label:'Oswald',sans-serif;--font-body:'DM Sans',sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:linear-gradient(to bottom,#0a0020 0%,#2e005e 18%,#8b1a7a 36%,#c8244a 52%,#e05000 66%,#ff9500 78%,#ffb300 85%,#1a0800 87%,#0e0300 100%);min-height:100vh}
+body{background:linear-gradient(180deg,#08001e 0%,#1a0040 12%,#3d0070 24%,#7b0f8b 36%,#b01a6b 46%,#c8244a 54%,#d44000 63%,#e06800 72%,#f09000 80%,#ffb300 88%,#ffd060 100%);min-height:100vh}
 body,div,span,td,th,button,input,select,label,p{font-family:var(--font-body)}
 .pm-wrap{background:transparent;border-radius:0;border:none;overflow:visible;box-shadow:none;}
 .pm-header{display:none}
@@ -674,7 +676,9 @@ body,div,span,td,th,button,input,select,label,p{font-family:var(--font-body)}
 <script>
 (function(){
   if(sessionStorage.getItem('pm_auth')==='1'){
-    document.getElementById('pw-gate').style.display='none';
+    const g=document.getElementById('pw-gate');
+    g.style.display='none';
+    g.innerHTML='';
   }
 })();
 function checkPW(){
@@ -746,7 +750,7 @@ function checkPW(){
       document.getElementById('ct').classList.add('out');
       document.getElementById('cracks').classList.add('out');
     }, 3000);
-    setTimeout(()=>{ gate.style.display='none'; }, 4000);
+    setTimeout(()=>{ gate.style.display='none'; gate.innerHTML=''; }, 4000);
   } else {
     document.getElementById('pw-error').style.display='block';
     document.getElementById('pw-input').value='';
@@ -764,7 +768,7 @@ function checkPW(){
   --font-display:'Black Ops One',serif;--font-label:'Oswald',sans-serif;--font-body:'DM Sans',sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:linear-gradient(to bottom,#0a0020 0%,#2e005e 18%,#8b1a7a 36%,#c8244a 52%,#e05000 66%,#ff9500 78%,#ffb300 85%,#1a0800 87%,#0e0300 100%);min-height:100vh}
+body{background:linear-gradient(180deg,#08001e 0%,#1a0040 12%,#3d0070 24%,#7b0f8b 36%,#b01a6b 46%,#c8244a 54%,#d44000 63%,#e06800 72%,#f09000 80%,#ffb300 88%,#ffd060 100%);min-height:100vh}
 body,div,span,td,th,button,input,select,label,p{font-family:var(--font-body)}
 .pm-wrap{background:transparent;border-radius:0;border:none;overflow:visible;box-shadow:none;}
 .pm-header{display:none}
