@@ -232,7 +232,7 @@
 <style id="dark-theme-persistent">
 /* ═══ READABILITY OVERRIDES — persistent, lives outside #pw-gate so it survives the gate being cleared on login ═══ */
 /* Content area — solid dark so gradient only shows in gaps */
-.pm-inner { background: rgba(8,2,22,.96) !important; }
+.pm-inner { background: rgba(8,2,22,.55) !important; }
 
 /* Filter bar — solid readable */
 .fb { background: rgba(10,4,30,.98) !important; color: #e8e4da !important; }
@@ -1134,7 +1134,7 @@ function clearAllFilters(){
 }
 
 function doGlobalSearch(val){
-  window._globalSearch = val.toLowerCase().trim();
+  window._globalSearch = val.toLowerCase();
   go();
 }
 function setTab(t){
