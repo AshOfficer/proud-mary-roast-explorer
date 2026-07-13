@@ -801,7 +801,12 @@ function normMachine(m){
   if(!m)return m;
   const t=m.trim();
   const tl=t.toLowerCase();
-  if(tl.includes('stronghold')&&(tl.includes('s7')||tl.includes('s9')))return'Stronghold S7X';
+  // Stronghold S7 / S7X are the same machine — merge them. S9 is a genuinely different
+  // machine and must NOT be merged in (it was previously, incorrectly, lumped in here).
+  if(tl.includes('stronghold')&&tl.includes('s7'))return'Stronghold S7X';
+  // Giesen W1 (Melbourne) / W1A (Portland) are the same machine — merge them.
+  // The (?!\d) guard keeps this from also matching W10, W12, W15, W30A, etc.
+  if(tl.includes('giesen')&&/w1a?(?!\d)/i.test(tl))return'Giesen W1A';
   return t.replace(/Moka/gi,'Mokka');
 }
 
@@ -1695,6 +1700,15 @@ function rRP(filteredRaw){
 
   const sites=['Melbourne','Portland','Austin'];
   const activeSites=sites.filter(s=>rpData.some(r=>r.site===s));
+  // Unfiltered version — used for detail lookups of a coffee selected via the global search box,
+  // which intentionally bypasses the filter panel, so it must not be limited to the filtered rpData.
+  const rpDataAll = RP_RAW.filter(r=>rpNormCat(r.cat)!==null && !!r.roastery).map(r=>({
+    site:r.roastery,profile:r.profile||'',origin:(r.profile||'').split(' ')[0],
+    group:rpNormCat(r.cat),category:r.category||'',varietal:r.varietal||'',process:r.process||'',
+    machine:normMachine(r.machine||''),wb:r.wb,gb:r.gb,duration:r.duration||null,
+    end_temp:r.end_temp||null,dtr:r.dtr||null,fc_time:r.fc_time||null,fc_temp:r.fc_temp||null,
+    fc_temp_console:r.fc_temp_console||null,end_temp_console:r.end_temp_console||null,
+  }));
 
   // ── ROASTERY TOGGLES ────────────────────────────────────────────────────
   const roasteryBtns=sites.map(site=>{
@@ -1871,10 +1885,10 @@ function rRP(filteredRaw){
   // ── ROAST REFERENCE ───────────────────────────────────────────────────────
   function makeDetail(profile){
     if(!profile)return'<div style="font-size:11px;color:rgba(232,228,218,.4);font-style:italic;text-align:center;padding:20px">Select a coffee to see its roast history</div>';
-    const rows=rpData.filter(r=>r.profile===profile);
+    const rows=rpDataAll.filter(r=>r.profile===profile);
     if(!rows.length)return'<div style="font-size:11px;color:rgba(232,228,218,.4);font-style:italic;text-align:center;padding:20px">No data</div>';
     const a=rpGetAvgs(rows);
-    const siteRows=activeSites.filter(s=>rows.some(r=>r.site===s)).map(s=>{
+    const siteRows=sites.filter(s=>rows.some(r=>r.site===s)).map(s=>{
       const sr=rows.filter(r=>r.site===s);
       const sa=rpGetAvgs(sr);
       return`<div style="display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:5px;background:rgba(255,255,255,.05);margin-bottom:4px">
