@@ -246,7 +246,7 @@
 /* Showing chips — was the blue-on-gradient issue */
 .afs { background: rgba(8,2,22,.98) !important; }
 .afc { background: rgba(14,4,36,.95) !important; color: #e8e4da !important; border-color: rgba(232,228,218,.35) !important; }
-.aft { color: rgba(232,228,218,.5) !important; }
+.aft { color: rgba(232,228,218,.65) !important; }
 
 /* Viewing headline */
 #viewing-headline { background: rgba(8,2,22,.98) !important; }
@@ -420,7 +420,7 @@ body,div,span,td,th,button,input,select,label,p{font-family:var(--font-body)}
 .afs{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:10px;align-items:center;min-height:18px}
 .aft{font-size:8px;font-weight:700;color:var(--pm-navy);text-transform:uppercase;letter-spacing:.14em;margin-right:2px;opacity:.55;font-family:var(--font-label)}
 .afc{display:inline-flex;align-items:center;gap:2px;background:var(--pm-cyan);border:1.5px solid var(--pm-navy);border-radius:3px;padding:2px 8px;font-size:9px;font-weight:700;color:var(--pm-navy);font-family:var(--font-label);letter-spacing:.04em}
-.afc-k{opacity:.65;margin-right:1px}
+.afc-k{opacity:.8;margin-right:1px}
 .tabs{display:flex;margin-bottom:12px;gap:4px}
 .tab{padding:6px 16px;font-size:9px;font-weight:700;cursor:pointer;border:2px solid var(--pm-navy);background:var(--pm-white);color:var(--pm-navy);border-radius:3px;text-transform:uppercase;letter-spacing:.12em;transition:all .12s;font-family:var(--font-label)}
 .tab:hover{background:var(--pm-yellow)}
@@ -638,7 +638,7 @@ body,div,span,td,th,button,input,select,label,p{font-family:var(--font-body)}
 .afs{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:10px;align-items:center;min-height:18px}
 .aft{font-size:8px;font-weight:700;color:var(--pm-navy);text-transform:uppercase;letter-spacing:.14em;margin-right:2px;opacity:.55;font-family:var(--font-label)}
 .afc{display:inline-flex;align-items:center;gap:2px;background:var(--pm-cyan);border:1.5px solid var(--pm-navy);border-radius:3px;padding:2px 8px;font-size:9px;font-weight:700;color:var(--pm-navy);font-family:var(--font-label);letter-spacing:.04em}
-.afc-k{opacity:.65;margin-right:1px}
+.afc-k{opacity:.8;margin-right:1px}
 .tabs{display:flex;margin-bottom:12px;gap:4px}
 .tab{padding:6px 16px;font-size:9px;font-weight:700;cursor:pointer;border:2px solid var(--pm-navy);background:var(--pm-white);color:var(--pm-navy);border-radius:3px;text-transform:uppercase;letter-spacing:.12em;transition:all .12s;font-family:var(--font-label)}
 .tab:hover{background:var(--pm-yellow)}
@@ -727,13 +727,13 @@ body,div,span,td,th,button,input,select,label,p{font-family:var(--font-body)}
 </div>
 <div class="mets" id="mets"></div>
 <div id="chart-vw" class="vw active">
-  <div id="cleg" style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:6px;font-size:11px;color:#555"></div>
+  <div id="cleg" style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:6px;font-size:11px;color:#e8e4da"></div>
   <div id="cwrap" style="position:relative;width:100%"><canvas id="mc" role="img" aria-label="WB averages by group and roastery"></canvas></div>
 </div>
 <div id="table-vw" class="vw"><div style="overflow-x:auto"><table class="tbl" id="mt"></table></div></div>
 <div id="roastparams-vw" class="vw"></div>
 <div id="variance-vw" class="vw">
-  <div style="font-size:10px;color:#555;margin-bottom:8px;display:flex;align-items:center;gap:10px">
+  <div style="font-size:10px;color:rgba(232,228,218,.75);margin-bottom:8px;display:flex;align-items:center;gap:10px">
     <span style="font-size:11px;font-weight:700">WB &amp; GB vs Melbourne:</span>
     <span><span class="pill pv0">●</span> 0–2</span>
     <span><span class="pill pv1">●</span> 2–4</span>
@@ -1084,12 +1084,14 @@ function rTB(){
     [['r','Roastery'],['o','Origin'],['v','Varietal'],['p','Process'],['c','Category'],['m','Machine']].map(([k,l])=>buildFC('dd-'+k,k,l)).join('')+
     `<div class="fc" style="max-width:120px"><div class="fc-lbl">Group by</div><select class="gb-select" onchange="setGB(this.value)">${gbK.map(k=>`<option value="${k}"${k===GB?' selected':''}>${gbL[k]}</option>`).join('')}</select></div>`+
     `<button onclick="clearAllFilters()" style="font-family:var(--font-label);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 12px;border-radius:4px;border:1.5px solid #e91e8c;background:transparent;color:#e91e8c;cursor:pointer;white-space:nowrap;align-self:flex-end;margin-bottom:2px" title="Clear all filters">✕ Clear</button>`+
-    `<div style="display:flex;align-items:center;gap:6px;background:rgba(14,4,36,.95);border:1.5px solid rgba(255,179,0,.5);border-radius:6px;padding:5px 12px;margin-left:8px">
+    `<div style="display:flex;align-items:center;gap:6px;background:rgba(14,4,36,.95);border:1.5px solid rgba(255,179,0,.5);border-radius:6px;padding:5px 12px;margin-left:8px;position:relative">
       <span style="color:#ffb300;font-size:16px;font-weight:bold">⌕</span>
-      <input id="global-search" type="text" placeholder="Search coffees…" oninput="doGlobalSearch(this.value)"
+      <input id="global-search" type="text" placeholder="Search coffees…" oninput="doGlobalSearch(this.value)" autocomplete="off"
         style="background:transparent;border:none;outline:none;font-family:var(--font-body);font-size:12px;color:#e8e4da;width:160px"
         value="${window._globalSearch||''}">
+      <div id="global-search-dd" style="display:none;position:absolute;top:calc(100% + 6px);left:0;min-width:280px;max-height:320px;overflow-y:auto;background:rgba(14,4,36,.98);border:1.5px solid rgba(255,179,0,.4);border-radius:6px;box-shadow:0 8px 24px rgba(0,0,0,.5);z-index:50"></div>
     </div>`;
+  renderGlobalSearchDD(window._globalSearch||'');
   if(_gsHadFocus){
     const _gs2=document.getElementById('global-search');
     if(_gs2){_gs2.focus();_gs2.setSelectionRange(_gsCaret,_gsCaret);}
@@ -1134,10 +1136,45 @@ function clearAllFilters(){
 }
 
 function doGlobalSearch(val){
-  const q=val.toLowerCase();
-  const wasEmpty=!window._globalSearch;
-  window._globalSearch = q;
-  if(q&&wasEmpty&&TAB!=='roastparams'){
+  window._globalSearch = val.toLowerCase();
+  renderGlobalSearchDD(window._globalSearch);
+}
+function renderGlobalSearchDD(q){
+  const dd=document.getElementById('global-search-dd');
+  if(!dd)return;
+  q=(q||'').trim();
+  if(!q){dd.style.display='none';dd.innerHTML='';return;}
+  const seen=new Set();
+  const matches=[];
+  for(const r of RP_RAW){
+    if(!r.profile||seen.has(r.profile))continue;
+    if(r.profile.toLowerCase().includes(q)||(r.origin||'').toLowerCase().includes(q)){
+      seen.add(r.profile);
+      matches.push(r);
+      if(matches.length>=25)break;
+    }
+  }
+  if(!matches.length){
+    dd.innerHTML='<div style="padding:12px 14px;font-size:11px;color:rgba(232,228,218,.45);font-style:italic">No matching coffees</div>';
+    dd.style.display='block';
+    return;
+  }
+  matches.sort((a,b)=>a.profile.localeCompare(b.profile));
+  dd.innerHTML=matches.map(r=>`
+    <div class="gs-item" onclick="selectGlobalSearchResult('${r.profile.replace(/'/g,"\\'")}')"
+      style="padding:8px 14px;font-size:12px;color:rgba(232,228,218,.85);cursor:pointer;border-bottom:1px solid rgba(255,255,255,.06);display:flex;align-items:center;gap:8px"
+      onmouseover="this.style.background='rgba(255,179,0,.1)'" onmouseout="this.style.background='transparent'">
+      <span style="font-family:'Black Ops One',serif;font-size:11px;color:#ffb300;min-width:28px">${r.origin||''}</span>
+      <span>${r.profile}</span>
+    </div>`).join('');
+  dd.style.display='block';
+}
+function selectGlobalSearchResult(profile){
+  window._rpSelected=profile;
+  window._globalSearch='';
+  const dd=document.getElementById('global-search-dd');
+  if(dd){dd.style.display='none';dd.innerHTML='';}
+  if(TAB!=='roastparams'){
     TAB='roastparams';
     document.querySelectorAll('.tab').forEach(el=>el.classList.toggle('active',el.getAttribute('onclick')==="setTab('roastparams')"));
     document.querySelectorAll('.vw').forEach(el=>el.classList.remove('active'));
@@ -1145,6 +1182,12 @@ function doGlobalSearch(val){
   }
   go();
 }
+document.addEventListener('click',e=>{
+  if(!e.target.closest('#global-search-dd')&&e.target.id!=='global-search'){
+    const dd=document.getElementById('global-search-dd');
+    if(dd)dd.style.display='none';
+  }
+});
 function setTab(t){
   TAB=t;
   document.querySelectorAll('.tab').forEach(el=>el.classList.toggle('active',el.textContent.toLowerCase()===t));
@@ -1364,6 +1407,10 @@ function rTable(data){
 }
 
 function rVar(data){
+  if(GB==='r'){
+    document.getElementById('vg').innerHTML='<div class="nd">Variance compares a chosen dimension across roasteries against Melbourne — grouping by Roastery itself leaves nothing to compare, since each row would only ever contain one roastery\'s own data.<br><br>Try Group By: Category, Origin, Varietal, Process, or Machine instead.</div>';
+    return;
+  }
   const g=grp(data),{labels,firstBottom}=sortedLabels(g),aRi=actRi(),melI=0,hasMel=aRi.includes(melI);
   const cards=labels.map((l,idx)=>{
     const rd=g[l]||{};
