@@ -1167,6 +1167,7 @@ function fFC(id,q){document.querySelectorAll('#'+id+'-l .fc-opt').forEach(el=>{e
 function doAll(fk,id){F[fk]=null;document.querySelectorAll('#'+id+'-l input').forEach(i=>i.checked=true);go();}
 function doNone(fk,id){F[fk]=[];document.querySelectorAll('#'+id+'-l input').forEach(i=>i.checked=false);go();}
 function togO(fk,val,chk,id){
+  window._rpSelected=null;
   // If currently "All" and user checks something, switch to just that item
   if(chk && iAll(fk)){
     F[fk]=[val];
@@ -1176,15 +1177,17 @@ function togO(fk,val,chk,id){
   const cur=sel(fk);if(chk)cur.add(val);else cur.delete(val);
   F[fk]=cur.size===OL[fk].length?null:[...cur];go();
 }
-function setGB(v){GB=v;go();}
+function setGB(v){window._rpSelected=null;GB=v;go();}
 function clearAllFilters(){
   F={r:null,o:null,v:null,p:null,c:null,m:null};
   window._globalSearch='';
+  window._rpSelected=null;
   go();
 }
 
 function doGlobalSearch(val){
   window._globalSearch = val.toLowerCase();
+  window._rpSelected=null;
   renderGlobalSearchDD(window._globalSearch);
 }
 function renderGlobalSearchDD(q){
