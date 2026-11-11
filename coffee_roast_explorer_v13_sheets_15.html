@@ -1,0 +1,2016 @@
+<div id="pw-gate" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:9999;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#0a0020">
+
+  <style>
+    @keyframes rkt5{0%{left:-80px;top:18%}100%{left:108%;top:4%}}
+    @keyframes bob5{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+    @keyframes scorp5{0%{right:-90px}100%{right:108%}}
+    @keyframes wa{0%,100%{d:path("M22 23 L16 30")}50%{d:path("M22 23 L14 28")}}
+    #ufo5{animation:bob5 3.5s ease-in-out infinite}
+  
+</style>
+
+  <svg style="position:absolute;top:0;left:0;width:100%;height:100%" viewBox="0 0 1000 600" preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <linearGradient id="bg5" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#0a0020"/>
+        <stop offset="28%" stop-color="#2e005e"/>
+        <stop offset="50%" stop-color="#8b1a7a"/>
+        <stop offset="67%" stop-color="#c8244a"/>
+        <stop offset="78%" stop-color="#e05000"/>
+        <stop offset="84%" stop-color="#ff9500"/>
+        <stop offset="85.5%" stop-color="#0e0300"/>
+        <stop offset="100%" stop-color="#080200"/>
+      </linearGradient>
+      <clipPath id="sc5"><circle cx="500" cy="513" r="110"/></clipPath>
+    </defs>
+    <rect width="1000" height="600" fill="url(#bg5)"/>
+
+    <!-- Stars -->
+    <circle cx="80" cy="40" r="2" fill="#fff"><animate attributeName="opacity" values=".8;.1;.8" dur="2.1s" repeatCount="indefinite"/></circle>
+    <circle cx="200" cy="25" r="1.5" fill="#fff"><animate attributeName="opacity" values=".6;.05;.6" dur="3.4s" repeatCount="indefinite"/></circle>
+    <circle cx="350" cy="55" r="2" fill="#fff"><animate attributeName="opacity" values=".7;.1;.7" dur="1.9s" repeatCount="indefinite"/></circle>
+    <circle cx="500" cy="18" r="1.5" fill="#fff"><animate attributeName="opacity" values=".9;.15;.9" dur="2.7s" repeatCount="indefinite"/></circle>
+    <circle cx="650" cy="45" r="2" fill="#fff"><animate attributeName="opacity" values=".6;.05;.6" dur="3.1s" repeatCount="indefinite"/></circle>
+    <circle cx="800" cy="20" r="1.5" fill="#fff"><animate attributeName="opacity" values=".8;.1;.8" dur="2.5s" repeatCount="indefinite"/></circle>
+    <circle cx="920" cy="50" r="2" fill="#fff"><animate attributeName="opacity" values=".7;.08;.7" dur="1.7s" repeatCount="indefinite"/></circle>
+    <circle cx="150" cy="80" r="1.5" fill="#fff"><animate attributeName="opacity" values=".5;.05;.5" dur="2.9s" repeatCount="indefinite"/></circle>
+    <circle cx="720" cy="70" r="1.5" fill="#fff"><animate attributeName="opacity" values=".6;.1;.6" dur="3.3s" repeatCount="indefinite"/></circle>
+    <circle cx="440" cy="90" r="1" fill="#fff"><animate attributeName="opacity" values=".4;.05;.4" dur="2.2s" repeatCount="indefinite"/></circle>
+    <circle cx="860" cy="85" r="1.5" fill="#fff"><animate attributeName="opacity" values=".5;.08;.5" dur="1.8s" repeatCount="indefinite"/></circle>
+    <circle cx="280" cy="100" r="1" fill="#fff"><animate attributeName="opacity" values=".4;.05;.4" dur="3.0s" repeatCount="indefinite"/></circle>
+
+    <!-- Sun -->
+    <g clip-path="url(#sc5)">
+      <circle cx="500" cy="513" r="110" fill="#ff9800"/>
+      <rect x="0" y="435" width="1000" height="7" fill="#f57c00"/>
+      <rect x="0" y="446" width="1000" height="6" fill="#f57c00"/>
+      <rect x="0" y="456" width="1000" height="6" fill="#ef6c00"/>
+      <rect x="0" y="466" width="1000" height="6" fill="#ef6c00"/>
+      <rect x="0" y="476" width="1000" height="6" fill="#e65100"/>
+      <rect x="0" y="486" width="1000" height="6" fill="#e65100"/>
+      <rect x="0" y="496" width="1000" height="17" fill="#e53900"/>
+    </g>
+    <line x1="0" y1="513" x2="1000" y2="513" stroke="#ffd54f" stroke-width="2" opacity=".5"/>
+
+    <!-- LEFT SIDE — tall main palm, smaller mid-ground, tiny background, cactus -->
+    <!-- Main tall palm left -->
+    <rect x="108" y="380" width="11" height="133" rx="5" fill="#0a0015"/>
+    <path d="M113 382 Q58 330 18 345" stroke="#0a0015" stroke-width="14" stroke-linecap="round"/>
+    <path d="M113 374 Q74 318 38 330" stroke="#0a0015" stroke-width="12" stroke-linecap="round"/>
+    <path d="M113 378 Q154 322 188 336" stroke="#0a0015" stroke-width="12" stroke-linecap="round"/>
+    <path d="M113 370 Q138 314 170 308" stroke="#0a0015" stroke-width="10" stroke-linecap="round"/>
+    <path d="M113 382 Q68 358 32 372" stroke="#0a0015" stroke-width="9" stroke-linecap="round"/>
+    <!-- Mid-ground palm left — different lean -->
+    <rect x="38" y="418" width="8" height="95" rx="4" fill="#0a0015" opacity=".9"/>
+    <path d="M42 420 Q4 380 -18 390" stroke="#0a0015" stroke-width="11" stroke-linecap="round" opacity=".9"/>
+    <path d="M42 414 Q18 370 -2 378" stroke="#0a0015" stroke-width="9" stroke-linecap="round" opacity=".9"/>
+    <path d="M42 417 Q68 372 88 382" stroke="#0a0015" stroke-width="9" stroke-linecap="round" opacity=".9"/>
+    <path d="M42 412 Q54 366 72 360" stroke="#0a0015" stroke-width="8" stroke-linecap="round" opacity=".9"/>
+    <!-- Tiny background palm left -->
+    <rect x="178" y="444" width="5" height="69" rx="2" fill="#0a0015" opacity=".65"/>
+    <path d="M180 446 Q158 424 142 430" stroke="#0a0015" stroke-width="7" stroke-linecap="round" opacity=".65"/>
+    <path d="M180 442 Q198 420 212 426" stroke="#0a0015" stroke-width="6" stroke-linecap="round" opacity=".65"/>
+    <path d="M180 444 Q168 422 158 428" stroke="#0a0015" stroke-width="5" stroke-linecap="round" opacity=".65"/>
+    <!-- Cactus left — proper saguaro -->
+    <g opacity=".52" fill="#0a0015">
+      <path d="M251 513 L251 472 Q251 468 255 468 Q259 468 259 472 L259 513Z"/>
+      <path d="M242 490 L242 478 Q242 474 246 474 Q250 474 250 478 L250 490 Q250 494 246 494 Q242 494 242 490Z"/>
+      <path d="M242 480 L252 480 Q252 476 252 476 L242 476Z"/>
+      <path d="M260 486 L260 476 Q260 472 264 472 Q268 472 268 476 L268 486 Q268 490 264 490 Q260 490 260 486Z"/>
+      <path d="M258 478 L268 478 Q258 474 258 474Z"/>
+    </g>
+
+    <!-- RIGHT SIDE — different shapes, not mirrored -->
+    <!-- Main palm right — straighter trunk -->
+    <rect x="878" y="392" width="11" height="121" rx="5" fill="#0a0015"/>
+    <path d="M883 394 Q938 340 974 354" stroke="#0a0015" stroke-width="14" stroke-linecap="round"/>
+    <path d="M883 387 Q920 332 954 344" stroke="#0a0015" stroke-width="12" stroke-linecap="round"/>
+    <path d="M883 391 Q844 334 812 346" stroke="#0a0015" stroke-width="12" stroke-linecap="round"/>
+    <path d="M883 384 Q858 326 828 320" stroke="#0a0015" stroke-width="10" stroke-linecap="round"/>
+    <path d="M883 394 Q922 370 956 382" stroke="#0a0015" stroke-width="9" stroke-linecap="round"/>
+    <!-- Shorter background palm right — leans outward -->
+    <rect x="962" y="424" width="8" height="89" rx="4" fill="#0a0015" opacity=".85"/>
+    <path d="M966 426 Q1004 384 1024 394" stroke="#0a0015" stroke-width="11" stroke-linecap="round" opacity=".85"/>
+    <path d="M966 420 Q942 378 922 386" stroke="#0a0015" stroke-width="9" stroke-linecap="round" opacity=".85"/>
+    <path d="M966 423 Q986 378 1004 372" stroke="#0a0015" stroke-width="8" stroke-linecap="round" opacity=".85"/>
+    <!-- Tiny palm right distance -->
+    <rect x="810" y="450" width="5" height="63" rx="2" fill="#0a0015" opacity=".6"/>
+    <path d="M812 452 Q834 428 848 434" stroke="#0a0015" stroke-width="7" stroke-linecap="round" opacity=".6"/>
+    <path d="M812 448 Q790 426 774 432" stroke="#0a0015" stroke-width="6" stroke-linecap="round" opacity=".6"/>
+    <path d="M812 450 Q800 428 792 434" stroke="#0a0015" stroke-width="5" stroke-linecap="round" opacity=".6"/>
+    <!-- Cactus right — proper saguaro, asymmetric -->
+    <g opacity=".42" fill="#0a0015">
+      <path d="M743 513 L743 470 Q743 466 747 466 Q751 466 751 470 L751 513Z"/>
+      <path d="M732 492 L732 479 Q732 475 736 475 Q740 475 740 479 L740 492 Q740 496 736 496 Q732 496 732 492Z"/>
+      <path d="M732 481 L743 481 Q743 477 743 477 L732 477Z"/>
+      <path d="M751 484 L751 476 Q751 472 755 472 Q759 472 759 476 L759 484 Q759 488 755 488 Q751 488 751 484Z"/>
+      <path d="M750 478 L759 478 Q750 474 750 474Z"/>
+    </g>
+
+    <!-- Grid ground -->
+    <rect x="0" y="513" width="1000" height="87" fill="#0a0200"/>
+    <line x1="500" y1="513" x2="-50" y2="600" stroke="#e91e8c" stroke-width="1" opacity=".5"/>
+    <line x1="500" y1="513" x2="100" y2="600" stroke="#e91e8c" stroke-width="1" opacity=".5"/>
+    <line x1="500" y1="513" x2="250" y2="600" stroke="#e91e8c" stroke-width="1" opacity=".5"/>
+    <line x1="500" y1="513" x2="380" y2="600" stroke="#e91e8c" stroke-width="1" opacity=".5"/>
+    <line x1="500" y1="513" x2="500" y2="600" stroke="#e91e8c" stroke-width="1" opacity=".5"/>
+    <line x1="500" y1="513" x2="620" y2="600" stroke="#e91e8c" stroke-width="1" opacity=".5"/>
+    <line x1="500" y1="513" x2="750" y2="600" stroke="#e91e8c" stroke-width="1" opacity=".5"/>
+    <line x1="500" y1="513" x2="900" y2="600" stroke="#e91e8c" stroke-width="1" opacity=".5"/>
+    <line x1="500" y1="513" x2="1050" y2="600" stroke="#e91e8c" stroke-width="1" opacity=".5"/>
+    <line x1="0" y1="540" x2="1000" y2="540" stroke="#e91e8c" stroke-width=".8" opacity=".35"/>
+    <line x1="0" y1="566" x2="1000" y2="566" stroke="#e91e8c" stroke-width=".8" opacity=".22"/>
+    <line x1="0" y1="590" x2="1000" y2="590" stroke="#e91e8c" stroke-width=".8" opacity=".12"/>
+  </svg>
+
+  <!-- UFO -->
+  <div id="ufo5" style="position:absolute;top:5%;right:7%;pointer-events:none">
+    <svg width="70" height="42" viewBox="0 0 70 42" fill="none">
+      <ellipse cx="35" cy="28" rx="32" ry="12" fill="#1a0040" stroke="#ce93d8" stroke-width="1.5"/>
+      <ellipse cx="35" cy="22" rx="16" ry="11" fill="#0d0020" stroke="#ce93d8" stroke-width="1"/>
+      <ellipse cx="35" cy="15" rx="8" ry="6" fill="#060010"/>
+      <circle cx="27" cy="14" r="2.5" fill="#4fc3f7" opacity=".9"/>
+      <circle cx="35" cy="10" r="2.5" fill="#ffb300" opacity=".9"/>
+      <circle cx="43" cy="14" r="2.5" fill="#e91e8c" opacity=".9"/>
+      <circle cx="12" cy="32" r="3" fill="#ce93d8" opacity=".5"/>
+      <circle cx="35" cy="37" r="3" fill="#ffb300" opacity=".4"/>
+      <circle cx="58" cy="32" r="3" fill="#e91e8c" opacity=".5"/>
+    </svg>
+  </div>
+
+  <!-- Rocket — steeper diagonal, pointing upper-right ~60deg -->
+  <div style="position:absolute;top:18%;left:-80px;animation:rkt5 15s linear infinite 2s;pointer-events:none">
+    <svg width="38" height="38" viewBox="0 0 38 38" fill="none" style="transform:rotate(62deg)">
+      <path d="M19 2 Q27 12 27 24 L19 31 L11 24 Q11 12 19 2Z" fill="#f0f0ff" stroke="#ce93d8" stroke-width="1.5"/>
+      <circle cx="19" cy="18" r="4.5" fill="#ce93d8"/>
+      <path d="M11 24 L4 35 L11 30Z" fill="#e91e8c"/>
+      <path d="M27 24 L34 35 L27 30Z" fill="#e91e8c"/>
+      <path d="M13 31 Q19 42 25 31" fill="#ffb300" opacity=".9"/>
+    </svg>
+  </div>
+
+  <!-- Scorpion — proper side profile, alternating leg animation -->
+  <div style="position:absolute;bottom:8%;right:-90px;animation:scorp5 18s linear infinite 4s;pointer-events:none">
+    <svg width="110" height="38" viewBox="-10 0 110 38" fill="none">
+      <defs>
+        <style>
+          @keyframes ls{0%,100%{transform:rotate(-20deg)}50%{transform:rotate(20deg)}}
+          .s1{transform-origin:18px 22px;animation:ls .2s ease-in-out infinite 0s}
+          .s2{transform-origin:26px 22px;animation:ls .2s ease-in-out infinite .05s}
+          .s3{transform-origin:34px 22px;animation:ls .2s ease-in-out infinite .1s}
+          .s4{transform-origin:42px 22px;animation:ls .2s ease-in-out infinite .15s}
+          .s5{transform-origin:20px 22px;animation:ls .2s ease-in-out infinite .025s}
+          .s6{transform-origin:28px 22px;animation:ls .2s ease-in-out infinite .075s}
+          .s7{transform-origin:36px 22px;animation:ls .2s ease-in-out infinite .125s}
+          .s8{transform-origin:44px 22px;animation:ls .2s ease-in-out infinite .175s}
+        </style>
+      </defs>
+      <!-- Tail: 5 segments curling up then forward with sharp stinger -->
+      <path d="M58 19 Q64 15 67 11 Q70 7 68 4 Q66 1 63 4 Q61 7 64 9" stroke="#2d8c2d" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+      <!-- Stinger tip — sharp point -->
+      <path d="M64 9 L68 5 L62 7Z" fill="#1a6b1a"/>
+      <!-- Body segments -->
+      <ellipse cx="46" cy="20" rx="14" ry="8" fill="#2d8c2d"/>
+      <ellipse cx="32" cy="20" rx="10" ry="7.5" fill="#2f8f2f"/>
+      <ellipse cx="20" cy="20" rx="9" ry="7" fill="#338833"/>
+      <!-- Head -->
+      <ellipse cx="9" cy="20" rx="8" ry="6.5" fill="#3aaa3a"/>
+      <!-- Eye -->
+      <circle cx="4" cy="17" r="1.8" fill="#00ff00"/>
+      <!-- Pincers -->
+      <path d="M3 17 Q-3 13 -5 15 Q-6 17 -3 18" stroke="#2d8c2d" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+      <path d="M3 22 Q-3 26 -5 24 Q-6 22 -3 21" stroke="#2d8c2d" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+      <circle cx="-4" cy="16" r="1.5" fill="#4cc44c"/>
+      <circle cx="-4" cy="24" r="1.5" fill="#4cc44c"/>
+      <!-- 8 short legs — 4 pairs, all below body -->
+      <g class="s1"><line x1="18" y1="25" x2="15" y2="33" stroke="#2d8c2d" stroke-width="1.6" stroke-linecap="round"/></g>
+      <g class="s2"><line x1="26" y1="26" x2="24" y2="34" stroke="#2d8c2d" stroke-width="1.6" stroke-linecap="round"/></g>
+      <g class="s3"><line x1="34" y1="26" x2="33" y2="34" stroke="#2d8c2d" stroke-width="1.6" stroke-linecap="round"/></g>
+      <g class="s4"><line x1="42" y1="26" x2="42" y2="34" stroke="#2d8c2d" stroke-width="1.6" stroke-linecap="round"/></g>
+      <!-- Second set slightly offset for 8-leg look -->
+      <g class="s5"><line x1="20" y1="26" x2="16" y2="34" stroke="#1a6b1a" stroke-width="1.4" stroke-linecap="round"/></g>
+      <g class="s6"><line x1="28" y1="27" x2="26" y2="35" stroke="#1a6b1a" stroke-width="1.4" stroke-linecap="round"/></g>
+      <g class="s7"><line x1="36" y1="27" x2="35" y2="35" stroke="#1a6b1a" stroke-width="1.4" stroke-linecap="round"/></g>
+      <g class="s8"><line x1="44" y1="27" x2="44" y2="35" stroke="#1a6b1a" stroke-width="1.4" stroke-linecap="round"/></g>
+    </svg>
+  </div>
+
+  <!-- Password UI — sits in upper sky, well above sun -->
+  <div style="position:relative;z-index:10;text-align:center;width:100%;max-width:420px;margin-top:-16vh">
+    <div style="border:3px solid #e91e8c;border-radius:10px;padding:5px;margin-bottom:10px;box-shadow:0 0 20px rgba(233,30,140,.7),0 0 50px rgba(233,30,140,.2)">
+      <div style="border:2px solid #ffb300;border-radius:7px;padding:14px 40px 12px;background:rgba(10,0,32,.92)">
+        <div style="font-family:'Black Ops One',serif;font-size:clamp(22px,4vw,48px);color:#ffb300;letter-spacing:.1em;line-height:1;text-shadow:0 0 15px rgba(255,179,0,.9)">PROUD MARY</div>
+        <div style="font-family:'Oswald',sans-serif;font-size:clamp(9px,1.2vw,13px);color:#ce93d8;letter-spacing:.45em;margin-top:5px">ROAST EXPLORER</div>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:center;gap:7px;margin-bottom:13px">
+      <div style="width:9px;height:9px;border-radius:50%;background:#ffb300;box-shadow:0 0 7px #ffb300"></div>
+      <div style="width:9px;height:9px;border-radius:50%;background:#e91e8c;box-shadow:0 0 7px #e91e8c"></div>
+      <div style="width:9px;height:9px;border-radius:50%;background:#ce93d8;box-shadow:0 0 7px #ce93d8"></div>
+      <div style="width:9px;height:9px;border-radius:50%;background:#ffb300;box-shadow:0 0 7px #ffb300"></div>
+      <div style="width:9px;height:9px;border-radius:50%;background:#e91e8c;box-shadow:0 0 7px #e91e8c"></div>
+      <div style="width:9px;height:9px;border-radius:50%;background:#ce93d8;box-shadow:0 0 7px #ce93d8"></div>
+      <div style="width:9px;height:9px;border-radius:50%;background:#ffb300;box-shadow:0 0 7px #ffb300"></div>
+      <div style="width:9px;height:9px;border-radius:50%;background:#e91e8c;box-shadow:0 0 7px #e91e8c"></div>
+      <div style="width:9px;height:9px;border-radius:50%;background:#ce93d8;box-shadow:0 0 7px #ce93d8"></div>
+    </div>
+    <div style="background:rgba(10,0,32,.85);border:1px solid rgba(206,147,216,.2);border-radius:8px;padding:18px 28px;display:flex;flex-direction:column;align-items:center;gap:11px;backdrop-filter:blur(8px)">
+      <div style="font-family:'Oswald',sans-serif;font-size:10px;color:rgba(255,255,255,.35);letter-spacing:.35em;text-transform:uppercase">Enter Password</div>
+      <input id="pw-input" type="password" onkeydown="if(event.key==='Enter')checkPW()" autofocus
+        style="font-family:'DM Sans',sans-serif;font-size:15px;padding:9px 16px;border-radius:6px;border:1.5px solid rgba(206,147,216,.3);background:rgba(255,255,255,.06);color:white;outline:none;width:220px;text-align:center;letter-spacing:.15em"
+        placeholder="••••••••">
+      <button onclick="checkPW()"
+        style="font-family:'Black Ops One',serif;font-size:13px;letter-spacing:.12em;padding:9px 28px;border-radius:6px;border:2px solid #ffb300;background:transparent;color:#ffb300;cursor:pointer;width:100%;box-shadow:0 0 12px rgba(255,179,0,.25)">
+        ENTER
+      </button>
+      <div id="pw-error" style="font-family:'Oswald',sans-serif;font-size:10px;color:#e91e8c;letter-spacing:.15em;display:none">INCORRECT PASSWORD</div>
+    </div>
+  </div>
+
+</div>
+
+<style id="dark-theme-persistent">
+/* ═══ READABILITY OVERRIDES — persistent, lives outside #pw-gate so it survives the gate being cleared on login ═══ */
+/* Content area — solid dark so gradient only shows in gaps */
+.pm-inner { background: rgba(8,2,22,.55) !important; }
+
+/* Filter bar — solid readable */
+.fb { background: rgba(10,4,30,.98) !important; color: #e8e4da !important; }
+.fc-lbl { color: #ffb300 !important; font-size: 10px !important; }
+.fc-btn { background: rgba(20,8,50,.95) !important; color: #e8e4da !important; border: 1px solid rgba(206,147,216,.3) !important; font-size: 12px !important; }
+.fc-badge { background: #e91e8c !important; color: white !important; }
+.fc-opt { color: #e8e4da !important; }
+.fc-search { color: #e8e4da !important; background: rgba(20,8,50,.9) !important; }
+.fc-panel { background: rgba(14,4,36,.98) !important; border-color: rgba(206,147,216,.3) !important; }
+
+/* Showing chips — was the blue-on-gradient issue */
+.afs { background: rgba(8,2,22,.98) !important; }
+.afc { background: rgba(14,4,36,.95) !important; color: #e8e4da !important; border-color: rgba(232,228,218,.35) !important; }
+.aft { color: rgba(232,228,218,.65) !important; }
+
+/* Viewing headline */
+#viewing-headline { background: rgba(8,2,22,.98) !important; }
+
+/* Tabs */
+.tabs { background: rgba(8,2,22,.98) !important; }
+.tab { background: rgba(14,4,36,.95) !important; color: rgba(232,228,218,.7) !important; border: 1px solid rgba(232,228,218,.15) !important; }
+.tab.active { background: rgba(14,4,36,.98) !important; color: #ffb300 !important; border: 2px solid #ffb300 !important; }
+
+/* Metric boxes */
+.met-box { background: rgba(14,4,36,.95) !important; border-color: rgba(206,147,216,.2) !important; }
+.met-lbl { color: rgba(232,228,218,.45) !important; }
+.met-val { color: #e8e4da !important; }
+
+/* Table — was yellow-on-white, now dark bg / light text throughout */
+table { background: rgba(8,2,22,.96) !important; }
+th { background: rgba(14,4,36,.98) !important; color: #ffb300 !important; }
+td { background: rgba(8,2,22,.9) !important; color: #e8e4da !important; border-color: rgba(255,255,255,.06) !important; }
+tr:hover td { background: rgba(255,255,255,.04) !important; }
+
+/* Chart area labels (SVG text, e.g. legend) */
+.violin-label, .vl-label, text { fill: #e8e4da !important; }
+
+/* Variance / reference cards */
+.vt-card { background: rgba(14,4,36,.95) !important; color: #e8e4da !important; }
+.vt-card td, .vt-card th { background: transparent !important; color: #e8e4da !important; }
+
+/* Group by select */
+.gb-select { background: rgba(14,4,36,.95) !important; color: #e8e4da !important; border-color: rgba(206,147,216,.3) !important; }
+
+/* Clear button */
+button[onclick="clearAllFilters()"] { border-color: #e91e8c !important; color: #e91e8c !important; }
+
+/* Roast params panels */
+#roastparams-vw { background: transparent !important; }
+</style>
+
+<script>
+(function(){
+  if(sessionStorage.getItem('pm_auth')==='1'){
+    const g=document.getElementById('pw-gate');
+    g.style.display='none';
+    g.innerHTML='';
+  }
+})();
+async function checkPW(){
+  const val=document.getElementById('pw-input').value;
+  const buf=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(val));
+  const hex=Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
+  if(hex==='a01fa2770aa49573c3d82e9f9ba8faef5dddf7da58bb9216e3b484c04d300446'){
+    sessionStorage.setItem('pm_auth','1');
+    const gate=document.getElementById('pw-gate');
+    // Hide the sign and password box so CHUR plays on clean background
+    const ui = gate.querySelector('div[style*="z-index:10"]') || gate.querySelector('[style*="max-width:420px"]') || gate.querySelector('[style*="max-width:380px"]');
+    if(ui) ui.style.display='none';
+    const ufo = document.getElementById('ufo3');
+    if(ufo) ufo.style.display='none';
+    // CHUR zooms in over synthwave background, hits screen, cracks, shatters
+    const chur = document.createElement('div');
+    chur.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;display:flex;align-items:center;justify-content:center;z-index:20;pointer-events:none';
+    chur.innerHTML = `<style>
+      @keyframes chur-zoom{
+        0%  {transform:scale(.04);opacity:0;filter:blur(6px)}
+        45% {transform:scale(.9);opacity:1;filter:blur(0)}
+        72% {transform:scale(1.18);opacity:1}
+        82% {transform:scale(.97);opacity:1}
+        100%{transform:scale(1.06);opacity:1}
+      }
+      @keyframes crack-in{0%,70%{opacity:0}71%{opacity:1}100%{opacity:1}}
+      @keyframes shatter-out{0%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(2.8);filter:blur(20px)}}
+      #ct{
+        font-family:'Black Ops One',serif;
+        font-size:28vw;
+        color:#ffb300;
+        line-height:1;
+        letter-spacing:.06em;
+        text-shadow:0 0 40px rgba(255,179,0,.9),0 0 80px rgba(255,179,0,.4);
+        animation:chur-zoom 1.2s cubic-bezier(.2,1,.3,1) forwards;
+        transform-origin:center center;
+      }
+      #ct.out{animation:shatter-out .9s ease-in forwards}
+      #cracks{position:absolute;top:0;left:0;width:100%;height:100%;animation:crack-in 1.2s forwards;pointer-events:none}
+      #cracks.out{animation:shatter-out .9s ease-in forwards}
+    </style>
+    <div id="ct">CHUR</div>
+    <svg id="cracks" viewBox="0 0 100 100" preserveAspectRatio="none">
+      <g stroke="rgba(255,255,255,.8)" stroke-linecap="round" fill="none">
+        <path d="M50 50 L16 4" stroke-width=".6"/>
+        <path d="M50 50 L80 2" stroke-width=".5"/>
+        <path d="M50 50 L98 24" stroke-width=".6"/>
+        <path d="M50 50 L100 55" stroke-width=".5"/>
+        <path d="M50 50 L84 96" stroke-width=".6"/>
+        <path d="M50 50 L46 100" stroke-width=".5"/>
+        <path d="M50 50 L12 90" stroke-width=".6"/>
+        <path d="M50 50 L0 68" stroke-width=".5"/>
+        <path d="M50 50 L0 32" stroke-width=".6"/>
+        <path d="M50 50 L10 12" stroke-width=".4"/>
+        <path d="M32 22 L22 30" stroke-width=".3"/>
+        <path d="M68 18 L76 28" stroke-width=".3"/>
+        <path d="M82 34 L90 42" stroke-width=".3"/>
+        <path d="M84 52 L92 60" stroke-width=".3"/>
+        <path d="M74 80 L80 70" stroke-width=".3"/>
+        <path d="M26 76 L18 72" stroke-width=".3"/>
+        <path d="M12 60 L6 52" stroke-width=".3"/>
+        <path d="M20 18 L14 26" stroke-width=".3"/>
+        <path d="M38 30 Q50 25 62 30 Q68 42 63 55 Q54 63 44 60 Q34 55 34 43 Q35 36 38 30" stroke-width=".25" opacity=".6"/>
+        <path d="M25 15 Q50 9 74 16 Q84 32 78 58 Q63 76 48 73 Q28 68 22 50 Q18 32 25 15" stroke-width=".2" opacity=".4"/>
+      </g>
+      <circle cx="50" cy="50" r="2.5" fill="rgba(255,255,255,.7)"/>
+      <circle cx="50" cy="50" r="1" fill="white"/>
+    </svg>`;
+    gate.appendChild(chur);
+    setTimeout(()=>{
+      document.getElementById('ct').classList.add('out');
+      document.getElementById('cracks').classList.add('out');
+    }, 3000);
+    setTimeout(()=>{ gate.style.display='none'; gate.innerHTML=''; }, 4000);
+  } else {
+    document.getElementById('pw-error').style.display='block';
+    document.getElementById('pw-input').value='';
+    document.getElementById('pw-input').focus();
+  }
+}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Oswald:wght@700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+@keyframes chur-fade{0%{opacity:0;transform:scale(.85)}30%{opacity:1;transform:scale(1.02)}70%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(1.05)}}
+:root{
+  --pm-cyan:#4fc3f7;--pm-yellow:#ffb300;--pm-pink:#e91e8c;--pm-purple:#ce93d8;
+  --pm-green:#4caf50;--pm-navy:#e8e4da;--pm-cream:#1a1f3a;--pm-white:#1e2248;
+  --pm-gold:#C9981A;--pm-mel:#2979C2;--pm-aus:#A535C4;--pm-pdx:#1B9E5E;
+  --font-display:'Black Ops One',serif;--font-label:'Oswald',sans-serif;--font-body:'DM Sans',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:linear-gradient(180deg,#08001e 0%,#1a0040 12%,#3d0070 24%,#7b0f8b 36%,#b01a6b 46%,#c8244a 54%,#d44000 63%,#e06800 72%,#f09000 80%,#ffb300 88%,#ffd060 100%);min-height:100vh}
+body,div,span,td,th,button,input,select,label,p{font-family:var(--font-body)}
+.pm-wrap{background:transparent;border-radius:0;border:none;overflow:visible;box-shadow:none;}
+.pm-header{display:none}
+.pm-header-left-tab{background:transparent;border-right:1px solid rgba(233,30,140,.3);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:12px 16px;gap:6px;}
+.pm-loc-stamps{display:flex;gap:5px;align-items:center}
+.pm-loc-stamp{font-family:var(--font-display);font-size:11px;letter-spacing:.06em;color:#ffb300;border:1.5px solid rgba(255,179,0,.4);padding:3px 7px;border-radius:3px;line-height:1;}
+.pm-tagline{font-family:var(--font-label);font-size:8px;font-weight:700;color:rgba(232,228,218,.4);letter-spacing:.12em;text-transform:uppercase;text-align:center;}
+.pm-header-centre{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px 24px;gap:0;}
+.pm-badge-top{font-family:var(--font-display);font-size:20px;color:#ffb300;letter-spacing:.06em;background:rgba(255,179,0,.08);border:2px solid rgba(233,30,140,.6);border-bottom:none;padding:4px 22px 2px;clip-path:polygon(6% 0%,94% 0%,100% 100%,0% 100%);text-align:center;line-height:1;text-shadow:0 0 15px rgba(255,179,0,.5);}
+.pm-badge-mid{background:rgba(14,0,40,.8);border-left:2px solid rgba(233,30,140,.6);border-right:2px solid rgba(233,30,140,.6);padding:6px 18px;display:flex;align-items:center;justify-content:center;}
+.pm-badge-eye{display:flex;align-items:center;justify-content:center}
+.pm-badge-bot{font-family:var(--font-display);font-size:20px;color:#ffb300;letter-spacing:.06em;background:rgba(255,179,0,.08);border:2px solid rgba(233,30,140,.6);border-top:none;padding:2px 22px 4px;clip-path:polygon(0% 0%,100% 0%,94% 100%,6% 100%);text-align:center;line-height:1;text-shadow:0 0 15px rgba(255,179,0,.5);}
+.pm-coffee-roasters{font-family:var(--font-label);font-size:7.5px;font-weight:700;color:rgba(232,228,218,.6);letter-spacing:.24em;text-transform:uppercase;border:1px solid rgba(232,228,218,.2);border-radius:20px;padding:2px 12px;background:transparent;margin-top:5px;}
+.pm-header-right-tab{background:transparent;border-left:1px solid rgba(233,30,140,.3);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:12px 16px;gap:4px;}
+.pm-dash-kicker{font-family:var(--font-label);font-size:9px;font-weight:700;color:rgba(232,228,218,.4);letter-spacing:.22em;text-transform:uppercase;}
+.pm-dash-title{font-family:var(--font-display);font-size:16px;color:#ffb300;letter-spacing:.04em;text-transform:uppercase;text-align:center;line-height:1.15;text-shadow:0 0 10px rgba(255,179,0,.4);}
+.pm-dash-meta{display:flex;gap:4px;margin-top:2px}
+.pm-dash-chip{font-family:var(--font-label);font-size:8px;font-weight:700;color:rgba(232,228,218,.6);letter-spacing:.1em;border:1px solid rgba(232,228,218,.2);border-radius:2px;padding:2px 6px;background:transparent;}
+.pm-inner{padding:12px 14px 16px}
+.fb{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px;align-items:flex-start}
+.fc{display:flex;flex-direction:column;gap:0;flex:1;min-width:110px;max-width:200px}
+.fc-lbl{font-size:8px;font-weight:700;color:var(--pm-navy);text-transform:uppercase;letter-spacing:.14em;margin-bottom:3px;font-family:var(--font-label)}
+.fc-btn{background:rgba(20,8,48,.9);border:1px solid rgba(206,147,216,.35);border-radius:4px;padding:6px 10px;font-size:12px;font-weight:700;color:#e8e4da;cursor:pointer;text-align:left;display:flex;justify-content:space-between;align-items:center;gap:4px;white-space:nowrap;width:100%;transition:background .12s}
+.fc-btn:hover{background:var(--pm-yellow)}
+.fc-btn.open{background:var(--pm-yellow);border-bottom-left-radius:0;border-bottom-right-radius:0;border-bottom-color:var(--pm-yellow)}
+.fc-badge{background:#e91e8c;color:#fff;border-radius:20px;padding:1px 6px;font-size:9px;font-weight:700}
+.fc-panel{display:none;border:1px solid rgba(232,228,218,.15);border-top:none;border-radius:0 0 4px 4px;background:#1e2444;overflow:hidden}
+.fc-panel.open{display:block}
+.fc-search{width:100%;border:none;border-bottom:1.5px solid #E0D8C5;padding:5px 9px;font-size:11px;background:transparent;color:var(--pm-navy);outline:none}
+.fc-acts{display:flex;gap:3px;padding:3px 7px;border-bottom:1.5px solid #E0D8C5}
+.fc-acts button{font-size:9px;font-weight:700;background:none;border:none;color:var(--pm-cyan);cursor:pointer;padding:2px 4px;text-transform:uppercase;letter-spacing:.08em;font-family:var(--font-label)}
+.fc-acts button:hover{color:var(--pm-pink)}
+.fc-opts{max-height:180px;overflow-y:auto}
+.fc-opt{display:flex;align-items:center;gap:6px;padding:5px 9px;font-size:11px;cursor:pointer;color:var(--pm-navy);font-weight:500}
+.fc-opt:hover{background:var(--pm-cream)}
+.fc-opt input{accent-color:var(--pm-cyan);flex-shrink:0}
+.sep-row{border-top:2px dashed #E0D8C5;margin:3px 0}
+.afs{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:10px;align-items:center;min-height:18px}
+.aft{font-size:8px;font-weight:700;color:var(--pm-navy);text-transform:uppercase;letter-spacing:.14em;margin-right:2px;opacity:.55;font-family:var(--font-label)}
+.afc{display:inline-flex;align-items:center;gap:2px;background:var(--pm-cyan);border:1.5px solid var(--pm-navy);border-radius:3px;padding:2px 8px;font-size:9px;font-weight:700;color:var(--pm-navy);font-family:var(--font-label);letter-spacing:.04em}
+.afc-k{opacity:.8;margin-right:1px}
+.tabs{display:flex;margin-bottom:12px;gap:4px}
+.tab{padding:6px 16px;font-size:9px;font-weight:700;cursor:pointer;border:2px solid var(--pm-navy);background:var(--pm-white);color:var(--pm-navy);border-radius:3px;text-transform:uppercase;letter-spacing:.12em;transition:all .12s;font-family:var(--font-label)}
+.tab:hover{background:var(--pm-yellow)}
+.tab.active{background:var(--pm-navy);color:var(--pm-yellow)}
+.mets{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+.met{background:var(--pm-white);border:2px solid var(--pm-navy);border-radius:4px;padding:7px 13px;min-width:80px;position:relative;overflow:hidden}
+.met::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--pm-cyan)}
+.ml{font-size:8px;font-weight:700;color:var(--pm-navy);text-transform:uppercase;letter-spacing:.14em;margin-bottom:2px;opacity:.55;font-family:var(--font-label)}
+.mv{font-family:var(--font-display);font-size:22px;color:var(--pm-navy);line-height:1.1}
+.vw{display:none}.vw.active{display:block}
+.tbl{width:100%;border-collapse:collapse;font-size:11px}
+.tbl thead{background:var(--pm-navy)}
+.tbl th{text-align:left;padding:6px 8px;font-size:8px;font-weight:700;color:var(--pm-yellow);text-transform:uppercase;letter-spacing:.12em;white-space:nowrap;font-family:var(--font-label)}
+.tbl td{padding:5px 8px;border-bottom:1.5px solid #E8DCC8;vertical-align:middle;color:var(--pm-navy)}
+.tbl tbody tr:hover td{background:rgba(73,191,206,.08)}
+.tbl tr.sep-tr td{border-top:2.5px dashed #E0D8C5}
+.pill{display:inline-block;padding:2px 8px;border-radius:3px;font-size:9px;font-weight:700;border:1.5px solid transparent;text-transform:uppercase;letter-spacing:.04em;font-family:var(--font-label)}
+.pv0{background:#C8EFDA;color:#0d5c2e;border-color:#8DD4B0}
+.pv1{background:var(--pm-yellow);color:var(--pm-navy);border-color:#C8A000}
+.pv2{background:#FFD0DC;color:#8B0023;border-color:#F0A0B8}
+.vg{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:10px}
+.vc{background:var(--pm-white);border:2px solid var(--pm-navy);border-radius:4px;padding:10px 12px;position:relative;overflow:hidden}
+.vc::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:repeating-linear-gradient(90deg,var(--pm-cyan) 0 20px,var(--pm-yellow) 20px 40px,var(--pm-pink) 40px 60px,var(--pm-purple) 60px 80px)}
+.vt{font-family:var(--font-display);font-size:12px;color:var(--pm-navy);margin-bottom:6px;padding-bottom:6px;border-bottom:1.5px solid #E8DCC8;display:flex;justify-content:space-between;align-items:center}
+.nd{text-align:center;color:var(--pm-navy);padding:2.5rem;font-family:var(--font-display);font-size:13px;letter-spacing:.04em;opacity:.4}
+.vcard-tbl{width:100%;border-collapse:collapse;font-size:11px;margin-top:4px}
+.vcard-tbl thead{background:var(--pm-cream)}
+.vcard-tbl th{font-size:8px;color:var(--pm-navy);font-weight:700;text-align:right;padding:3px 5px;border-bottom:2px solid var(--pm-navy);text-transform:uppercase;letter-spacing:.1em;font-family:var(--font-label)}
+.vcard-tbl th:first-child{text-align:left}
+.vcard-tbl th.wb-group{text-align:center;border-right:2px solid var(--pm-navy);background:rgba(73,191,206,.12)}
+.vcard-tbl th.gb-group{text-align:center;background:rgba(245,200,66,.12)}
+.vcard-tbl td{padding:4px 5px;text-align:right;vertical-align:middle;color:var(--pm-navy);font-size:11px}
+.vcard-tbl td:first-child{text-align:left;font-weight:700}
+.vcard-tbl tr:hover td{background:var(--pm-cream)}
+.vcard-tbl td.wb-col{border-right:1.5px solid #E8DCC8}
+#cleg{margin-bottom:8px;display:flex;gap:10px;flex-wrap:wrap;font-size:11px;font-weight:700;color:var(--pm-navy)}
+.gb-select{background:var(--pm-white);border:2px solid var(--pm-navy);border-radius:4px;padding:5px 9px;font-size:11px;font-weight:700;color:var(--pm-navy);width:100%;cursor:pointer;font-family:var(--font-label)}
+.gb-select:focus{outline:2px solid var(--pm-yellow);outline-offset:1px}
+@keyframes chur-fade{0%{opacity:0;transform:scale(.85)}30%{opacity:1;transform:scale(1.02)}70%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(1.05)}}
+</style>
+<div class="pm-wrap">
+<div style="background:linear-gradient(180deg,#0e0028 0%,#1a0040 100%);border-bottom:3px solid #e91e8c;box-shadow:0 0 30px rgba(233,30,140,.25),0 4px 40px rgba(233,30,140,.1);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;position:relative;overflow:hidden">
+
+  <!-- Stars decoration -->
+  <div style="position:absolute;top:8px;left:80px;width:2px;height:2px;background:#fff;border-radius:50%;opacity:.6"></div>
+  <div style="position:absolute;top:20px;left:200px;width:1px;height:1px;background:#fff;border-radius:50%;opacity:.4"></div>
+  <div style="position:absolute;top:12px;right:300px;width:2px;height:2px;background:#fff;border-radius:50%;opacity:.7"></div>
+  <div style="position:absolute;top:30px;right:180px;width:1px;height:1px;background:#fff;border-radius:50%;opacity:.5"></div>
+
+  <!-- Left: roastery toggles -->
+  <div style="display:flex;flex-direction:column;gap:8px;min-width:160px">
+    <div id="city-btns" style="display:flex;gap:8px"></div>
+    <div style="font-family:'Black Ops One',serif;font-size:11px;color:#ffb300;letter-spacing:.08em;text-shadow:0 0 8px rgba(255,179,0,.4)">THREE CITIES · ONE STANDARD</div>
+  </div>
+
+  <!-- Centre: neon sign -->
+  <div style="text-align:center;flex:1">
+    <div style="display:inline-block;border:3px solid #e91e8c;border-radius:10px;padding:4px;box-shadow:0 0 18px rgba(233,30,140,.6),0 0 40px rgba(233,30,140,.15),inset 0 0 10px rgba(233,30,140,.05)">
+      <div style="border:2px solid #ffb300;border-radius:7px;padding:10px 40px 8px;background:rgba(10,0,32,.9)">
+        <div style="font-family:'Black Ops One',serif;font-size:clamp(20px,3.5vw,38px);color:#ffb300;letter-spacing:.1em;line-height:1;text-shadow:0 0 15px rgba(255,179,0,.9),0 0 40px rgba(255,179,0,.3)">PROUD MARY</div>
+        <div style="font-family:'Oswald',sans-serif;font-size:clamp(8px,1.2vw,11px);color:#ce93d8;letter-spacing:.45em;margin-top:3px;text-shadow:0 0 8px rgba(206,147,216,.7)">ROAST EXPLORER</div>
+      </div>
+    </div>
+    <!-- Bulb dots -->
+    <div style="display:flex;justify-content:center;gap:7px;margin-top:8px">
+      <div style="width:7px;height:7px;border-radius:50%;background:#ffb300;box-shadow:0 0 6px #ffb300"></div>
+      <div style="width:7px;height:7px;border-radius:50%;background:#e91e8c;box-shadow:0 0 6px #e91e8c"></div>
+      <div style="width:7px;height:7px;border-radius:50%;background:#ce93d8;box-shadow:0 0 6px #ce93d8"></div>
+      <div style="width:7px;height:7px;border-radius:50%;background:#ffb300;box-shadow:0 0 6px #ffb300"></div>
+      <div style="width:7px;height:7px;border-radius:50%;background:#e91e8c;box-shadow:0 0 6px #e91e8c"></div>
+      <div style="width:7px;height:7px;border-radius:50%;background:#ce93d8;box-shadow:0 0 6px #ce93d8"></div>
+      <div style="width:7px;height:7px;border-radius:50%;background:#ffb300;box-shadow:0 0 6px #ffb300"></div>
+    </div>
+  </div>
+
+  <!-- Right: WB/GB toggles -->
+  <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px;min-width:160px">
+    <div style="display:flex;align-items:center;gap:8px">
+      <div style="font-family:'Black Ops One',serif;font-size:clamp(12px,1.8vw,18px);color:#ffb300;letter-spacing:.04em;text-align:right;line-height:1.2;text-shadow:0 0 10px rgba(255,179,0,.4)">ROAST<br>DATA EXPLORER</div>
+      <button onclick="toggleHelpModal()" title="How to use this tool" aria-label="How to use this tool"
+        style="flex-shrink:0;width:26px;height:26px;border-radius:50%;border:2px solid #ffb300;background:rgba(10,0,32,.9);color:#ffb300;font-family:'Black Ops One',serif;font-size:13px;line-height:1;cursor:pointer;box-shadow:0 0 8px rgba(255,179,0,.4);display:flex;align-items:center;justify-content:center;padding:0">?</button>
+    </div>
+    <div id="wb-gb-btns" style="display:flex;gap:6px"></div>
+  </div>
+</div>
+
+<!-- Help modal -->
+<div id="help-modal" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.6);z-index:9000;align-items:center;justify-content:center" onclick="if(event.target===this)toggleHelpModal()">
+  <div style="background:linear-gradient(180deg,#1a0040 0%,#0e0028 100%);border:2px solid #ffb300;border-radius:12px;box-shadow:0 0 40px rgba(255,179,0,.3);max-width:640px;width:90%;max-height:82vh;overflow-y:auto;padding:28px 30px;position:relative">
+    <button onclick="toggleHelpModal()" aria-label="Close"
+      style="position:absolute;top:14px;right:14px;width:28px;height:28px;border-radius:50%;border:1.5px solid rgba(255,255,255,.3);background:transparent;color:#e8e4da;font-size:16px;cursor:pointer;line-height:1">×</button>
+    <div style="font-family:'Black Ops One',serif;font-size:22px;color:#ffb300;letter-spacing:.03em;text-shadow:0 0 10px rgba(255,179,0,.4);margin-bottom:4px">Quick Guide</div>
+    <div style="font-family:var(--font-label);font-size:10px;color:rgba(232,228,218,.45);letter-spacing:.1em;text-transform:uppercase;margin-bottom:20px">How to use the Roast Explorer</div>
+
+    <div style="font-family:var(--font-body);font-size:13px;color:#e8e4da;line-height:1.65">
+
+      <div style="font-family:var(--font-label);font-size:12px;font-weight:700;color:#ffb300;letter-spacing:.04em;margin-bottom:4px">Looking for a specific coffee?</div>
+      <p style="margin:0 0 16px 0">Use the search bar (top right of the filter bar). It searches everything, regardless of what filters are set — great for pulling up a Cropster reference, checking how a coffee was roasted last crop year, or finding a specific historic guide.</p>
+
+      <div style="font-family:var(--font-label);font-size:12px;font-weight:700;color:#ffb300;letter-spacing:.04em;margin-bottom:4px">Looking for a broader pattern or comparison?</div>
+      <p style="margin:0 0 16px 0">Use the filters (Roastery, Origin, Varietal, Process, Category, Machine, Group By). Good for things like "all Colombia Washed," "Parainema naturals on the UG-15," or comparing roasteries against each other.</p>
+
+      <div style="font-family:var(--font-label);font-size:12px;font-weight:700;color:#ffb300;letter-spacing:.04em;margin-bottom:6px">The four views</div>
+      <p style="margin:0 0 6px 0"><b style="color:#ffb300">Roast Params</b> — averages and ranges for each parameter, plus a roast guide blurb for a holistic read. This is the one most roasters will use most of the time.</p>
+      <p style="margin:0 0 6px 0"><b style="color:#ffb300">Chart</b> — same data as a violin plot. Shows you where the concentration actually sits, not just the range.</p>
+      <p style="margin:0 0 6px 0"><b style="color:#ffb300">Table</b> — the same basic info, in a plainer, standalone table.</p>
+      <p style="margin:0 0 16px 0"><b style="color:#ffb300">Variance</b> — compares each roastery against Melbourne directly. <b>+</b> means lighter than Melbourne, <b>−</b> means darker.</p>
+
+      <div style="font-family:var(--font-label);font-size:12px;font-weight:700;color:#ffb300;letter-spacing:.04em;margin-bottom:4px">If something looks off, check the Viewing bar</div>
+      <p style="margin:0 0 16px 0">It always shows exactly what's selected — every filter (including when one's set to "All"), the current Group By, and whether a specific coffee is pinned. Group By especially can quietly change what you're looking at, so this is the first place to look if the numbers seem wrong.</p>
+
+      <div style="font-family:var(--font-label);font-size:12px;font-weight:700;color:#ffb300;letter-spacing:.04em;margin-bottom:4px">Don't worry about breaking anything</div>
+      <p style="margin:0">Try different filter combinations, switch Group By, flip between the four views on the same selection — they're all just different angles on the same data. Hit <b>Clear</b> any time to reset and start over.</p>
+    </div>
+  </div>
+</div>
+<script>
+function toggleHelpModal(){
+  const m=document.getElementById('help-modal');
+  if(!m)return;
+  m.style.display=m.style.display==='none'?'flex':'none';
+}
+</script>
+<script>
+(function(){
+  if(sessionStorage.getItem('pm_auth')==='1'){
+    const g=document.getElementById('pw-gate');
+    g.style.display='none';
+    g.innerHTML='';
+  }
+})();
+async function checkPW(){
+  const val=document.getElementById('pw-input').value;
+  const buf=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(val));
+  const hex=Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
+  if(hex==='a01fa2770aa49573c3d82e9f9ba8faef5dddf7da58bb9216e3b484c04d300446'){
+    sessionStorage.setItem('pm_auth','1');
+    const gate=document.getElementById('pw-gate');
+    // Hide the sign and password box so CHUR plays on clean background
+    const ui = gate.querySelector('div[style*="z-index:10"]') || gate.querySelector('[style*="max-width:420px"]') || gate.querySelector('[style*="max-width:380px"]');
+    if(ui) ui.style.display='none';
+    const ufo = document.getElementById('ufo3');
+    if(ufo) ufo.style.display='none';
+    // CHUR zooms in over synthwave background, hits screen, cracks, shatters
+    const chur = document.createElement('div');
+    chur.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;display:flex;align-items:center;justify-content:center;z-index:20;pointer-events:none';
+    chur.innerHTML = `<style>
+      @keyframes chur-zoom{
+        0%  {transform:scale(.04);opacity:0;filter:blur(6px)}
+        45% {transform:scale(.9);opacity:1;filter:blur(0)}
+        72% {transform:scale(1.18);opacity:1}
+        82% {transform:scale(.97);opacity:1}
+        100%{transform:scale(1.06);opacity:1}
+      }
+      @keyframes crack-in{0%,70%{opacity:0}71%{opacity:1}100%{opacity:1}}
+      @keyframes shatter-out{0%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(2.8);filter:blur(20px)}}
+      #ct{
+        font-family:'Black Ops One',serif;
+        font-size:28vw;
+        color:#ffb300;
+        line-height:1;
+        letter-spacing:.06em;
+        text-shadow:0 0 40px rgba(255,179,0,.9),0 0 80px rgba(255,179,0,.4);
+        animation:chur-zoom 1.2s cubic-bezier(.2,1,.3,1) forwards;
+        transform-origin:center center;
+      }
+      #ct.out{animation:shatter-out .9s ease-in forwards}
+      #cracks{position:absolute;top:0;left:0;width:100%;height:100%;animation:crack-in 1.2s forwards;pointer-events:none}
+      #cracks.out{animation:shatter-out .9s ease-in forwards}
+    </style>
+    <div id="ct">CHUR</div>
+    <svg id="cracks" viewBox="0 0 100 100" preserveAspectRatio="none">
+      <g stroke="rgba(255,255,255,.8)" stroke-linecap="round" fill="none">
+        <path d="M50 50 L16 4" stroke-width=".6"/>
+        <path d="M50 50 L80 2" stroke-width=".5"/>
+        <path d="M50 50 L98 24" stroke-width=".6"/>
+        <path d="M50 50 L100 55" stroke-width=".5"/>
+        <path d="M50 50 L84 96" stroke-width=".6"/>
+        <path d="M50 50 L46 100" stroke-width=".5"/>
+        <path d="M50 50 L12 90" stroke-width=".6"/>
+        <path d="M50 50 L0 68" stroke-width=".5"/>
+        <path d="M50 50 L0 32" stroke-width=".6"/>
+        <path d="M50 50 L10 12" stroke-width=".4"/>
+        <path d="M32 22 L22 30" stroke-width=".3"/>
+        <path d="M68 18 L76 28" stroke-width=".3"/>
+        <path d="M82 34 L90 42" stroke-width=".3"/>
+        <path d="M84 52 L92 60" stroke-width=".3"/>
+        <path d="M74 80 L80 70" stroke-width=".3"/>
+        <path d="M26 76 L18 72" stroke-width=".3"/>
+        <path d="M12 60 L6 52" stroke-width=".3"/>
+        <path d="M20 18 L14 26" stroke-width=".3"/>
+        <path d="M38 30 Q50 25 62 30 Q68 42 63 55 Q54 63 44 60 Q34 55 34 43 Q35 36 38 30" stroke-width=".25" opacity=".6"/>
+        <path d="M25 15 Q50 9 74 16 Q84 32 78 58 Q63 76 48 73 Q28 68 22 50 Q18 32 25 15" stroke-width=".2" opacity=".4"/>
+      </g>
+      <circle cx="50" cy="50" r="2.5" fill="rgba(255,255,255,.7)"/>
+      <circle cx="50" cy="50" r="1" fill="white"/>
+    </svg>`;
+    gate.appendChild(chur);
+    setTimeout(()=>{
+      document.getElementById('ct').classList.add('out');
+      document.getElementById('cracks').classList.add('out');
+    }, 3000);
+    setTimeout(()=>{ gate.style.display='none'; gate.innerHTML=''; }, 4000);
+  } else {
+    document.getElementById('pw-error').style.display='block';
+    document.getElementById('pw-input').value='';
+    document.getElementById('pw-input').focus();
+  }
+}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Oswald:wght@700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+@keyframes chur-fade{0%{opacity:0;transform:scale(.85)}30%{opacity:1;transform:scale(1.02)}70%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(1.05)}}
+:root{
+  --pm-cyan:#4fc3f7;--pm-yellow:#ffb300;--pm-pink:#e91e8c;--pm-purple:#ce93d8;
+  --pm-green:#4caf50;--pm-navy:#e8e4da;--pm-cream:#1a1f3a;--pm-white:#1e2248;
+  --pm-gold:#C9981A;--pm-mel:#2979C2;--pm-aus:#A535C4;--pm-pdx:#1B9E5E;
+  --font-display:'Black Ops One',serif;--font-label:'Oswald',sans-serif;--font-body:'DM Sans',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:linear-gradient(180deg,#08001e 0%,#1a0040 12%,#3d0070 24%,#7b0f8b 36%,#b01a6b 46%,#c8244a 54%,#d44000 63%,#e06800 72%,#f09000 80%,#ffb300 88%,#ffd060 100%);min-height:100vh}
+body,div,span,td,th,button,input,select,label,p{font-family:var(--font-body)}
+.pm-wrap{background:transparent;border-radius:0;border:none;overflow:visible;box-shadow:none;}
+.pm-header{display:none}
+.pm-header-left-tab{background:transparent;border-right:1px solid rgba(233,30,140,.3);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:12px 16px;gap:6px;}
+.pm-loc-stamps{display:flex;gap:5px;align-items:center}
+.pm-loc-stamp{font-family:var(--font-display);font-size:11px;letter-spacing:.06em;color:#ffb300;border:1.5px solid rgba(255,179,0,.4);padding:3px 7px;border-radius:3px;line-height:1;}
+.pm-tagline{font-family:var(--font-label);font-size:8px;font-weight:700;color:rgba(232,228,218,.4);letter-spacing:.12em;text-transform:uppercase;text-align:center;}
+.pm-header-centre{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px 24px;gap:0;}
+.pm-badge-top{font-family:var(--font-display);font-size:20px;color:#ffb300;letter-spacing:.06em;background:rgba(255,179,0,.08);border:2px solid rgba(233,30,140,.6);border-bottom:none;padding:4px 22px 2px;clip-path:polygon(6% 0%,94% 0%,100% 100%,0% 100%);text-align:center;line-height:1;text-shadow:0 0 15px rgba(255,179,0,.5);}
+.pm-badge-mid{background:rgba(14,0,40,.8);border-left:2px solid rgba(233,30,140,.6);border-right:2px solid rgba(233,30,140,.6);padding:6px 18px;display:flex;align-items:center;justify-content:center;}
+.pm-badge-eye{display:flex;align-items:center;justify-content:center}
+.pm-badge-bot{font-family:var(--font-display);font-size:20px;color:#ffb300;letter-spacing:.06em;background:rgba(255,179,0,.08);border:2px solid rgba(233,30,140,.6);border-top:none;padding:2px 22px 4px;clip-path:polygon(0% 0%,100% 0%,94% 100%,6% 100%);text-align:center;line-height:1;text-shadow:0 0 15px rgba(255,179,0,.5);}
+.pm-coffee-roasters{font-family:var(--font-label);font-size:7.5px;font-weight:700;color:rgba(232,228,218,.6);letter-spacing:.24em;text-transform:uppercase;border:1px solid rgba(232,228,218,.2);border-radius:20px;padding:2px 12px;background:transparent;margin-top:5px;}
+.pm-header-right-tab{background:transparent;border-left:1px solid rgba(233,30,140,.3);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:12px 16px;gap:4px;}
+.pm-dash-kicker{font-family:var(--font-label);font-size:9px;font-weight:700;color:rgba(232,228,218,.4);letter-spacing:.22em;text-transform:uppercase;}
+.pm-dash-title{font-family:var(--font-display);font-size:16px;color:#ffb300;letter-spacing:.04em;text-transform:uppercase;text-align:center;line-height:1.15;text-shadow:0 0 10px rgba(255,179,0,.4);}
+.pm-dash-meta{display:flex;gap:4px;margin-top:2px}
+.pm-dash-chip{font-family:var(--font-label);font-size:8px;font-weight:700;color:rgba(232,228,218,.6);letter-spacing:.1em;border:1px solid rgba(232,228,218,.2);border-radius:2px;padding:2px 6px;background:transparent;}
+.pm-inner{padding:12px 14px 16px}
+.fb{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px;align-items:flex-start}
+.fc{display:flex;flex-direction:column;gap:0;flex:1;min-width:110px;max-width:200px}
+.fc-lbl{font-size:8px;font-weight:700;color:var(--pm-navy);text-transform:uppercase;letter-spacing:.14em;margin-bottom:3px;font-family:var(--font-label)}
+.fc-btn{background:rgba(20,8,48,.9);border:1px solid rgba(206,147,216,.35);border-radius:4px;padding:6px 10px;font-size:12px;font-weight:700;color:#e8e4da;cursor:pointer;text-align:left;display:flex;justify-content:space-between;align-items:center;gap:4px;white-space:nowrap;width:100%;transition:background .12s}
+.fc-btn:hover{background:var(--pm-yellow)}
+.fc-btn.open{background:var(--pm-yellow);border-bottom-left-radius:0;border-bottom-right-radius:0;border-bottom-color:var(--pm-yellow)}
+.fc-badge{background:#e91e8c;color:#fff;border-radius:20px;padding:1px 6px;font-size:9px;font-weight:700}
+.fc-panel{display:none;border:1px solid rgba(232,228,218,.15);border-top:none;border-radius:0 0 4px 4px;background:#1e2444;overflow:hidden}
+.fc-panel.open{display:block}
+.fc-search{width:100%;border:none;border-bottom:1.5px solid #E0D8C5;padding:5px 9px;font-size:11px;background:transparent;color:var(--pm-navy);outline:none}
+.fc-acts{display:flex;gap:3px;padding:3px 7px;border-bottom:1.5px solid #E0D8C5}
+.fc-acts button{font-size:9px;font-weight:700;background:none;border:none;color:var(--pm-cyan);cursor:pointer;padding:2px 4px;text-transform:uppercase;letter-spacing:.08em;font-family:var(--font-label)}
+.fc-acts button:hover{color:var(--pm-pink)}
+.fc-opts{max-height:180px;overflow-y:auto}
+.fc-opt{display:flex;align-items:center;gap:6px;padding:5px 9px;font-size:11px;cursor:pointer;color:var(--pm-navy);font-weight:500}
+.fc-opt:hover{background:var(--pm-cream)}
+.fc-opt input{accent-color:var(--pm-cyan);flex-shrink:0}
+.sep-row{border-top:2px dashed #E0D8C5;margin:3px 0}
+.afs{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:10px;align-items:center;min-height:18px}
+.aft{font-size:8px;font-weight:700;color:var(--pm-navy);text-transform:uppercase;letter-spacing:.14em;margin-right:2px;opacity:.55;font-family:var(--font-label)}
+.afc{display:inline-flex;align-items:center;gap:2px;background:var(--pm-cyan);border:1.5px solid var(--pm-navy);border-radius:3px;padding:2px 8px;font-size:9px;font-weight:700;color:var(--pm-navy);font-family:var(--font-label);letter-spacing:.04em}
+.afc-k{opacity:.8;margin-right:1px}
+.tabs{display:flex;margin-bottom:12px;gap:4px}
+.tab{padding:6px 16px;font-size:9px;font-weight:700;cursor:pointer;border:2px solid var(--pm-navy);background:var(--pm-white);color:var(--pm-navy);border-radius:3px;text-transform:uppercase;letter-spacing:.12em;transition:all .12s;font-family:var(--font-label)}
+.tab:hover{background:var(--pm-yellow)}
+.tab.active{background:var(--pm-navy);color:var(--pm-yellow)}
+.mets{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+.met{background:var(--pm-white);border:2px solid var(--pm-navy);border-radius:4px;padding:7px 13px;min-width:80px;position:relative;overflow:hidden}
+.met::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--pm-cyan)}
+.ml{font-size:8px;font-weight:700;color:var(--pm-navy);text-transform:uppercase;letter-spacing:.14em;margin-bottom:2px;opacity:.55;font-family:var(--font-label)}
+.mv{font-family:var(--font-display);font-size:22px;color:var(--pm-navy);line-height:1.1}
+.vw{display:none}.vw.active{display:block}
+.tbl{width:100%;border-collapse:collapse;font-size:11px}
+.tbl thead{background:var(--pm-navy)}
+.tbl th{text-align:left;padding:6px 8px;font-size:8px;font-weight:700;color:var(--pm-yellow);text-transform:uppercase;letter-spacing:.12em;white-space:nowrap;font-family:var(--font-label)}
+.tbl td{padding:5px 8px;border-bottom:1.5px solid #E8DCC8;vertical-align:middle;color:var(--pm-navy)}
+.tbl tbody tr:hover td{background:rgba(73,191,206,.08)}
+.tbl tr.sep-tr td{border-top:2.5px dashed #E0D8C5}
+.pill{display:inline-block;padding:2px 8px;border-radius:3px;font-size:9px;font-weight:700;border:1.5px solid transparent;text-transform:uppercase;letter-spacing:.04em;font-family:var(--font-label)}
+.pv0{background:#C8EFDA;color:#0d5c2e;border-color:#8DD4B0}
+.pv1{background:var(--pm-yellow);color:var(--pm-navy);border-color:#C8A000}
+.pv2{background:#FFD0DC;color:#8B0023;border-color:#F0A0B8}
+.vg{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:10px}
+.vc{background:var(--pm-white);border:2px solid var(--pm-navy);border-radius:4px;padding:10px 12px;position:relative;overflow:hidden}
+.vc::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:repeating-linear-gradient(90deg,var(--pm-cyan) 0 20px,var(--pm-yellow) 20px 40px,var(--pm-pink) 40px 60px,var(--pm-purple) 60px 80px)}
+.vt{font-family:var(--font-display);font-size:12px;color:var(--pm-navy);margin-bottom:6px;padding-bottom:6px;border-bottom:1.5px solid #E8DCC8;display:flex;justify-content:space-between;align-items:center}
+.nd{text-align:center;color:var(--pm-navy);padding:2.5rem;font-family:var(--font-display);font-size:13px;letter-spacing:.04em;opacity:.4}
+.vcard-tbl{width:100%;border-collapse:collapse;font-size:11px;margin-top:4px}
+.vcard-tbl thead{background:var(--pm-cream)}
+.vcard-tbl th{font-size:8px;color:var(--pm-navy);font-weight:700;text-align:right;padding:3px 5px;border-bottom:2px solid var(--pm-navy);text-transform:uppercase;letter-spacing:.1em;font-family:var(--font-label)}
+.vcard-tbl th:first-child{text-align:left}
+.vcard-tbl th.wb-group{text-align:center;border-right:2px solid var(--pm-navy);background:rgba(73,191,206,.12)}
+.vcard-tbl th.gb-group{text-align:center;background:rgba(245,200,66,.12)}
+.vcard-tbl td{padding:4px 5px;text-align:right;vertical-align:middle;color:var(--pm-navy);font-size:11px}
+.vcard-tbl td:first-child{text-align:left;font-weight:700}
+.vcard-tbl tr:hover td{background:var(--pm-cream)}
+.vcard-tbl td.wb-col{border-right:1.5px solid #E8DCC8}
+#cleg{margin-bottom:8px;display:flex;gap:10px;flex-wrap:wrap;font-size:11px;font-weight:700;color:var(--pm-navy)}
+.gb-select{background:var(--pm-white);border:2px solid var(--pm-navy);border-radius:4px;padding:5px 9px;font-size:11px;font-weight:700;color:var(--pm-navy);width:100%;cursor:pointer;font-family:var(--font-label)}
+.gb-select:focus{outline:2px solid var(--pm-yellow);outline-offset:1px}
+@keyframes chur-fade{0%{opacity:0;transform:scale(.85)}30%{opacity:1;transform:scale(1.02)}70%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(1.05)}}
+</style>
+<div class="pm-wrap">
+<div class="pm-header">
+  <div class="pm-header-left-tab">
+    <div class="pm-loc-stamps">
+      <div class="pm-loc-stamp" style="background:var(--pm-cyan)">MEL</div>
+      <div class="pm-loc-stamp" style="background:var(--pm-green)">PDX</div>
+      <div class="pm-loc-stamp" style="background:var(--pm-pink)">ATX</div>
+    </div>
+    <div class="pm-tagline" style="margin-top:8px">Three Cities<br>One Standard</div>
+  </div>
+  <div class="pm-header-centre">
+    <div class="pm-badge-top">PROUD</div>
+    <div class="pm-badge-mid">
+      <div class="pm-badge-eye">
+        <svg width="52" height="34" viewBox="0 0 52 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2 17 Q13 2 26 2 Q39 2 50 17 Q39 32 26 32 Q13 32 2 17Z" fill="white" stroke="#1A2340" stroke-width="2.5"/>
+          <circle cx="26" cy="17" r="9" fill="#4A9FD4" stroke="#1A2340" stroke-width="2"/>
+          <circle cx="26" cy="17" r="4.5" fill="#1A2340"/>
+          <circle cx="28" cy="14.5" r="1.8" fill="white"/>
+          <circle cx="23" cy="19" r="1" fill="white" opacity=".6"/>
+        </svg>
+      </div>
+    </div>
+    <div class="pm-badge-bot">MARY</div>
+    <div class="pm-coffee-roasters">Coffee Roasters</div>
+  </div>
+  <div class="pm-header-right-tab">
+    <div class="pm-dash-kicker">Roast</div>
+    <div class="pm-dash-title">DATA<br>EXPLORER</div>
+    <div class="pm-dash-meta" style="margin-top:6px">
+      <div class="pm-dash-chip">WB</div>
+      <div class="pm-dash-chip">GB</div>
+      <div class="pm-dash-chip">n=</div>
+    </div>
+  </div>
+</div>
+<div class="pm-inner">
+<div class="fb" id="tb"></div>
+<div class="afs" id="afs"></div>
+<div id="viewing-headline" style="background:#1A2340;padding:12px 20px;display:flex;align-items:baseline;gap:10px;border-bottom:3px solid #F2D44E;flex-wrap:wrap"></div>
+<div class="tabs">
+  <button class="tab active" onclick="setTab('chart')">Chart</button>
+  <button class="tab" onclick="setTab('table')">Table</button>
+  <button class="tab" onclick="setTab('variance')">Variance</button>
+  <button class="tab" onclick="setTab('roastparams')" style="position:relative">Roast Params <span style="font-size:7px;background:#E8607A;color:white;padding:1px 4px;border-radius:3px;margin-left:4px;vertical-align:middle;font-family:var(--font-label);letter-spacing:.05em">NEW</span></button>
+</div>
+<div class="mets" id="mets"></div>
+<div id="chart-vw" class="vw active">
+  <div id="cleg" style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:6px;font-size:11px;color:#e8e4da"></div>
+  <div id="cwrap" style="position:relative;width:100%"><canvas id="mc" role="img" aria-label="WB averages by group and roastery"></canvas></div>
+</div>
+<div id="table-vw" class="vw"><div style="overflow-x:auto"><table class="tbl" id="mt"></table></div></div>
+<div id="roastparams-vw" class="vw"></div>
+<div id="variance-vw" class="vw">
+  <div style="font-size:10px;color:rgba(232,228,218,.75);margin-bottom:8px;display:flex;align-items:center;gap:10px">
+    <span style="font-size:11px;font-weight:700">WB &amp; GB vs Melbourne:</span>
+    <span><span class="pill pv0">●</span> 0–2</span>
+    <span><span class="pill pv1">●</span> 2–4</span>
+    <span><span class="pill pv2">●</span> 4+</span>
+    <span style="color:rgba(232,228,218,.5);margin-left:6px">(<span style="color:#e8e4da;font-weight:700">+</span> lighter than Mel · <span style="color:#e8e4da;font-weight:700">−</span> darker than Mel)</span>
+  </div>
+  <div class="vg" id="vg"></div>
+</div>
+</div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+const RN=["Melbourne","Portland","Austin"];
+const COL=["#2979C2","#1B9E5E","#A535C4"];
+
+const CAT_BOTTOM=new Set(['CURIOUS ESP','WILD ESP','DELUXE ESP','MILD FIL']);
+function sortCats(cats){
+  const main=cats.filter(c=>!CAT_BOTTOM.has(c)).sort((a,b)=>a.localeCompare(b));
+  const btm=cats.filter(c=>CAT_BOTTOM.has(c)).sort((a,b)=>a.localeCompare(b));
+  return{main,btm,all:[...main,...btm]};
+}
+
+// ── Varietal extraction ──────────────────────────────────────────────────────
+const KNOWN_VARIETALS=new Set([
+  'Bourbon','Red Bourbon','Yellow Bourbon','Pink Bourbon','Orange Bourbon','Peaberry Bourbon',
+  'Typica','Blue Mountain','Kent','Pluma Hidalgo','Bergundal','Sidikalang','Kona','Jamaican Blue Mountain','Ethiopian Typica',
+  'Catuai','Red Catuai','Yellow Catuai','Catucai','Red Catucai','Yellow Catucai',
+  'Caturra','Red Caturra','Yellow Caturra','Mundo Novo',
+  'Pacas','Pacamara','Geisha','Gesha','Maragogipe','Maracaturra',
+  'SL28','SL34','SL-28','SL-34','Ruiru 11','Batian','K7',
+  'Heirloom','Kurume','JARC','Dega','Gimbi','Illubabor','Wush Wush','74110','74112','74158',
+  'Parainema','Villa Sarchi','San Roque','Marsellesa','Sarchimor','Obata','Starmaya','Lempira','IHCAFE90','Costa Rica 95','Anacafe 14','Anacafe-14',
+  'Laurina','Mokka','Moka','Sudan Rume','Welo Abaya','Mokkita','Afrocina','Bernardina',
+  'Castillo','Colombia','Tabi','Arara','Acaua','Acauã','Topazio','Topázio','Icatu','Tupi','Catiguá','Sabiá','Catigua','Sabia',
+  'Arusha','Khawlani','Hybrido de Timor','Timor Hybrid','HDT','Cenicafe 1',
+  'Maragaturra','Java','Pache','Pache Colis','Pache Común','Guji','Agaro','Jimma',
+  'Typica Mejorado','Mixed','Unknown',
+]);
+const VARIETAL_ALIAS={
+  'SL 28':'SL28','SL 34':'SL34','GESHA':'Geisha',
+  'ACAUA':'Acauã','TOPAZIO':'Topázio','CATIGUA':'Catiguá','SABIA':'Sabiá','ANACAFE 14':'Anacafe-14',
+};
+function extractVarietal(profile){
+  if(!profile)return'Unknown';
+  const pu=' '+profile.toUpperCase()+' ';
+  if(pu.indexOf('FAMILIA PACAS')>=0){
+    const after=pu.replace('FAMILIA PACAS','');
+    if(/[^A-Z]PACAS[^A-Z]/.test(after))return'Pacas';
+    return'Unknown';
+  }
+  for(const [alias,canon] of Object.entries(VARIETAL_ALIAS)){
+    const pat=new RegExp('[^A-Z]'+alias.toUpperCase().replace(/[^A-Z0-9]/g,'[^A-Z0-9]?')+'[^A-Z]');
+    if(pat.test(pu))return canon;
+  }
+  const sorted=[...KNOWN_VARIETALS].sort((a,b)=>b.length-a.length);
+  for(const v of sorted){
+    const puH=pu.replace(/-/g,' ');
+    const vuH=' '+v.toUpperCase().replace(/-/g,' ')+' ';
+    if(puH.includes(vuH))return v;
+  }
+  return'Unknown';
+}
+
+// ── Machine normalisation ────────────────────────────────────────────────────
+function normMachine(m){
+  if(!m)return m;
+  const t=m.trim();
+  const tl=t.toLowerCase();
+  // Stronghold S7 / S7X are the same machine — merge them. S9 is a genuinely different
+  // machine and must NOT be merged in (it was previously, incorrectly, lumped in here).
+  if(tl.includes('stronghold')&&tl.includes('s7'))return'Stronghold S7X';
+  // Giesen W1 (Melbourne) / W1A (Portland) are the same machine — merge them.
+  // The (?!\d) guard keeps this from also matching W10, W12, W15, W30A, etc.
+  if(tl.includes('giesen')&&/w1a?(?!\d)/i.test(tl))return'Giesen W1A';
+  return t.replace(/Moka/gi,'Mokka');
+}
+
+// ── Category normalisation ───────────────────────────────────────────────────
+const CAT_NORM={
+  'CURIOUS FIL':'CURIOUS','WILD FIL':'WILD','DELUXE FIL':'DELUXE','MILD ESP':'MILD',
+  'GHOST':'GHOST RIDER','ANGEL':'ANGEL WINGS','DECAF SPRO':'DECAF',
+  'GHOST RIDER':'GHOST RIDER','ANGEL WINGS':'ANGEL WINGS'
+};
+function normCat(c){return CAT_NORM[c.toUpperCase()]||c;}
+
+// ── Process extraction from profile string ───────────────────────────────────
+// Checks for process keywords in the profile name (e.g. "CST Geisha Anaerobic Washed 6KG WILD")
+// Order matters — longer/more-specific patterns checked first.
+// Returns canonical process name, or null if nothing matched (fallback to sheet process column).
+const PROFILE_PROCESS_PATTERNS=[
+  // Carbonic Maceration — check before generic washed/honey/natural
+  [/CARBONIC\s+MA(?:C|SC)ERATION\s+WASHED|CM\s+WASHED/,   'CM Washed'],
+  [/CARBONIC\s+MA(?:C|SC)ERATION\s+HONEY|CM\s+HONEY/,     'CM Honey'],
+  [/CARBONIC\s+MA(?:C|SC)ERATION\s+NATURAL|CM\s+NATURAL/, 'CM Natural'],
+  [/CARBONIC\s+MA(?:C|SC)ERATION/,                         'CM Washed'],
+
+  // Anaerobic — check before generic washed/honey/natural
+  // Covers: Anaerobic Washed, A. Washed, AW, Dbl Anaerobic Washed, Double A. Washed, etc.
+  [/(?:DBL\.?\s+|DOUBLE\s+|DUO\s+|2X\s+|TRIPLE\s+|3X\s+)?(?:ANAEROBIC|A\.)\s+WASHED/, 'Anaerobic Washed'],
+  [/(?:DBL\.?\s+|DOUBLE\s+|DUO\s+|2X\s+|TRIPLE\s+|3X\s+)?(?:ANAEROBIC|A\.)\s+HONEY/,  'Anaerobic Honey'],
+  [/(?:DBL\.?\s+|DOUBLE\s+|DUO\s+|2X\s+|TRIPLE\s+|3X\s+)?(?:ANAEROBIC|A\.)\s+NATURAL/,'Anaerobic Natural'],
+  // Bare ANAEROBIC with no sub-type
+  [/\bANAEROBIC\b/,                                    'Anaerobic Washed'],
+
+  // Depulped
+  [/\bDE.?PULPED\b/,                                   'Depulped'],
+
+  // Honey variants — specific first
+  [/\bBLACK\s+HONEY\b/,  'Black Honey'],
+  [/\bRED\s+HONEY\b/,    'Red Honey'],
+  [/\bYELLOW\s+HONEY\b/, 'Yellow Honey'],
+  [/\bHONEY\b/,          'Honey'],
+
+  // Pulped Natural (Brazil) — check before bare Natural
+  [/\bPULPED\s+NATURAL\b/, 'Pulped Natural'],
+
+  // Natural
+  [/\bNATURAL\b/,        'Natural'],
+
+  // Washed
+  [/\bWASHED\b/,         'Washed'],
+];
+
+// Also normalise sheet process column values (fallback when profile has nothing)
+const SHEET_PROCESS_NORM={
+  'WASHED':'Washed','WET':'Washed',
+  'NATURAL':'Natural',
+  'HONEY':'Honey','BLACK HONEY':'Black Honey','RED HONEY':'Red Honey','YELLOW HONEY':'Yellow Honey',
+  'ANAEROBIC':'Anaerobic Washed','ANAEROBIC WASHED':'Anaerobic Washed',
+  'ANAEROBIC HONEY':'Anaerobic Honey','ANAEROBIC NATURAL':'Anaerobic Natural',
+  'A. WASHED':'Anaerobic Washed','AW':'Anaerobic Washed',
+  'A. HONEY':'Anaerobic Honey','AH':'Anaerobic Honey',
+  'A. NATURAL':'Anaerobic Natural','AN':'Anaerobic Natural',
+  'CM WASHED':'CM Washed','CM HONEY':'CM Honey','CM NATURAL':'CM Natural',
+  'CARBONIC MACERATION':'CM Washed','CARBONIC MASCERATION':'CM Washed',
+  'PULPED NATURAL':'Pulped Natural','PULPED':'Pulped Natural',
+  'DEPULPED':'Depulped','DE-PULPED':'Depulped',
+};
+
+function extractProcess(profile, sheetProcess){
+  // 1. Try to extract from profile string (most reliable source)
+  if(profile){
+    const pu=profile.toUpperCase();
+    for(const [pat,canon] of PROFILE_PROCESS_PATTERNS){
+      if(pat.test(pu)) return canon;
+    }
+  }
+  // 2. Fall back to sheet process column value, normalised
+  if(sheetProcess){
+    const su=sheetProcess.trim().toUpperCase();
+    if(SHEET_PROCESS_NORM[su]) return SHEET_PROCESS_NORM[su];
+    // Return the raw sheet value (title-cased) if nothing matched
+    return sheetProcess.trim();
+  }
+  return '';
+}
+
+// ── Data loading ─────────────────────────────────────────────────────────────
+const SHEET_URLS={
+  Melbourne:'https://docs.google.com/spreadsheets/d/e/2PACX-1vRj7S1FDEpC0_SvZtQBfNlGBLilquJ6YCLzg8So-CSZ4Wk07HbjtcK9z6l8CV7rj5lNEDf1rulD1wb8/pub?gid=0&single=true&output=csv',
+  Portland: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRj7S1FDEpC0_SvZtQBfNlGBLilquJ6YCLzg8So-CSZ4Wk07HbjtcK9z6l8CV7rj5lNEDf1rulD1wb8/pub?gid=1345419856&single=true&output=csv',
+  Austin:   'https://docs.google.com/spreadsheets/d/e/2PACX-1vRj7S1FDEpC0_SvZtQBfNlGBLilquJ6YCLzg8So-CSZ4Wk07HbjtcK9z6l8CV7rj5lNEDf1rulD1wb8/pub?gid=575438985&single=true&output=csv'
+};
+const COL_MAP={
+  origin:['origin'],process:['process'],category:['group','category'],
+  wb:['wb'],gb:['gb'],machine:['machine'],profile:['profile'],
+  duration:['duration'],end_temp:['end_temp'],dtr:['dtr'],fc_time:['fc_time'],fc_temp:['fc_temp']
+};
+function findCol(headers,keys){
+  const hl=headers.map(h=>h.toLowerCase().trim());
+  for(const k of keys){const i=hl.indexOf(k);if(i>=0)return i;}
+  return -1;
+}
+function parseCSV(text){
+  const lines=text.split(/\r?\n/).filter(l=>l.trim());
+  if(!lines.length)return[];
+  // Auto-detect delimiter — Google Sheets may publish as TSV
+  const delim=lines[0].includes('\t')?'\t':',';
+  function parseLine(line){
+    if(delim==='\t')return line.split('\t').map(v=>v.trim());
+    const fields=[];let cur='',inQ=false;
+    for(let i=0;i<line.length;i++){
+      const c=line[i];
+      if(c==='"'){inQ=!inQ;}else if(c===','&&!inQ){fields.push(cur.trim());cur='';}else cur+=c;
+    }
+    fields.push(cur.trim());return fields;
+  }
+  const headers=parseLine(lines[0]);
+  const iOrigin=findCol(headers,COL_MAP.origin);
+  const iProcess=findCol(headers,COL_MAP.process);
+  const iCat=findCol(headers,COL_MAP.category);
+  const iWb=findCol(headers,COL_MAP.wb);
+  const iGb=findCol(headers,COL_MAP.gb);
+  const iMachine=findCol(headers,COL_MAP.machine);
+  const iProfile=findCol(headers,COL_MAP.profile);
+  const iDuration=findCol(headers,COL_MAP.duration);
+  const iEndTemp=findCol(headers,COL_MAP.end_temp);
+  const iDtr=findCol(headers,COL_MAP.dtr);
+  const iFcTime=findCol(headers,COL_MAP.fc_time);
+  const iFcTemp=findCol(headers,COL_MAP.fc_temp);
+  const iFC_console=findCol(headers,['fc_temp_console']);
+  const iET_console=findCol(headers,['end_temp_console']);
+  const rows=[];
+  for(let i=1;i<lines.length;i++){
+    const f=parseLine(lines[i]);
+    if(f.length<3)continue;
+    const wb=parseFloat(f[iWb]);
+    const gb=parseFloat(f[iGb]);
+    const profileVal=iProfile>=0?(f[iProfile]||'').trim():'';
+    const sheetProcess=iProcess>=0?(f[iProcess]||'').trim():'';
+    rows.push({
+      origin:   iOrigin>=0?(f[iOrigin]||'').trim().toUpperCase().slice(0,3):'',
+      varietal: extractVarietal(profileVal),
+      process:  extractProcess(profileVal, sheetProcess),
+      category: iCat>=0?normCat((f[iCat]||'').trim()):'',
+      wb:       isNaN(wb)?null:wb,
+      gb:       isNaN(gb)?null:gb,
+      machine:  iMachine>=0?(f[iMachine]||'').trim()||null:null,
+      profile:  profileVal,
+      cat:      iCat>=0?(f[iCat]||'').trim():'',
+      duration: iDuration>=0?(f[iDuration]||null):null,
+      end_temp: iEndTemp>=0?parseFloat(f[iEndTemp])||null:null,
+      dtr:      iDtr>=0?parseFloat(f[iDtr])||null:null,
+      fc_time:  iFcTime>=0?(f[iFcTime]||null):null,
+      fc_temp:  iFcTemp>=0?parseFloat(f[iFcTemp])||null:null,
+      fc_temp_console:  iFC_console>=0?parseFloat(f[iFC_console])||null:null,
+      end_temp_console: iET_console>=0?parseFloat(f[iET_console])||null:null,
+    });
+  }
+  return rows;
+}
+
+let RAW=[];
+let RP_RAW=[];
+async function loadAllSheets(){
+  showLoading(true);
+  const entries=Object.entries(SHEET_URLS);
+  const results=await Promise.allSettled(
+    entries.map(([name,url])=>fetch(url).then(r=>{if(!r.ok)throw new Error(`HTTP ${r.status}`);return r.text();}).then(text=>({name,text})))
+  );
+  RAW=[];
+  RP_RAW=[];
+  results.forEach((res,idx)=>{
+    if(res.status==='fulfilled'){
+      const rows=parseCSV(res.value.text).map(r=>({...r,roastery:res.value.name}));
+      rows.forEach(r=>{
+        if(!r.category||r.category==='BLEND')return;
+        RAW.push([idx,r.origin,r.varietal,r.process,r.category,r.wb,r.gb,normMachine(r.machine)]);
+        RP_RAW.push(r);
+      });
+    } else {
+      console.warn(`Failed to load ${entries[idx][0]}:`,res.reason);
+    }
+  });
+  showLoading(false);
+  rebuildOptions();rTB();go();
+}
+
+function showLoading(on,msg){
+  let el=document.getElementById('pm-loading');
+  if(!el){el=document.createElement('div');el.id='pm-loading';el.style.cssText='position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(26,35,64,.85);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:9999;gap:12px';document.body.appendChild(el);}
+  if(on){el.innerHTML=`<div style="font-family:'Black Ops One',serif;font-size:20px;color:#F2D44E;letter-spacing:.06em">${msg||'Loading Roast Data...'}</div><div style="font-family:'DM Sans',sans-serif;font-size:11px;color:rgba(255,255,255,.5)">Fetching from Google Sheets</div>`;el.style.display='flex';}
+  else el.style.display='none';
+}
+
+function rebuildOptions(){
+  function uniqIdx(i){return[...new Set(RAW.map(d=>d[i]).filter(v=>v&&v!=='Unknown'&&v!==null))].sort();}
+  OL.o=uniqIdx(1);OL.v=uniqIdx(2);OL.p=uniqIdx(3);OL.c=uniqIdx(4);OL.m=uniqIdx(7);
+  F={r:null,o:null,v:null,p:null,c:null,m:null};
+}
+
+const OL={r:RN,o:[],v:[],p:[],c:[],m:[]};
+let F={r:null,o:null,v:null,p:null,c:null,m:null};
+let F_INITIALISED=false;
+let GB='c',TAB='chart',CI=null;
+
+function iAll(k){return F[k]===null;}
+function iNone(k){return Array.isArray(F[k])&&F[k].length===0;}
+function sel(k){if(iAll(k))return new Set(OL[k]);if(iNone(k))return new Set();return new Set(F[k]);}
+function badge(k){if(iAll(k))return'All';if(iNone(k))return'None';return''+F[k].length;}
+
+function applyF(){
+  if(['r','o','v','p','c','m'].some(k=>iNone(k)))return[];
+  return RAW.filter(d=>{
+    if(!iAll('r')&&!sel('r').has(RN[d[0]]))return false;
+    if(!iAll('o')&&!sel('o').has(d[1]))return false;
+    if(!iAll('v')&&!sel('v').has(d[2]))return false;
+    if(!iAll('p')&&!sel('p').has(d[3]))return false;
+    if(!iAll('c')&&!sel('c').has(d[4]))return false;
+    if(!iAll('m')&&(!d[7]||!sel('m').has(d[7])))return false;
+    return true;
+  });
+}
+
+function st(arr){
+  const v=arr.filter(x=>x!=null);
+  if(!v.length)return null;
+  const avg=v.reduce((a,b)=>a+b,0)/v.length;
+  return{avg,min:Math.min(...v),max:Math.max(...v)};
+}
+
+function grp(data){
+  const ki={r:0,o:1,v:2,p:3,c:4,m:7}[GB]??4;
+  const g={};
+  data.forEach(d=>{
+    const k=GB==='r'?RN[d[0]]:GB==='m'?(d[7]||'Unknown'):(d[ki]||'Unknown');
+    if(!g[k])g[k]={};
+    const rn=RN[d[0]];
+    if(!g[k][rn])g[k][rn]={wb:[],gb:[]};
+    if(d[5]!=null)g[k][rn].wb.push(d[5]);
+    if(d[6]!=null)g[k][rn].gb.push(d[6]);
+  });
+  return g;
+}
+
+function sortedLabels(g){
+  const all=Object.keys(g);
+  if(GB!=='c')return{labels:all.sort((a,b)=>a.localeCompare(b)),firstBottom:-1};
+  const sc=sortCats(all);
+  return{labels:sc.all,firstBottom:sc.btm.length>0?sc.main.length:-1};
+}
+
+function pvClass(d){return d<=2?'pv0':d<=4?'pv1':'pv2';}
+
+function buildFC(id,fk,lbl){
+  const s=sel(fk);const b=badge(fk);
+  let opts='';
+  if(fk==='c'){
+    const sc=sortCats(OL[fk]);
+    opts=sc.main.map(o=>fcOpt(fk,o,s,id)).join('');
+    if(sc.btm.length){opts+=`<div class="sep-row"></div>`;opts+=sc.btm.map(o=>fcOpt(fk,o,s,id)).join('');}
+  } else {
+    opts=OL[fk].map(o=>fcOpt(fk,o,s,id)).join('');
+  }
+  return`<div class="fc"><div class="fc-lbl">${lbl}</div>
+    <button class="fc-btn" id="btn-${id}" onclick="tFC('${id}')">${lbl} <span class="fc-badge">${b}</span> ▾</button>
+    <div class="fc-panel" id="${id}">
+      <input class="fc-search" placeholder="Search..." oninput="fFC('${id}',this.value)">
+      <div class="fc-acts"><button onclick="doAll('${fk}','${id}')">All</button><button onclick="doNone('${fk}','${id}')">None</button></div>
+      <div class="fc-opts" id="${id}-l">${opts}</div>
+    </div></div>`;
+}
+function fcOpt(fk,o,s,id){
+  const esc=o.replace(/\\/g,'\\\\').replace(/'/g,"\\'");
+  return`<label class="fc-opt"><input type="checkbox" ${s.has(o)?'checked':''} onchange="togO('${fk}','${esc}',this.checked,'${id}')">${o}</label>`;
+}
+function rTB(){
+  const gbK=['c','o','v','p','r','m'],gbL={c:'Category',o:'Origin',v:'Varietal',p:'Process',r:'Roastery',m:'Machine'};
+  // Preserve focus/caret on #global-search across the rebuild below (it gets destroyed and recreated otherwise)
+  const _gs=document.getElementById('global-search');
+  const _gsHadFocus=document.activeElement===_gs;
+  const _gsCaret=_gsHadFocus?_gs.selectionStart:null;
+  document.getElementById('tb').innerHTML=
+    [['r','Roastery'],['o','Origin'],['v','Varietal'],['p','Process'],['c','Category'],['m','Machine']].map(([k,l])=>buildFC('dd-'+k,k,l)).join('')+
+    `<div class="fc" style="max-width:120px"><div class="fc-lbl">Group by</div><select class="gb-select" onchange="setGB(this.value)">${gbK.map(k=>`<option value="${k}"${k===GB?' selected':''}>${gbL[k]}</option>`).join('')}</select></div>`+
+    `<button onclick="clearAllFilters()" style="font-family:var(--font-label);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 12px;border-radius:4px;border:1.5px solid #e91e8c;background:transparent;color:#e91e8c;cursor:pointer;white-space:nowrap;align-self:flex-end;margin-bottom:2px" title="Clear all filters">✕ Clear</button>`+
+    `<div style="display:flex;align-items:center;gap:6px;background:rgba(14,4,36,.95);border:1.5px solid rgba(255,179,0,.5);border-radius:6px;padding:5px 12px;margin-left:8px;position:relative">
+      <span style="color:#ffb300;font-size:16px;font-weight:bold">⌕</span>
+      <input id="global-search" type="text" placeholder="Search coffees…" oninput="doGlobalSearch(this.value)" autocomplete="off"
+        style="background:transparent;border:none;outline:none;font-family:var(--font-body);font-size:12px;color:#e8e4da;width:160px"
+        value="${window._globalSearch||''}">
+      <div id="global-search-dd" style="display:none;position:absolute;top:calc(100% + 6px);left:0;min-width:280px;max-height:320px;overflow-y:auto;background:rgba(14,4,36,.98);border:1.5px solid rgba(255,179,0,.4);border-radius:6px;box-shadow:0 8px 24px rgba(0,0,0,.5);z-index:50"></div>
+    </div>`;
+  renderGlobalSearchDD(window._globalSearch||'');
+  if(_gsHadFocus){
+    const _gs2=document.getElementById('global-search');
+    if(_gs2){_gs2.focus();_gs2.setSelectionRange(_gsCaret,_gsCaret);}
+  }
+}
+function tFC(id){
+  const panel=document.getElementById(id),btn=document.getElementById('btn-'+id);
+  const isOpen=panel.classList.contains('open');
+  document.querySelectorAll('.fc-panel').forEach(p=>p.classList.remove('open'));
+  document.querySelectorAll('.fc-btn').forEach(b=>b.classList.remove('open'));
+  if(!isOpen){
+    panel.classList.add('open');btn.classList.add('open');
+    // Auto-focus the search input
+    const si=panel.querySelector('.fc-search');
+    if(si)setTimeout(()=>si.focus(),50);
+  }
+}
+document.addEventListener('click',e=>{
+  if(!e.target.closest('.fc')){
+    document.querySelectorAll('.fc-panel').forEach(p=>p.classList.remove('open'));
+    document.querySelectorAll('.fc-btn').forEach(b=>b.classList.remove('open'));
+  }
+});
+function fFC(id,q){document.querySelectorAll('#'+id+'-l .fc-opt').forEach(el=>{el.style.display=el.textContent.toLowerCase().includes(q.toLowerCase())?'':'none';});}
+function doAll(fk,id){F[fk]=null;document.querySelectorAll('#'+id+'-l input').forEach(i=>i.checked=true);go();}
+function doNone(fk,id){F[fk]=[];document.querySelectorAll('#'+id+'-l input').forEach(i=>i.checked=false);go();}
+function togO(fk,val,chk,id){
+  window._rpSelected=null;
+  // If currently "All" and user checks something, switch to just that item
+  if(chk && iAll(fk)){
+    F[fk]=[val];
+    document.querySelectorAll('#'+id+'-l input').forEach(i=>i.checked=i.value===val||i.parentElement.textContent.trim()===val);
+    go();return;
+  }
+  const cur=sel(fk);if(chk)cur.add(val);else cur.delete(val);
+  F[fk]=cur.size===OL[fk].length?null:[...cur];go();
+}
+function setGB(v){window._rpSelected=null;GB=v;go();}
+function clearAllFilters(){
+  F={r:null,o:null,v:null,p:null,c:null,m:null};
+  window._globalSearch='';
+  window._rpSelected=null;
+  go();
+}
+
+function doGlobalSearch(val){
+  window._globalSearch = val.toLowerCase();
+  window._rpSelected=null;
+  renderGlobalSearchDD(window._globalSearch);
+}
+function renderGlobalSearchDD(q){
+  const dd=document.getElementById('global-search-dd');
+  if(!dd)return;
+  q=(q||'').trim();
+  if(!q){dd.style.display='none';dd.innerHTML='';return;}
+  const seen=new Set();
+  const matches=[];
+  for(const r of RP_RAW){
+    if(!r.profile||seen.has(r.profile))continue;
+    if(r.profile.toLowerCase().includes(q)||(r.origin||'').toLowerCase().includes(q)){
+      seen.add(r.profile);
+      matches.push(r);
+    }
+  }
+  matches.sort((a,b)=>a.profile.localeCompare(b.profile));
+  if(!matches.length){
+    dd.innerHTML='<div style="padding:12px 14px;font-size:11px;color:rgba(232,228,218,.45);font-style:italic">No matching coffees</div>';
+    dd.style.display='block';
+    return;
+  }
+  dd.innerHTML=matches.map(r=>`
+    <div class="gs-item" onclick="selectGlobalSearchResult('${r.profile.replace(/'/g,"\\'")}')"
+      style="padding:8px 14px;font-size:12px;color:rgba(232,228,218,.85);cursor:pointer;border-bottom:1px solid rgba(255,255,255,.06);display:flex;align-items:center;gap:8px"
+      onmouseover="this.style.background='rgba(255,179,0,.1)'" onmouseout="this.style.background='transparent'">
+      <span style="font-family:'Black Ops One',serif;font-size:11px;color:#ffb300;min-width:28px">${r.origin||''}</span>
+      <span>${r.profile}</span>
+    </div>`).join('');
+  dd.style.display='block';
+}
+function selectGlobalSearchResult(profile){
+  window._rpSelected=profile;
+  window._globalSearch='';
+  const dd=document.getElementById('global-search-dd');
+  if(dd){dd.style.display='none';dd.innerHTML='';}
+  if(TAB!=='roastparams'){
+    TAB='roastparams';
+    document.querySelectorAll('.tab').forEach(el=>el.classList.toggle('active',el.getAttribute('onclick')==="setTab('roastparams')"));
+    document.querySelectorAll('.vw').forEach(el=>el.classList.remove('active'));
+    document.getElementById('roastparams-vw').classList.add('active');
+  }
+  go();
+}
+document.addEventListener('click',e=>{
+  if(!e.target.closest('#global-search-dd')&&e.target.id!=='global-search'){
+    const dd=document.getElementById('global-search-dd');
+    if(dd)dd.style.display='none';
+  }
+});
+function setTab(t){
+  TAB=t;
+  document.querySelectorAll('.tab').forEach(el=>el.classList.toggle('active',el.textContent.toLowerCase()===t));
+  document.querySelectorAll('.vw').forEach(el=>el.classList.remove('active'));
+  document.getElementById(t+'-vw').classList.add('active');go();
+}
+
+function rMets(data){
+  const rs=new Set(data.map(d=>d[0])).size;
+  const wbs=data.map(d=>d[5]).filter(x=>x!=null);
+  const gbs=data.map(d=>d[6]).filter(x=>x!=null);
+  const aw=wbs.length?(wbs.reduce((a,b)=>a+b,0)/wbs.length).toFixed(1):'—';
+  const ag=gbs.length?(gbs.reduce((a,b)=>a+b,0)/gbs.length).toFixed(1):'—';
+  document.getElementById('mets').innerHTML=`
+    <div class="met"><div class="ml">Roasts</div><div class="mv">${data.length}</div></div>
+    <div class="met"><div class="ml">Roasteries</div><div class="mv">${rs}</div></div>
+    <div class="met"><div class="ml">Avg WB</div><div class="mv">${aw}</div></div>
+    <div class="met"><div class="ml">Avg GB</div><div class="mv">${ag}</div></div>`;
+}
+
+function actRi(){return[0,1,2].filter(i=>sel('r').has(RN[i]));}
+
+function rChart(data){
+  const g=grp(data);
+  const {labels,firstBottom}=sortedLabels(g);
+  const aRi=actRi();
+  // When grouped by Roastery, each label IS a roastery — it only ever has data under its own
+  // name (grp() sets both the outer key and inner key from the same roastery), so it should
+  // only reserve one row-slot, not one per active roastery.
+  function rowRi(l){return GB==='r'?[RN.indexOf(l)]:aRi;}
+  const wrap=document.getElementById('cwrap');
+  if(!labels.length){if(CI){CI.destroy();CI=null;}wrap.innerHTML='<div class="nd">No data for this selection</div>';return;}
+  if(CI){CI.destroy();CI=null;}
+  wrap.innerHTML='<canvas id="mc"></canvas>';
+  const canvas=document.getElementById('mc');
+  const ctx=canvas.getContext('2d');
+
+  function gaussKde(vals,x,bw){return vals.reduce((s,v)=>{const u=(x-v)/bw;return s+Math.exp(-0.5*u*u);},0)/(vals.length*bw*2.507);}
+  function buildKde(vals,steps=100){
+    if(!vals||vals.length<2)return null;
+    const mn=Math.min(...vals),mx=Math.max(...vals);
+    const spread=mx-mn||2;const bw=Math.max(1.0,spread*0.12);
+    const lo=mn,hi=mx,step=(hi-lo)/steps;const pts=[];
+    for(let v=lo;v<=hi+1e-9;v+=step)pts.push({x:v,d:gaussKde(vals,v,bw)});
+    const peak=Math.max(...pts.map(p=>p.d))||1;
+    return pts.map(p=>({x:p.x,d:p.d/peak}));
+  }
+
+  const specs=[];
+  labels.forEach(l=>{
+    rowRi(l).forEach(i=>{
+      const wbVals=(g[l][RN[i]]||{wb:[]}).wb.filter(v=>v!=null);
+      const gbVals=(g[l][RN[i]]||{gb:[]}).gb.filter(v=>v!=null);
+      const wbS=st(wbVals),gbS=st(gbVals);
+      const spread=(wbS&&gbS)?+(gbS.avg-wbS.avg).toFixed(2):null;
+      ['wb','gb'].forEach(key=>{
+        const vals=key==='wb'?wbVals:gbVals;const s=key==='wb'?wbS:gbS;
+        if(!s)return;
+        specs.push({label:l,ri:i,key,vals,avg:+s.avg.toFixed(2),mn:s.min,mx:s.max,kdePts:buildKde(vals),col:COL[i],n:vals.length,spread});
+      });
+    });
+  });
+
+  const ML=110,MR=20,MT=30,MB=36,VH=18,RG=6,RH=VH*2+RG,GG=10;
+  let totalRows=0;labels.forEach(l=>{totalRows+=rowRi(l).length;});
+  const chartH=MT+MB+totalRows*2*RH+labels.length*GG;
+  const dpr=window.devicePixelRatio||1;
+  wrap.style.height=Math.max(300,chartH)+'px';
+  canvas.style.width='100%';canvas.style.height=Math.max(300,chartH)+'px';
+
+  function resize(){const W=wrap.clientWidth;canvas.width=W*dpr;canvas.height=Math.max(300,chartH)*dpr;ctx.scale(dpr,dpr);draw(W);}
+
+  let allVals=[];specs.forEach(sp=>allVals.push(...sp.vals));
+  const gMin=Math.min(...allVals),gMax=Math.max(...allVals);
+  const xPad=(gMax-gMin)*0.02,xMin=gMin-xPad,xMax=gMax+xPad;
+  function toX(v,W){return ML+(v-xMin)/(xMax-xMin)*(W-ML-MR);}
+
+  function buildRowMap(){
+    const map={};let y=MT;
+    labels.forEach((l,li)=>{
+      if(li>0)y+=GG;map[l]={};
+      rowRi(l).forEach(i=>{map[l][i]={};['wb','gb'].forEach(key=>{map[l][i][key]=y+VH;y+=RH;});});
+    });
+    return map;
+  }
+
+  let hoverSpec=null;
+  function draw(W){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    const rowMap=buildRowMap();
+    // Grid
+    ctx.strokeStyle='rgba(232,228,218,.1)';ctx.lineWidth=1;ctx.fillStyle='rgba(232,228,218,.65)';ctx.font='9px "DM Sans",sans-serif';ctx.textAlign='center';
+    for(let t=0;t<=6;t++){
+      const v=xMin+t*(xMax-xMin)/6,px=toX(v,W);
+      ctx.beginPath();ctx.moveTo(px,MT-8);ctx.lineTo(px,Math.max(300,chartH)-MB+4);ctx.stroke();
+      ctx.fillText(v.toFixed(0),px,Math.max(300,chartH)-MB+14);
+    }
+    ctx.fillText('Light Tells',ML+(W-ML-MR)/2,Math.max(300,chartH)-4);
+    // Separator
+    if(firstBottom>-1){
+      let sepY=MT;
+      labels.forEach((l,li)=>{
+        if(li>0)sepY+=GG;sepY+=rowRi(l).length*2*RH;
+        if(li===firstBottom-1){
+          ctx.save();ctx.strokeStyle='rgba(232,228,218,0.3)';ctx.lineWidth=1.5;ctx.setLineDash([5,3]);
+          ctx.beginPath();ctx.moveTo(ML,sepY+GG/2);ctx.lineTo(W-MR,sepY+GG/2);ctx.stroke();
+          ctx.setLineDash([]);ctx.restore();
+        }
+      });
+    }
+    // Y labels
+    ctx.textAlign='right';ctx.fillStyle='#e8e4da';ctx.font='600 10px "DM Sans",sans-serif';
+    labels.forEach(l=>{
+      const ri=rowRi(l),ri0=ri[0],lastRi=ri[ri.length-1];
+      const midY=(rowMap[l][ri0].wb+rowMap[l][lastRi].gb)/2;
+      ctx.fillText(l.length>16?l.slice(0,15)+'…':l,ML-6,midY+3);
+    });
+    // Violins
+    specs.forEach(sp=>{
+      if(!rowMap[sp.label]||!rowMap[sp.label][sp.ri])return;
+      const midY=rowMap[sp.label][sp.ri][sp.key];
+      const kdePts=sp.kdePts,col=sp.col,alpha=sp.key==='gb'?0.40:0.65;
+      if(kdePts&&kdePts.length>1){
+        ctx.save();ctx.globalAlpha=alpha;ctx.fillStyle=col;
+        ctx.beginPath();ctx.moveTo(toX(kdePts[0].x,W),midY-kdePts[0].d*VH);
+        kdePts.forEach(p=>ctx.lineTo(toX(p.x,W),midY-p.d*VH));
+        [...kdePts].reverse().forEach(p=>ctx.lineTo(toX(p.x,W),midY+p.d*VH));
+        ctx.closePath();ctx.fill();
+        ctx.globalAlpha=alpha+0.25;ctx.strokeStyle=col;ctx.lineWidth=0.8;
+        ctx.beginPath();kdePts.forEach((p,k)=>{k===0?ctx.moveTo(toX(p.x,W),midY-p.d*VH):ctx.lineTo(toX(p.x,W),midY-p.d*VH);});
+        [...kdePts].reverse().forEach((p,k)=>{k===0?ctx.moveTo(toX(p.x,W),midY+p.d*VH):ctx.lineTo(toX(p.x,W),midY+p.d*VH);});
+        ctx.stroke();ctx.restore();
+      }
+      const avgPx=toX(sp.avg,W);
+      ctx.save();ctx.globalAlpha=0.95;ctx.strokeStyle='rgba(255,255,255,0.9)';ctx.lineWidth=2.5;
+      ctx.beginPath();ctx.moveTo(avgPx,midY-VH*0.65);ctx.lineTo(avgPx,midY+VH*0.65);ctx.stroke();
+      ctx.strokeStyle=col;ctx.lineWidth=1.5;ctx.globalAlpha=1;
+      ctx.beginPath();ctx.moveTo(avgPx,midY-VH*0.65);ctx.lineTo(avgPx,midY+VH*0.65);ctx.stroke();
+      ctx.restore();
+    });
+    // Hover tooltip
+    if(hoverSpec){
+      const sp=hoverSpec;
+      if(rowMap[sp.label]&&rowMap[sp.label][sp.ri]){
+        const midY=rowMap[sp.label][sp.ri][sp.key],avgPx=toX(sp.avg,W);
+        ctx.save();ctx.globalAlpha=1;ctx.fillStyle=sp.col;
+        ctx.beginPath();ctx.arc(avgPx,midY,5,0,Math.PI*2);ctx.fill();
+        ctx.strokeStyle='#fff';ctx.lineWidth=1.5;ctx.stroke();ctx.restore();
+        const lines=[`${RN[sp.ri]} ${sp.key.toUpperCase()}`,`avg: ${sp.avg}`,`range: ${sp.mn.toFixed(0)}–${sp.mx.toFixed(0)}`,
+          ...(sp.spread!==null?[`spread: ${sp.spread>0?'+':''}${sp.spread}`]:[]),`n = ${sp.n}`];
+        const TW=148,TH=lines.length*15+12;
+        let TX=avgPx+10,TY=midY-TH/2;
+        if(TX+TW>W-MR)TX=avgPx-TW-10;if(TY<2)TY=2;
+        ctx.save();ctx.globalAlpha=0.95;ctx.fillStyle='#1A2340';ctx.beginPath();ctx.roundRect(TX,TY,TW,TH,5);ctx.fill();
+        ctx.globalAlpha=1;ctx.fillStyle='#F2D44E';ctx.font='700 10px "DM Sans",sans-serif';ctx.textAlign='left';ctx.fillText(lines[0],TX+8,TY+14);
+        ctx.fillStyle='#fff';ctx.font='10px "DM Sans",sans-serif';lines.slice(1).forEach((ln,i)=>ctx.fillText(ln,TX+8,TY+28+i*14));
+        ctx.restore();
+      }
+    }
+  }
+
+  canvas.addEventListener('mousemove',e=>{
+    const rect=canvas.getBoundingClientRect(),mx=e.clientX-rect.left,my=e.clientY-rect.top;
+    const W=wrap.clientWidth,rowMap=buildRowMap();
+    let found=null,bestD=Infinity;
+    specs.forEach(sp=>{
+      if(!rowMap[sp.label]||!rowMap[sp.label][sp.ri])return;
+      const midY=rowMap[sp.label][sp.ri][sp.key];
+      if(Math.abs(my-midY)>VH+4)return;
+      if(!sp.kdePts||!sp.kdePts.length)return;
+      const loX=toX(sp.kdePts[0].x,W),hiX=toX(sp.kdePts[sp.kdePts.length-1].x,W);
+      if(mx<Math.min(loX,hiX)-4||mx>Math.max(loX,hiX)+4)return;
+      const d=Math.abs(mx-toX(sp.avg,W));if(d<bestD){bestD=d;found=sp;}
+    });
+    hoverSpec=found;ctx.setTransform(dpr,0,0,dpr,0,0);draw(W);
+  });
+  canvas.addEventListener('mouseleave',()=>{hoverSpec=null;ctx.setTransform(dpr,0,0,dpr,0,0);draw(wrap.clientWidth);});
+  resize();
+
+  document.getElementById('cleg').innerHTML=aRi.map(i=>`
+    <span style="display:flex;align-items:center;gap:5px">
+      <span style="display:flex;flex-direction:column;gap:2px">
+        <span style="width:26px;height:7px;border-radius:3px;background:${COL[i]};display:block"></span>
+        <span style="width:26px;height:7px;border-radius:3px;background:${COL[i]}66;display:block"></span>
+      </span>
+      <span style="display:flex;flex-direction:column;gap:1px;font-size:10px;font-weight:700;color:${COL[i]}">
+        <span>${RN[i]} WB</span><span style="opacity:.7">${RN[i]} GB</span>
+      </span>
+    </span>`).join('');
+}
+
+function rTable(data){
+  const g=grp(data),{labels,firstBottom}=sortedLabels(g),aRi=actRi();
+  let h=`<thead><tr><th>Group</th>`;
+  aRi.forEach(i=>{h+=`<th style="color:${COL[i]}">${RN[i]} WB avg</th><th style="color:${COL[i]}">${RN[i]} GB avg</th>`;});
+  if(aRi.length>1)h+=`<th style="color:var(--pm-cyan)">WB spread</th><th style="color:var(--pm-yellow)">GB spread</th>`;
+  h+=`</tr></thead><tbody>`;
+  if(!labels.length)h+=`<tr><td colspan="20" class="nd">No data</td></tr>`;
+  labels.forEach((l,idx)=>{
+    const sepClass=(firstBottom>-1&&idx===firstBottom)?' class="sep-tr"':'';
+    h+=`<tr${sepClass}><td style="font-weight:500">${l}</td>`;
+    const wa=[],ga=[];
+    aRi.forEach(i=>{
+      const rn=RN[i],sw=st((g[l][rn]||{wb:[]}).wb),sg=st((g[l][rn]||{gb:[]}).gb);
+      if(sw)wa.push(sw.avg);if(sg)ga.push(sg.avg);
+      const nw=(g[l][rn]||{wb:[]}).wb.length,ng=(g[l][rn]||{gb:[]}).gb.length;
+      h+=`<td>${sw?sw.avg.toFixed(1)+' <span style="font-size:10px;color:#888">('+sw.min.toFixed(0)+'–'+sw.max.toFixed(0)+')</span><span style="font-size:9px;color:#4A9FD4;margin-left:3px;font-weight:700">n='+nw+'</span>':'—'}</td>`;
+      h+=`<td>${sg?sg.avg.toFixed(1)+' <span style="font-size:10px;color:#888">('+sg.min.toFixed(0)+'–'+sg.max.toFixed(0)+')</span><span style="font-size:9px;color:#4A9FD4;margin-left:3px;font-weight:700">n='+ng+'</span>':'—'}</td>`;
+    });
+    if(aRi.length>1){
+      if(wa.length>1){const d=Math.max(...wa)-Math.min(...wa);h+=`<td><span class="pill ${pvClass(d)}">±${d.toFixed(1)}</span></td>`;}else h+=`<td>—</td>`;
+      if(ga.length>1){const d=Math.max(...ga)-Math.min(...ga);h+=`<td><span class="pill ${pvClass(d)}">±${d.toFixed(1)}</span></td>`;}else h+=`<td>—</td>`;
+    }
+    h+=`</tr>`;
+  });
+  document.getElementById('mt').innerHTML=h+'</tbody>';
+}
+
+function rVar(data){
+  if(GB==='r'){
+    document.getElementById('vg').innerHTML='<div class="nd">Variance compares a chosen dimension across roasteries against Melbourne — grouping by Roastery itself leaves nothing to compare, since each row would only ever contain one roastery\'s own data.<br><br>Try Group By: Category, Origin, Varietal, Process, or Machine instead.</div>';
+    return;
+  }
+  const g=grp(data),{labels,firstBottom}=sortedLabels(g),aRi=actRi(),melI=0,hasMel=aRi.includes(melI);
+  const cards=labels.map((l,idx)=>{
+    const rd=g[l]||{};
+    const melSw=hasMel?st((rd[RN[melI]]||{wb:[]}).wb):null;
+    const melSg=hasMel?st((rd[RN[melI]]||{gb:[]}).gb):null;
+    const rows=aRi.map(i=>({i,sw:st((rd[RN[i]]||{wb:[]}).wb),sg:st((rd[RN[i]]||{gb:[]}).gb)})).filter(x=>x.sw||x.sg);
+    const wbRows=rows.filter(x=>x.sw);if(wbRows.length<2)return null;
+    const avgs=wbRows.map(x=>x.sw.avg);
+    return{l,rd,rows,spread:Math.max(...avgs)-Math.min(...avgs),melSw,melSg,isSep:firstBottom>-1&&idx===firstBottom};
+  }).filter(Boolean);
+  if(!cards.length){document.getElementById('vg').innerHTML='<div class="nd">Select 2+ roasteries to compare</div>';return;}
+  function fmtAvg(s){return s?s.avg.toFixed(1):'—';}
+  function fmtRange(s){return s?`<span style="font-size:10px;color:#888">(${s.min.toFixed(0)}–${s.max.toFixed(0)})</span>`:'';}
+  function diffPill(s,ref){
+    if(!s||!ref)return'';
+    const raw=s.avg-ref.avg;
+    const d=Math.abs(raw);
+    const sign=raw>0?'+':raw<0?'−':'±';
+    return`<span class="pill ${pvClass(d)}">${sign}${d.toFixed(1)}</span>`;
+  }
+  let html='',sepInserted=false;
+  cards.forEach(({l,rd,rows,spread,melSw,melSg,isSep})=>{
+    if(isSep&&!sepInserted){sepInserted=true;html+=`<div style="grid-column:1/-1;border-top:1.5px solid #E8DCC8;margin:4px 0"></div>`;}
+    const sorted=[...rows].sort((a,b)=>(a.i===melI?-1:b.i===melI?1:a.i-b.i));
+    let tableRows='';
+    sorted.forEach(({i,sw,sg},idx)=>{
+      const isMel=i===melI;
+      const nwv=(rd[RN[i]]||{wb:[]}).wb.length,ngv=(rd[RN[i]]||{gb:[]}).gb.length;
+      tableRows+=`<tr style="${!isMel&&idx===1&&hasMel?'border-top:0.5px solid #E8DCC8':''}">
+        <td style="color:${COL[i]};font-weight:${isMel?'600':'500'};white-space:nowrap">${RN[i]}</td>
+        <td>${fmtAvg(sw)}</td><td>${fmtRange(sw)}<span style="font-size:9px;color:#4A9FD4;font-weight:700;margin-left:2px">${nwv?'n='+nwv:''}</span></td>
+        <td class="wb-col">${!isMel&&hasMel?diffPill(sw,melSw):''}</td>
+        <td>${fmtAvg(sg)}</td><td>${fmtRange(sg)}<span style="font-size:9px;color:#4A9FD4;font-weight:700;margin-left:2px">${ngv?'n='+ngv:''}</span></td>
+        <td>${!isMel&&hasMel?diffPill(sg,melSg):''}</td>
+      </tr>`;
+    });
+    html+=`<div class="vc">
+      <div class="vt"><span>${l}</span><span class="pill ${pvClass(spread)}">±${spread.toFixed(1)}</span></div>
+      <table class="vcard-tbl"><thead><tr>
+        <th></th><th colspan="3" class="wb-group">WB</th><th colspan="3" class="gb-group">GB</th>
+      </tr><tr>
+        <th></th><th>avg</th><th>range</th><th class="wb-col">vs Mel</th><th>avg</th><th>range</th><th>vs Mel</th>
+      </tr></thead><tbody>${tableRows}</tbody></table>
+    </div>`;
+  });
+  document.getElementById('vg').innerHTML=html;
+}
+
+function rAFS(){
+  const keys=[['r','Roastery'],['o','Origin'],['p','Process'],['v','Varietal'],['c','Category'],['m','Machine']];
+  const parts=[];
+  keys.forEach(([k,lbl])=>{
+    if(iAll(k))return;
+    if(iNone(k)){parts.push(`<span class="afc"><span class="afc-k">${lbl}:</span>none</span>`);return;}
+    if(F[k].length<=3)F[k].forEach(v=>parts.push(`<span class="afc"><span class="afc-k">${lbl}:</span>${v}</span>`));
+    else parts.push(`<span class="afc"><span class="afc-k">${lbl}:</span>${F[k].length} selected</span>`);
+  });
+  const el=document.getElementById('afs');
+  el.innerHTML=parts.length?`<span class="aft">Showing:</span>`+parts.join(''):'';
+
+  // Big headline banner
+  const data=applyF();
+  const headlineEl=document.getElementById('viewing-headline');
+  if(!headlineEl)return;
+
+  // Build human-readable sentence
+  function getVals(k){ return iAll(k)?null:iNone(k)?null:F[k]; }
+  const origins = getVals('o');
+  const varietals = getVals('v');
+  const processes = getVals('p');
+  const categories = getVals('c');
+  const machines = getVals('m');
+  const roasteries = getVals('r');
+
+  const segments = [];
+  if(origins) segments.push(origins.join(', '));
+  if(varietals) segments.push(varietals.join(', '));
+  if(processes) segments.push(processes.join(', '));
+  if(categories) segments.push(categories.join(', '));
+
+  const locationParts = [];
+  if(machines) locationParts.push(machines.join(', '));
+  if(roasteries) locationParts.push(roasteries.join(', '));
+
+  const headline = segments.length
+    ? segments.join(' · ') + (locationParts.length ? ' — ' + locationParts.join(', ') : '')
+    : locationParts.length
+      ? locationParts.join(', ')
+      : 'All Coffees — All Roasteries';
+
+  // Explicit full breakdown — every filter box's current state, including "All", plus Group By.
+  // This is deliberately exhaustive (not just the narrowed ones) so the current selection is
+  // always fully visible for troubleshooting, since Group By especially has a big effect on
+  // what's shown and is easy to forget you've changed.
+  const gbLbl={c:'Category',o:'Origin',v:'Varietal',p:'Process',r:'Roastery',m:'Machine'}[GB]||GB;
+  function fullVal(k){
+    if(iAll(k))return'All';
+    if(iNone(k))return'None';
+    return F[k].length<=3?F[k].join(', '):`${F[k].length} selected`;
+  }
+  const fullBreakdown=[
+    ['Roastery','r'],['Origin','o'],['Varietal','v'],['Process','p'],['Category','c'],['Machine','m']
+  ].map(([lbl,k])=>`<span style="white-space:nowrap"><span style="color:rgba(255,255,255,.4)">${lbl}:</span> ${fullVal(k)}</span>`).join('<span style="color:rgba(255,255,255,.25);margin:0 2px">·</span>')
+    +`<span style="color:rgba(255,255,255,.25);margin:0 2px">·</span><span style="white-space:nowrap"><span style="color:rgba(255,255,255,.4)">Group By:</span> ${gbLbl}</span>`;
+
+  const rpSelected=window._rpSelected||null;
+  const coffeeLine=rpSelected?`<div style="font-family:var(--font-body);font-size:13px;color:#ffb300;margin-top:4px"><span style="color:rgba(255,255,255,.4);font-family:var(--font-label);font-size:9px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;margin-right:6px">Coffee selected</span>${rpSelected}</div>`:'';
+
+  headlineEl.innerHTML=`
+    <div style="width:100%">
+      <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap">
+        <span style="font-family:var(--font-label);font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.35)">VIEWING</span>
+        <span style="font-family:var(--font-label);font-size:18px;font-weight:700;color:#F2D44E;letter-spacing:.02em;line-height:1.2">${headline}</span>
+        <span style="font-family:var(--font-label);font-size:12px;font-weight:600;color:rgba(255,255,255,.35);margin-left:4px">${data.length} roast${data.length!==1?'s':''}</span>
+      </div>
+      <div style="font-family:var(--font-body);font-size:11px;color:rgba(255,255,255,.55);margin-top:6px;display:flex;flex-wrap:wrap;align-items:center">${fullBreakdown}</div>
+      ${coffeeLine}
+    </div>
+  `;
+}
+
+function go(){
+  // Remember which panel is open so we can reopen it after rTB() rebuilds the DOM
+  const openPanel=document.querySelector('.fc-panel.open');
+  const openId=openPanel?openPanel.id:null;
+  const data=applyF();rMets(data);rTB();rAFS();
+  // Reopen the panel that was open
+  if(openId){
+    const p=document.getElementById(openId);
+    const b=document.getElementById('btn-'+openId);
+    if(p){p.classList.add('open');if(b)b.classList.add('open');}
+  }
+  if(TAB==='chart')rChart(data);else if(TAB==='table')rTable(data);else if(TAB==='roastparams')rRP(data);else rVar(data);
+}
+
+// ─── ROAST PARAMS TAB ────────────────────────────────────────────────────────
+const RP_SITE_COLORS = {Melbourne:'#2979C2',Portland:'#1B9E5E',Austin:'#A535C4'};
+const RP_SITE_SHORT  = {Melbourne:'MEL',Portland:'PDX',Austin:'ATX'};
+
+function rpAvg(arr){
+  const v=arr.filter(x=>x!==null&&x!==undefined&&!isNaN(x));
+  return v.length?v.reduce((a,b)=>a+b,0)/v.length:null;
+}
+function rpTimeToMins(t){
+  if(!t)return null;
+  const p=t.split(':');
+  if(p.length!==2)return null;
+  const m=parseInt(p[0]),s=parseInt(p[1]);
+  return isNaN(m)||isNaN(s)?null:m+s/60;
+}
+function rpMinsToTime(m){
+  if(m===null||m===undefined||isNaN(m))return'—';
+  const mins=Math.floor(m),secs=Math.round((m-mins)*60);
+  return String(mins).padStart(2,'0')+':'+String(secs).padStart(2,'0');
+}
+function rpFmt(v,unit){
+  if(v===null||v===undefined||isNaN(v))return'—';
+  if(unit==='°C')return v.toFixed(1)+'°C';
+  if(unit==='%')return v.toFixed(1)+'%';
+  if(unit==='wb')return v.toFixed(1);
+  return v.toFixed(1);
+}
+function rpGetAvgs(rows){
+  return{
+    fc_time:rpMinsToTime(rpAvg(rows.map(r=>rpTimeToMins(r.fc_time)))),
+    duration:rpMinsToTime(rpAvg(rows.map(r=>rpTimeToMins(r.duration)))),
+    dtr:rpAvg(rows.map(r=>r.dtr)),
+    end_temp:rpAvg(rows.map(r=>r.end_temp)),
+    wb:rpAvg(rows.map(r=>r.wb)),
+    gb:rpAvg(rows.map(r=>r.gb)),
+    fc_temp:rpAvg(rows.map(r=>r.fc_temp)),
+  };
+}
+
+// Normalise group same as main dashboard
+function rpNormCat(c){
+  if(!c)return null;
+  const u=c.trim().toUpperCase();
+  const map={'CURIOUS FIL':'CURIOUS','WILD FIL':'WILD','DELUXE FIL':'DELUXE',
+    'MILD ESP':'MILD','GHOST':'GHOST RIDER','ANGEL':'ANGEL WINGS',
+    'DECAF SPRO':'DECAF','BLEND':null};
+  if(map.hasOwnProperty(u))return map[u];
+  return u;
+}
+
+
+// ─── BLURB LIBRARY ──────────────────────────────────────────────────────────
+const BLURBS = [
+  {
+    key: 'parainema_natural',
+    match: r => /parainema/i.test(r.varietal) && /natural/i.test(r.process),
+    priority: 10,
+    text: "Parainema is a rust-resistant Honduran hybrid with an elongated, Geisha-like bean and a bright, sometimes sharp acidity — Natural processing helps bring that into balance, and is the preferred method for this varietal at Proud Mary. It reads lighter than other Honduran varietals, so keep DV% restrained around 10–11% and resist the urge to push development. First crack can be quiet or difficult to detect, making end temp the more reliable target — the end temp typically sits only a few degrees past first crack, so a mellow, controlled rate of rise in the final stretch is essential. Parainema requires minimal dig (the step-up in flame applied at the turning point — charge hot, soak on a high flame, and make only a small increase when you turn up)."
+  },
+  {
+    key: 'geisha',
+    match: r => /geisha/i.test(r.varietal),
+    priority: 5,
+    text: "Geisha originated in Ethiopia and was discovered growing wild in the Gori Gesha forest — it has since become one of the most celebrated and sought-after varieties in specialty coffee, and a cornerstone of Proud Mary's offering. It grows only at high altitude with slow maturation and exceptional density, and carries enormous complexity — florals, jasmine, stone fruit, and a layered clarity that rewards careful roasting. There is a lot to unlock in a Geisha, and the processing method dramatically shapes how you approach that."
+  },
+  {
+    key: 'geisha_washed',
+    match: r => /geisha/i.test(r.varietal) && /washed/i.test(r.process),
+    priority: 10,
+    text: "As a Washed, Geisha requires significant dig — charge low, soak cool, and apply an aggressive step-up at the turning point. First crack arrives early and loud, almost mechanical, and the coffee will often still be crackling at end temp — this is normal, don't panic and pull it early. It needs more roast time than a Natural on any given machine, so whatever your benchmark is for that roaster, push longer — and target DV% in the 15–16% range."
+  },
+  {
+    key: 'geisha_natural',
+    match: r => /geisha/i.test(r.varietal) && /natural/i.test(r.process),
+    priority: 10,
+    text: "As a Natural, Geisha asks for restraint rather than aggression — less dig, a gentler rate of rise through development, and the discipline to pull back rather than push through. The processing has already done a lot of the work; your job is to preserve that rather than override it."
+  },
+  {
+    key: 'big_bean',
+    match: r => /pacamara|maracaturra|maragogipe/i.test(r.varietal),
+    priority: 5,
+    text: "Pacamara, Maracaturra and Maragogipe share a common thread — all are large-bean mutations or hybrids with a distinctive savoury, spicy, earthy character that Proud Mary actively seeks out and champions. The approach is built around a later first crack — targeting around 9:00–9:15 rather than the 8:30 you might aim for on other coffees — so that even with a short DV% you're still achieving the roast time the coffee needs. Minimal dig, steady energy throughout; end temp doesn't need to be high and pushing it only accentuates the intensity into something scratchy — let the roast time do the work, not the heat."
+  },
+  {
+    key: 'big_bean_natural',
+    match: r => /pacamara|maracaturra|maragogipe/i.test(r.varietal) && /natural/i.test(r.process),
+    priority: 8,
+    text: "As a Natural, expect WB readings in the high seventies and GB regularly at 100 or above — this is normal, not a sign of under-roasting. Keep DV% short, around 11–12%; the roast time before first crack is doing the heavy lifting. Too much development or end temp on a Natural pushes the savouriness into scratchy and overwhelming, losing the clean funkiness that makes these coffees so special."
+  },
+  {
+    key: 'big_bean_washed_honey',
+    match: r => /pacamara|maracaturra|maragogipe/i.test(r.varietal) && /washed|honey/i.test(r.process),
+    priority: 8,
+    text: "As a Washed or Honey, GB readings more typically sit in the nineties rather than the 100+ of their Natural counterparts. DV% runs higher at 15–17% — still that later first crack approach, but with more room to develop. The savouriness is more restrained and the cup cleaner; the same rule applies though — don't push end temp to chase intensity."
+  },
+];
+
+function getBlurbs(){
+  // Match blurbs against active filter selections directly — not data-dependent
+  // So blurbs show even when 0 roasts match (e.g. wrong roastery selected)
+  const selVarietals = iAll('v') ? null : sel('v');
+  const selProcesses = iAll('p') ? null : sel('p');
+  const selOrigins   = iAll('o') ? null : sel('o');
+
+  // Build a representative context from filter selections
+  const rep = {
+    varietal: selVarietals ? [...selVarietals].join(' ') : '',
+    process:  selProcesses ? [...selProcesses].join(' ') : '',
+    origin:   selOrigins   ? [...selOrigins].join(' ')   : '',
+  };
+
+  // Only show blurbs if at least varietal or process is filtered
+  if(!selVarietals && !selProcesses) return [];
+
+  const matched = BLURBS.filter(b=>b.match(rep)).sort((a,b)=>b.priority-a.priority);
+  const out = [];
+  matched.forEach(b=>{
+    if(b.key==='big_bean' && matched.some(x=>x.key==='big_bean_natural'||x.key==='big_bean_washed_honey')) return;
+    out.push(b);
+  });
+  return out;
+}
+
+function renderBlurbs(){
+  const blurbs = getBlurbs();
+  if(!blurbs.length) return '';
+  return blurbs.map(b=>`<p style="font-family:var(--font-body);font-size:13px;color:rgba(255,255,255,.85);line-height:1.7;margin:0 0 10px 0">${b.text}</p>`).join('');
+}
+// ─────────────────────────────────────────────────────────────────────────────
+
+function rRP(filteredRaw){
+  const el=document.getElementById('roastparams-vw');
+  if(!el)return;
+  // Preserve focus/caret on #rp-search across the rebuild below (it gets destroyed and recreated otherwise)
+  const _rps=document.getElementById('rp-search');
+  const _rpsHadFocus=document.activeElement===_rps;
+  const _rpsCaret=_rpsHadFocus?_rps.selectionStart:null;
+
+  // Filter RP_RAW using main dashboard filter state
+  const rpData = RP_RAW.filter(r=>{
+    const cat=rpNormCat(r.cat);
+    if(cat===null || !r.roastery) return false;
+    if(!iAll('r')&&!sel('r').has((r.roastery||'').trim())) return false;
+    if(!iAll('o')&&!sel('o').has((r.origin||'').trim())) return false;
+    if(!iAll('v')&&r.varietal&&!sel('v').has(r.varietal)) return false;
+    if(!iAll('p')&&!sel('p').has((r.process||'').trim())) return false;
+    if(!iAll('c')&&!sel('c').has(r.category)) return false;
+    if(!iAll('m')){if(!r.machine)return false;const rm=r.machine.trim();if(!sel('m').has(rm)&&!sel('m').has(normMachine(rm)))return false;}
+    return true;
+  }).map(r=>({
+    site:     r.roastery,
+    profile:  r.profile||'',
+    origin:   (r.profile||'').split(' ')[0],
+    group:    rpNormCat(r.cat),
+    category: r.category||'',
+    varietal: r.varietal||'',
+    process:  r.process||'',
+    machine:  normMachine(r.machine||''),
+    wb:       r.wb,
+    gb:       r.gb,
+    duration: r.duration||null,
+    end_temp: r.end_temp||null,
+    dtr:      r.dtr||null,
+    fc_time:  r.fc_time||null,
+    fc_temp:  r.fc_temp||null,
+    fc_temp_console:  r.fc_temp_console||null,
+    end_temp_console: r.end_temp_console||null,
+  }));
+
+  const sites=['Melbourne','Portland','Austin'];
+  const activeSites=sites.filter(s=>rpData.some(r=>r.site===s));
+  // Unfiltered version — used for detail lookups of a coffee selected via the global search box,
+  // which intentionally bypasses the filter panel, so it must not be limited to the filtered rpData.
+  const rpDataAll = RP_RAW.filter(r=>rpNormCat(r.cat)!==null && !!r.roastery).map(r=>({
+    site:r.roastery,profile:r.profile||'',origin:(r.profile||'').split(' ')[0],
+    group:rpNormCat(r.cat),category:r.category||'',varietal:r.varietal||'',process:r.process||'',
+    machine:normMachine(r.machine||''),wb:r.wb,gb:r.gb,duration:r.duration||null,
+    end_temp:r.end_temp||null,dtr:r.dtr||null,fc_time:r.fc_time||null,fc_temp:r.fc_temp||null,
+    fc_temp_console:r.fc_temp_console||null,end_temp_console:r.end_temp_console||null,
+  }));
+
+  // ── ROASTERY TOGGLES ────────────────────────────────────────────────────
+  const roasteryBtns=sites.map(site=>{
+    const color=RP_SITE_COLORS[site];
+    const short=RP_SITE_SHORT[site];
+    const hasData=RP_RAW.some(r=>r.roastery===site);
+    const isActive=activeSites.includes(site);
+    return`<button onclick="window._rpToggleSite('${site}')" style="font-family:var(--font-label);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 14px;border-radius:20px;border:2px solid ${color};background:${isActive?color:'transparent'};color:${isActive?'white':color};cursor:${hasData?'pointer':'not-allowed'};opacity:${hasData?1:0.3};transition:all .15s">${short}</button>`;
+  }).join('');
+
+  window._rpToggleSite=function(site){
+    const cur=sel('r');
+    if(cur.has(site)&&cur.size>1){cur.delete(site);}
+    else if(!cur.has(site)){cur.add(site);}
+    F['r']=cur.size===OL['r'].length?null:[...cur];
+    document.querySelectorAll('#dd-r-l input').forEach(i=>{
+      const label=i.parentElement.textContent.trim();
+      i.checked=sel('r').has(label);
+    });
+    go();
+  };
+
+  const roasteryBar=`<div style="display:flex;gap:8px;margin-bottom:14px;align-items:center">
+    <span style="font-family:var(--font-label);font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(232,228,218,.45);margin-right:4px">ROASTERY</span>
+    ${roasteryBtns}
+  </div>`;
+
+  // ── HELPERS ───────────────────────────────────────────────────────────────
+  function rpRange(vals){
+    const v=vals.filter(x=>x!==null&&!isNaN(x));
+    if(!v.length)return'';
+    return Math.min(...v).toFixed(1)+' – '+Math.max(...v).toFixed(1);
+  }
+  function rpRangeTime(vals){
+    const v=vals.filter(x=>x!==null&&!isNaN(x));
+    if(!v.length)return'';
+    return rpMinsToTime(Math.min(...v))+' – '+rpMinsToTime(Math.max(...v));
+  }
+
+  // ── BUILD PARAM CARDS ────────────────────────────────────────────────────
+  function buildCards(dataset){
+    const dSites=sites.filter(s=>dataset.some(r=>r.site===s));
+    if(!dSites.length)return'<div style="font-size:11px;color:rgba(232,228,218,.4);padding:10px;font-style:italic">No data</div>';
+
+    function siteRows(fieldsFn){
+      return dSites.map(s=>{
+        const srows=dataset.filter(r=>r.site===s);
+        const {mainVal,rangeStr}=fieldsFn(srows);
+        return`<div style="margin-bottom:6px">
+          <div style="display:flex;justify-content:space-between;align-items:baseline">
+            <span style="font-family:var(--font-label);font-size:9px;font-weight:700;letter-spacing:.1em;color:${RP_SITE_COLORS[s]}">${RP_SITE_SHORT[s]}</span>
+            <span style="font-size:13px;font-weight:600;color:white">${mainVal}</span>
+          </div>
+          ${rangeStr?`<div style="font-size:10px;color:rgba(255,255,255,.5);text-align:right;margin-top:2px">${rangeStr}</div>`:''}
+        </div>`;
+      }).join('');
+    }
+
+    function card(abbr,name,color,fn){
+      return`<div style="background:#1A2340;border-radius:8px;padding:13px 15px;border-top:3px solid ${color};min-width:0">
+        <div style="font-family:'Black Ops One',serif;font-size:18px;color:${color};line-height:1">${abbr}</div>
+        <div style="font-size:9px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px">${name}</div>
+        ${siteRows(fn)}
+      </div>`;
+    }
+
+    return`<div style="display:grid;grid-template-columns:1fr 1.1fr 0.7fr 0.7fr 1.1fr 0.65fr 0.65fr;gap:10px;margin-bottom:14px">
+      ${card('FC TIME','First Crack Time','#4A9FD4',rows=>({
+        mainVal:rpMinsToTime(rpAvg(rows.map(r=>rpTimeToMins(r.fc_time)))),
+        rangeStr:rpRangeTime(rows.map(r=>rpTimeToMins(r.fc_time)))
+      }))}
+      ${card('FC TEMP','First Crack Temp','#4A9FD4',rows=>({
+        mainVal:(()=>{
+          const fct=rpAvg(rows.map(r=>parseFloat(r.fc_temp_console)||null));
+          const fcc=rpAvg(rows.map(r=>parseFloat(r.fc_temp)||null));
+          const c=fct!==null?`<span style="font-size:11px;color:rgba(255,255,255,.5)">console: ${fct.toFixed(0)}°</span>`:'';
+          const k=fcc!==null?`cropster: ${fcc.toFixed(1)}°C`:'—';
+          return[c,k].filter(Boolean).join('<br>');
+        })(),
+        rangeStr:(()=>{
+          const cv=rows.map(r=>parseFloat(r.fc_temp_console)||null).filter(x=>x);
+          const kv=rows.map(r=>parseFloat(r.fc_temp)||null).filter(x=>x);
+          const p=[];
+          if(cv.length)p.push('console: '+Math.min(...cv).toFixed(0)+'–'+Math.max(...cv).toFixed(0)+'°');
+          if(kv.length)p.push('cropster: '+Math.min(...kv).toFixed(1)+'–'+Math.max(...kv).toFixed(1)+'°C');
+          return p.join(' · ');
+        })()
+      }))}
+      ${card('RT','Roast Duration','#F2D44E',rows=>({
+        mainVal:rpMinsToTime(rpAvg(rows.map(r=>rpTimeToMins(r.duration)))),
+        rangeStr:rpRangeTime(rows.map(r=>rpTimeToMins(r.duration)))
+      }))}
+      ${card('DV%','Dev Time Ratio','#3DB87A',rows=>({
+        mainVal:rpFmt(rpAvg(rows.map(r=>parseFloat(r.dtr)||null)),'%'),
+        rangeStr:(()=>{const v=rows.map(r=>parseFloat(r.dtr)||null);const r=rpRange(v);return r?r+'%':''})()
+      }))}
+      ${card('ET','End Temp','#E8607A',rows=>({
+        mainVal:(()=>{
+          const con=rpAvg(rows.map(r=>parseFloat(r.end_temp_console)||null));
+          const crop=rpAvg(rows.map(r=>parseFloat(r.end_temp)||null));
+          const c=con!==null?`<span style="font-size:11px;color:rgba(255,255,255,.5)">console: ${con.toFixed(0)}°</span>`:'';
+          const k=crop!==null?`cropster: ${crop.toFixed(1)}°C`:'—';
+          return[c,k].filter(Boolean).join('<br>')||'—';
+        })(),
+        rangeStr:(()=>{
+          const cv=rows.map(r=>parseFloat(r.end_temp_console)||null).filter(x=>x);
+          const kv=rows.map(r=>parseFloat(r.end_temp)||null).filter(x=>x);
+          const p=[];
+          if(cv.length)p.push('console: '+Math.min(...cv).toFixed(0)+'–'+Math.max(...cv).toFixed(0)+'°');
+          if(kv.length)p.push('cropster: '+Math.min(...kv).toFixed(1)+'–'+Math.max(...kv).toFixed(1)+'°C');
+          return p.join(' · ');
+        })()
+      }))}
+      ${card('WB','Whole Bean','#F2D44E',rows=>({
+        mainVal:rpFmt(rpAvg(rows.map(r=>r.wb)),'wb'),
+        rangeStr:rpRange(rows.map(r=>r.wb))
+      }))}
+      ${card('GB','Ground Bean','#4A9FD4',rows=>({
+        mainVal:rpFmt(rpAvg(rows.map(r=>r.gb)),'wb'),
+        rangeStr:rpRange(rows.map(r=>r.gb))
+      }))}
+    </div>`;
+  }
+
+  // ── GROUP BY SPLIT ────────────────────────────────────────────────────────
+  const gbField={c:'group',o:'origin',v:'varietal',p:'process',r:'site',m:'machine'}[GB]||null;
+  let groups;
+  if(gbField && gbField!=='site' && rpData.length){
+    const gmap={};
+    rpData.forEach(r=>{const k=r[gbField]||'Unknown';if(!gmap[k])gmap[k]=[];gmap[k].push(r);});
+    const keys=Object.keys(gmap).sort();
+    groups=keys.length>1?keys.map(k=>({label:k,data:gmap[k]})):[{label:null,data:rpData}];
+  } else {
+    groups=[{label:null,data:rpData}];
+  }
+
+  const allParamCards=groups.map(({label,data})=>{
+    if(!data.length)return'';
+    const heading=label?`<div style="font-family:var(--font-label);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(232,228,218,.55);margin:14px 0 8px;padding-bottom:6px;border-bottom:1.5px solid rgba(232,228,218,.15)">${label}</div>`:'';
+    return heading+buildCards(data);
+  }).join('');
+
+  // ── ROAST GUIDE ───────────────────────────────────────────────────────────
+  const blurbHtml=renderBlurbs();
+  const roastGuideHtml=blurbHtml?`<div style="background:#1A2340;border-radius:8px;padding:14px 16px;margin-bottom:12px">
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+      <span style="font-family:'Black Ops One',serif;font-size:14px;color:#F2D44E">ROAST GUIDE</span>
+      <span style="font-size:9px;color:rgba(255,255,255,.35);font-family:var(--font-label);letter-spacing:.12em;text-transform:uppercase">Proud Mary approach</span>
+    </div>
+    ${blurbHtml}
+  </div>`:'';
+
+  // ── COFFEE LOOKUP ─────────────────────────────────────────────────────────
+  const rpSelected=window._rpSelected||null;
+  const coffees=[...new Map(rpData.map(r=>[r.profile,r])).values()].sort((a,b)=>a.profile.localeCompare(b.profile));
+  const rpSearchEl=document.getElementById('rp-search');
+  const rpSearch=(rpSearchEl&&rpSearchEl.value?rpSearchEl.value:(window._globalSearch||'')).toLowerCase();
+  const filtered=rpSearch?coffees.filter(c=>c.profile.toLowerCase().includes(rpSearch)||c.origin.toLowerCase().includes(rpSearch)):coffees;
+
+  const coffeeItems=filtered.slice(0,150).map(r=>`
+    <div onclick="window._rpSelected='${r.profile.replace(/'/g,"\'")}';document.getElementById('rp-detail').innerHTML=window._rpMakeDetail('${r.profile.replace(/'/g,"\'")}');document.querySelectorAll('.rp-item').forEach(e=>e.style.borderColor='rgba(26,35,64,.1)');this.style.borderColor='#4A9FD4'"
+      class="rp-item" style="display:flex;align-items:center;padding:8px 10px;border-radius:6px;border:1px solid rgba(255,255,255,.07);cursor:pointer;gap:10px;margin-bottom:5px;transition:border-color .12s;background:rgba(255,255,255,.02)">
+      <div style="font-family:'Black Ops One',serif;font-size:13px;color:#e8e4da;min-width:34px">${r.origin}</div>
+      <div style="font-size:11px;color:rgba(232,228,218,.75);flex:1;line-height:1.3">${r.profile}</div>
+      <div style="font-family:var(--font-label);font-size:9px;font-weight:700;text-transform:uppercase;color:rgba(232,228,218,.5)">${r.group||''}</div>
+      <div style="font-size:10px;font-weight:600;color:rgba(232,228,218,.55);text-align:right">
+        ${r.wb!==null?'<span style="color:rgba(232,228,218,.85)">'+r.wb.toFixed(1)+'</span>':''}
+        ${r.wb!==null&&r.gb!==null?' / ':''}
+        ${r.gb!==null?r.gb.toFixed(1):''}
+      </div>
+      <div style="display:flex;gap:3px">${sites.filter(s=>rpData.some(d=>d.profile===r.profile&&d.site===s)).map(s=>`<span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${RP_SITE_COLORS[s]}"></span>`).join('')}</div>
+    </div>`).join('');
+
+  // ── ROAST REFERENCE ───────────────────────────────────────────────────────
+  function makeDetail(profile){
+    if(!profile)return'<div style="font-size:11px;color:rgba(232,228,218,.4);font-style:italic;text-align:center;padding:20px">Select a coffee to see its roast history</div>';
+    const rows=rpDataAll.filter(r=>r.profile===profile);
+    if(!rows.length)return'<div style="font-size:11px;color:rgba(232,228,218,.4);font-style:italic;text-align:center;padding:20px">No data</div>';
+    const a=rpGetAvgs(rows);
+    const siteRows=sites.filter(s=>rows.some(r=>r.site===s)).map(s=>{
+      const sr=rows.filter(r=>r.site===s);
+      const sa=rpGetAvgs(sr);
+      return`<div style="display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:5px;background:rgba(255,255,255,.05);margin-bottom:4px">
+        <span style="font-family:var(--font-label);font-size:10px;font-weight:700;letter-spacing:.08em;min-width:36px;color:${RP_SITE_COLORS[s]}">${RP_SITE_SHORT[s]}</span>
+        <span style="font-size:11px;color:#e8e4da">FC ${sa.fc_time} · ${sa.duration!=='—'?sa.duration+' total · ':''}DV% ${rpFmt(sa.dtr,'%')} · ET ${rpFmt(sa.end_temp,'°C')} · WB ${rpFmt(sa.wb,'wb')} · GB ${rpFmt(sa.gb,'wb')}</span>
+      </div>`;
+    }).join('');
+    return`<div style="padding:14px">
+      <div style="font-family:var(--font-label);font-size:13px;font-weight:700;letter-spacing:.04em;color:#e8e4da;margin-bottom:12px;line-height:1.3">${profile}</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px">
+        ${[['First Crack',a.fc_time],['Duration',a.duration],['DV%',rpFmt(a.dtr,'%')],['End Temp',rpFmt(a.end_temp,'°C')],['WB avg',rpFmt(a.wb,'wb')],['GB avg',rpFmt(a.gb,'wb')],['FC Temp',rpFmt(a.fc_temp,'°C')]].map(([l,v])=>`
+        <div style="background:rgba(255,255,255,.06);border-radius:6px;padding:8px 10px">
+          <div style="font-family:var(--font-label);font-size:8px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(232,228,218,.3);margin-bottom:3px">${l}</div>
+          <div style="font-size:16px;font-weight:600;color:#e8e4da">${v}</div>
+        </div>`).join('')}
+      </div>
+      <div style="font-family:var(--font-label);font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(232,228,218,.45);margin-bottom:6px">By Roastery</div>
+      ${siteRows}
+      <div style="font-size:10px;color:rgba(232,228,218,.4);margin-top:8px;font-style:italic">${rows.length} roast${rows.length!==1?'s':''} on record</div>
+    </div>`;
+  }
+
+  window._rpMakeDetail=makeDetail;
+
+  const coffeePanels=`<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px">
+    <div style="background:rgba(10,0,30,.65);border-radius:8px;border:1px solid rgba(232,228,218,.08);overflow:hidden">
+      <div style="background:#1A2340;padding:9px 14px;font-family:var(--font-label);font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#F2D44E;display:flex;align-items:center;justify-content:space-between">
+        COFFEE LOOKUP
+        <input id="rp-search" type="text" placeholder="Search…" oninput="rRP(applyF())" style="font-size:11px;padding:3px 8px;border-radius:4px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.1);color:white;outline:none;width:120px" value="${rpSearch}">
+      </div>
+      <div style="padding:8px;max-height:380px;overflow-y:auto">${coffeeItems}${filtered.length>150?`<div style="font-size:10px;color:rgba(232,228,218,.4);text-align:center;padding:8px">Showing 150 of ${filtered.length} — use search to narrow</div>`:''}</div>
+    </div>
+    <div style="background:rgba(10,0,30,.65);border-radius:8px;border:1px solid rgba(232,228,218,.08);overflow:hidden">
+      <div style="background:#1A2340;padding:9px 14px;font-family:var(--font-label);font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#F2D44E">ROAST REFERENCE</div>
+      <div id="rp-detail">${makeDetail(rpSelected)}</div>
+    </div>
+  </div>`;
+
+  el.innerHTML=`<div style="padding:12px 0">${roasteryBar}${roastGuideHtml}${allParamCards}${coffeePanels}</div>`;
+  if(rpSelected)document.getElementById('rp-detail').innerHTML=makeDetail(rpSelected);
+  if(_rpsHadFocus){
+    const _rps2=document.getElementById('rp-search');
+    if(_rps2){_rps2.focus();_rps2.setSelectionRange(_rpsCaret,_rpsCaret);}
+  }
+}
+loadAllSheets().then(()=>{
+  // Set all filters to None by default after data loads
+  if(!F_INITIALISED){
+    F={r:[],o:[],v:[],p:[],c:[],m:[]};
+    F_INITIALISED=true;
+    go();
+  }
+});
+</script>
