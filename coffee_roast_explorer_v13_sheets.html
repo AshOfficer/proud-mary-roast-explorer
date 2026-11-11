@@ -292,9 +292,11 @@ button[onclick="clearAllFilters()"] { border-color: #e91e8c !important; color: #
     g.innerHTML='';
   }
 })();
-function checkPW(){
+async function checkPW(){
   const val=document.getElementById('pw-input').value;
-  if(val==='Coffee01'){
+  const buf=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(val));
+  const hex=Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
+  if(hex==='a01fa2770aa49573c3d82e9f9ba8faef5dddf7da58bb9216e3b484c04d300446'){
     sessionStorage.setItem('pm_auth','1');
     const gate=document.getElementById('pw-gate');
     // Hide the sign and password box so CHUR plays on clean background
@@ -552,9 +554,11 @@ function toggleHelpModal(){
     g.innerHTML='';
   }
 })();
-function checkPW(){
+async function checkPW(){
   const val=document.getElementById('pw-input').value;
-  if(val==='Coffee01'){
+  const buf=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(val));
+  const hex=Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
+  if(hex==='a01fa2770aa49573c3d82e9f9ba8faef5dddf7da58bb9216e3b484c04d300446'){
     sessionStorage.setItem('pm_auth','1');
     const gate=document.getElementById('pw-gate');
     // Hide the sign and password box so CHUR plays on clean background
